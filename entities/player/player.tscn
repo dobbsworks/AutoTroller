@@ -158,6 +158,59 @@ tracks/10/keys = {
 "update": 1,
 "values": [-1]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PlayerSprite/Head/Eyes:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_qiwj3"]
+resource_name = "crouch"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Hands:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.32, -7.32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1.125)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite/Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.755, 4.115)]
+}
 
 [sub_resource type="Animation" id="Animation_sglur"]
 resource_name = "idle"
@@ -275,6 +328,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerSprite/Head/Eyes:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_fkugw"]
 resource_name = "jumpup"
@@ -315,6 +380,47 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite/Head/Eyes:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_26q78"]
+resource_name = "lookup"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Head/Eyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Hands:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bls4j"]
@@ -385,9 +491,11 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fkugw"]
 _data = {
 &"RESET": SubResource("Animation_abrql"),
+&"crouch": SubResource("Animation_qiwj3"),
 &"idle": SubResource("Animation_sglur"),
 &"jumpdown": SubResource("Animation_8fjmc"),
 &"jumpup": SubResource("Animation_fkugw"),
+&"lookup": SubResource("Animation_26q78"),
 &"walk": SubResource("Animation_bls4j")
 }
 
@@ -401,7 +509,7 @@ size = Vector2(14, 16)
 z_index = 2
 texture_filter = 1
 collision_layer = 2
-collision_mask = 5
+collision_mask = 21
 script = ExtResource("1_abrql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629901501]
@@ -474,16 +582,23 @@ texture = ExtResource("2_sglur")
 region_enabled = true
 region_rect = Rect2(16, 48, 16, 10)
 
+[node name="Eyes" type="Sprite2D" parent="PlayerSprite/Head" unique_id=707146620]
+position = Vector2(2, -1)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(34, 49, 8, 5)
+
 [node name="Hands" type="Node2D" parent="PlayerSprite" unique_id=698975534]
 
 [node name="BackHand" type="Sprite2D" parent="PlayerSprite/Hands" unique_id=128696829]
-z_index = -1
+z_index = -2
 position = Vector2(6, 3)
 texture = ExtResource("2_sglur")
 region_enabled = true
 region_rect = Rect2(59, 57, 6, 6)
 
 [node name="FrontHand" type="Sprite2D" parent="PlayerSprite/Hands" unique_id=1925552223]
+z_index = 1
 position = Vector2(-4, 3)
 texture = ExtResource("2_sglur")
 region_enabled = true

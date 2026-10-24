@@ -18,12 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*uid://bacawubuucbqe"
-IntegrationService="*uid://dqnjm6hxjpaif"
+IntegrationService="*uid://bnh368bd8jqiy"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/twitcher/plugin.cfg")
 
 [input]
 
@@ -87,6 +91,7 @@ select={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Collectibles"
 2d_physics/layer_4="Enemy"
+2d_physics/layer_5="CameraBounds"
 
 [physics]
 
@@ -96,3 +101,7 @@ select={
 
 rendering_device/driver.windows="d3d12"
 2d/snap/snap_2d_transforms_to_pixel=true
+
+[twitcher]
+
+editor/show_setup_on_startup=false

@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://e7hmww7s6vjk"]
 
+[ext_resource type="Script" uid="uid://b7qugrbx07dj7" path="res://entities/enemies/base_enemy.gd" id="1_1udrh"]
+
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1357401302]
 collision_layer = 8
+script = ExtResource("1_1udrh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431500814]
 

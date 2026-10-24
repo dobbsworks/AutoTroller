@@ -1,0 +1,36 @@
+
+
+
+
+TODO
+	Buffer jumps
+	Coyote time
+	
+	Enemy movement
+		Patrol - Goombud/Goombrat
+		Walk off ledge - Goomba
+		Hover
+		Fly forward - Bullet bill
+		Grounded chase - SMM2 Monty Mole
+		Oscilate vertical - Red Parakoopa
+		Bounce - Green Parakoopa
+		
+	Enemy add-ons
+		Fire projectiles
+		Platform
+		
+	Enemy obstacles
+		Ball n chain
+		Timed fire
+		Timed lasers
+		
+	Level Elements
+		Ladders/Vines
+		Disappearing platforms
+		Rising platforms
+		
+		
+	Useable Gadgets
+		3x double-jump item
+		Bounce up item
+		Plantable vine - sprout

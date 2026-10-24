@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var facing = 1
+var isCrouching = false
 
 func _physics_process(delta: float) -> void:
 	if !is_on_floor():
@@ -20,11 +21,18 @@ func _physics_process(delta: float) -> void:
 			fallAccel *= 2
 		velocity.y = move_toward(velocity.y, maxFallSpeed, fallAccel)
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump") && is_on_floor():
+		Jump()
+		
+	if Input.is_action_pressed("down"):
+		if is_on_floor():
+			isCrouching = true
+	else:
+		isCrouching = false
+		
 
 	var direction := Input.get_axis("left", "right")
-	if direction:
+	if direction && !(isCrouching && is_on_floor()):
 		var maxSpeed = maxRunSpeed if Input.is_action_pressed("run") else maxWalkSpeed
 		velocity.x = move_toward(velocity.x, direction * maxSpeed, horizAccel * delta)
 	else:
@@ -36,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	updateAnimation()
 	#position.y = -100.0
 	if (position.y) > 0:
-		position.y = -100.0
+		onKilled()
 
 func updateFacing():
 	var direction := Input.get_axis("left", "right")
@@ -55,6 +63,8 @@ func updateFacing():
 func updateAnimation():
 	animation_player.speed_scale = 1.0
 	var targetAnimation = "idle"
+	if Input.is_action_pressed("up") && is_on_floor():
+		targetAnimation = "lookup"
 	var inputDirection := Input.get_axis("left", "right")
 	if inputDirection != 0:
 		targetAnimation = "walk"
@@ -64,6 +74,9 @@ func updateAnimation():
 			targetAnimation = "jumpdown"
 		else:
 			targetAnimation = "jumpup"
+			
+	if isCrouching:
+		targetAnimation = "crouch"
 		
 	if targetAnimation == "walk":
 		animation_player.speed_scale = abs(velocity.x / 100.0)
@@ -74,6 +87,16 @@ func updateAnimation():
 		
 		animation_player.queue(targetAnimation)
 		
+		
+func onKilled():
+	position.y = -100.0
+	
+	
+func BounceUp():
+	velocity.y = JUMP_VELOCITY
+func Jump():
+	velocity.y = JUMP_VELOCITY
+	
 
 
 func _on_squish_detector_body_entered(body: Node2D) -> void:
@@ -81,4 +104,15 @@ func _on_squish_detector_body_entered(body: Node2D) -> void:
 
 
 func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
-	print("TEST")
+	if body is Enemy:
+		if body.canJumpOn:
+			var enemyCollider: CollisionShape2D = body.get_node("CollisionShape2D")
+			var enemyTopGlobalY = enemyCollider.global_position.y - enemyCollider.shape.get_rect().size.y / 2.0
+			var playerCollider: CollisionShape2D = get_node("CollisionShape2D")
+			var playerBottomY = playerCollider.global_position.y + playerCollider.shape.get_rect().size.y / 2.0
+			var isLandingOnTop = playerBottomY - 1.0 - velocity.y * get_process_delta_time() < enemyTopGlobalY
+			if isLandingOnTop:
+				body.kill()
+				BounceUp()
+				return
+		onKilled()

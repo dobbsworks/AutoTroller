@@ -7,6 +7,7 @@
 size = Vector2(16, 16)
 
 [node name="GroundBot" unique_id=1357401302 instance=ExtResource("1_o2khw")]
+canJumpOn = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
 shape = SubResource("RectangleShape2D_5jxsx")
