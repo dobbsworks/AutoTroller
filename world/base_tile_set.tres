@@ -1,0 +1,21 @@
+[gd_resource type="TileSet" format=3 uid="uid://b0xw3t3yn8jih"]
+
+[ext_resource type="Texture2D" uid="uid://veuyavfrm202" path="res://world/world.png" id="1_epgrh"]
+[ext_resource type="PackedScene" uid="uid://cf74srn2lsd64" path="res://world/spawnPoints/spawn_point_coin.tscn" id="2_ja84i"]
+[ext_resource type="PackedScene" uid="uid://cs6c72hy08fo4" path="res://world/spawnPoints/spawn_point_ground_enemy.tscn" id="3_mmv6k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ja84i"]
+texture = ExtResource("1_epgrh")
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mmv6k"]
+resource_name = "SpawnPoints"
+scenes/1/scene = ExtResource("2_ja84i")
+scenes/2/scene = ExtResource("3_mmv6k")
+
+[resource]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+sources/0 = SubResource("TileSetAtlasSource_ja84i")
+sources/1 = SubResource("TileSetScenesCollectionSource_mmv6k")

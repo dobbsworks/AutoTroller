@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://e7hmww7s6vjk"]
+
+[node name="BaseEnemy" type="CharacterBody2D" unique_id=1357401302]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431500814]
+
+[node name="Sprite" type="Node2D" parent="." unique_id=1291407578]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite" unique_id=851132383]
+texture_filter = 1

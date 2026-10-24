@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://c5tkmn8ia6tea"]
+
+[ext_resource type="Script" uid="uid://c20v6hwq54pej" path="res://entities/camera/camera.gd" id="1_i6sk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv4l1"]
+size = Vector2(20, 242)
+
+[sub_resource type="Gradient" id="Gradient_x67xg"]
+colors = PackedColorArray(0.39607844, 1, 1, 1, 1, 0.69803923, 0.72156864, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i6sk5"]
+gradient = SubResource("Gradient_x67xg")
+fill_to = Vector2(0, 1)
+
+[node name="HorizontalCamera" type="Camera2D" unique_id=1861214848]
+zoom = Vector2(3, 3)
+script = ExtResource("1_i6sk5")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1967088494]
+position = Vector2(-201, 0)
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1775768561]
+shape = SubResource("RectangleShape2D_xv4l1")
+
+[node name="AnimatableBody2D2" type="AnimatableBody2D" parent="." unique_id=662153921]
+position = Vector2(203, 0)
+sync_to_physics = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2" unique_id=1931730848]
+shape = SubResource("RectangleShape2D_xv4l1")
+
+[node name="Backdrop" type="TextureRect" parent="." unique_id=848438359]
+z_index = -100
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_i6sk5")
+metadata/_edit_use_anchors_ = true
+
+[node name="CameraEdge" type="Node2D" parent="." unique_id=463781214]
+position = Vector2(230, 134)
+
+[node name="CameraEdgeLeft" type="Node2D" parent="." unique_id=293252996]
+position = Vector2(-232, -133)

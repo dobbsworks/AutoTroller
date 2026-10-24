@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bjtudv68prupn"]
+
+[ext_resource type="Script" uid="uid://cmsdcolkg7cbv" path="res://world/spawnPoints/base_spawn_point.gd" id="1_e25ta"]
+[ext_resource type="PackedScene" uid="uid://g3d3bx8shbq8" path="res://entities/collectibles/coin.tscn" id="2_ng8ml"]
+
+[node name="BaseSpawnPoint" type="Node2D" unique_id=1322520249]
+script = ExtResource("1_e25ta")
+spawnables = Array[PackedScene]([ExtResource("2_ng8ml")])
+
+[node name="Label" type="Label" parent="." unique_id=412252120]
+offset_left = -7.0
+offset_top = -4.0
+offset_right = 44.0
+offset_bottom = 19.0
+scale = Vector2(0.28, 0.28)
+text = "spawn"

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cs6c72hy08fo4"]
+
+[ext_resource type="PackedScene" uid="uid://bjtudv68prupn" path="res://world/spawnPoints/BaseSpawnPoint.tscn" id="1_5nclr"]
+[ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="2_cex8g"]
+
+[node name="SpawnPointGroundEnemy" unique_id=1322520249 instance=ExtResource("1_5nclr")]
+spawnables = Array[PackedScene]([ExtResource("2_cex8g")])
+
+[node name="Label" parent="." index="0" unique_id=412252120]
+offset_left = -5.0
+offset_right = 46.0
+text = "enemy"

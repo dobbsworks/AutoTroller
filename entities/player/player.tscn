@@ -1,0 +1,511 @@
+[gd_scene format=3 uid="uid://n6emfuv5umax"]
+
+[ext_resource type="Script" uid="uid://bobge1oplqjob" path="res://entities/player/player.gd" id="1_abrql"]
+[ext_resource type="Texture2D" uid="uid://bq5nqvndyout8" path="res://entities/player/player.png" id="2_sglur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv4l1"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d1aj"]
+atlas = ExtResource("2_sglur")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xv4l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d1aj")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_xv4l1"]
+length = 5.0
+
+[sub_resource type="Animation" id="Animation_abrql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Head:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite/Hands:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite/Feet/FrontFoot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite/Feet/BackFoot:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerSprite/Hands/BackHand:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 3)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerSprite/Feet:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PlayerSprite/JumpFeet:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("PlayerSprite/JumpFeet/BackFoot:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 2)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PlayerSprite/JumpFeet/FrontFoot:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 4)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("PlayerSprite/JumpFeet/FrontFoot:z_index")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+
+[sub_resource type="Animation" id="Animation_sglur"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Body:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(0, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Head:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666669, 0.76666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -4), Vector2(0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite/Hands:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.16666669, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8fjmc"]
+resource_name = "jumpdown"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Hands/BackHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Feet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite/JumpFeet:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite/JumpFeet/BackFoot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite/JumpFeet/FrontFoot:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 4)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerSprite/JumpFeet/FrontFoot:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_fkugw"]
+resource_name = "jumpup"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Hands/BackHand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, -7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Feet:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite/JumpFeet:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bls4j"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite/Body:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.25240254, 0.38573587),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(0, 4), Vector2(0, 3), Vector2(0, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite/Head:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.29092196, 0.4242553),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -4), Vector2(0, -3), Vector2(0, -4), Vector2(0, -3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerSprite/Hands:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667, 0.20000002, 0.33333334, 0.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 0), Vector2(0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerSprite/Feet/FrontFoot:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, 6), Vector2(-3, 5), Vector2(0, 5), Vector2(2, 6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerSprite/Feet/BackFoot:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 5), Vector2(5, 6), Vector2(-2, 6), Vector2(0, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkugw"]
+_data = {
+&"RESET": SubResource("Animation_abrql"),
+&"idle": SubResource("Animation_sglur"),
+&"jumpdown": SubResource("Animation_8fjmc"),
+&"jumpup": SubResource("Animation_fkugw"),
+&"walk": SubResource("Animation_bls4j")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xv4l1"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf82w"]
+size = Vector2(14, 16)
+
+[node name="Player" type="CharacterBody2D" unique_id=933659611]
+z_index = 2
+texture_filter = 1
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_abrql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629901501]
+shape = SubResource("RectangleShape2D_xv4l1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=926827651]
+visible = false
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_xv4l1")
+animation = &"new_animation"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=399793201]
+visible = false
+position = Vector2(2, -17)
+rotation = -1.5707964
+shape = SubResource("SeparationRayShape2D_xv4l1")
+disabled = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=2019409918]
+visible = false
+position = Vector2(-2, -17)
+rotation = 1.5707964
+shape = SubResource("SeparationRayShape2D_xv4l1")
+disabled = true
+
+[node name="PlayerSprite" type="Node2D" parent="." unique_id=973950514]
+
+[node name="Feet" type="Node2D" parent="PlayerSprite" unique_id=242833478]
+
+[node name="BackFoot" type="Sprite2D" parent="PlayerSprite/Feet" unique_id=312963999]
+z_index = -1
+position = Vector2(5, 6)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(26, 61, 6, 4)
+
+[node name="FrontFoot" type="Sprite2D" parent="PlayerSprite/Feet" unique_id=300590420]
+z_index = 1
+position = Vector2(-5, 6)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(26, 61, 6, 4)
+
+[node name="JumpFeet" type="Node2D" parent="PlayerSprite" unique_id=366420600]
+visible = false
+
+[node name="BackFoot" type="Sprite2D" parent="PlayerSprite/JumpFeet" unique_id=1124389809]
+z_index = 1
+position = Vector2(5, 2)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(44, 48, 4, 5)
+
+[node name="FrontFoot" type="Sprite2D" parent="PlayerSprite/JumpFeet" unique_id=1796512965]
+z_index = -1
+position = Vector2(-5, 4)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(44, 48, 4, 5)
+
+[node name="Body" type="Sprite2D" parent="PlayerSprite" unique_id=1967914766]
+position = Vector2(0, 3)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(34, 56, 12, 8)
+
+[node name="Head" type="Sprite2D" parent="PlayerSprite" unique_id=1006236761]
+position = Vector2(0, -4)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(16, 48, 16, 10)
+
+[node name="Hands" type="Node2D" parent="PlayerSprite" unique_id=698975534]
+
+[node name="BackHand" type="Sprite2D" parent="PlayerSprite/Hands" unique_id=128696829]
+z_index = -1
+position = Vector2(6, 3)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(59, 57, 6, 6)
+
+[node name="FrontHand" type="Sprite2D" parent="PlayerSprite/Hands" unique_id=1925552223]
+position = Vector2(-4, 3)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(59, 57, 6, 6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=756182085]
+libraries/ = SubResource("AnimationLibrary_fkugw")
+autoplay = &"idle"
+
+[node name="SquishDetector" type="Area2D" parent="." unique_id=917403184]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SquishDetector" unique_id=625175842]
+shape = SubResource("CircleShape2D_xv4l1")
+
+[node name="CollectionAndEnemyArea" type="Area2D" parent="." unique_id=2128530111]
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionAndEnemyArea" unique_id=821985993]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_nf82w")
+
+[connection signal="body_entered" from="SquishDetector" to="." method="_on_squish_detector_body_entered"]
+[connection signal="body_entered" from="CollectionAndEnemyArea" to="." method="_on_collection_and_enemy_area_body_entered"]
