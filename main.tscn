@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://diok1qoshpupe"]
+
+[ext_resource type="Texture2D" uid="uid://gaf2oogi7i3l" path="res://ui/title-screen.png" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://7bn8rlbk0e3i" path="res://ui/sawtooth.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://53shibfd6yea" path="res://ui/main_menu.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bp4f81clxi7xp" path="res://ui/settings_menu.tscn" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://boy774dq546p3" path="res://ui/title_menu_manager.gd" id="5_lquwl"]
+
+[sub_resource type="Gradient" id="Gradient_7dm0k"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.5058824, 0.80784315, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7dm0k"]
+gradient = SubResource("Gradient_7dm0k")
+fill_to = Vector2(0.6034483, 1)
+
+[sub_resource type="Animation" id="Animation_ig7tw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sawtooth3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1794.0002, 509.00012)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sawtooth2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(318.00006, -449.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sawtooth:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-110.99999, 836.99994)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SawtoothGreen2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1334.0001, 1148.0001)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SawtoothGreen1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1907.0001, 1070)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SettingsMenu:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SettingsMenu:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2042, 76)]
+}
+
+[sub_resource type="Animation" id="Animation_0xm2m"]
+resource_name = "close"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sawtooth3:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1794.0002, 509.00012), Vector2(1794.0002, 509.00012), Vector2(1562.0001, 825.00006), Vector2(1562.0001, 825.00006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sawtooth2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(318.00006, -449.99994), Vector2(318.00006, -449.99994), Vector2(1018.00006, 85.99994), Vector2(1018.00006, 85.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sawtooth:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-110.99999, 836.99994), Vector2(-110.99999, 836.99994), Vector2(-54.999973, 262.99982), Vector2(-54.999973, 262.99982)]
+}
+
+[sub_resource type="Animation" id="Animation_lquwl"]
+resource_name = "green"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SawtoothGreen2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.6333333, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1334.0001, 1148.0001), Vector2(1334.0001, 1148.0001), Vector2(-306.00012, 1098), Vector2(-306.00012, 1098)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SawtoothGreen1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.73333335, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1907.0001, 1070), Vector2(1907.0001, 1070), Vector2(261.00024, 1192), Vector2(261.00024, 1192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SettingsMenu:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.74, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2042, 76), Vector2(385, 90), Vector2(385, 90)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
+_data = {
+&"RESET": SubResource("Animation_ig7tw"),
+&"close": SubResource("Animation_0xm2m"),
+&"green": SubResource("Animation_lquwl")
+}
+
+[node name="Main" type="Node2D" unique_id=1491575174]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1532342576]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1054113878]
+z_index = -100
+offset_right = 1185.0
+offset_bottom = 680.0
+texture = SubResource("GradientTexture2D_7dm0k")
+
+[node name="TitleScreen" type="TextureRect" parent="CanvasLayer" unique_id=623910299]
+z_index = -100
+texture_filter = 1
+offset_right = 1185.0
+offset_bottom = 680.0
+texture = ExtResource("1_0xm2m")
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=630448504 instance=ExtResource("2_h2yge")]
+unique_name_in_owner = true
+offset_left = 788.0
+offset_top = 327.0
+offset_right = -127.0
+offset_bottom = -95.0
+
+[node name="ScreenTransition" type="Node2D" parent="CanvasLayer" unique_id=904960903]
+z_index = 200
+
+[node name="Sawtooth3" parent="CanvasLayer/ScreenTransition" unique_id=1668124097 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.039215688, 0.03137255, 0.16078432, 1)
+texture_filter = 1
+position = Vector2(1794.0002, 509.00012)
+rotation = -2.4392693
+scale = Vector2(0.80999994, 0.80999994)
+speed = 50.0
+
+[node name="Sawtooth2" parent="CanvasLayer/ScreenTransition" unique_id=1000007201 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.39215687, 0.43529412, 0.81960785, 1)
+texture_filter = 1
+position = Vector2(318.00006, -449.99994)
+rotation = 2.3436112
+scale = Vector2(0.81, 0.81)
+speed = 50.0
+
+[node name="Sawtooth" parent="CanvasLayer/ScreenTransition" unique_id=1513363191 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.07450981, 0.32941177, 0.5686275, 1)
+texture_filter = 1
+position = Vector2(-110.99999, 836.99994)
+rotation = -0.113204636
+scale = Vector2(0.81, 0.81)
+speed = 50.0
+
+[node name="SawtoothGreen2" parent="CanvasLayer/ScreenTransition" unique_id=1497302789 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.48235294, 0.5372549, 0.105882354, 1)
+texture_filter = 1
+position = Vector2(1334.0001, 1148.0001)
+rotation = -1.5100356
+scale = Vector2(0.81, 0.81)
+speed = 50.0
+
+[node name="SawtoothGreen1" parent="CanvasLayer/ScreenTransition" unique_id=632676427 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.4862745, 0.72156864, 0.22352941, 1)
+texture_filter = 1
+position = Vector2(1907.0001, 1070)
+rotation = 4.514114
+scale = Vector2(0.81, 0.81)
+speed = 50.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ScreenTransition/SawtoothGreen1" unique_id=1415273195]
+offset_left = -271.4569
+offset_top = 746.4187
+offset_right = 1822.857
+offset_bottom = 2677.7188
+
+[node name="SawtoothGreen3" parent="CanvasLayer/ScreenTransition/SawtoothGreen1" unique_id=930847193 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.48235294, 0.5372549, 0.105882354, 1)
+texture_filter = 1
+position = Vector2(-120.11633, 854.8153)
+rotation = 0.25903574
+speed = -100.0
+
+[node name="SawtoothGreen4" parent="CanvasLayer/ScreenTransition/SawtoothGreen1" unique_id=978447688 instance=ExtResource("1_ig7tw")]
+modulate = Color(0.27451158, 0.30684498, 0.046804808, 1)
+texture_filter = 1
+position = Vector2(628.90607, -140.60236)
+rotation = 1.5212079
+speed = 20.0
+
+[node name="SettingsMenu" parent="CanvasLayer/ScreenTransition" unique_id=121148337 instance=ExtResource("4_1bvp3")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(100, 100)
+offset_left = 2042.0
+offset_top = 76.0
+offset_right = 2461.9985
+offset_bottom = 412.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScreenTransition" unique_id=1399332291]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_h2yge")
+
+[node name="TitleMenuManager" type="Node" parent="CanvasLayer" unique_id=495995916]
+script = ExtResource("5_lquwl")

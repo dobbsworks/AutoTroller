@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dtumdxqxxginx"]
+
+[ext_resource type="Script" uid="uid://cu5je0lsvm1us" path="res://globals/scene_manager.gd" id="1_7btlb"]
+[ext_resource type="AudioStream" uid="uid://js0y1ylg7dps" path="res://audio/sfx/jump.mp3" id="2_kcoq2"]
+[ext_resource type="AudioStream" uid="uid://pk0surmt5y07" path="res://audio/sfx/metalpipe-confirm-1.mp3" id="3_dm8ll"]
+[ext_resource type="AudioStream" uid="uid://b7s7lypeejbkb" path="res://audio/sfx/scoot-bend-up-1.mp3" id="4_2cqhu"]
+
+[node name="SceneManager" type="Node2D" unique_id=475786941]
+script = ExtResource("1_7btlb")
+
+[node name="MenuSfx" type="Node" parent="." unique_id=923026011]
+
+[node name="MenuMouseOver" type="AudioStreamPlayer" parent="MenuSfx" unique_id=1595951159]
+stream = ExtResource("2_kcoq2")
+bus = &"SFX"
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="MenuSfx" unique_id=1868754788]
+stream = ExtResource("3_dm8ll")
+bus = &"SFX"
+
+[node name="MenuBack" type="AudioStreamPlayer" parent="MenuSfx" unique_id=1736705519]
+stream = ExtResource("4_2cqhu")
+bus = &"SFX"

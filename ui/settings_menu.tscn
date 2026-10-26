@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bp4f81clxi7xp"]
+
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="1_h6jc8"]
+[ext_resource type="Script" uid="uid://4hx7xkmngcgf" path="res://ui/settings_menu.gd" id="1_xutny"]
+
+[node name="SettingsMenu" type="Control" unique_id=630448504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xutny")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1079435274]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=70064440]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_h6jc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel" unique_id=431199153]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h6jc8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer" unique_id=1768096905]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1498060820]
+layout_mode = 2
+text = "MUSIC VOLUME"
+
+[node name="VolumeMusicSlider" type="HSlider" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1506304798]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_h6jc8")
+max_value = 1.0
+step = 0.01
+value = 0.6
+
+[node name="Panel2" type="Panel" parent="VBoxContainer" unique_id=133610561]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("1_h6jc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel2" unique_id=760017598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h6jc8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel2/MarginContainer" unique_id=744541485]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1040759231]
+layout_mode = 2
+text = "SFX VOLUME"
+
+[node name="VolumeSfxSlider" type="HSlider" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=660867290]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_h6jc8")
+max_value = 1.0
+step = 0.01
+value = 0.6
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=945553659]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_h6jc8")
+text = "BACK"
+
+[connection signal="value_changed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/VolumeMusicSlider" to="." method="_on_volume_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Panel2/MarginContainer/VBoxContainer/VolumeSfxSlider" to="." method="_on_volume_sfx_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
