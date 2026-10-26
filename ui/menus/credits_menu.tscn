@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://toyhd8kpvshp"]
+
+[ext_resource type="Script" uid="uid://ddtdiviljhvsg" path="res://ui/menus/credits_menu.gd" id="1_6sxy1"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="1_ow8kg"]
+
+[node name="CreditsMenu" type="Control" unique_id=1966205401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6sxy1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1550894575]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 554.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=251848853]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+theme = ExtResource("1_ow8kg")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel" unique_id=1541543700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer" unique_id=1051402441]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=867464624]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Auto-Troller"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=299273956]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "A game by Dobbs, of Dabble Works"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=868924713]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "
+Made for the Backseating Allowed Jam 2026"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1295814585]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "
+
+Also check out Paper Robot
+it's good
+it's really good"
+autowrap_mode = 2
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=448487516]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_ow8kg")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

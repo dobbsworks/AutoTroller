@@ -1,7 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://cf2vvd3jvypsk"]
 
 [ext_resource type="FontFile" uid="uid://bhhdg78xb1rh2" path="res://ui/Undead Pixel 8.ttf" id="1_2vlra"]
-[ext_resource type="Texture2D" uid="uid://bc8cvlexjpe7o" path="res://ui/button9patch.png" id="2_wgyry"]
+[ext_resource type="Texture2D" uid="uid://bc8cvlexjpe7o" path="res://ui/menus/button9patch.png" id="2_wgyry"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2yge"]
 texture = ExtResource("2_wgyry")
