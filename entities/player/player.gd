@@ -89,7 +89,7 @@ func updateAnimation():
 		
 		
 func onKilled():
-	position.y = -100.0
+	position.y = -150.0
 	
 	
 func BounceUp():

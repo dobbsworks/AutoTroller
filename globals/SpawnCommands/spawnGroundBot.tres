@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://bvfno6h1bicwk"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_md3fs"]
+[ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="2_md3fs"]
+
+[resource]
+script = ExtResource("1_md3fs")
+name = "GroundBot"
+commands = Array[String](["groundbot", "ground bot", "ground", "goomba", "g"])
+cost = 1
+spawnedObject = ExtResource("2_md3fs")
+numberSpawned = 1
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

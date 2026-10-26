@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://c20v6hwq54pej" path="res://entities/camera/camera.gd" id="1_i6sk5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv4l1"]
-size = Vector2(20, 242)
+size = Vector2(243, 1000)
 
 [sub_resource type="Gradient" id="Gradient_x67xg"]
-colors = PackedColorArray(0.39607844, 1, 1, 1, 1, 0.69803923, 0.72156864, 1)
+colors = PackedColorArray(0.39607844, 1, 1, 1, 0.99471396, 0.688397, 0.80078876, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_i6sk5"]
 gradient = SubResource("Gradient_x67xg")
+width = 8
+height = 8
 fill_to = Vector2(0, 1)
 
 [node name="HorizontalCamera" type="Camera2D" unique_id=1861214848]
@@ -23,6 +25,7 @@ collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1775768561]
+position = Vector2(-111.5, 0)
 shape = SubResource("RectangleShape2D_xv4l1")
 
 [node name="AnimatableBody2D2" type="AnimatableBody2D" parent="." unique_id=662153921]
@@ -32,10 +35,12 @@ collision_mask = 0
 sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2" unique_id=1931730848]
+position = Vector2(15, 0)
 shape = SubResource("RectangleShape2D_xv4l1")
 
 [node name="Backdrop" type="TextureRect" parent="." unique_id=848438359]
 z_index = -100
+texture_filter = 1
 custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5

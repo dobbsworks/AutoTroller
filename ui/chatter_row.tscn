@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://5dtdh4i2qapl"]
+
+[ext_resource type="Script" uid="uid://d1jg1ljvgstas" path="res://ui/chatter_row.gd" id="1_en1cb"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="1_uqmml"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_en1cb"]
+
+[sub_resource type="Animation" id="Animation_en1cb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/PointsLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/PointsLabel:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_x5qx7"]
+resource_name = "error"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.23333333, 0.33333334, 0.43333334, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 0), Vector2(10, 0), Vector2(-7, 0), Vector2(5, 0), Vector2(-3, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.61931074, 0.6631161, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/PointsLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/PointsLabel:offset_transform_scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15347561, 0.35945606, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.695, 1.695), Vector2(1, 1), Vector2(1.695, 1.695), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7fqn1"]
+resource_name = "init"
+length = 0.009999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_j8kqb"]
+resource_name = "popin"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8kqb"]
+_data = {
+&"RESET": SubResource("Animation_en1cb"),
+&"error": SubResource("Animation_x5qx7"),
+&"init": SubResource("Animation_7fqn1"),
+&"popin": SubResource("Animation_j8kqb")
+}
+
+[node name="Control" type="Control" unique_id=1281728031]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 250.0
+offset_bottom = 30.0
+script = ExtResource("1_en1cb")
+
+[node name="Panel" type="Panel" parent="." unique_id=1540346783]
+custom_minimum_size = Vector2(250, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.00010681152
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(125, 16)
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=399620572]
+texture_filter = 1
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 29.0
+offset_bottom = 26.0
+texture = SubResource("PlaceholderTexture2D_en1cb")
+
+[node name="Label" type="Label" parent="Panel" unique_id=921797138]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 5.0
+offset_right = 142.0
+offset_bottom = 26.0
+theme = ExtResource("1_uqmml")
+vertical_alignment = 2
+
+[node name="PointsLabel" type="Label" parent="Panel" unique_id=675840181]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 5.0
+offset_right = 240.0
+offset_bottom = 26.0
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(1, 0.5)
+theme = ExtResource("1_uqmml")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel" unique_id=1609402652]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_j8kqb")
+autoplay = &"init"

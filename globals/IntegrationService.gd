@@ -1,6 +1,9 @@
 extends Node
 
 
+signal on_chat_received(username: String, message_text: String, data: Dictionary)
+
+
 func _ready() -> void:
 	SetupTwitchConnection("dobbsworks")
 
@@ -39,9 +42,7 @@ func on_eventsub_event(type: StringName, data: Dictionary):
 		on_chat_message(data.chatter_user_name, data.message.text, data)
 		
 func on_chat_message(username: String, message_text: String, data: Dictionary):
-	print(username)
-	print(message_text)
-	
+	on_chat_received.emit(username, message_text, data)
 	
 	
 	

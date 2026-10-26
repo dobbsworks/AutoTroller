@@ -1,5 +1,6 @@
 extends Node
 
 
-
-var coins = 0
+var round = {
+	coins = 0
+}

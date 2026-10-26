@@ -18,12 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameState="*uid://bacawubuucbqe"
-IntegrationService="*uid://bnh368bd8jqiy"
+MultiplayerHandler="*uid://1rgua8lpyxrp"
 
 [display]
 
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [editor_plugins]
 

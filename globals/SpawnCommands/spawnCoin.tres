@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://st2geiwtn5h8"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_luelj"]
+[ext_resource type="PackedScene" uid="uid://g3d3bx8shbq8" path="res://entities/collectibles/coin.tscn" id="2_h6cni"]
+
+[resource]
+script = ExtResource("1_luelj")
+name = "coin"
+commands = Array[String](["coin", "coins", "c"])
+cost = -4
+spawnedObject = ExtResource("2_h6cni")
+numberSpawned = 4
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

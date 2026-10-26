@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c84bfc1h86htj"]
+
+[ext_resource type="Script" uid="uid://b487ba4kklkmv" path="res://ui/ui_layer.gd" id="1_3otji"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="2_xqqt7"]
+
+[node name="UiLayer" type="CanvasLayer" unique_id=770390486]
+layer = 99
+script = ExtResource("1_3otji")
+
+[node name="ChatOverlay" type="Control" parent="." unique_id=886411625]
+top_level = true
+custom_minimum_size = Vector2(300, 675)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 862.0
+offset_top = -4.0
+offset_right = 1162.0
+offset_bottom = 671.0
+
+[node name="ColorRect" type="ColorRect" parent="ChatOverlay" unique_id=1097423950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7647059)
+
+[node name="MarginContainer" type="MarginContainer" parent="ChatOverlay" unique_id=1650873537]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xqqt7")
+
+[node name="ChatterVbox" type="VBoxContainer" parent="ChatOverlay/MarginContainer" unique_id=919706455]
+layout_mode = 2

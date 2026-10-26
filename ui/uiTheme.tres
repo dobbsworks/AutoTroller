@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://cf2vvd3jvypsk"]
+
+[ext_resource type="FontFile" uid="uid://bhhdg78xb1rh2" path="res://ui/Undead Pixel 8.ttf" id="1_2vlra"]
+
+[resource]
+Label/fonts/font = ExtResource("1_2vlra")
+MarginContainer/constants/margin_bottom = 20
+MarginContainer/constants/margin_left = 20
+MarginContainer/constants/margin_right = 20
+MarginContainer/constants/margin_top = 20

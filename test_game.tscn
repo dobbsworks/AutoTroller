@@ -5,12 +5,13 @@
 [ext_resource type="Script" uid="uid://bxhkvl2y65vb" path="res://world/level_chunks.gd" id="2_2d1aj"]
 [ext_resource type="PackedScene" uid="uid://n6emfuv5umax" path="res://entities/player/player.tscn" id="2_x67xg"]
 [ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="5_0lb5u"]
+[ext_resource type="PackedScene" uid="uid://c84bfc1h86htj" path="res://ui/ui_layer.tscn" id="6_vkvqs"]
 
 [node name="TestGame" type="Node2D" unique_id=331563475]
 
 [node name="HorizontalCamera" parent="." unique_id=1861214848 instance=ExtResource("1_xn68f")]
 position = Vector2(192, -108)
-speed = 16.0
+speed = 64.0
 
 [node name="Player" parent="." unique_id=933659611 instance=ExtResource("2_x67xg")]
 position = Vector2(55, -38)
@@ -27,3 +28,5 @@ tile_set = ExtResource("1_wpsn8")
 
 [node name="GroundBot" parent="." unique_id=1357401302 instance=ExtResource("5_0lb5u")]
 position = Vector2(275, -40)
+
+[node name="UiLayer" parent="." unique_id=770390486 instance=ExtResource("6_vkvqs")]
