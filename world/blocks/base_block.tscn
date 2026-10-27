@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cpp542yvunedj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv4l1"]
+size = Vector2(16, 16)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eh2nw"]
+
+[node name="BaseBlock" type="Node2D" unique_id=1653335243]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1127527726]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=231722715]
+shape = SubResource("RectangleShape2D_xv4l1")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=392377616]
+texture_filter = 1
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_eh2nw")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

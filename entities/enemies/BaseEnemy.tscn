@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b7qugrbx07dj7" path="res://entities/enemies/base_enemy.gd" id="1_1udrh"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xv4l1"]
+radius = 2.0
+
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=1357401302]
 collision_layer = 8
 script = ExtResource("1_1udrh")
@@ -12,3 +15,22 @@ script = ExtResource("1_1udrh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite" unique_id=851132383]
 texture_filter = 1
+
+[node name="LeftGroundCheck" type="Area2D" parent="." unique_id=877310307]
+position = Vector2(-5, 11)
+collision_layer = 0
+
+[node name="Collider" type="CollisionShape2D" parent="LeftGroundCheck" unique_id=1990744103]
+shape = SubResource("CircleShape2D_xv4l1")
+
+[node name="RightGroundCheck" type="Area2D" parent="." unique_id=855702252]
+position = Vector2(5, 11)
+collision_layer = 0
+
+[node name="Collider" type="CollisionShape2D" parent="RightGroundCheck" unique_id=1062782451]
+shape = SubResource("CircleShape2D_xv4l1")
+
+[connection signal="body_entered" from="LeftGroundCheck" to="." method="_on_left_ground_check_body_entered"]
+[connection signal="body_exited" from="LeftGroundCheck" to="." method="_on_left_ground_check_body_exited"]
+[connection signal="body_entered" from="RightGroundCheck" to="." method="_on_right_ground_check_body_entered"]
+[connection signal="body_exited" from="RightGroundCheck" to="." method="_on_right_ground_check_body_exited"]

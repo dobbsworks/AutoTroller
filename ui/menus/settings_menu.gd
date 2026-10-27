@@ -2,6 +2,7 @@ extends Control
 
 
 signal click_exit()
+@onready var button_exit: Button = $VBoxContainer/ButtonExit
 
 
 @onready var volume_music_slider: HSlider = %VolumeMusicSlider
@@ -12,6 +13,9 @@ func _ready() -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(SaveManager.saveData.volumeMusic))
 	volume_music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	volume_sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
+	
+func onStart():
+	button_exit.grab_focus()
 
 
 func _on_volume_music_slider_value_changed(value: float) -> void:

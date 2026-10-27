@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://b7sl103xgny0g"]
 
+[ext_resource type="Texture2D" uid="uid://cgwmo6ox8fsx5" path="res://world/backdrop/mountain.png" id="1_bayrd"]
+[ext_resource type="Texture2D" uid="uid://dvkl836w0xp0d" path="res://world/backdrop/bushes.png" id="1_bswyy"]
 [ext_resource type="TileSet" uid="uid://b0xw3t3yn8jih" path="res://world/base_tile_set.tres" id="1_wpsn8"]
 [ext_resource type="PackedScene" uid="uid://c5tkmn8ia6tea" path="res://entities/camera/horizontalCamera.tscn" id="1_xn68f"]
 [ext_resource type="Script" uid="uid://bxhkvl2y65vb" path="res://world/level_chunks.gd" id="2_2d1aj"]
@@ -7,11 +9,101 @@
 [ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="5_0lb5u"]
 [ext_resource type="PackedScene" uid="uid://c84bfc1h86htj" path="res://ui/ui_layer.tscn" id="6_vkvqs"]
 
+[sub_resource type="Gradient" id="Gradient_x67xg"]
+colors = PackedColorArray(0.39607844, 1, 1, 1, 0.99471396, 0.688397, 0.80078876, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bayrd"]
+gradient = SubResource("Gradient_x67xg")
+width = 8
+height = 32
+fill_to = Vector2(0, 1)
+
 [node name="TestGame" type="Node2D" unique_id=331563475]
+
+[node name="Backdrop" type="Node2D" parent="." unique_id=1039168711]
+
+[node name="Sky" type="Parallax2D" parent="Backdrop" unique_id=541109460]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(300, 0)
+repeat_times = 5
+
+[node name="Sky" type="TextureRect" parent="Backdrop/Sky" unique_id=1958609544]
+z_index = -100
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 167.0
+offset_right = 404.0
+offset_bottom = 417.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bayrd")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarBack" type="Parallax2D" parent="Backdrop" unique_id=219239905]
+scroll_scale = Vector2(0, 1)
+scroll_offset = Vector2(133, 192)
+repeat_size = Vector2(100, 0)
+repeat_times = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="Backdrop/FarBack" unique_id=2105926110]
+texture_filter = 1
+position = Vector2(29, -256)
+texture = ExtResource("1_bayrd")
+
+[node name="Back3" type="Parallax2D" parent="Backdrop" unique_id=1157261093]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(133, 192)
+repeat_size = Vector2(100, 0)
+repeat_times = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="Backdrop/Back3" unique_id=1059856079]
+modulate = Color(0.58, 0.58, 0.58, 1)
+texture_filter = 1
+position = Vector2(29, -246)
+texture = ExtResource("1_bswyy")
+
+[node name="Back2" type="Parallax2D" parent="Backdrop" unique_id=1208195150]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(133, 192)
+repeat_size = Vector2(100, 0)
+repeat_times = 40
+
+[node name="Sprite2D2" type="Sprite2D" parent="Backdrop/Back2" unique_id=828857313]
+texture_filter = 1
+position = Vector2(29, -229)
+texture = ExtResource("1_bswyy")
+
+[node name="Sky2" type="Parallax2D" parent="Backdrop" unique_id=881873081]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(200, 0)
+repeat_times = 5
+
+[node name="Sky" type="TextureRect" parent="Backdrop/Sky2" unique_id=799120516]
+modulate = Color(1, 1, 1, 0.40784314)
+z_as_relative = false
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 205.0
+offset_right = 404.0
+offset_bottom = 455.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bayrd")
+metadata/_edit_use_anchors_ = true
 
 [node name="HorizontalCamera" parent="." unique_id=1861214848 instance=ExtResource("1_xn68f")]
 position = Vector2(192, -108)
-speed = 64.0
+speed = 8.0
 
 [node name="Player" parent="." unique_id=933659611 instance=ExtResource("2_x67xg")]
 position = Vector2(55, -38)
@@ -23,10 +115,10 @@ camera = NodePath("../HorizontalCamera")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="LevelChunks" unique_id=1620081224]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAANAP//AAABAAEAAAAOAP//AAABAAEAAAANAP7/AAABAAEAAAAOAP7/AAABAAEAAAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAACAP7/AAABAAEAAAADAP7/AAABAAEAAAAEAP7/AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAABAAEAAAAKAP//AAABAAEAAAALAP//AAABAAEAAAAMAP//AAABAAEAAAAPAP//AAABAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAARAP7/AAABAAEAAAAQAP7/AAABAAEAAAAPAP7/AAABAAEAAAAMAP7/AAABAAEAAAALAP7/AAABAAEAAAAKAP7/AAABAAEAAAAJAP7/AAABAAEAAAAIAP7/AAABAAEAAAAHAP7/AAABAAEAAAAGAP7/AAABAAEAAAAFAP7/AAABAAEAAAABAP7/AAABAAEAAAAAAP7/AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAIAPr/AAABAAEAAAAJAPr/AAABAAEAAAAKAPr/AAABAAEAAAALAPr/AAABAAEAAAAMAPr/AAABAAEAAAAKAPf/AAABAAEAAAALAPb/AAABAAEAAAAMAPX/AAABAAEAAAANAPX/AAABAAEAAAAOAPX/AAABAAEAAAAPAPX/AAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAANAP//AAABAAEAAAAOAP//AAABAAEAAAANAP7/AAABAAEAAAAOAP7/AAABAAEAAAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAACAP7/AAABAAEAAAADAP7/AAABAAEAAAAEAP7/AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAABAAEAAAAKAP//AAABAAEAAAALAP//AAABAAEAAAAMAP//AAABAAEAAAAPAP//AAABAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAARAP7/AAABAAEAAAAQAP7/AAABAAEAAAAPAP7/AAABAAEAAAAMAP7/AAABAAEAAAALAP7/AAABAAEAAAAKAP7/AAABAAEAAAAJAP7/AAABAAEAAAAIAP7/AAABAAEAAAAHAP7/AAABAAEAAAAGAP7/AAABAAEAAAAFAP7/AAABAAEAAAABAP7/AAABAAEAAAAAAP7/AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAIAPr/AAABAAEAAAAJAPr/AAABAAEAAAAKAPr/AAABAAEAAAALAPr/AAABAAEAAAAMAPr/AAABAAEAAAAKAPf/AAABAAEAAAALAPb/AAABAAEAAAAMAPX/AAABAAEAAAANAPX/AAABAAEAAAAOAPX/AAABAAEAAAAPAPX/AAABAAEAAAAKAP3/AAABAAEAAAALAP3/AAABAAEAAAASAP//AAABAAEAAAASAP7/AAABAAEAAAASAP3/AAABAAEAAAASAPr/AAABAAEAAAARAPr/AAABAAEAAAA=")
 tile_set = ExtResource("1_wpsn8")
 
 [node name="GroundBot" parent="." unique_id=1357401302 instance=ExtResource("5_0lb5u")]
-position = Vector2(275, -40)
+position = Vector2(291, -111)
 
 [node name="UiLayer" parent="." unique_id=770390486 instance=ExtResource("6_vkvqs")]

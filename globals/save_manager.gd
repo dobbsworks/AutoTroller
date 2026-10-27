@@ -5,6 +5,7 @@ extends Node
 var saveData = {
 	"volumeSfx": 0.8,
 	"volumeMusic": 0.8,
+	"username": "",
 }
 
 var defaultState = {}

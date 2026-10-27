@@ -13,28 +13,32 @@ func _ready():
 	main_menu.click_credits.connect(on_click_credits)
 	settings_menu.click_exit.connect(on_click_exit_settings)
 	credits_menu.click_exit.connect(on_click_exit_credits)
+	main_menu.onStart()
 	
 func on_click_settings():
 	get_viewport().gui_disable_input = true
 	animation_player.play("green")
 	await animation_player.animation_finished
 	get_viewport().gui_disable_input = false
+	settings_menu.onStart()
 
 func on_click_exit_settings():
 	get_viewport().gui_disable_input = true
 	animation_player.play_backwards("green")
 	await animation_player.animation_finished
 	get_viewport().gui_disable_input = false
-
+	main_menu.onStart()
 
 func on_click_credits():
 	get_viewport().gui_disable_input = true
 	animation_player.play("orange")
 	await animation_player.animation_finished
 	get_viewport().gui_disable_input = false
+	credits_menu.onStart()
 
 func on_click_exit_credits():
 	get_viewport().gui_disable_input = true
 	animation_player.play_backwards("orange")
 	await animation_player.animation_finished
 	get_viewport().gui_disable_input = false
+	main_menu.onStart()

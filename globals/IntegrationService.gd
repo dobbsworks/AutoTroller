@@ -1,23 +1,34 @@
 extends Node
 
 
+var isConnected = false
+var isConnecting = false
+var connectedName = ""
+
 signal on_chat_received(username: String, message_text: String, data: Dictionary)
 
 
 func _ready() -> void:
+	var connectionName = SaveManager.saveData.username
 	SetupTwitchConnection("dobbsworks")
 
 
 func SetupTwitchConnection(channelName: String):
+	isConnecting = true
 	var success: bool = await TwitchService.instance.setup();
 	if !success:
 		printerr("Twitch Service setup failed.");
+		isConnecting = false
+		isConnected = false
 		return;
 	print("Twitch Service successfully set up and authenticated!");
-	await on_twitch_ready();
+	await on_twitch_ready(channelName);
 	
-func on_twitch_ready() -> void:
+func on_twitch_ready(channelName: String) -> void:
 	await subscribe_to_events();
+	isConnecting = false
+	isConnected = true
+	connectedName = channelName
 	
 func subscribe_to_events() -> void:
 	await TwitchService.instance.eventsub.wait_setup();
