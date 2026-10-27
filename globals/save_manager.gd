@@ -6,6 +6,7 @@ var saveData = {
 	"volumeSfx": 0.8,
 	"volumeMusic": 0.8,
 	"username": "",
+	"botCount": 0,
 }
 
 var defaultState = {}

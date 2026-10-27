@@ -5,15 +5,12 @@ signal on_new_chatter(chatter: Chatter)
 var chatters: Array[Chatter] = []
 var spawnCommands: Array[SpawnCommand]
 
-
 func _ready() -> void:
 	load_spawn_commands()
 	integration_service.on_chat_received.connect(on_chat_received)
 
-
 func _process(delta: float) -> void:
 	pass
-
 
 
 func on_chat_received(username: String, message_text: String, data: Dictionary):

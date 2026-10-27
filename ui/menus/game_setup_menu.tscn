@@ -94,12 +94,53 @@ layout_mode = 2
 text = "NOTE: If this is your first time connecting, pressing CONNECT will open the authorization page in a browser window. You will need to click \"Activate,\" then \"Authorize.\" I believe in you."
 autowrap_mode = 2
 
+[node name="Panel2" type="Panel" parent="VBoxContainer" unique_id=1972195231]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme = ExtResource("2_d0cae")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel2" unique_id=579512722]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d0cae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel2/MarginContainer" unique_id=1158982738]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1938309099]
+layout_mode = 2
+text = "BOT PLAYERS
+"
+
+[node name="Label2" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=238726352]
+layout_mode = 2
+text = "You can have the game simulate players, useful for testing or increasing the chaos."
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=948493477]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=493488849]
+layout_mode = 2
+text = "
+BOT COUNT"
+
+[node name="botCount" type="SpinBox" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1035497012]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 99.0
+alignment = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1373111389]
 layout_mode = 2
 
 [node name="ButtonExit" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1739219650]
 texture_filter = 1
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme = ExtResource("2_d0cae")
 text = "BACK"
@@ -116,5 +157,6 @@ text = "PLAY"
 
 [connection signal="text_submitted" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/ConnectButton" to="." method="_on_connect_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount" to="." method="_on_spin_box_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonStartGame" to="." method="_on_button_start_game_pressed"]

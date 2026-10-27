@@ -343,7 +343,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.74, 0.96),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(2042, 76), Vector2(385, 90), Vector2(385, 90)]
+"values": [Vector2(2042, 76), Vector2(300, 90), Vector2(300, 90)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -487,12 +487,11 @@ offset_bottom = 76.0
 
 [node name="GameSetupMenu" parent="CanvasLayer/ScreenTransition" unique_id=1430645086 instance=ExtResource("8_kek77")]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(400, 300)
-offset_left = 2042.0
-offset_top = 76.0
-offset_right = 2583.8936
-offset_bottom = 376.0
+offset_left = 283.04678
+offset_top = 90.136246
+offset_right = 824.9404
+offset_bottom = 390.13623
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScreenTransition" unique_id=1399332291]
 unique_name_in_owner = true

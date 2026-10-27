@@ -22,6 +22,8 @@ func SetupTwitchConnection(channelName: String):
 		isConnecting = false
 		isConnected = false
 		return;
+	SaveManager.saveData.username = channelName
+	SaveManager.saveGame()
 	print("Twitch Service successfully set up and authenticated!");
 	await on_twitch_ready(channelName);
 	

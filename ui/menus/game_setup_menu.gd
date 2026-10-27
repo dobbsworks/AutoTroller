@@ -8,6 +8,7 @@ signal click_exit()
 @onready var line_edit: LineEdit = %LineEdit
 @onready var connect_button: Button = %ConnectButton
 @onready var connection_details: Label = %ConnectionDetails
+@onready var bot_count: SpinBox = $VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount
 
 
 func _on_button_start_game_pressed() -> void:
@@ -21,6 +22,10 @@ func onStart():
 	button_exit.grab_focus()
 
 
+func refresh():
+	bot_count.value = SaveManager.saveData.botCount
+	if SaveManager.saveData.username != "":
+		line_edit.text = SaveManager.saveData.username
 
 
 func _process(delta: float) -> void:
@@ -63,3 +68,8 @@ func _on_connect_button_pressed() -> void:
 
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	MultiplayerHandler.integration_service.SetupTwitchConnection(line_edit.text)
+
+
+func _on_spin_box_value_changed(value: float) -> void:
+	SaveManager.saveData.botCount = int(value)
+	SaveManager.saveGame()

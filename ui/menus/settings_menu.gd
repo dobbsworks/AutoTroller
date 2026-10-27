@@ -52,4 +52,5 @@ func _on_cancel_disconnect_pressed() -> void:
 func _on_confirm_disconnect_2_pressed() -> void:
 	disconnect_confirmation.visible = false
 	await MultiplayerHandler.integration_service.Unsetup()
+	SaveManager.saveData.username = ""
 	refresh()
