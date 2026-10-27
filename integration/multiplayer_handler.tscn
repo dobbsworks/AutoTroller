@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://djanb3kqa24xg" path="res://integration/multiplayer_handler.gd" id="1_mb2n4"]
 [ext_resource type="PackedScene" uid="uid://bnh368bd8jqiy" path="res://integration/integration_service.tscn" id="2_cyrgr"]
+[ext_resource type="Script" uid="uid://cb7cuj0vf5dqx" path="res://integration/cpu_chatters.gd" id="3_cyrgr"]
 
 [node name="MultiplayerHandler" type="Node" unique_id=2109223567]
 script = ExtResource("1_mb2n4")
 
 [node name="IntegrationService" parent="." unique_id=1053741238 instance=ExtResource("2_cyrgr")]
+
+[node name="CpuChatters" type="Node" parent="." unique_id=751007133]
+script = ExtResource("3_cyrgr")

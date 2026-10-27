@@ -4,6 +4,9 @@ extends CanvasLayer
 const CHATTER_ROW = preload("res://ui/chatter_row.tscn")
 
 func _ready() -> void:
+	MultiplayerHandler.isActive = true
+	for chatter in MultiplayerHandler.chatters:
+		on_new_chatter(chatter)
 	MultiplayerHandler.on_new_chatter.connect(on_new_chatter)
 
 

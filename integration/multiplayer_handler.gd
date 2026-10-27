@@ -1,9 +1,11 @@
 extends Node
 @onready var integration_service: Node = $IntegrationService
+@onready var cpu_chatters: Node = $CpuChatters
 signal on_new_chatter(chatter: Chatter)
 
 var chatters: Array[Chatter] = []
 var spawnCommands: Array[SpawnCommand]
+var isActive = false
 
 func _ready() -> void:
 	load_spawn_commands()
@@ -13,8 +15,9 @@ func _process(delta: float) -> void:
 	pass
 
 
-func on_chat_received(username: String, message_text: String, data: Dictionary):
-	var chatter = getOrCreateChatter(username)
+func on_chat_received(username: String, message_text: String, data: Dictionary, isCpu: bool = false):
+	if !isActive: return
+	var chatter = getOrCreateChatter(username, isCpu)
 	
 	if chatter.spawnQueue.size() == 0:
 		for spawnCommand in spawnCommands:
@@ -41,10 +44,10 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> PackedScene:
 	return null
 	
 	
-func getOrCreateChatter(username: String) -> Chatter:
-	var chatterIndex = chatters.find_custom(func(a): return a.username == username)
+func getOrCreateChatter(username: String, isCpu: bool) -> Chatter:
+	var chatterIndex = chatters.find_custom(func(a: Chatter): return a.username == username && a.isCpu == isCpu)
 	if chatterIndex == -1:
-		var chatter = Chatter.new(username)
+		var chatter = Chatter.new(username, isCpu)
 		chatters.append(chatter)
 		on_new_chatter.emit(chatter)
 		return chatter
@@ -62,3 +65,7 @@ func load_spawn_commands():
 		fileName = dir.get_next()
 	for fileName1 in fileNames:
 		spawnCommands.append(load(fileName1))
+
+
+func handle_cpu_chat(username: String, message_text: String, data: Dictionary):
+	on_chat_received(username, message_text, data, true)

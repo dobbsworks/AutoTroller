@@ -22,8 +22,8 @@ const DEAD_ENEMY = preload("res://entities/enemies/DeadEnemy.tscn")
 
 var horizontalDirection = -1
 var age = 0.0
-var isGroundLeft = false
-var isGroundRight = false
+var groundLeftCount = 0
+var groundRightCount = 0
 
 
 func _physics_process(delta: float) -> void:
@@ -33,8 +33,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta * gravityRatio
 
 	if is_on_floor() && turnAtEdges:
-		if horizontalDirection == -1 && !isGroundLeft: horizontalDirection = 1
-		if horizontalDirection == 1 && !isGroundRight: horizontalDirection = -1
+		if horizontalDirection == -1 && groundLeftCount <= 0: horizontalDirection = 1
+		if horizontalDirection == 1 && groundRightCount <= 0: horizontalDirection = -1
 		
 	if jumps && is_on_floor():
 		velocity.y = -jumpStrength
@@ -58,10 +58,10 @@ func kill():
 
 
 func _on_left_ground_check_body_entered(body: Node2D) -> void:
-	isGroundLeft = true
+	groundLeftCount += 1
 func _on_left_ground_check_body_exited(body: Node2D) -> void:
-	isGroundLeft = false
+	groundLeftCount -= 1
 func _on_right_ground_check_body_entered(body: Node2D) -> void:
-	isGroundRight = true
+	groundRightCount += 1
 func _on_right_ground_check_body_exited(body: Node2D) -> void:
-	isGroundRight = false
+	groundRightCount -= 1

@@ -12,7 +12,8 @@ signal click_exit()
 
 
 func _on_button_start_game_pressed() -> void:
-	pass # Replace with function body.
+	var path = "res://test_game.tscn"
+	get_tree().change_scene_to_file(path)
 
 
 func _on_button_exit_pressed() -> void:
