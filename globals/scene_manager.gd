@@ -21,8 +21,8 @@ func _on_node_added(node: Node) -> void:
 		connect_button(node)
 		
 func connect_button(buttonNode: BaseButton):
-		buttonNode.pressed.connect(_play_button_select_sfx)
-		buttonNode.mouse_entered.connect(_play_button_focus_sfx)
+	buttonNode.pressed.connect(_play_button_select_sfx)
+	buttonNode.mouse_entered.connect(_play_button_focus_sfx.bind(buttonNode))
 	
 
 func _connect_buttons_in_tree(root_node: Node) -> void:
@@ -33,5 +33,6 @@ func _connect_buttons_in_tree(root_node: Node) -> void:
 		
 func _play_button_select_sfx() -> void:
 	menu_select.play()
-func _play_button_focus_sfx() -> void:
-	menu_mouse_over.play()
+func _play_button_focus_sfx(buttonNode: BaseButton) -> void:
+	if !buttonNode.disabled:
+		menu_mouse_over.play()

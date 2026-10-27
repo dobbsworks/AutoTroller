@@ -258,6 +258,10 @@ func _start_device_login_process():
 	# print the information instead of opening the browser so that the developer can decide if
 	# he want to open the browser manually. Also use print not the logger so that the information
 	# is sent always.
+	
+	OS.shell_open(device_code_response.verification_uri) 
+	
+	
 	print("Visit %s and enter the code %s for authorization." % [device_code_response.verification_uri, device_code_response.user_code])
 	await token_handler.request_device_token(device_code_response, scopes)
 

@@ -22,8 +22,8 @@ func _on_button_exit_pressed() -> void:
 func onStart():
 	button_start.grab_focus()
 
-func _process(delta: float) -> void:
-	var isConnected = MultiplayerHandler.integration_service.isConnected
-	
-	button_start.disabled = !isConnected
-	connection_panel.visible = !isConnected
+#func _process(delta: float) -> void:
+	#var isConnected = MultiplayerHandler.integration_service.isConnected
+	#
+	#button_start.disabled = !isConnected
+	#connection_panel.visible = !isConnected

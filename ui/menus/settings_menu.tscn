@@ -2,12 +2,6 @@
 
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="1_h6jc8"]
 [ext_resource type="Script" uid="uid://4hx7xkmngcgf" path="res://ui/menus/settings_menu.gd" id="1_xutny"]
-[ext_resource type="Shader" uid="uid://par4lyuajxt2" path="res://shaders/hue_shift.gdshader" id="3_igsxx"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xv4l1"]
-shader = ExtResource("3_igsxx")
-shader_parameter/use_grayscale = false
-shader_parameter/shift_color = Color(0.57533336, 0.48000002, 1, 1)
 
 [node name="SettingsMenu" type="Control" unique_id=630448504]
 layout_mode = 3
@@ -43,25 +37,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer" unique_id=1314116219]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer" unique_id=216602375]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/VBoxContainer" unique_id=1875851250]
-layout_mode = 2
-text = "
-TWITCH USERNAME"
-
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/VBoxContainer" unique_id=1352756672]
-layout_mode = 2
-theme = ExtResource("1_h6jc8")
-placeholder_text = "username"
-
-[node name="ConnectButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1962247]
-material = SubResource("ShaderMaterial_xv4l1")
+[node name="DisconnectButton" type="Button" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer" unique_id=1962247]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "CONNECT"
+text = "DISCONNECT 
+FROM TWITCH"
+
+[node name="DisconnectConfirmation" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer" unique_id=172801812]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation" unique_id=310948715]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Are you sure you want to disconnect from Twitch?"
+autowrap_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation" unique_id=1590942641]
+layout_mode = 2
+
+[node name="CancelDisconnect" type="Button" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons" unique_id=2091372132]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Wait, no"
+
+[node name="ConfirmDisconnect2" type="Button" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons" unique_id=280917411]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yep, I'm sure"
 
 [node name="Panel" type="Panel" parent="VBoxContainer" unique_id=70064440]
 custom_minimum_size = Vector2(0, 80)
@@ -128,6 +136,9 @@ layout_mode = 2
 theme = ExtResource("1_h6jc8")
 text = "BACK"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/CancelDisconnect" to="." method="_on_cancel_disconnect_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/ConfirmDisconnect2" to="." method="_on_confirm_disconnect_2_pressed"]
 [connection signal="value_changed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/VolumeMusicSlider" to="." method="_on_volume_music_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Panel2/MarginContainer/VBoxContainer/VolumeSfxSlider" to="." method="_on_volume_sfx_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

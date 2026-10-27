@@ -1,5 +1,15 @@
 
 
+Main plan
+	MVP
+		Full start into game
+		Handle death
+	Enemy menu scroll
+	More enemies
+	Items
+
+Polish
+	Handle if lots of chatters
 
 
 TODO

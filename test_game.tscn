@@ -45,7 +45,7 @@ texture = SubResource("GradientTexture2D_bayrd")
 metadata/_edit_use_anchors_ = true
 
 [node name="FarBack" type="Parallax2D" parent="Backdrop" unique_id=219239905]
-scroll_scale = Vector2(0, 1)
+scroll_scale = Vector2(0.05, 1)
 scroll_offset = Vector2(133, 192)
 repeat_size = Vector2(100, 0)
 repeat_times = 40

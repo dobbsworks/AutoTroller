@@ -2,17 +2,23 @@ extends Control
 
 
 signal click_exit()
-@onready var button_exit: Button = $VBoxContainer/ButtonExit
-
-
 @onready var volume_music_slider: HSlider = %VolumeMusicSlider
 @onready var volume_sfx_slider: HSlider = %VolumeSfxSlider
+@onready var disconnect_button: Button = %DisconnectButton
+@onready var cancel_disconnect: Button = %CancelDisconnect
+@onready var confirm_disconnect: Button = %ConfirmDisconnect2
+@onready var button_exit: Button = $VBoxContainer/ButtonExit
+@onready var disconnect_confirmation: VBoxContainer = %DisconnectConfirmation
 
 func _ready() -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(SaveManager.saveData.volumeSfx))
 	AudioServer.set_bus_volume_db(2, linear_to_db(SaveManager.saveData.volumeMusic))
 	volume_music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	volume_sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
+	
+func refresh():
+	disconnect_confirmation.visible = false
+	disconnect_button.disabled = !MultiplayerHandler.integration_service.isConnected
 	
 func onStart():
 	button_exit.grab_focus()
@@ -29,6 +35,21 @@ func _on_volume_sfx_slider_value_changed(value: float) -> void:
 	SaveManager.saveData.volumeSfx = value
 	SaveManager.saveGame()
 
-
 func _on_button_exit_pressed() -> void:
 	click_exit.emit()
+
+
+func _on_disconnect_button_pressed() -> void:
+	disconnect_button.disabled = true
+	disconnect_confirmation.visible = true
+
+
+func _on_cancel_disconnect_pressed() -> void:
+	disconnect_button.disabled = false
+	disconnect_confirmation.visible = false
+
+
+func _on_confirm_disconnect_2_pressed() -> void:
+	disconnect_confirmation.visible = false
+	await MultiplayerHandler.integration_service.Unsetup()
+	refresh()

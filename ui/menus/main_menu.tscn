@@ -25,17 +25,16 @@ layout_mode = 2
 
 [node name="ButtonStart" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1202109751]
 unique_name_in_owner = true
-visible = false
 texture_filter = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_t7e0r")
-disabled = true
 text = "START GAME"
 
 [node name="ConnectionPanel" type="Panel" parent="VBoxContainer/HBoxContainer" unique_id=1673231930]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color(0.4333334, 0, 1, 0.38039216)
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2

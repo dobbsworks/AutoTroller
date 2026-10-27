@@ -3,14 +3,15 @@ extends Node
 
 var isConnected = false
 var isConnecting = false
+var isDisconnecting = false
 var connectedName = ""
 
 signal on_chat_received(username: String, message_text: String, data: Dictionary)
 
-
-func _ready() -> void:
-	var connectionName = SaveManager.saveData.username
-	SetupTwitchConnection("dobbsworks")
+#
+#func _ready() -> void:
+	#var connectionName = SaveManager.saveData.username
+	#SetupTwitchConnection("dobbsworks")
 
 
 func SetupTwitchConnection(channelName: String):
@@ -23,6 +24,13 @@ func SetupTwitchConnection(channelName: String):
 		return;
 	print("Twitch Service successfully set up and authenticated!");
 	await on_twitch_ready(channelName);
+	
+func Unsetup():
+	isDisconnecting = true
+	await TwitchService.instance.unsetup();
+	isDisconnecting = false
+	connectedName = ""
+	isConnected = false
 	
 func on_twitch_ready(channelName: String) -> void:
 	await subscribe_to_events();
@@ -53,6 +61,7 @@ func on_eventsub_event(type: StringName, data: Dictionary):
 		on_chat_message(data.chatter_user_name, data.message.text, data)
 		
 func on_chat_message(username: String, message_text: String, data: Dictionary):
+	print(username, ": ", message_text)
 	on_chat_received.emit(username, message_text, data)
 	
 	
