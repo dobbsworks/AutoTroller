@@ -13,7 +13,10 @@ jumps = true
 [node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
 shape = SubResource("RectangleShape2D_5jxsx")
 
-[node name="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="0" unique_id=851132383]
+[node name="Sprite" parent="." index="1" unique_id=1291407578]
+modulate = Color(0.35000002, 0.4366666, 1, 1)
+
+[node name="Sprite2D" parent="Sprite" index="0" unique_id=851132383]
 texture = ExtResource("2_tfx0k")
 region_enabled = true
 region_rect = Rect2(16, 16, 16, 16)

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dn03g10rdblci"]
+
+[ext_resource type="Script" uid="uid://dm8fafsjdwdiw" path="res://entities/collectibles/coin_init.gd" id="1_7704q"]
+[ext_resource type="PackedScene" uid="uid://g3d3bx8shbq8" path="res://entities/collectibles/coin.tscn" id="2_uf6qs"]
+
+[node name="CoinInit" type="Node2D" unique_id=1191353838]
+script = ExtResource("1_7704q")
+
+[node name="Coin" parent="." unique_id=791481373 instance=ExtResource("2_uf6qs")]

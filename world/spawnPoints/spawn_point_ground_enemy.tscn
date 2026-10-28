@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bjtudv68prupn" path="res://world/spawnPoints/BaseSpawnPoint.tscn" id="1_5nclr"]
 [ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="2_cex8g"]
+[ext_resource type="PackedScene" uid="uid://cy764uwduwpu2" path="res://entities/enemies/hopping_enemy.tscn" id="3_npe1q"]
 
 [node name="SpawnPointGroundEnemy" unique_id=1322520249 instance=ExtResource("1_5nclr")]
-spawnables = Array[PackedScene]([ExtResource("2_cex8g")])
+spawnables = Array[PackedScene]([ExtResource("2_cex8g"), ExtResource("3_npe1q")])
 
 [node name="Label" parent="." index="0" unique_id=412252120]
 offset_left = -5.0

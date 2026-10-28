@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cf74srn2lsd64"]
 
 [ext_resource type="PackedScene" uid="uid://bjtudv68prupn" path="res://world/spawnPoints/BaseSpawnPoint.tscn" id="1_60det"]
+[ext_resource type="PackedScene" uid="uid://dn03g10rdblci" path="res://entities/collectibles/coin_init.tscn" id="2_pw3xx"]
 
 [node name="SpawnPointCoin" unique_id=1322520249 instance=ExtResource("1_60det")]
+spawnables = Array[PackedScene]([ExtResource("2_pw3xx")])
 
 [node name="Label" parent="." index="0" unique_id=412252120]
 offset_left = -5.0
