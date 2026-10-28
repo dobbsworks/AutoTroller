@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://7bn8rlbk0e3i"]
 
-[ext_resource type="Script" uid="uid://6h340sgvvk05" path="res://ui/menus/sawtooth.gd" id="1_1wjmp"]
+[ext_resource type="Script" uid="uid://6h340sgvvk05" path="res://ui/components/sawtooth.gd" id="1_1wjmp"]
 
 [node name="Sawtooth" type="Node2D" unique_id=1513363191]
 script = ExtResource("1_1wjmp")

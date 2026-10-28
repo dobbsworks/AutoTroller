@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://toyhd8kpvshp"]
 
 [ext_resource type="Script" uid="uid://ddtdiviljhvsg" path="res://ui/menus/credits_menu.gd" id="1_6sxy1"]
-[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="1_ow8kg"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_ow8kg"]
 
 [node name="CreditsMenu" type="Control" unique_id=1966205401]
 layout_mode = 3

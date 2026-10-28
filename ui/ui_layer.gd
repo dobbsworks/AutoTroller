@@ -1,6 +1,10 @@
 extends CanvasLayer
+@onready var chatter_vbox: VBoxContainer = %ChatterVbox
+@onready var chatter_scroll_box: ScrollContainer = %ChatterScrollBox
+@onready var coin_count: Label = %CoinCount
+@onready var life_count: Label = %LifeCount
 
-@onready var chatter_vbox: VBoxContainer = $ChatOverlay/MarginContainer/ChatterVbox
+
 const CHATTER_ROW = preload("res://ui/chatter_row.tscn")
 
 func _ready() -> void:
@@ -11,8 +15,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	pass
-
+	coin_count.text = ("%02d" % GameState.round.coins)
+	life_count.text = ("%02d" % GameState.round.lives)
 
 func on_new_chatter(chatter: Chatter):
 	var chatterRow = CHATTER_ROW.instantiate()

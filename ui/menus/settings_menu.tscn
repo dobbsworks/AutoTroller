@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bp4f81clxi7xp"]
 
-[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="1_h6jc8"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_h6jc8"]
 [ext_resource type="Script" uid="uid://4hx7xkmngcgf" path="res://ui/menus/settings_menu.gd" id="1_xutny"]
 
 [node name="SettingsMenu" type="Control" unique_id=630448504]

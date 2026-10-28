@@ -2,5 +2,6 @@ extends Node
 
 
 var round = {
-	coins = 0
+	coins = 0,
+	lives = 5,
 }

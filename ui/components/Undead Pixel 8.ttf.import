@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bhhdg78xb1rh2"
-path="res://.godot/imported/Undead Pixel 8.ttf-c97d490eadaad77241e28af33bebf957.fontdata"
+path="res://.godot/imported/Undead Pixel 8.ttf-a57d98d03a2c8694bf41be8e765cd0f5.fontdata"
 
 [deps]
 
-source_file="res://ui/Undead Pixel 8.ttf"
-dest_files=["res://.godot/imported/Undead Pixel 8.ttf-c97d490eadaad77241e28af33bebf957.fontdata"]
+source_file="res://ui/components/Undead Pixel 8.ttf"
+dest_files=["res://.godot/imported/Undead Pixel 8.ttf-a57d98d03a2c8694bf41be8e765cd0f5.fontdata"]
 
 [params]
 

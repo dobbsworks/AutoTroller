@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c84bfc1h86htj"]
 
 [ext_resource type="Script" uid="uid://b487ba4kklkmv" path="res://ui/ui_layer.gd" id="1_3otji"]
-[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="2_xqqt7"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_xqqt7"]
+[ext_resource type="PackedScene" uid="uid://c61gti4a7v06m" path="res://ui/components/autoscroll_behavior.tscn" id="3_00rn6"]
 
 [node name="UiLayer" type="CanvasLayer" unique_id=770390486]
 layer = 99
@@ -9,13 +10,12 @@ script = ExtResource("1_3otji")
 
 [node name="ChatOverlay" type="Control" parent="." unique_id=886411625]
 top_level = true
-custom_minimum_size = Vector2(300, 675)
+custom_minimum_size = Vector2(290, 648)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 862.0
-offset_top = -4.0
-offset_right = 1162.0
-offset_bottom = 671.0
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="ColorRect" type="ColorRect" parent="ChatOverlay" unique_id=1097423950]
 layout_mode = 1
@@ -26,14 +26,112 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7647059)
 
-[node name="MarginContainer" type="MarginContainer" parent="ChatOverlay" unique_id=1650873537]
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatOverlay" unique_id=1293833028]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ChatOverlay/VBoxContainer" unique_id=1650873537]
+custom_minimum_size = Vector2(0, 490)
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("2_xqqt7")
 
-[node name="ChatterVbox" type="VBoxContainer" parent="ChatOverlay/MarginContainer" unique_id=919706455]
+[node name="ChatterScrollBox" type="ScrollContainer" parent="ChatOverlay/VBoxContainer/MarginContainer" unique_id=469831662]
+unique_name_in_owner = true
 layout_mode = 2
+
+[node name="AutoscrollBehavior" parent="ChatOverlay/VBoxContainer/MarginContainer/ChatterScrollBox" unique_id=671064655 instance=ExtResource("3_00rn6")]
+
+[node name="ChatterVbox" type="VBoxContainer" parent="ChatOverlay/VBoxContainer/MarginContainer/ChatterScrollBox" unique_id=919706455]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="ChatOverlay/VBoxContainer" unique_id=577812928]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_xqqt7")
+
+[node name="ChatterScrollBox" type="ScrollContainer" parent="ChatOverlay/VBoxContainer/MarginContainer2" unique_id=679207992]
+layout_mode = 2
+
+[node name="AutoscrollBehavior" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox" unique_id=411166579 instance=ExtResource("3_00rn6")]
+scrollType = 1
+scrollSpeed = 25.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox" unique_id=2093735199]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=2111339364]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=839601449]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=2085843824]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=670651746]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=1103322852]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="PlayerHUD" type="Control" parent="." unique_id=753267582]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 152.0
+offset_bottom = 88.0
+theme = ExtResource("2_xqqt7")
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerHUD" unique_id=1322765999]
+color = Color(0, 0, 0, 0.30588236)
+polygon = PackedVector2Array(-17, 66, 156, 82, 134, -42, -26, -35)
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerHUD" unique_id=1505611993]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerHUD/MarginContainer" unique_id=648477177]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerHUD/MarginContainer/HBoxContainer" unique_id=625042543]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PlayerHUD/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1170160179]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1642352892]
+layout_mode = 2
+text = "COINS x "
+
+[node name="CoinCount" type="Label" parent="PlayerHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=86639274]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PlayerHUD/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1685915645]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PlayerHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1152167035]
+layout_mode = 2
+text = "LIVES x "
+
+[node name="LifeCount" type="Label" parent="PlayerHUD/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1518667414]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00"
+
+[node name="ProgressHUD" type="Node2D" parent="." unique_id=907881972]

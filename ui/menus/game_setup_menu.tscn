@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kwvkd4f5ulm6"]
 
 [ext_resource type="Script" uid="uid://s18uekb2vaq4" path="res://ui/menus/game_setup_menu.gd" id="1_b4nby"]
-[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/uiTheme.tres" id="2_d0cae"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_d0cae"]
 
 [node name="GameSetupMenu" type="Control" unique_id=1430645086]
 layout_mode = 3

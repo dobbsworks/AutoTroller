@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c61gti4a7v06m"]
+
+[ext_resource type="Script" uid="uid://8sjot1m4dsl5" path="res://ui/components/autoscroll_behavior.gd" id="1_ipuny"]
+
+[node name="AutoscrollBehavior" type="Node" unique_id=671064655]
+script = ExtResource("1_ipuny")

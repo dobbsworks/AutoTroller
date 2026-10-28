@@ -1,10 +1,10 @@
 [gd_resource type="Theme" format=3 uid="uid://cf2vvd3jvypsk"]
 
-[ext_resource type="FontFile" uid="uid://bhhdg78xb1rh2" path="res://ui/Undead Pixel 8.ttf" id="1_2vlra"]
-[ext_resource type="Texture2D" uid="uid://cl4etvtsj78na" path="res://ui/menus/button9patch.png" id="2_wgyry"]
+[ext_resource type="FontFile" uid="uid://bhhdg78xb1rh2" path="res://ui/components/Undead Pixel 8.ttf" id="1_lxcsp"]
+[ext_resource type="Texture2D" uid="uid://cl4etvtsj78na" path="res://ui/components/button9patch.png" id="2_1dk23"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wgyry"]
-texture = ExtResource("2_wgyry")
+texture = ExtResource("2_1dk23")
 texture_margin_left = 11.0
 texture_margin_top = 11.0
 texture_margin_right = 11.0
@@ -12,7 +12,7 @@ texture_margin_bottom = 11.0
 modulate_color = Color(0.2231029, 0.2231029, 0.22310287, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqrcr"]
-texture = ExtResource("2_wgyry")
+texture = ExtResource("2_1dk23")
 texture_margin_left = 11.0
 texture_margin_top = 11.0
 texture_margin_right = 11.0
@@ -20,11 +20,13 @@ texture_margin_bottom = 11.0
 modulate_color = Color(0.5251013, 0.5251013, 0.5251013, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h2yge"]
-texture = ExtResource("2_wgyry")
+texture = ExtResource("2_1dk23")
 texture_margin_left = 11.0
 texture_margin_top = 11.0
 texture_margin_right = 11.0
 texture_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00rn6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xv4l1"]
 content_margin_left = 5.0
@@ -33,17 +35,21 @@ content_margin_right = 5.0
 content_margin_bottom = 2.0
 bg_color = Color(0.056291588, 0.05629161, 0.05629155, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xqqt7"]
+
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/fonts/font = ExtResource("1_2vlra")
+Button/fonts/font = ExtResource("1_lxcsp")
 Button/styles/focus = SubResource("StyleBoxTexture_wgyry")
 Button/styles/hover = SubResource("StyleBoxTexture_xqrcr")
 Button/styles/normal = SubResource("StyleBoxTexture_h2yge")
-Label/fonts/font = ExtResource("1_2vlra")
-LineEdit/fonts/font = ExtResource("1_2vlra")
+HScrollBar/styles/scroll = SubResource("StyleBoxEmpty_00rn6")
+Label/fonts/font = ExtResource("1_lxcsp")
+LineEdit/fonts/font = ExtResource("1_lxcsp")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_xv4l1")
 MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
 Panel/styles/panel = SubResource("StyleBoxTexture_h2yge")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_xqqt7")
