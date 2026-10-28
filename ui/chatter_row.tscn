@@ -79,6 +79,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Panel/TextureRect:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/TextureRect:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_x5qx7"]
 resource_name = "error"
@@ -134,7 +158,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_7fqn1"]
 resource_name = "init"
-length = 0.009999999999999998
+length = 0.00999999999999999
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -164,12 +188,40 @@ tracks/0/keys = {
 "values": [Vector2(0.1, 0.1), Vector2(1, 1), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_dri4i"]
+resource_name = "wiggleImage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/TextureRect:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 0.43333334, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/TextureRect:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.05235987755982989, -0.05235987755982989, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8kqb"]
 _data = {
 &"RESET": SubResource("Animation_en1cb"),
 &"error": SubResource("Animation_x5qx7"),
 &"init": SubResource("Animation_7fqn1"),
-&"popin": SubResource("Animation_j8kqb")
+&"popin": SubResource("Animation_j8kqb"),
+&"wiggleImage": SubResource("Animation_dri4i")
 }
 
 [node name="Control" type="Control" unique_id=1281728031]
@@ -196,9 +248,19 @@ texture_filter = 1
 layout_mode = 0
 offset_left = 6.0
 offset_top = 3.0
-offset_right = 29.0
-offset_bottom = 26.0
+offset_right = 30.0
+offset_bottom = 27.0
+pivot_offset = Vector2(12, 12)
 texture = SubResource("PlaceholderTexture2D_en1cb")
+
+[node name="SpawnCount" type="Label" parent="Panel/TextureRect" unique_id=1242100573]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+theme = ExtResource("1_uqmml")
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Label" type="Label" parent="Panel" unique_id=921797138]
 layout_mode = 0

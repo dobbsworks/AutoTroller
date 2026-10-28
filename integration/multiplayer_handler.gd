@@ -22,6 +22,7 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 	if chatter.spawnQueue.size() == 0:
 		for spawnCommand in spawnCommands:
 			if spawnCommand.cost > chatter.points: 
+				print(chatter.points)
 				chatter.on_too_poor.emit()
 				continue
 			var relevantText = message_text.replace("!","").strip_edges().to_lower()
@@ -29,6 +30,7 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 				# Good to go! Queue it up!
 				chatter.points -= spawnCommand.cost
 				chatter.isActive = true
+				chatter.on_update_queue.emit(spawnCommand)
 				for i in range(spawnCommand.numberSpawned):
 					chatter.spawnQueue.append(spawnCommand.spawnedObject)
 	
@@ -37,9 +39,14 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> PackedScene:
 	for potentialSpawnable in potentialSpawnables:
 		var c = chatters.filter(func(a: Chatter): return a.spawnQueue.has(potentialSpawnable))
 		if c.size() == 0: continue
-		c.sort_custom(func(a,b): return a.spawnQueue.size() > b.spawnQueue.size())
+		#c.sort_custom(func(a,b): return a.spawnQueue.size() > b.spawnQueue.size())
 		var spawningChatter: Chatter = c[0]
 		spawningChatter.spawnQueue.erase(potentialSpawnable)
+		if spawningChatter.spawnQueue.size() == 0:
+			spawningChatter.on_update_queue.emit(null)
+			# move to end
+			chatters.erase(spawningChatter)
+			chatters.append(spawningChatter)
 		return potentialSpawnable
 	return null
 	
@@ -61,10 +68,28 @@ func load_spawn_commands():
 	var fileName = dir.get_next()
 	while fileName != "":
 		if fileName.ends_with(".tres"):
-			fileNames.append(directory.path_join(fileName))
+			var fullPath = directory.path_join(fileName)
+			fileNames.append(fullPath)
+			
+			
 		fileName = dir.get_next()
 	for fileName1 in fileNames:
-		spawnCommands.append(load(fileName1))
+		var spawnCommand: SpawnCommand = load(fileName1)
+		
+		var vp := SubViewport.new()
+		vp.transparent_bg = true
+		vp.size = Vector2i(16,16)
+		var tempNode = spawnCommand.spawnedObject.instantiate()
+		tempNode.position = Vector2(8,8)
+		if "isDummy" in tempNode: tempNode.isDummy = true
+		vp.add_child(tempNode)
+		
+		add_child(vp)
+		
+		spawnCommand.viewport = vp
+		
+		spawnCommands.append(spawnCommand)
+
 
 
 func handle_cpu_chat(username: String, message_text: String, data: Dictionary):

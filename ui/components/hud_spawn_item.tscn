@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dccr7dt7x2fpq"]
+
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_vohi6"]
+[ext_resource type="Script" uid="uid://r7x46o8t0lqu" path="res://ui/components/hud_spawn_item.gd" id="2_uwgos"]
+
+[node name="HudSpawnItem" type="ColorRect" unique_id=482268046]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 122.0
+theme = ExtResource("1_vohi6")
+color = Color(0, 0, 0, 0.06666667)
+script = ExtResource("2_uwgos")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=846208267]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_right = 89.0
+offset_bottom = 80.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="." unique_id=946196748]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="EntityName" type="Label" parent="HBoxContainer" unique_id=537913292]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item"
+
+[node name="Price" type="Label" parent="HBoxContainer" unique_id=563452744]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"

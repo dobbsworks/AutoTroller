@@ -8,9 +8,6 @@ Main plan
 	More enemies
 	Items
 
-Polish
-	Handle if lots of chatters
-
 
 TODO
 	Buffer jumps

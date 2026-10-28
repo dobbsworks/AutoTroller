@@ -62,27 +62,8 @@ layout_mode = 2
 scrollType = 1
 scrollSpeed = 25.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox" unique_id=2093735199]
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=2111339364]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="ColorRect2" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=839601449]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="ColorRect3" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=2085843824]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="ColorRect4" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=670651746]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-
-[node name="ColorRect5" type="ColorRect" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox/HBoxContainer" unique_id=1103322852]
-custom_minimum_size = Vector2(100, 100)
+[node name="HudSpawnContainer" type="HBoxContainer" parent="ChatOverlay/VBoxContainer/MarginContainer2/ChatterScrollBox" unique_id=2093735199]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PlayerHUD" type="Control" parent="." unique_id=753267582]

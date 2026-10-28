@@ -7,3 +7,5 @@ class_name SpawnCommand
 @export var cost: int
 @export var spawnedObject: PackedScene
 @export var numberSpawned: int
+
+var viewport: Viewport

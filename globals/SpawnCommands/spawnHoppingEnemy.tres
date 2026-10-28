@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://bodx5f6flar1u"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_hpejq"]
+[ext_resource type="PackedScene" uid="uid://cy764uwduwpu2" path="res://entities/enemies/hopping_enemy.tscn" id="2_hpejq"]
+
+[resource]
+script = ExtResource("1_hpejq")
+name = "Hopper"
+commands = Array[String](["hopper", "hop", "jumper", "jump"])
+cost = 1
+spawnedObject = ExtResource("2_hpejq")
+numberSpawned = 1
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

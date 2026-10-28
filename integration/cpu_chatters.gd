@@ -24,8 +24,9 @@ func generateAndSendCpuChatMessage():
 	else:
 		chatterName = currentChatNames[chatNameIndex]
 		
-	var command = MultiplayerHandler.spawnCommands.pick_random().commands.pick_random()
-	send_chat(chatterName, "coin", {})
+	var command = MultiplayerHandler.spawnCommands.pick_random()
+	var message = command.commands.pick_random()
+	send_chat(chatterName, message, {})
 	
 
 func send_chat(username: String, message_text: String, data: Dictionary):

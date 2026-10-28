@@ -3,6 +3,7 @@ class_name Enemy
 @onready var sprite: Node2D = $Sprite
 const DEAD_ENEMY = preload("res://entities/enemies/DeadEnemy.tscn")
 
+var isDummy = false
 
 @export var hurtOnContact = true
 @export var canJumpOn = false
@@ -28,6 +29,7 @@ var groundRightCount = 0
 
 func _physics_process(delta: float) -> void:
 	age += delta
+	if isDummy: return
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta * gravityRatio

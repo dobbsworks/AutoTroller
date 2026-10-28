@@ -24,6 +24,7 @@ GameState="*uid://bacawubuucbqe"
 MultiplayerHandler="*uid://1rgua8lpyxrp"
 SceneManager="*uid://dtumdxqxxginx"
 SaveManager="*uid://bwucnsvbh4svw"
+Utility="*uid://bq5kitkqblpv2"
 
 [display]
 
