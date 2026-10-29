@@ -150,8 +150,10 @@ rotates = false
 loop = false
 
 [node name="EndIcon" type="Sprite2D" parent="ProgressHUD/Path2D/PathFollow2D2" unique_id=407701197]
+unique_name_in_owner = true
 z_index = 1
 texture_filter = 1
+position = Vector2(27.999939, 0)
 scale = Vector2(2, 2)
 texture = ExtResource("5_8aggs")
 offset = Vector2(0, -8)

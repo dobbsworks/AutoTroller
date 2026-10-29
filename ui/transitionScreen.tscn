@@ -1,0 +1,222 @@
+[gd_scene format=3 uid="uid://d24yamd7rmb7x"]
+
+[ext_resource type="PackedScene" uid="uid://7bn8rlbk0e3i" path="res://ui/components/sawtooth.tscn" id="2_q1t5p"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="3_cunp1"]
+
+[sub_resource type="Animation" id="Animation_74mk3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saws/Sawtooth2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1585, -95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saws/Sawtooth:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-349, 761)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Saws/Sawtooth3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1585, -74)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Victory:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-707, 135)]
+}
+
+[sub_resource type="Animation" id="Animation_0vr5d"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saws/Sawtooth2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.53333336, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1585, 711), Vector2(1585, 711), Vector2(1585, -95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saws/Sawtooth:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.53333336, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-349, 563), Vector2(-349, 563), Vector2(-349, 761)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Saws/Sawtooth3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.53333336, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1585, 89), Vector2(1585, 89), Vector2(1585, -74)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Victory:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.01999998, 0.43333334, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(94, 135), Vector2(94, 135), Vector2(-707, 135)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.96666664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_855v7"]
+resource_name = "init"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saws/Sawtooth2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1585, -95), Vector2(1585, 711), Vector2(1585, 711)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saws/Sawtooth:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-349, 761), Vector2(-349, 563), Vector2(-349, 563)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Saws/Sawtooth3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.98),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1585, -74), Vector2(1585, 89), Vector2(1585, 89)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Victory:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-707, 135), Vector2(94, 135), Vector2(94, 135)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6d6xc"]
+_data = {
+&"RESET": SubResource("Animation_74mk3"),
+&"fade": SubResource("Animation_0vr5d"),
+&"init": SubResource("Animation_855v7")
+}
+
+[node name="TransitionScreen" type="Node2D" unique_id=470841249]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=398265984]
+layer = 200
+
+[node name="Saws" type="Node2D" parent="CanvasLayer" unique_id=300313096]
+
+[node name="Sawtooth2" parent="CanvasLayer/Saws" unique_id=1479176869 instance=ExtResource("2_q1t5p")]
+modulate = Color(0.24000001, 0.78466666, 1, 1)
+position = Vector2(1585, -95)
+rotation = 3.1415927
+
+[node name="Sawtooth" parent="CanvasLayer/Saws" unique_id=1513363191 instance=ExtResource("2_q1t5p")]
+modulate = Color(0.13, 0.63750017, 1, 1)
+position = Vector2(-349, 761)
+
+[node name="Sawtooth3" parent="CanvasLayer/Saws" unique_id=1359492631 instance=ExtResource("2_q1t5p")]
+modulate = Color(0.13, 0.63750017, 1, 1)
+position = Vector2(1585, -74)
+rotation = 3.1415927
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1017199360]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_cunp1")
+
+[node name="Victory" type="RichTextLabel" parent="CanvasLayer/Control" unique_id=1155792369]
+clip_contents = false
+layout_mode = 0
+offset_left = -707.0
+offset_top = 135.0
+offset_right = -115.0
+offset_bottom = 199.0
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[wave amp=50.0 freq=5.0 connected=1]GET READY![/wave]"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1735726833]
+libraries/ = SubResource("AnimationLibrary_6d6xc")
+autoplay = &"init"

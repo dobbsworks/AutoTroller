@@ -36,6 +36,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=867464624]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Auto-Troller"
 autowrap_mode = 2
 
@@ -43,6 +44,13 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "A game by Dobbs, of Dabble Works"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=461908108]
+modulate = Color(1, 1, 1, 0.30588236)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "(coding, graphics, audio, the whole nine yards)"
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=868924713]
@@ -53,6 +61,7 @@ Made for the Backseating Allowed Jam 2026"
 autowrap_mode = 2
 
 [node name="Label4" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1295814585]
+modulate = Color(1, 1, 1, 0.19607843)
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "

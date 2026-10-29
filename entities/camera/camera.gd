@@ -12,3 +12,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position += delta * speed * direction
+	if GameState.stage.cameraStop > -1:
+		var maxCamX = GameState.stage.cameraStop
+		if position.x > maxCamX: 
+			position.x = maxCamX
+			GameState.stage.done = true

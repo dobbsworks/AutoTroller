@@ -10,6 +10,7 @@ const HUE_SHIFT_MAT = preload("res://shaders/hue_shift_mat.tres")
 
 
 func _ready():
+	MultiplayerHandler.isActive = false
 	main_menu.click_start.connect(on_click_play)
 	main_menu.click_settings.connect(on_click_settings)
 	main_menu.click_credits.connect(on_click_credits)

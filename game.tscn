@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://b7sl103xgny0g"]
+
+[ext_resource type="PackedScene" uid="uid://b1ly8gief3dor" path="res://world/backdrop/backdrop_1.tscn" id="1_ryrav"]
+[ext_resource type="PackedScene" uid="uid://c5tkmn8ia6tea" path="res://entities/camera/horizontalCamera.tscn" id="2_eow3j"]
+[ext_resource type="PackedScene" uid="uid://n6emfuv5umax" path="res://entities/player/player.tscn" id="3_j5wjh"]
+[ext_resource type="Script" uid="uid://bxhkvl2y65vb" path="res://world/level_chunks.gd" id="4_vef74"]
+[ext_resource type="TileSet" uid="uid://b0xw3t3yn8jih" path="res://world/base_tile_set.tres" id="5_hve3p"]
+
+[node name="Game" type="Node2D" unique_id=331563475]
+
+[node name="Backdrop" parent="." unique_id=1430659564 instance=ExtResource("1_ryrav")]
+
+[node name="HorizontalCamera" parent="." unique_id=1861214848 instance=ExtResource("2_eow3j")]
+position = Vector2(192, -108)
+speed = 8.0
+
+[node name="Player" parent="." unique_id=933659611 instance=ExtResource("3_j5wjh")]
+position = Vector2(55, -38)
+collision_layer = 0
+
+[node name="LevelChunks" type="Node2D" parent="." unique_id=1107107757]
+script = ExtResource("4_vef74")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="LevelChunks" unique_id=1620081224]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAACAP7/AAABAAEAAAADAP7/AAABAAEAAAAEAP7/AAABAAEAAAAFAP//AAABAAEAAAAGAP//AAABAAEAAAAHAP//AAABAAEAAAAIAP//AAABAAEAAAAJAP//AAABAAEAAAAKAP//AAABAAEAAAALAP//AAABAAEAAAAMAP//AAABAAEAAAAPAP//AAABAAEAAAAQAP//AAABAAEAAAARAP//AAABAAEAAAARAP7/AAABAAEAAAAQAP7/AAABAAEAAAAPAP7/AAABAAEAAAAMAP7/AAABAAEAAAALAP7/AAABAAEAAAAKAP7/AAABAAEAAAAJAP7/AAABAAEAAAAIAP7/AAABAAEAAAAHAP7/AAABAAEAAAAGAP7/AAABAAEAAAAFAP7/AAABAAEAAAABAP7/AAABAAEAAAAAAP7/AAABAAEAAAADAP//AAABAAEAAAAEAP//AAABAAEAAAAIAPr/AAABAAEAAAAJAPr/AAABAAEAAAAKAPr/AAABAAEAAAALAPr/AAABAAEAAAAMAPr/AAABAAEAAAAKAPf/AAABAAEAAAALAPb/AAABAAEAAAAMAPX/AAABAAEAAAANAPX/AAABAAEAAAAOAPX/AAABAAEAAAAPAPX/AAABAAEAAAAKAP3/AAABAAEAAAALAP3/AAABAAEAAAASAP//AAABAAEAAAASAP7/AAABAAEAAAASAPr/AAABAAEAAAARAPr/AAABAAEAAAA=")
+tile_set = ExtResource("5_hve3p")

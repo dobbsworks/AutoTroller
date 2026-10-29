@@ -52,4 +52,5 @@ MarginContainer/constants/margin_left = 20
 MarginContainer/constants/margin_right = 20
 MarginContainer/constants/margin_top = 20
 Panel/styles/panel = SubResource("StyleBoxTexture_h2yge")
+RichTextLabel/fonts/normal_font = ExtResource("1_lxcsp")
 VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_xqqt7")

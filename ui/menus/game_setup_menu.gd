@@ -9,11 +9,20 @@ signal click_exit()
 @onready var connect_button: Button = %ConnectButton
 @onready var connection_details: Label = %ConnectionDetails
 @onready var bot_count: SpinBox = $VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount
-
+var lockedIn = false
+const TRANSITION_SCREEN = preload("res://ui/transitionScreen.tscn")
 
 func _on_button_start_game_pressed() -> void:
-	var path = "res://test_game.tscn"
-	get_tree().change_scene_to_file(path)
+	if !lockedIn:
+		lockedIn = true
+		var transScene = TRANSITION_SCREEN.instantiate()
+		get_tree().current_scene.add_sibling(transScene)
+		var path = "res://game.tscn"
+		await get_tree().create_timer(1.0).timeout
+		MultiplayerHandler.isActive = true
+		MultiplayerHandler.Reset()
+		transScene.get_node("CanvasLayer/AnimationPlayer").play("fade")
+		get_tree().change_scene_to_file(path)
 
 
 func _on_button_exit_pressed() -> void:

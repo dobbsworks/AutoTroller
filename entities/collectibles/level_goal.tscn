@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://7lefyp5506q5"]
+
+[ext_resource type="Script" uid="uid://dtuba503ld425" path="res://entities/collectibles/level_goal.gd" id="1_6ujb2"]
+[ext_resource type="Texture2D" uid="uid://bximhdusqxlcg" path="res://entities/collectibles/items.png" id="1_i88uv"]
+
+[sub_resource type="Animation" id="Animation_6ujb2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oiddu"]
+resource_name = "bob"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goal:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qtln7"]
+_data = {
+&"RESET": SubResource("Animation_6ujb2"),
+&"bob": SubResource("Animation_oiddu")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xv4l1"]
+radius = 18.586315
+
+[sub_resource type="Gradient" id="Gradient_6ujb2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nf82w"]
+gradient = SubResource("Gradient_6ujb2")
+width = 1
+
+[sub_resource type="Curve" id="Curve_7udpj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6851064, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_dq6sb"]
+curve = SubResource("Curve_7udpj")
+
+[sub_resource type="Gradient" id="Gradient_oiddu"]
+offsets = PackedFloat32Array(0, 0.14832535, 0.31578946, 0.45454547, 0.5933014, 0.79425836, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.9386667, 0.07999998, 1, 0, 1, 0.083333254, 1, 0.06999999, 1, 0.8449999, 1, 0.089999974, 0.28716666, 1, 1, 1, 0, 0.9333334, 1, 1, 0, 0.016666412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_afvom"]
+gradient = SubResource("Gradient_oiddu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_60yoa"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 20, 0)
+scale_min = 2.0
+scale_max = 2.0
+color_initial_ramp = SubResource("GradientTexture1D_afvom")
+alpha_curve = SubResource("CurveTexture_dq6sb")
+
+[node name="LevelGoal" type="Node2D" unique_id=828952228]
+script = ExtResource("1_6ujb2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=936395507]
+libraries/ = SubResource("AnimationLibrary_qtln7")
+autoplay = &"bob"
+
+[node name="Goal" type="Node2D" parent="." unique_id=1576195611]
+
+[node name="EndIcon" type="Sprite2D" parent="Goal" unique_id=2116342506]
+unique_name_in_owner = true
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("1_i88uv")
+region_enabled = true
+region_rect = Rect2(16, 48, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="Goal" unique_id=284812704]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/Area2D" unique_id=612891518]
+shape = SubResource("CircleShape2D_xv4l1")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Goal" unique_id=1087629526]
+amount = 80
+texture = SubResource("GradientTexture1D_nf82w")
+process_material = SubResource("ParticleProcessMaterial_60yoa")
+
+[connection signal="area_entered" from="Goal/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Goal/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -12,7 +12,7 @@ signal onPlayerHitFromBelow(player: CharacterBody2D)
 
 
 func _process(delta: float) -> void:
-	if !player: 
+	if !player && GameState.shared.player: 
 		player = GameState.shared.player
 		return
 		

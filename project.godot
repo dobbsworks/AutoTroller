@@ -25,6 +25,7 @@ MultiplayerHandler="*uid://1rgua8lpyxrp"
 SceneManager="*uid://dtumdxqxxginx"
 SaveManager="*uid://bwucnsvbh4svw"
 Utility="*uid://bq5kitkqblpv2"
+UiLayer="*uid://c84bfc1h86htj"
 
 [display]
 

@@ -12,19 +12,32 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const KAIZO_INIT = preload("res://world/blocks/kaizo_init.tscn")
 const KAZIO_BLOCK = preload("res://world/blocks/kazio_block.tscn")
+const LEVEL_VICTORY_SCREEN = preload("res://ui/level_victory_screen.tscn")
 
 var facing = 1
 var isCrouching = false
+var respawnTimer = 0.0
 
 func _ready() -> void:
 	GameState.shared.player = self
 
 func _physics_process(delta: float) -> void:
-	if !is_on_floor():
-		var fallAccel = get_gravity().y * delta
-		if !Input.is_action_pressed("jump"):
-			fallAccel *= 2
-		velocity.y = move_toward(velocity.y, maxFallSpeed, fallAccel)
+	if respawnTimer > 0.0:
+		respawnTimer = move_toward(respawnTimer, 0.0, delta)
+		velocity.y = 30.0
+		velocity.x = GameState.shared.camera.speed
+	
+	if respawnTimer < 4.0 && respawnTimer > 0.0:
+		if Input.is_action_just_pressed("jump"):
+			respawnTimer = 0.0
+			Jump()
+	
+	else:
+		if !is_on_floor():
+			var fallAccel = get_gravity().y * delta
+			if !Input.is_action_pressed("jump"):
+				fallAccel *= 2
+			velocity.y = move_toward(velocity.y, maxFallSpeed, fallAccel)
 
 	if Input.is_action_just_pressed("jump") && is_on_floor():
 		Jump()
@@ -48,8 +61,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	updateFacing()
 	updateAnimation()
-	#position.y = -100.0
-	if (position.y) > 0:
+	if (position.y) > 10:
 		onKilled()
 
 func updateFacing():
@@ -87,6 +99,9 @@ func updateAnimation():
 	if targetAnimation == "walk":
 		animation_player.speed_scale = abs(velocity.x / 100.0)
 		
+	if respawnTimer > 0.0:
+		targetAnimation = "idle"
+		
 	var currentAnimation = animation_player.current_animation
 	if currentAnimation != targetAnimation:
 		animation_player.play("RESET")
@@ -95,8 +110,26 @@ func updateAnimation():
 		
 		
 func onKilled():
-	position.y = -150.0
+	if respawnTimer > 0.0: return
+	GameState.round.lives -= 1
+	GameState.round.deaths += 1
+	GameState.stage.deathsThisStage += 1
 	
+	respawnTimer = 5.0
+	GameState.stage.levelScene.process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().create_timer(0.5).timeout
+	GameState.stage.levelScene.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	if GameState.round.lives == 0:
+		var newScene = LEVEL_VICTORY_SCREEN.instantiate()
+		newScene.isDefeat = true
+		get_parent().add_sibling(newScene)
+		self.process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		position.y = -250.0
+		global_position.x = GameState.shared.camera.global_position.x - 32
+		
+		
 	
 func BounceUp():
 	velocity.y = JUMP_VELOCITY
@@ -106,11 +139,12 @@ func Jump():
 
 
 func _on_squish_detector_body_entered(body: Node2D) -> void:
-	print("SQUISH DETECTED")
+	onKilled()
 
 
 func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 	if body is Enemy:
+		if respawnTimer > 0.0: return
 		if body.canJumpOn:
 			var enemyCollider: CollisionShape2D = body.get_node("CollisionShape2D")
 			var enemyTopGlobalY = enemyCollider.global_position.y - enemyCollider.shape.get_rect().size.y / 2.0
@@ -126,10 +160,12 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 
 func handleKaizos():
 	# check if user is jumping up
+	if GameState.stage.done: return
 	if is_on_floor() || is_on_floor(): return
 	if velocity.y >= 0: return
 	
-	var spawnedItem = MultiplayerHandler.attemptSpawn([KAIZO_INIT])
+	var spawnables: Array[PackedScene] = [KAIZO_INIT]
+	var spawnedItem = MultiplayerHandler.attemptSpawn(spawnables)
 	if spawnedItem:
 		var instantiatedBlock = KAZIO_BLOCK.instantiate()
 		add_sibling(instantiatedBlock)

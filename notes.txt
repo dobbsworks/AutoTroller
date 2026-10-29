@@ -2,9 +2,7 @@
 
 Main plan
 	MVP
-		Full start into game
 		Handle death
-	Enemy menu scroll
 	More enemies
 	Items
 

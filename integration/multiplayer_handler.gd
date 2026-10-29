@@ -15,6 +15,10 @@ func _process(delta: float) -> void:
 	pass
 
 
+func Reset():
+	chatters = []
+	UiLayer.reset()
+
 func on_chat_received(username: String, message_text: String, data: Dictionary, isCpu: bool = false):
 	if !isActive: return
 	var chatter = getOrCreateChatter(username, isCpu)
