@@ -616,6 +616,16 @@ texture = ExtResource("2_sglur")
 region_enabled = true
 region_rect = Rect2(59, 57, 6, 6)
 
+[node name="Cloud" type="Node2D" parent="PlayerSprite" unique_id=39542958]
+visible = false
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSprite/Cloud" unique_id=1734400007]
+position = Vector2(0, 13)
+texture = ExtResource("2_sglur")
+region_enabled = true
+region_rect = Rect2(48, 15, 32, 16)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=756182085]
 libraries/ = SubResource("AnimationLibrary_fkugw")
 autoplay = &"idle"

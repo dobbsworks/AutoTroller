@@ -12,6 +12,7 @@ script = ExtResource("1_1udrh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1431500814]
 
 [node name="Sprite" type="Node2D" parent="." unique_id=1291407578]
+z_index = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite" unique_id=851132383]
 texture_filter = 1

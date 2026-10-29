@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var slowDownHorizAccel = 600.0
 @export var JUMP_VELOCITY = -360.0
 @export var maxFallSpeed = 300.0
+@onready var cloud: Node2D = $PlayerSprite/Cloud
 
 @onready var player_sprite: Node2D = $PlayerSprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -81,6 +82,13 @@ func updateFacing():
 	player_sprite.scale.x = facing
 
 func updateAnimation():
+	
+	cloud.visible = respawnTimer > 0.0
+	if respawnTimer > 0.0:
+		visible = fposmod(respawnTimer, 0.4) > 0.2
+	else: 
+		visible = true
+	
 	animation_player.speed_scale = 1.0
 	var targetAnimation = "idle"
 	if Input.is_action_pressed("up") && is_on_floor():
