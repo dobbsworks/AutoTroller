@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://wuao3aksuhk5"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_1uoua"]
+[ext_resource type="PackedScene" uid="uid://deexep5l6wfb3" path="res://entities/enemies/fly_across_enemy.tscn" id="2_1uoua"]
+
+[resource]
+script = ExtResource("1_1uoua")
+name = "Birdy"
+commands = Array[String](["birdy", "bird", "b", "bullet"])
+cost = 1
+spawnedObject = ExtResource("2_1uoua")
+numberSpawned = 1
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

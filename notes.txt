@@ -1,8 +1,6 @@
 
 
 Main plan
-	MVP
-		Handle death
 	More enemies
 	Items
 

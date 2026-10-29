@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://veuyavfrm202" path="res://world/world.png" id="1_epgrh"]
 [ext_resource type="PackedScene" uid="uid://cf74srn2lsd64" path="res://world/spawnPoints/spawn_point_coin.tscn" id="2_ja84i"]
 [ext_resource type="PackedScene" uid="uid://cs6c72hy08fo4" path="res://world/spawnPoints/spawn_point_ground_enemy.tscn" id="3_mmv6k"]
-[ext_resource type="PackedScene" uid="uid://bnyiqfao2rr4h" path="res://world/blocks/kazio_block.tscn" id="4_5jj5q"]
+[ext_resource type="PackedScene" uid="uid://bnyiqfao2rr4h" path="res://world/blocks/kaizo_block.tscn" id="4_5jj5q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ja84i"]
 texture = ExtResource("1_epgrh")

@@ -41,7 +41,7 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 					chatter.spawnQueue.append(spawnCommand.spawnedObject)
 	
 	
-func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> PackedScene:
+func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 	for potentialSpawnable in potentialSpawnables:
 		var c = chatters.filter(func(a: Chatter): return a.spawnQueue.has(potentialSpawnable))
 		if c.size() == 0: continue
@@ -53,7 +53,10 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> PackedScene:
 			# move to end
 			chatters.erase(spawningChatter)
 			chatters.append(spawningChatter)
-		return potentialSpawnable
+		var ret = SpawnResult.new()
+		ret.chatter = spawningChatter
+		ret.spawnable = potentialSpawnable
+		return ret
 	return null
 	
 	

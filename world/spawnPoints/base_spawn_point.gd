@@ -10,10 +10,10 @@ func _ready() -> void:
 func checkForSpawn():
 	var spawnedItem = MultiplayerHandler.attemptSpawn(spawnables)
 	if spawnedItem != null:
-		spawnItem(spawnedItem)
+		spawnItem(spawnedItem.spawnable)
 
 
 func spawnItem(itemScene: PackedScene):
 		var item = itemScene.instantiate()
-		add_sibling(item)
-		item.position = position
+		get_parent().add_sibling(item)
+		item.global_position = global_position

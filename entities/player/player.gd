@@ -11,17 +11,19 @@ extends CharacterBody2D
 @onready var player_sprite: Node2D = $PlayerSprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const KAIZO_INIT = preload("res://world/blocks/kaizo_init.tscn")
-const KAZIO_BLOCK = preload("res://world/blocks/kazio_block.tscn")
+const KAIZO_BLOCK = preload("res://world/blocks/kaizo_block.tscn")
 const LEVEL_VICTORY_SCREEN = preload("res://ui/level_victory_screen.tscn")
 
 var facing = 1
 var isCrouching = false
 var respawnTimer = 0.0
+var interactedWithEnemyThisFrame = false
 
 func _ready() -> void:
 	GameState.shared.player = self
 
 func _physics_process(delta: float) -> void:
+	interactedWithEnemyThisFrame = false
 	if respawnTimer > 0.0:
 		respawnTimer = move_toward(respawnTimer, 0.0, delta)
 		velocity.y = 30.0
@@ -144,6 +146,7 @@ func _on_squish_detector_body_entered(body: Node2D) -> void:
 
 func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 	if body is Enemy:
+		if interactedWithEnemyThisFrame: return # prevent double-sprite
 		if respawnTimer > 0.0: return
 		if body.canJumpOn:
 			var enemyCollider: CollisionShape2D = body.get_node("CollisionShape2D")
@@ -153,9 +156,12 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 			var isLandingOnTop = playerBottomY - 1.0 - velocity.y * get_process_delta_time() < enemyTopGlobalY
 			if isLandingOnTop:
 				body.kill()
+				interactedWithEnemyThisFrame = true
 				BounceUp()
 				return
 		onKilled()
+
+
 
 
 func handleKaizos():
@@ -167,8 +173,9 @@ func handleKaizos():
 	var spawnables: Array[PackedScene] = [KAIZO_INIT]
 	var spawnedItem = MultiplayerHandler.attemptSpawn(spawnables)
 	if spawnedItem:
-		var instantiatedBlock = KAZIO_BLOCK.instantiate()
+		var instantiatedBlock = KAIZO_BLOCK.instantiate()
 		add_sibling(instantiatedBlock)
+		instantiatedBlock.chatter = spawnedItem.chatter
 		instantiatedBlock.global_position = global_position + Vector2(0, -16)
 		instantiatedBlock.global_position = snapped(instantiatedBlock.global_position - Vector2(0, 24), Vector2(16, 16)) + Vector2(8, 8)
 	

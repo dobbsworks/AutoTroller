@@ -3,7 +3,7 @@ const GAME = preload("res://game.tscn")
 
 
 var defaultStage = {
-	endStart = 10,
+	endStart = 10000,
 	goalDistance = -1,
 	cameraStop = -1,
 	currentScrollSpeed = 4.0,
@@ -16,7 +16,7 @@ var stage = {}
 
 var defaultRound = {
 	coins = 0,
-	lives = 2,
+	lives = 5,
 	deaths = 0,
 	currentStage = 1,
 }

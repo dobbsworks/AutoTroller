@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dt4pyn1t6s1h7"]
+
+[ext_resource type="PackedScene" uid="uid://e7hmww7s6vjk" path="res://entities/enemies/BaseEnemy.tscn" id="1_4t0yo"]
+[ext_resource type="Texture2D" uid="uid://drukpsyjsj6v6" path="res://entities/enemies/enemies.png" id="2_x7f0x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jxsx"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1we5t"]
+atlas = ExtResource("2_x7f0x")
+region = Rect2(32, 32, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t78qo"]
+atlas = ExtResource("2_x7f0x")
+region = Rect2(32, 48, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xv4l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1we5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t78qo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="FlyTowardsEnemy" unique_id=1357401302 instance=ExtResource("1_4t0yo")]
+collision_mask = 0
+canJumpOn = true
+gravityRatio = 0.0
+horizontalAccel = 100.0
+horizMaxSpeed = 120.0
+reflectOnWall = false
+horizFollowPlayer = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
+shape = SubResource("RectangleShape2D_5jxsx")
+
+[node name="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="0" unique_id=851132383]
+texture = ExtResource("2_x7f0x")
+region_enabled = true
+region_rect = Rect2(48, 16, 16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite/Sprite2D" index="0" unique_id=1904541358]
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_xv4l1")
+autoplay = "default"
+frame_progress = 0.56993514

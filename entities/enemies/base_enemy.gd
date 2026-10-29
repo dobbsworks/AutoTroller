@@ -16,6 +16,7 @@ var isDummy = false
 @export var horizMaxSpeed = 40.0
 @export var reflectOnWall = true
 @export var turnAtEdges = false
+@export var horizFollowPlayer = false
 
 @export var jumps = false
 @export var jumpStrength = 300.0
@@ -42,12 +43,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jumpStrength
 		
 	var targetHorizVelocity = horizMaxSpeed * horizontalDirection
-	velocity.x = move_toward(velocity.x, targetHorizVelocity, horizontalAccel)
+	velocity.x = move_toward(velocity.x, targetHorizVelocity, horizontalAccel * delta)
 	move_and_slide()
 	sprite.scale.x = horizontalDirection
 	if reflectOnWall && is_on_wall() && velocity.x == 0.0:
 		horizontalDirection *= -1
 		
+	if horizFollowPlayer && GameState.shared.player:
+		if GameState.shared.player.global_position.x < global_position.x:
+			horizontalDirection = -1
+		else:
+			horizontalDirection = 1
 
 
 func kill(): 

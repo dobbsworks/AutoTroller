@@ -6,7 +6,7 @@ var player: CharacterBody2D
 @export var bounceDownRequiresClearance = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+var chatter: Chatter
 
 signal onPlayerHitFromBelow(player: CharacterBody2D)
 
