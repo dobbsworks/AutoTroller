@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var coin_count: Label = %CoinCount
 @onready var life_count: Label = %LifeCount
 @onready var hud_spawn_container: HBoxContainer = %HudSpawnContainer
+@onready var player_path_follow: PathFollow2D = %PlayerPathFollow
 
 
 const CHATTER_ROW = preload("res://ui/chatter_row.tscn")
@@ -20,6 +21,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	coin_count.text = ("%02d" % GameState.round.coins)
 	life_count.text = ("%02d" % GameState.round.lives)
+	
+	if GameState.shared.player:
+		var playerProgressRatio = GameState.shared.player.position.x / GameState.stage.goalDistance
+		player_path_follow.progress_ratio = playerProgressRatio
+	else: 
+		player_path_follow.progress_ratio = 0.0
 
 func on_new_chatter(chatter: Chatter):
 	var chatterRow = CHATTER_ROW.instantiate()

@@ -7,7 +7,7 @@ extends Camera2D
 @onready var camera_edge_left: Node2D = $CameraEdgeLeft
 
 func _ready() -> void:
-	pass 
+	GameState.shared.camera = self 
 
 
 func _process(delta: float) -> void:

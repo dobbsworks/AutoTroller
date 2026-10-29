@@ -10,9 +10,14 @@ extends CharacterBody2D
 
 @onready var player_sprite: Node2D = $PlayerSprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+const KAIZO_INIT = preload("res://world/blocks/kaizo_init.tscn")
+const KAZIO_BLOCK = preload("res://world/blocks/kazio_block.tscn")
 
 var facing = 1
 var isCrouching = false
+
+func _ready() -> void:
+	GameState.shared.player = self
 
 func _physics_process(delta: float) -> void:
 	if !is_on_floor():
@@ -38,7 +43,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		if is_on_floor():
 			velocity.x = move_toward(velocity.x, 0, slowDownHorizAccel * delta)
-
+	handleKaizos()
+	
 	move_and_slide()
 	updateFacing()
 	updateAnimation()
@@ -116,3 +122,17 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 				BounceUp()
 				return
 		onKilled()
+
+
+func handleKaizos():
+	# check if user is jumping up
+	if is_on_floor() || is_on_floor(): return
+	if velocity.y >= 0: return
+	
+	var spawnedItem = MultiplayerHandler.attemptSpawn([KAIZO_INIT])
+	if spawnedItem:
+		var instantiatedBlock = KAZIO_BLOCK.instantiate()
+		add_sibling(instantiatedBlock)
+		instantiatedBlock.global_position = global_position + Vector2(0, -16)
+		instantiatedBlock.global_position = snapped(instantiatedBlock.global_position - Vector2(0, 24), Vector2(16, 16)) + Vector2(8, 8)
+	

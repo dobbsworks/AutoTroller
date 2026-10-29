@@ -26,6 +26,9 @@ func _process(delta: float) -> void:
 		
 	spawn_count.text = ""
 	if chatter.spawnQueue.size() > 1: spawn_count.text = str(chatter.spawnQueue.size())
+	
+	if chatter.isCpu:
+		get_node("Panel").self_modulate = Color.YELLOW_GREEN
 
 func onTooPoor():
 	animation_player.play("RESET")

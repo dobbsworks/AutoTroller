@@ -9,9 +9,8 @@ var connectedName = ""
 signal on_chat_received(username: String, message_text: String, data: Dictionary)
 
 #
-#func _ready() -> void:
-	#var connectionName = SaveManager.saveData.username
-	#SetupTwitchConnection("dobbsworks")
+func _ready() -> void:
+	SetupTwitchConnection("dobbsworks")
 
 
 func SetupTwitchConnection(channelName: String):

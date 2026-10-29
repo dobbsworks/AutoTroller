@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://b487ba4kklkmv" path="res://ui/ui_layer.gd" id="1_3otji"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_xqqt7"]
 [ext_resource type="PackedScene" uid="uid://c61gti4a7v06m" path="res://ui/components/autoscroll_behavior.tscn" id="3_00rn6"]
+[ext_resource type="Script" uid="uid://ccpif3jca30ke" path="res://ui/lineFromPath.gd" id="4_gjtyb"]
+[ext_resource type="Texture2D" uid="uid://bq5nqvndyout8" path="res://entities/player/player.png" id="4_vu3t1"]
+[ext_resource type="Texture2D" uid="uid://bximhdusqxlcg" path="res://entities/collectibles/items.png" id="5_8aggs"]
+
+[sub_resource type="Curve2D" id="Curve2D_vu3t1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -47.980278, 0.56447387, 47.980278, -0.56447387, 73, -12, -37.819748, 2.2578955, 37.819748, -2.2578955, 151, 1, -35.56185, 2.8223693, 35.56185, -2.8223693, 229, -10, -39.513172, -2.8223693, 39.513172, 2.8223693, 300, 3, -31.610538, 2.8223693, 31.610538, -2.8223693, 360, -7, 0, 0, 0, 0, 404, -7)
+}
+point_count = 7
 
 [node name="UiLayer" type="CanvasLayer" unique_id=770390486]
 layer = 99
@@ -116,3 +125,42 @@ layout_mode = 2
 text = "00"
 
 [node name="ProgressHUD" type="Node2D" parent="." unique_id=907881972]
+position = Vector2(208, 59)
+
+[node name="Path2D" type="Path2D" parent="ProgressHUD" unique_id=1973723470]
+curve = SubResource("Curve2D_vu3t1")
+
+[node name="PlayerPathFollow" type="PathFollow2D" parent="ProgressHUD/Path2D" unique_id=164887954]
+unique_name_in_owner = true
+rotates = false
+
+[node name="PlayerIcon" type="Sprite2D" parent="ProgressHUD/Path2D/PlayerPathFollow" unique_id=311449464]
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("4_vu3t1")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(14.460552, 14.53782, 19.244884, 18.165733)
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="ProgressHUD/Path2D" unique_id=729523176]
+position = Vector2(404.00006, -7.0000005)
+progress = 411.50916
+rotates = false
+loop = false
+
+[node name="EndIcon" type="Sprite2D" parent="ProgressHUD/Path2D/PathFollow2D2" unique_id=407701197]
+z_index = 1
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("5_8aggs")
+offset = Vector2(0, -8)
+region_enabled = true
+region_rect = Rect2(16, 48, 16, 16)
+
+[node name="Line2D" type="Line2D" parent="ProgressHUD" unique_id=1367046020 node_paths=PackedStringArray("path")]
+points = PackedVector2Array(0, 0, 4.6590233, -1.7956209, 7.267156, -2.6695092, 10.446606, -3.6480389, 14.194359, -4.6985354, 18.507397, -5.7883224, 23.382702, -6.884724, 26.030262, -7.4251943, 28.81726, -7.9550653, 31.743317, -8.470252, 34.808056, -8.96667, 38.0111, -9.440235, 41.35207, -9.886862, 44.830593, -10.302468, 48.44629, -10.682968, 52.19878, -11.024276, 56.087692, -11.3223095, 60.112648, -11.572983, 64.27327, -11.772212, 68.569176, -11.915913, 73, -12, 77.33782, -12.005963, 81.367386, -11.92222, 85.10724, -11.755083, 88.57595, -11.510862, 91.7921, -11.19587, 94.77424, -10.816418, 97.54094, -10.378813, 100.11078, -9.889372, 104.73411, -8.780214, 108.79277, -7.5394354, 112.43528, -6.217523, 115.810196, -4.864967, 119.06604, -3.5322556, 122.35136, -2.2698781, 125.81467, -1.1283227, 129.60452, -0.15807939, 133.86945, 0.5903635, 138.75798, 1.0665169, 141.48251, 1.1867074, 144.41864, 1.2198921, 147.58496, 1.15976, 151, 1, 154.45029, 0.77780056, 157.71777, 0.53538257, 160.81422, 0.2739839, 163.75137, -0.0051579773, 166.54095, -0.30080527, 169.19473, -0.61172056, 174.14182, -1.2744038, 178.68661, -1.9833069, 182.92303, -2.7285285, 186.94507, -3.5001674, 190.84671, -4.288322, 194.7219, -5.0830917, 198.66455, -5.8745756, 202.76868, -6.6528716, 207.12823, -7.408079, 211.8372, -8.130297, 214.35205, -8.475941, 216.9895, -8.809624, 219.76126, -9.130109, 222.67911, -9.436159, 225.75478, -9.726535, 229, -10, 232.22035, -10.219035, 235.22366, -10.350124, 238.02524, -10.398023, 240.64027, -10.367496, 245.37169, -10.090204, 249.53986, -9.556333, 253.2667, -8.803968, 256.67407, -7.8711977, 259.88397, -6.796105, 263.01825, -5.6167774, 266.19885, -4.3712997, 269.54764, -3.09776, 273.18655, -1.8342421, 277.23752, -0.6188328, 281.82242, 0.51038194, 284.3532, 1.0307646, 287.0632, 1.5153164, 289.96765, 1.9592764, 293.08176, 2.3578844, 296.4208, 2.706379, 300, 3, 303.55884, 3.2276418, 306.8381, 3.383815, 309.85486, 3.472181, 312.6262, 3.4964025, 317.50104, 3.3670595, 321.5994, 3.0250828, 325.05804, 2.4997697, 328.01376, 1.820416, 330.60333, 1.0163199, 332.9635, 0.1167773, 337.5428, -1.851459, 340.03546, -2.8615587, 342.84586, -3.849917, 346.11072, -4.787237, 349.96686, -5.6442223, 354.55103, -6.391576, 357.15887, -6.714985, 360, -7, 362.90738, -7.248318, 365.7034, -7.465112, 368.38928, -7.6519322, 370.9663, -7.8103285, 375.79874, -8.048053, 380.2107, -8.190687, 384.2122, -8.250635, 387.81323, -8.240299, 391.0238, -8.172083, 393.85394, -8.058389, 398.41293, -7.7441797, 401.57022, -7.396896, 404, -7)
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("4_gjtyb")
+path = NodePath("../Path2D")

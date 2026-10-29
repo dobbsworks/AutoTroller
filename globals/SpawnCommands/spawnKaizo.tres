@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://b2baxtbxmrg5y"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_beiqs"]
+[ext_resource type="PackedScene" uid="uid://ckikmk0kdsgds" path="res://world/blocks/kaizo_init.tscn" id="2_beiqs"]
+
+[resource]
+script = ExtResource("1_beiqs")
+name = "Kaizo"
+commands = Array[String](["kaizo", "k", "block", "hidden", "hiddenblock"])
+cost = 3
+spawnedObject = ExtResource("2_beiqs")
+numberSpawned = 1
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

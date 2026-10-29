@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ckikmk0kdsgds"]
+
+[ext_resource type="Script" uid="uid://bmuq7mh2604m0" path="res://world/blocks/kaizo_init.gd" id="1_s3r5m"]
+[ext_resource type="PackedScene" uid="uid://caar27ng4c1pw" path="res://world/blocks/solid_block.tscn" id="1_x473j"]
+
+[node name="KaizoInit" type="Node2D" unique_id=1013309907]
+script = ExtResource("1_s3r5m")
+
+[node name="SolidBlock" parent="." unique_id=1653335243 instance=ExtResource("1_x473j")]

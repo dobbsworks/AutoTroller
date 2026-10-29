@@ -19,6 +19,9 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 	if !isActive: return
 	var chatter = getOrCreateChatter(username, isCpu)
 	
+	if !isCpu:
+		print(username, ": ", message_text)
+	
 	if chatter.spawnQueue.size() == 0:
 		for spawnCommand in spawnCommands:
 			if spawnCommand.cost > chatter.points: 

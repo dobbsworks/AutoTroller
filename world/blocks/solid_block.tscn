@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://caar27ng4c1pw"]
+
+[ext_resource type="PackedScene" uid="uid://cpp542yvunedj" path="res://world/blocks/base_block.tscn" id="1_0sk5w"]
+[ext_resource type="Script" uid="uid://cw5jp73jk8x6d" path="res://world/blocks/kaizo_block.gd" id="2_rip23"]
+[ext_resource type="Texture2D" uid="uid://veuyavfrm202" path="res://world/world.png" id="3_a5nv1"]
+
+[node name="SolidBlock" unique_id=1653335243 instance=ExtResource("1_0sk5w")]
+bounceDownRatio = 0.5
+
+[node name="CharacterBody2D" parent="." index="0" unique_id=1127527726]
+collision_mask = 0
+script = ExtResource("2_rip23")
+
+[node name="Sprite2D" parent="CharacterBody2D" index="1" unique_id=392377616]
+texture = ExtResource("3_a5nv1")
+region_rect = Rect2(80, 16, 16, 16)

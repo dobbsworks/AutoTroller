@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://n6emfuv5umax" path="res://entities/player/player.tscn" id="2_x67xg"]
 [ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="5_0lb5u"]
 [ext_resource type="PackedScene" uid="uid://c84bfc1h86htj" path="res://ui/ui_layer.tscn" id="6_vkvqs"]
+[ext_resource type="PackedScene" uid="uid://bnyiqfao2rr4h" path="res://world/blocks/kazio_block.tscn" id="9_8xn62"]
 
 [sub_resource type="Gradient" id="Gradient_x67xg"]
 colors = PackedColorArray(0.39607844, 1, 1, 1, 0.99471396, 0.688397, 0.80078876, 1)
@@ -122,3 +123,6 @@ tile_set = ExtResource("1_wpsn8")
 position = Vector2(316, -58)
 
 [node name="UiLayer" parent="." unique_id=770390486 instance=ExtResource("6_vkvqs")]
+
+[node name="KazioBlock" parent="." unique_id=1653335243 instance=ExtResource("9_8xn62")]
+position = Vector2(120, -88)
