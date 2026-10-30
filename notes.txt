@@ -1,4 +1,5 @@
 
+Don't want joining game unless valid command given
 
 More enemies
 Items
@@ -17,7 +18,6 @@ TODO
 		make sure no block already there when spawning
 		make sure not at peak of jump
 		
-	BIG particle effect on death (process mode: always)
 	
 	Enemy movement
 		Patrol - Goombud/Goombrat

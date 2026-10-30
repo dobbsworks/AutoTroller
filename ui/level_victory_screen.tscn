@@ -436,12 +436,14 @@ to continue"
 position = Vector2(795, -141)
 
 [node name="ImageDead" type="Sprite2D" parent="CanvasLayer/Control/Image" unique_id=903009453]
+visible = false
 texture_filter = 1
 position = Vector2(20, 7)
 scale = Vector2(9.1875, 9.1875)
 texture = SubResource("AtlasTexture_xv4l1")
 
 [node name="ImageThumbsUp" type="Sprite2D" parent="CanvasLayer/Control/Image" unique_id=114488315]
+visible = false
 texture_filter = 1
 position = Vector2(20, 7)
 scale = Vector2(9.1875, 9.1875)
@@ -450,6 +452,7 @@ region_enabled = true
 region_rect = Rect2(131.01138, 5.4331837, 23.221039, 23.9392)
 
 [node name="ImageThrone" type="Sprite2D" parent="CanvasLayer/Control/Image" unique_id=361985579]
+visible = false
 texture_filter = 1
 position = Vector2(20, 7)
 scale = Vector2(4.843, 4.843)

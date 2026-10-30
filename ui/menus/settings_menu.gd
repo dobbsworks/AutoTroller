@@ -10,12 +10,19 @@ signal click_exit()
 @onready var button_exit: Button = $VBoxContainer/ButtonExit
 @onready var disconnect_confirmation: VBoxContainer = %DisconnectConfirmation
 var canPlayTestSFX = false
+@onready var connection_options: HBoxContainer = $VBoxContainer/ConnectionOptions
+
+@export var includeConnectionOptions = true
 
 func _ready() -> void:
+	if !includeConnectionOptions:
+		connection_options.visible = false
 	AudioServer.set_bus_volume_db(1, linear_to_db(SaveManager.saveData.volumeSfx))
 	AudioServer.set_bus_volume_db(2, linear_to_db(SaveManager.saveData.volumeMusic))
 	volume_music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 	volume_sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(1))
+	await get_tree().create_timer(0.1).timeout
+	canPlayTestSFX = true
 	
 func refresh():
 	disconnect_confirmation.visible = false

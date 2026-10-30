@@ -11,6 +11,16 @@
 [ext_resource type="PackedScene" uid="uid://dn7drghtnk5ix" path="res://world/levelChunks1/chunk4.tscn" id="8_215e1"]
 [ext_resource type="PackedScene" uid="uid://0tjocqgbib60" path="res://world/levelChunks1/chunk5.tscn" id="9_7sc4i"]
 [ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="10_80cx4"]
+[ext_resource type="Script" uid="uid://dpo3h54neiv61" path="res://ui/pause/pause_handler.gd" id="12_iotsf"]
+[ext_resource type="PackedScene" uid="uid://bp4f81clxi7xp" path="res://ui/menus/settings_menu.tscn" id="13_lc2xo"]
+
+[sub_resource type="Gradient" id="Gradient_215e1"]
+offsets = PackedFloat32Array(0.07509881, 0.49011856, 0.91699606)
+colors = PackedColorArray(0.121499985, 0.21457498, 0.45, 1, 0.121499985, 0.45, 0.3624, 1, 0.121499985, 0.21457498, 0.45, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iotsf"]
+gradient = SubResource("Gradient_215e1")
+fill_to = Vector2(1, 1)
 
 [node name="Game" type="Node2D" unique_id=331563475]
 
@@ -26,6 +36,43 @@ collision_layer = 0
 
 [node name="LevelChunks" type="Node2D" parent="." unique_id=1107107757]
 script = ExtResource("4_vef74")
-level1Chunks = Array[Resource]([ExtResource("5_mfdv2"), ExtResource("6_iotsf"), ExtResource("7_lc2xo"), ExtResource("8_215e1"), ExtResource("9_7sc4i"), ExtResource("10_80cx4")])
+level1Chunks = Array[PackedScene]([ExtResource("5_mfdv2"), ExtResource("6_iotsf"), ExtResource("7_lc2xo"), ExtResource("8_215e1"), ExtResource("9_7sc4i"), ExtResource("10_80cx4")])
 
 [node name="StartChunk1" parent="LevelChunks" unique_id=1303914081 instance=ExtResource("5_7jktm")]
+
+[node name="PauseHandler" type="Node2D" parent="." unique_id=2026422030]
+process_mode = 3
+script = ExtResource("12_iotsf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PauseHandler" unique_id=1902940790]
+layer = 110
+
+[node name="PauseScreen" type="Control" parent="PauseHandler/CanvasLayer" unique_id=1296276131]
+process_mode = 2
+z_index = 4096
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="DarkenScreen" type="TextureRect" parent="PauseHandler/CanvasLayer/PauseScreen" unique_id=251979500]
+self_modulate = Color(0.43, 0.43, 0.43, 0.72156864)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_iotsf")
+
+[node name="SettingsMenu" parent="PauseHandler/CanvasLayer/PauseScreen" unique_id=630448504 instance=ExtResource("13_lc2xo")]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+includeConnectionOptions = false

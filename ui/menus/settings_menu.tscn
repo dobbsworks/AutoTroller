@@ -26,15 +26,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2127098340]
+[node name="ConnectionOptions" type="HBoxContainer" parent="VBoxContainer" unique_id=2127098340]
 layout_mode = 2
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer" unique_id=125630262]
+[node name="Panel3" type="Panel" parent="VBoxContainer/ConnectionOptions" unique_id=125630262]
 custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Panel3" unique_id=185756499]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ConnectionOptions/Panel3" unique_id=185756499]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,35 +42,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer" unique_id=216602375]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer" unique_id=216602375]
 layout_mode = 2
 
-[node name="DisconnectButton" type="Button" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer" unique_id=1962247]
+[node name="DisconnectButton" type="Button" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer" unique_id=1962247]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "DISCONNECT 
 FROM TWITCH"
 
-[node name="DisconnectConfirmation" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer" unique_id=172801812]
+[node name="DisconnectConfirmation" type="VBoxContainer" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer" unique_id=172801812]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation" unique_id=310948715]
+[node name="Label" type="Label" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation" unique_id=310948715]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Are you sure you want to disconnect from Twitch?"
 autowrap_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation" unique_id=1590942641]
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation" unique_id=1590942641]
 layout_mode = 2
 
-[node name="CancelDisconnect" type="Button" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons" unique_id=2091372132]
+[node name="CancelDisconnect" type="Button" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons" unique_id=2091372132]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Wait, no"
 
-[node name="ConfirmDisconnect2" type="Button" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons" unique_id=280917411]
+[node name="ConfirmDisconnect2" type="Button" parent="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons" unique_id=280917411]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -141,9 +141,9 @@ layout_mode = 2
 theme = ExtResource("1_h6jc8")
 text = "BACK"
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/CancelDisconnect" to="." method="_on_cancel_disconnect_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/ConfirmDisconnect2" to="." method="_on_confirm_disconnect_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/CancelDisconnect" to="." method="_on_cancel_disconnect_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/ConfirmDisconnect2" to="." method="_on_confirm_disconnect_2_pressed"]
 [connection signal="value_changed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/VolumeMusicSlider" to="." method="_on_volume_music_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Panel2/MarginContainer/VBoxContainer/VolumeSfxSlider" to="." method="_on_volume_sfx_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
