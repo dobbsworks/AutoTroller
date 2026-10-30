@@ -7,6 +7,8 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var control: Control = $CanvasLayer/Control
 @onready var victory: RichTextLabel = $CanvasLayer/Control/Victory
+@onready var image_dead: Sprite2D = $CanvasLayer/Control/Image/ImageDead
+@onready var image_thumbs_up: Sprite2D = $CanvasLayer/Control/Image/ImageThumbsUp
 
 var readyToContinue = false
 
@@ -15,6 +17,9 @@ var readyToContinue = false
 
 func _ready():
 	isFinal = GameState.stagesPerRound == GameState.round.currentStage && !isDefeat
+	image_dead.visible = isDefeat
+	image_thumbs_up.visible = !isDefeat && !isFinal
+	
 	if isFinal:
 		animation_player.play("victory")
 		victory.text = "[wave amp=50.0 freq=5.0 connected=1]VICTORY![/wave]"

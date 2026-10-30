@@ -1,15 +1,16 @@
 
 
-Main plan
-	More enemies
-	Items
+More enemies
+Items
+
+Different levels
+
 
 
 TODO
 	Buffer jumps
 	Coyote time
 	Kaizos need:
-		name appear effect
 		sfx
 		make sure no block already there when spawning
 		make sure not at peak of jump

@@ -4,11 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://7bn8rlbk0e3i" path="res://ui/components/sawtooth.tscn" id="1_ic2lk"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_2yjqw"]
 [ext_resource type="Shader" uid="uid://par4lyuajxt2" path="res://shaders/hue_shift.gdshader" id="2_74mk3"]
+[ext_resource type="Texture2D" uid="uid://bq5nqvndyout8" path="res://entities/player/player.png" id="5_m40oi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1q8wr"]
 shader = ExtResource("2_74mk3")
 shader_parameter/use_grayscale = true
 shader_parameter/shift_color = Color(0.96, 0.736, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv4l1"]
+atlas = ExtResource("5_m40oi")
+region = Rect2(98, 16, 32, 16)
 
 [sub_resource type="Animation" id="Animation_74mk3"]
 length = 0.001
@@ -120,6 +125,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(1585, -74)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Control/Image:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(795, -141)]
+}
 
 [sub_resource type="Animation" id="Animation_6d6xc"]
 resource_name = "defeat"
@@ -222,6 +239,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1585, -74), Vector2(1585, 89), Vector2(1585, 89)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Image:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.41999996, 0.81999993),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(795, -141), Vector2(795, 288), Vector2(795, 288)]
 }
 
 [sub_resource type="Animation" id="Animation_agsg6"]
@@ -381,6 +410,23 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 48
 text = "Press JUMP
 to continue"
+
+[node name="Image" type="Node2D" parent="CanvasLayer/Control" unique_id=1266885891]
+position = Vector2(795, -141)
+
+[node name="ImageDead" type="Sprite2D" parent="CanvasLayer/Control/Image" unique_id=903009453]
+texture_filter = 1
+position = Vector2(20, 7)
+scale = Vector2(9.1875, 9.1875)
+texture = SubResource("AtlasTexture_xv4l1")
+
+[node name="ImageThumbsUp" type="Sprite2D" parent="CanvasLayer/Control/Image" unique_id=114488315]
+texture_filter = 1
+position = Vector2(20, 7)
+scale = Vector2(9.1875, 9.1875)
+texture = ExtResource("5_m40oi")
+region_enabled = true
+region_rect = Rect2(131.01138, 5.4331837, 23.221039, 23.9392)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1735726833]
 libraries/ = SubResource("AnimationLibrary_6d6xc")
