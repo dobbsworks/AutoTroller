@@ -3,12 +3,18 @@ extends Node2D
 @onready var coins_count: Label = %CoinsCount
 @onready var deaths: Label = %Deaths
 @onready var death_count: Label = %DeathCount
+@onready var fruits: Label = %Fruits
+@onready var fruit_count: Label = %FruitCount
+
+
 @onready var continueLabel: Label = %Continue
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var control: Control = $CanvasLayer/Control
 @onready var victory: RichTextLabel = $CanvasLayer/Control/Victory
 @onready var image_dead: Sprite2D = $CanvasLayer/Control/Image/ImageDead
 @onready var image_thumbs_up: Sprite2D = $CanvasLayer/Control/Image/ImageThumbsUp
+@onready var image_throne: Sprite2D = $CanvasLayer/Control/Image/ImageThrone
+
 
 var readyToContinue = false
 
@@ -19,6 +25,8 @@ func _ready():
 	isFinal = GameState.stagesPerRound == GameState.round.currentStage && !isDefeat
 	image_dead.visible = isDefeat
 	image_thumbs_up.visible = !isDefeat && !isFinal
+	image_throne.visible = isFinal
+	fruit_count.text = str(GameState.round.currentStage)
 	
 	if isFinal:
 		animation_player.play("victory")
@@ -51,6 +59,10 @@ func queueLabels():
 	deaths.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
 	death_count.modulate = Color.WHITE
+	await get_tree().create_timer(0.3).timeout
+	fruits.modulate = Color.WHITE
+	await get_tree().create_timer(0.3).timeout
+	fruit_count.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
 	
 	await get_tree().create_timer(0.5).timeout

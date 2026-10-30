@@ -399,6 +399,22 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
+[node name="Fruits" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=796529924]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "Fruits"
+
+[node name="FruitCount" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=886281195]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 2
+
 [node name="Continue" type="Label" parent="CanvasLayer/Control" unique_id=221408968]
 unique_name_in_owner = true
 layout_mode = 0
@@ -427,6 +443,14 @@ scale = Vector2(9.1875, 9.1875)
 texture = ExtResource("5_m40oi")
 region_enabled = true
 region_rect = Rect2(131.01138, 5.4331837, 23.221039, 23.9392)
+
+[node name="ImageThrone" type="Sprite2D" parent="CanvasLayer/Control/Image" unique_id=361985579]
+texture_filter = 1
+position = Vector2(20, 7)
+scale = Vector2(4.843, 4.843)
+texture = ExtResource("5_m40oi")
+region_enabled = true
+region_rect = Rect2(157.56989, -0.3624668, 100.24124, 50.471115)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1735726833]
 libraries/ = SubResource("AnimationLibrary_6d6xc")

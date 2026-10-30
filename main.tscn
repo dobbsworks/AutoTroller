@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://toyhd8kpvshp" path="res://ui/menus/credits_menu.tscn" id="6_272bh"]
 [ext_resource type="Texture2D" uid="uid://cg0rdn7t3j1pv" path="res://ui/menus/title-screen-3.png" id="6_yaehf"]
 [ext_resource type="PackedScene" uid="uid://kwvkd4f5ulm6" path="res://ui/menus/game_setup_menu.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://dacriwcjo1qlu" path="res://ui/menus/instructions_menu.tscn" id="12_w48qg"]
 
 [sub_resource type="Gradient" id="Gradient_7dm0k"]
 offsets = PackedFloat32Array(0)
@@ -358,6 +359,69 @@ tracks/4/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_vivmo"]
+resource_name = "instructions"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SawtoothGreen2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.6333333, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1334.0001, 1148.0001), Vector2(1334.0001, 1148.0001), Vector2(-306.00012, 1098), Vector2(-306.00012, 1098)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SawtoothGreen1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.73333335, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1907.0001, 1070), Vector2(1907.0001, 1070), Vector2(261.00024, 1192), Vector2(261.00024, 1192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InstructionsMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("InstructionsMenu:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.74, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2042, 76), Vector2(385, 90), Vector2(385, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/shift_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.81599987, 0.31, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_5vw27"]
 resource_name = "orange"
 tracks/0/type = "value"
@@ -489,6 +553,7 @@ _data = {
 &"RESET": SubResource("Animation_ig7tw"),
 &"close": SubResource("Animation_0xm2m"),
 &"green": SubResource("Animation_lquwl"),
+&"instructions": SubResource("Animation_vivmo"),
 &"orange": SubResource("Animation_5vw27"),
 &"purple": SubResource("Animation_kek77")
 }
@@ -516,8 +581,8 @@ offset_bottom = 680.0
 texture = ExtResource("2_ycdy4")
 
 [node name="Animated" type="Node2D" parent="CanvasLayer/TitleScreen" unique_id=2136686501]
-position = Vector2(494, 347)
-scale = Vector2(2, 2)
+position = Vector2(445, 258)
+scale = Vector2(3, 3)
 
 [node name="Otto" type="Sprite2D" parent="CanvasLayer/TitleScreen/Animated" unique_id=1251427540]
 position = Vector2(64, 87.5)
@@ -542,10 +607,10 @@ speed_scale = 0.5
 
 [node name="MainMenu" parent="CanvasLayer" unique_id=630448504 instance=ExtResource("2_h2yge")]
 unique_name_in_owner = true
-offset_left = 788.0
-offset_top = 327.0
-offset_right = -127.0
-offset_bottom = -95.0
+offset_left = 859.0
+offset_top = 367.0
+offset_right = -56.0
+offset_bottom = -55.0
 
 [node name="ScreenTransition" type="Node2D" parent="CanvasLayer" unique_id=904960903]
 z_index = 200
@@ -636,12 +701,21 @@ offset_top = 76.0
 offset_right = 2042.0
 offset_bottom = 76.0
 
-[node name="GameSetupMenu" parent="CanvasLayer/ScreenTransition" unique_id=1430645086 instance=ExtResource("8_kek77")]
+[node name="InstructionsMenu" parent="CanvasLayer/ScreenTransition" unique_id=2063826398 instance=ExtResource("12_w48qg")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 300)
+visible = false
 offset_left = 2042.0
 offset_top = 76.0
-offset_right = 2583.8938
+offset_right = 2042.0
+offset_bottom = 76.0
+
+[node name="GameSetupMenu" parent="CanvasLayer/ScreenTransition" unique_id=1430645086 instance=ExtResource("8_kek77")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(650, 300)
+offset_left = 2042.0
+offset_top = 76.0
+offset_right = 2692.0
 offset_bottom = 376.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScreenTransition" unique_id=1399332291]

@@ -21,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=186673571]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
 [node name="ButtonStart" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1202109751]
@@ -53,6 +54,14 @@ grow_vertical = 2
 layout_mode = 2
 text = "Not currently connected"
 
+[node name="ButtonInstructions" type="Button" parent="VBoxContainer" unique_id=1429606494]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_t7e0r")
+text = "INSTRUCTIONS
+"
+
 [node name="ButtonSettings" type="Button" parent="VBoxContainer" unique_id=45751077]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 50)
@@ -60,7 +69,10 @@ layout_mode = 2
 theme = ExtResource("1_t7e0r")
 text = "SETTINGS"
 
-[node name="ButtonCredits" type="Button" parent="VBoxContainer" unique_id=1539571480]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=996466635]
+layout_mode = 2
+
+[node name="ButtonCredits" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1539571480]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
@@ -68,14 +80,16 @@ theme = ExtResource("1_t7e0r")
 text = "CREDITS
 "
 
-[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=945553659]
+[node name="ButtonExit" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=945553659]
 texture_filter = 1
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_t7e0r")
 text = "EXIT"
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonInstructions" to="." method="_on_button_instructions_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonCredits" to="." method="_on_button_credits_pressed"]
-[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ButtonCredits" to="." method="_on_button_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/ButtonExit" to="." method="_on_button_exit_pressed"]

@@ -31,6 +31,7 @@ animations = [{
 [node name="FlyTowardsEnemy" unique_id=1357401302 instance=ExtResource("1_4t0yo")]
 collision_mask = 0
 canJumpOn = true
+spawnOffset = Vector2(0, -8)
 gravityRatio = 0.0
 horizontalAccel = 100.0
 horizMaxSpeed = 120.0

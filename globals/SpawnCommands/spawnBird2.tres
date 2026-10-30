@@ -10,4 +10,5 @@ commands = Array[String](["swoops", "swoop", "s", "red"])
 cost = 2
 spawnedObject = ExtResource("2_svhi5")
 numberSpawned = 1
+spawnOffset = Vector2(0, -8)
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

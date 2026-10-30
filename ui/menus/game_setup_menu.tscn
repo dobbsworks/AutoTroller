@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="VBoxContainer" unique_id=1913544067]
-custom_minimum_size = Vector2(0, 250)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme = ExtResource("2_d0cae")
 
@@ -39,8 +39,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1390649337]
 layout_mode = 2
-text = "CONNECTION
-"
+text = "CONNECTION"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1072566284]
 layout_mode = 2
@@ -94,12 +93,18 @@ layout_mode = 2
 text = "NOTE: If this is your first time connecting, pressing CONNECT will open the authorization page in a browser window. You will need to click \"Activate,\" then \"Authorize.\" I believe in you."
 autowrap_mode = 2
 
-[node name="Panel2" type="Panel" parent="VBoxContainer" unique_id=1972195231]
-custom_minimum_size = Vector2(0, 150)
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1781150300]
+custom_minimum_size = Vector2(100, 170)
 layout_mode = 2
 theme = ExtResource("2_d0cae")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel2" unique_id=579512722]
+[node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer2" unique_id=1972195231]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_d0cae")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/Panel2" unique_id=579512722]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,31 +113,76 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_d0cae")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel2/MarginContainer" unique_id=1158982738]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer" unique_id=1158982738]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1938309099]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=1938309099]
 layout_mode = 2
-text = "BOT PLAYERS
+text = "CPU CHATTERS
 "
 
-[node name="Label2" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=238726352]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=238726352]
 layout_mode = 2
-text = "You can have the game simulate players, useful for testing or increasing the chaos."
+text = "Simulated chatters, useful for testing or increasing the chaos."
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=948493477]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=948493477]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=493488849]
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=493488849]
 layout_mode = 2
 text = "
 BOT COUNT"
 
-[node name="botCount" type="SpinBox" parent="VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1035497012]
+[node name="botCount" type="SpinBox" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1035497012]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 max_value = 99.0
+alignment = 2
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer2" unique_id=1007088523]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_d0cae")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/Panel3" unique_id=905053338]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d0cae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer" unique_id=868118829]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer" unique_id=1356997968]
+layout_mode = 2
+text = "LIFE COUNT
+"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer" unique_id=2069656156]
+layout_mode = 2
+text = "Recommended 5, but feel free to make things easier or harder!"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer" unique_id=1480876096]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=145038715]
+layout_mode = 2
+text = "
+STARTING LIVES"
+
+[node name="lifeCount" type="SpinBox" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1553175883]
+layout_mode = 2
+size_flags_vertical = 8
+min_value = 1.0
+max_value = 99.0
+value = 5.0
 alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1373111389]
@@ -157,6 +207,7 @@ text = "PLAY"
 
 [connection signal="text_submitted" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/ConnectButton" to="." method="_on_connect_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount" to="." method="_on_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount" to="." method="_on_spin_box_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer/lifeCount" to="." method="_on_life_count_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonStartGame" to="." method="_on_button_start_game_pressed"]

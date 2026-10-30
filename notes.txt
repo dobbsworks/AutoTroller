@@ -2,9 +2,18 @@
 
 More enemies
 Items
-
 Different levels
-
+Music
+	Level
+	Level Clear
+	Defeat
+	Victory
+SFX
+	Jump
+	Kill enemy
+	Dead
+	Coin
+	Kaizo
 
 
 TODO
@@ -14,6 +23,8 @@ TODO
 		sfx
 		make sure no block already there when spawning
 		make sure not at peak of jump
+		
+	BIG particle effect on death (process mode: always)
 	
 	Enemy movement
 		Patrol - Goombud/Goombrat
@@ -24,9 +35,6 @@ TODO
 		Oscilate vertical - Red Parakoopa
 		Bounce - Green Parakoopa
 		
-	Enemy add-ons
-		Fire projectiles
-		Platform
 		
 	Enemy obstacles
 		Ball n chain

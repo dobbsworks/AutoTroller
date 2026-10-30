@@ -17,3 +17,5 @@ func spawnItem(itemScene: PackedScene):
 		var item = itemScene.instantiate()
 		get_parent().add_sibling(item)
 		item.global_position = global_position
+		if 'spawnOffset' in item:
+			item.global_position += item.spawnOffset

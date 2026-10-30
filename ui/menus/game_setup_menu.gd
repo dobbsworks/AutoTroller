@@ -8,7 +8,8 @@ signal click_exit()
 @onready var line_edit: LineEdit = %LineEdit
 @onready var connect_button: Button = %ConnectButton
 @onready var connection_details: Label = %ConnectionDetails
-@onready var bot_count: SpinBox = $VBoxContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount
+@onready var bot_count: SpinBox = %botCount
+
 var lockedIn = false
 const TRANSITION_SCREEN = preload("res://ui/transitionScreen.tscn")
 
@@ -83,3 +84,8 @@ func _on_line_edit_text_submitted(new_text: String) -> void:
 func _on_spin_box_value_changed(value: float) -> void:
 	SaveManager.saveData.botCount = int(value)
 	SaveManager.saveGame()
+
+
+func _on_life_count_value_changed(value: float) -> void:
+	GameState.defaultRound.lives = value
+	GameState.round.lives = value

@@ -8,6 +8,7 @@ var isDummy = false
 @export var hurtOnContact = true
 @export var canJumpOn = false
 
+@export var spawnOffset = Vector2.ZERO
 
 @export_category("Movement")
 @export var gravityRatio = 1.0

@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dacriwcjo1qlu"]
+
+[ext_resource type="Script" uid="uid://ddtdiviljhvsg" path="res://ui/menus/credits_menu.gd" id="1_eaode"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_7ye07"]
+
+[node name="InstructionsMenu" type="Control" unique_id=1966205401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eaode")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1550894575]
+layout_mode = 0
+offset_left = -221.0
+offset_top = -53.0
+offset_right = 583.0
+offset_bottom = 505.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=251848853]
+modulate = Color(0.66999996, 1, 0.736, 1)
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+theme = ExtResource("2_7ye07")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel" unique_id=1541543700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer" unique_id=1051402441]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=867464624]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "THE STORY"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=299273956]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "All the delicious fruits of the Smoothie Kingdom were stolen by Pulp, the nefarious fruit-themed wizard! \"NYAH HA HAAA! I'M MAKING A COBBLER!\" he cackled. He was out of milk so it wasn't even going to be a very good cobbler.
+
+Using dark magic, he corrupted the friendly animals and also forced everyone to keep moving to the right or something.
+
+Anyway the wizard died from an unrelated incident but we still kinda want the fruit back. It's up to Otto to get to the end of the levels and get fruits!"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=29822746]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer" unique_id=2071704873]
+modulate = Color(0.37, 1, 0.9265001, 1)
+custom_minimum_size = Vector2(300, 250)
+layout_mode = 2
+theme = ExtResource("2_7ye07")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Panel2" unique_id=1301015485]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel2/MarginContainer" unique_id=867131667]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=557983065]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "BEING OTTO"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Panel2/MarginContainer/VBoxContainer" unique_id=929383137]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Move with WASD
+Jump with Space
+Run with Shift
+
+Controller is recommended!
+
+"
+autowrap_mode = 2
+
+[node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer" unique_id=827609531]
+modulate = Color(1, 0.80733335, 0.65999997, 1)
+custom_minimum_size = Vector2(400, 250)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_7ye07")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Panel3" unique_id=1087715292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer" unique_id=1120286761]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/VBoxContainer" unique_id=930330007]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "MAKE STREAMER MAD"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer/Panel3/MarginContainer/VBoxContainer" unique_id=1946913132]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Chat, you are the wizard magic. Don't think about it too hard. Earn points by summoning coins, then spend them on enemies and hazards.
+
+The list of things to buy will be in the bottom-right corner during play.
+
+You can't buy anything until your previous purchase is fully summoned."
+autowrap_mode = 2
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=448487516]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("2_7ye07")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

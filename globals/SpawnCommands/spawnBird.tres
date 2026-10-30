@@ -10,4 +10,5 @@ commands = Array[String](["birdy", "bird", "b", "bullet"])
 cost = 1
 spawnedObject = ExtResource("2_1uoua")
 numberSpawned = 1
+spawnOffset = Vector2(0, -8)
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

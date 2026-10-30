@@ -31,6 +31,7 @@ animations = [{
 [node name="FlyAcrossEnemy" unique_id=1357401302 instance=ExtResource("1_1we5t")]
 collision_mask = 0
 canJumpOn = true
+spawnOffset = Vector2(0, -8)
 gravityRatio = 0.0
 reflectOnWall = false
 
