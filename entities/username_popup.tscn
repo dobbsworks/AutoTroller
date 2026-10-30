@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dncjadgwtdeq5"]
 
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_8kshu"]
+[ext_resource type="AudioStream" uid="uid://bueq4f1q8gq7v" path="res://audio/sfx/kaizo.mp3" id="1_ggt8v"]
 
 [sub_resource type="Animation" id="Animation_ggt8v"]
 length = 0.001
@@ -78,6 +79,12 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=699718148]
+
+[node name="Kaizo" type="AudioStreamPlayer" parent="." unique_id=1283216929]
+process_mode = 3
+stream = ExtResource("1_ggt8v")
+autoplay = true
+bus = &"SFX"
 
 [node name="Control" type="Control" parent="." unique_id=2137466734]
 layout_mode = 3

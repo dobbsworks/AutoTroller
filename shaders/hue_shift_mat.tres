@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource("1_und7f")
 shader_parameter/use_grayscale = false
-shader_parameter/shift_color = Color(1, 1, 1, 1)
+shader_parameter/shift_color = Color(0.81599987, 0.31, 1, 1)

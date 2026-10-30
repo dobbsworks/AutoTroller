@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://h51ppueuig3m"]
+
+[ext_resource type="AudioStream" uid="uid://d2tv2cji1egyn" path="res://audio/sfx/coin.mp3" id="1_rffnb"]
+
+[node name="Coin" type="AudioStreamPlayer" unique_id=1859226392]
+stream = ExtResource("1_rffnb")
+autoplay = true
+bus = &"SFX"

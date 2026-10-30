@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddqgmobcmvo6t"]
 
 [ext_resource type="Script" uid="uid://xae8c2d5x8qw" path="res://entities/enemies/dead_enemy.gd" id="1_48os7"]
+[ext_resource type="AudioStream" uid="uid://tmo1vljwtggb" path="res://audio/sfx/killEnemy.mp3" id="2_wyc1e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xv4l1"]
 
@@ -10,3 +11,8 @@ script = ExtResource("1_48os7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1202312560]
 shape = SubResource("CircleShape2D_xv4l1")
 disabled = true
+
+[node name="KillEnemy" type="AudioStreamPlayer" parent="." unique_id=1743359060]
+stream = ExtResource("2_wyc1e")
+autoplay = true
+bus = &"SFX"

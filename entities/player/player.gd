@@ -121,10 +121,11 @@ func updateAnimation():
 		
 func onKilled():
 	if respawnTimer > 0.0: return
+	
 	GameState.round.lives -= 1
 	GameState.round.deaths += 1
 	GameState.stage.deathsThisStage += 1
-	
+	$Dead.play()
 	respawnTimer = 5.0
 	GameState.stage.levelScene.process_mode = Node.PROCESS_MODE_DISABLED
 	await get_tree().create_timer(0.5).timeout
@@ -144,6 +145,7 @@ func onKilled():
 func BounceUp():
 	velocity.y = JUMP_VELOCITY
 func Jump():
+	$Jump.play()
 	velocity.y = JUMP_VELOCITY
 	
 

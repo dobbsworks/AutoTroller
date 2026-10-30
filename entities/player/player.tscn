@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://n6emfuv5umax"]
 
 [ext_resource type="Script" uid="uid://bobge1oplqjob" path="res://entities/player/player.gd" id="1_abrql"]
+[ext_resource type="AudioStream" uid="uid://js0y1ylg7dps" path="res://audio/sfx/jump.mp3" id="2_bls4j"]
 [ext_resource type="Texture2D" uid="uid://bq5nqvndyout8" path="res://entities/player/player.png" id="2_sglur"]
+[ext_resource type="AudioStream" uid="uid://b3adwa1ql53te" path="res://audio/sfx/dead.mp3" id="3_bls4j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv4l1"]
 size = Vector2(14, 14)
@@ -523,6 +525,14 @@ texture_filter = 1
 collision_layer = 2
 collision_mask = 21
 script = ExtResource("1_abrql")
+
+[node name="Jump" type="AudioStreamPlayer" parent="." unique_id=1076680312]
+stream = ExtResource("2_bls4j")
+bus = &"SFX"
+
+[node name="Dead" type="AudioStreamPlayer" parent="." unique_id=2115045436]
+process_mode = 3
+stream = ExtResource("3_bls4j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629901501]
 shape = SubResource("RectangleShape2D_xv4l1")
