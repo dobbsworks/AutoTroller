@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 
-@export var maxRunSpeed = 200.0
-@export var maxWalkSpeed = 100.0
+@export var maxRunSpeed = 135.0
+@export var maxWalkSpeed = 75.0
 @export var horizAccel = 600.0
-@export var slowDownHorizAccel = 600.0
-@export var JUMP_VELOCITY = -360.0
+@export var slowDownHorizAccel = 1000.0
+@export var JUMP_VELOCITY = -300.0
 @export var maxFallSpeed = 300.0
 @onready var cloud: Node2D = $PlayerSprite/Cloud
 @onready var death_particles: GPUParticles2D = $DeathParticles
@@ -39,8 +39,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		if !is_on_floor():
 			var fallAccel = get_gravity().y * delta
-			if !Input.is_action_pressed("jump"):
-				fallAccel *= 2
+			if Input.is_action_pressed("jump"):
+				fallAccel /= 2
 			velocity.y = move_toward(velocity.y, maxFallSpeed, fallAccel)
 
 	if Input.is_action_just_pressed("jump") && is_on_floor():

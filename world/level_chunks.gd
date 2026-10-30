@@ -2,7 +2,7 @@ extends Node2D
 
 var chunkScenes: Array[PackedScene] = []
 var currentWorldTileX = 0.0
-@onready var starterChunk : TileMapLayer = $TileMapLayer
+@onready var starterChunk : TileMapLayer = $StartChunk1
 var chunkList = []
 const ENDING_CHUNK = preload("res://world/endingChunk.tscn")
 const LEVEL_GOAL = preload("res://entities/collectibles/level_goal.tscn")
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 			chunkList.erase(chunkObj)
 
 func LoadAllChunks():
-	var chunkDirectory = "res://world/levelChunks/"
+	var chunkDirectory = "res://world/levelChunks1"
 	var dir = DirAccess.open(chunkDirectory)
 	dir.list_dir_begin()
 	var fileNames = []
