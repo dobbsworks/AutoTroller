@@ -1,10 +1,11 @@
 extends Node
 @onready var integration_service: Node = $IntegrationService
 @onready var cpu_chatters: Node = $CpuChatters
+@export var spawnCommands: Array[SpawnCommand] = []
+
 signal on_new_chatter(chatter: Chatter)
 
 var chatters: Array[Chatter] = []
-var spawnCommands: Array[SpawnCommand]
 var isActive = false
 
 func _ready() -> void:
@@ -70,21 +71,7 @@ func getOrCreateChatter(username: String, isCpu: bool) -> Chatter:
 	return chatters[chatterIndex]
 
 func load_spawn_commands():
-	var directory = "res://globals/SpawnCommands/"
-	var dir = DirAccess.open(directory)
-	dir.list_dir_begin()
-	var fileNames = []
-	var fileName = dir.get_next()
-	while fileName != "":
-		if fileName.ends_with(".tres"):
-			var fullPath = directory.path_join(fileName)
-			fileNames.append(fullPath)
-			
-			
-		fileName = dir.get_next()
-	for fileName1 in fileNames:
-		var spawnCommand: SpawnCommand = load(fileName1)
-		
+	for spawnCommand in spawnCommands:
 		var vp := SubViewport.new()
 		vp.transparent_bg = true
 		vp.size = Vector2i(16,16)
@@ -92,12 +79,8 @@ func load_spawn_commands():
 		tempNode.position = Vector2(8,8)
 		if "isDummy" in tempNode: tempNode.isDummy = true
 		vp.add_child(tempNode)
-		
 		add_child(vp)
-		
 		spawnCommand.viewport = vp
-		
-		spawnCommands.append(spawnCommand)
 
 
 

@@ -6,6 +6,7 @@ extends ColorRect
 
 func setup(spawnCommand: SpawnCommand):
 	var rect = TextureRect.new()
-	texture_rect.texture = spawnCommand.viewport.get_texture()
+	if spawnCommand.viewport:
+		texture_rect.texture = spawnCommand.viewport.get_texture()
 	entity_name.text = spawnCommand.name
 	price.text = str(spawnCommand.cost)

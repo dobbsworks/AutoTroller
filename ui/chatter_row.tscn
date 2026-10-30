@@ -3,7 +3,13 @@
 [ext_resource type="Script" uid="uid://d1jg1ljvgstas" path="res://ui/chatter_row.gd" id="1_en1cb"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_uqmml"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_en1cb"]
+[sub_resource type="Gradient" id="Gradient_en1cb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_en1cb"]
+gradient = SubResource("Gradient_en1cb")
+width = 1
 
 [sub_resource type="Animation" id="Animation_en1cb"]
 length = 0.001
@@ -251,7 +257,7 @@ offset_top = 3.0
 offset_right = 30.0
 offset_bottom = 27.0
 pivot_offset = Vector2(12, 12)
-texture = SubResource("PlaceholderTexture2D_en1cb")
+texture = SubResource("GradientTexture1D_en1cb")
 
 [node name="SpawnCount" type="Label" parent="Panel/TextureRect" unique_id=1242100573]
 layout_mode = 0

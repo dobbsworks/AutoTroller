@@ -37,7 +37,8 @@ func onUpdateQueue(spawnCommand: SpawnCommand):
 	if spawnCommand == null:
 		texture_rect.texture = null
 	else:
-		texture_rect.texture = spawnCommand.viewport.get_texture()
+		if spawnCommand.viewport:
+			texture_rect.texture = spawnCommand.viewport.get_texture()
 	
 	animation_player.play("RESET")
 	animation_player.queue("wiggleImage")
