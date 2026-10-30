@@ -14,7 +14,6 @@ TODO
 	Buffer jumps
 	Coyote time
 	Kaizos need:
-		sfx
 		make sure no block already there when spawning
 		make sure not at peak of jump
 		

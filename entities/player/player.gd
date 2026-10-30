@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -360.0
 @export var maxFallSpeed = 300.0
 @onready var cloud: Node2D = $PlayerSprite/Cloud
+@onready var death_particles: GPUParticles2D = $DeathParticles
 
 @onready var player_sprite: Node2D = $PlayerSprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -122,6 +123,8 @@ func updateAnimation():
 func onKilled():
 	if respawnTimer > 0.0: return
 	
+	death_particles.global_position = global_position
+	death_particles.emitting = true
 	GameState.round.lives -= 1
 	GameState.round.deaths += 1
 	GameState.stage.deathsThisStage += 1

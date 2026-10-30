@@ -9,6 +9,7 @@ signal click_exit()
 @onready var confirm_disconnect: Button = %ConfirmDisconnect2
 @onready var button_exit: Button = $VBoxContainer/ButtonExit
 @onready var disconnect_confirmation: VBoxContainer = %DisconnectConfirmation
+var canPlayTestSFX = false
 
 func _ready() -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(SaveManager.saveData.volumeSfx))
@@ -22,6 +23,7 @@ func refresh():
 	
 func onStart():
 	button_exit.grab_focus()
+	canPlayTestSFX = true
 
 
 func _on_volume_music_slider_value_changed(value: float) -> void:
@@ -34,6 +36,7 @@ func _on_volume_sfx_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(1, linear_to_db(value))
 	SaveManager.saveData.volumeSfx = value
 	SaveManager.saveGame()
+	if canPlayTestSFX: $Kaizo.play()
 
 func _on_button_exit_pressed() -> void:
 	click_exit.emit()

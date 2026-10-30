@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_h6jc8"]
 [ext_resource type="Script" uid="uid://4hx7xkmngcgf" path="res://ui/menus/settings_menu.gd" id="1_xutny"]
+[ext_resource type="AudioStream" uid="uid://bueq4f1q8gq7v" path="res://audio/sfx/kaizo.mp3" id="3_igsxx"]
 
 [node name="SettingsMenu" type="Control" unique_id=630448504]
 layout_mode = 3
@@ -12,6 +13,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_h6jc8")
 script = ExtResource("1_xutny")
+
+[node name="Kaizo" type="AudioStreamPlayer" parent="." unique_id=695892485]
+stream = ExtResource("3_igsxx")
+bus = &"SFX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1079435274]
 layout_mode = 1

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cc1yulugt0bhk" path="res://ui/level_victory_screen.gd" id="1_h80w1"]
 [ext_resource type="PackedScene" uid="uid://7bn8rlbk0e3i" path="res://ui/components/sawtooth.tscn" id="1_ic2lk"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_2yjqw"]
+[ext_resource type="AudioStream" uid="uid://cm21wxjigfxlo" path="res://audio/sfx/drum.mp3" id="2_6d6xc"]
 [ext_resource type="Shader" uid="uid://par4lyuajxt2" path="res://shaders/hue_shift.gdshader" id="2_74mk3"]
 [ext_resource type="Texture2D" uid="uid://bq5nqvndyout8" path="res://entities/player/player.png" id="5_m40oi"]
 
@@ -296,6 +297,10 @@ _data = {
 
 [node name="LevelVictoryScreen" type="Node2D" unique_id=470841249]
 script = ExtResource("1_h80w1")
+
+[node name="Drum" type="AudioStreamPlayer" parent="." unique_id=1403924841]
+stream = ExtResource("2_6d6xc")
+bus = &"Music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=398265984]
 layer = 200

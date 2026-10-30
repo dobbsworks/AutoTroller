@@ -6,6 +6,7 @@ extends Node2D
 @onready var fruits: Label = %Fruits
 @onready var fruit_count: Label = %FruitCount
 
+@onready var drum: AudioStreamPlayer = $Drum
 
 @onready var continueLabel: Label = %Continue
 @onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
@@ -47,21 +48,29 @@ func _ready():
 	coins_count.modulate = Color.TRANSPARENT
 	deaths.modulate = Color.TRANSPARENT
 	death_count.modulate = Color.TRANSPARENT
+	fruits.modulate = Color.TRANSPARENT
+	fruit_count.modulate = Color.TRANSPARENT
 	continueLabel.modulate = Color.TRANSPARENT
 	queueLabels()
 	
 func queueLabels():
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1.5).timeout
+	drum.play()
 	coins.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
+	drum.play()
 	coins_count.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
+	drum.play()
 	deaths.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
+	drum.play()
 	death_count.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
+	drum.play()
 	fruits.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
+	drum.play()
 	fruit_count.modulate = Color.WHITE
 	await get_tree().create_timer(0.3).timeout
 	
