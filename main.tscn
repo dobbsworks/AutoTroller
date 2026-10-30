@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://diok1qoshpupe"]
 
-[ext_resource type="Texture2D" uid="uid://gaf2oogi7i3l" path="res://ui/menus/title-screen.png" id="1_0xm2m"]
 [ext_resource type="AudioStream" uid="uid://cflpcfnca1p4x" path="res://audio/music/title.mp3" id="1_5vw27"]
 [ext_resource type="PackedScene" uid="uid://7bn8rlbk0e3i" path="res://ui/components/sawtooth.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://53shibfd6yea" path="res://ui/menus/main_menu.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://b3aruqsbu6s8o" path="res://ui/menus/title-screen-1.png" id="2_ycdy4"]
 [ext_resource type="Material" uid="uid://smxppsb7124" path="res://shaders/hue_shift_mat.tres" id="3_7mycd"]
+[ext_resource type="Texture2D" uid="uid://b8586eh8ksxgi" path="res://ui/menus/title-screen-5.png" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bp4f81clxi7xp" path="res://ui/menus/settings_menu.tscn" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cnhm8d6l3bdgd" path="res://ui/menus/title-screen-2.png" id="4_vivmo"]
+[ext_resource type="Texture2D" uid="uid://dbhxub6l6iaui" path="res://ui/menus/title-screen-4.png" id="5_2cqfq"]
 [ext_resource type="Script" uid="uid://boy774dq546p3" path="res://ui/menus/title_menu_manager.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://toyhd8kpvshp" path="res://ui/menus/credits_menu.tscn" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://cg0rdn7t3j1pv" path="res://ui/menus/title-screen-3.png" id="6_yaehf"]
 [ext_resource type="PackedScene" uid="uid://kwvkd4f5ulm6" path="res://ui/menus/game_setup_menu.tscn" id="8_kek77"]
 
 [sub_resource type="Gradient" id="Gradient_7dm0k"]
@@ -17,6 +21,116 @@ colors = PackedColorArray(0.5058824, 0.80784315, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7dm0k"]
 gradient = SubResource("Gradient_7dm0k")
 fill_to = Vector2(0.6034483, 1)
+
+[sub_resource type="Animation" id="Animation_ycdy4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Otto:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(64, 87.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Roller:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(109, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("T:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, 22)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Auto:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-61, 47)]
+}
+
+[sub_resource type="Animation" id="Animation_w48qg"]
+resource_name = "new_animation"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Otto:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.08885431, 2.3748333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(59.705, 76.59), Vector2(64, 87.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Roller:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.8029494),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(109, 4), Vector2(111.88, 4.47)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("T:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.0113385),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(25, 22), Vector2(25.5, 4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Auto:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8602712, 3.2835705),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-66.4, 47), Vector2(-61, 47)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vivmo"]
+_data = {
+&"RESET": SubResource("Animation_ycdy4"),
+&"new_animation": SubResource("Animation_w48qg")
+}
 
 [sub_resource type="Animation" id="Animation_ig7tw"]
 length = 0.001
@@ -399,7 +513,32 @@ z_index = -100
 texture_filter = 1
 offset_right = 1185.0
 offset_bottom = 680.0
-texture = ExtResource("1_0xm2m")
+texture = ExtResource("2_ycdy4")
+
+[node name="Animated" type="Node2D" parent="CanvasLayer/TitleScreen" unique_id=2136686501]
+position = Vector2(494, 347)
+scale = Vector2(2, 2)
+
+[node name="Otto" type="Sprite2D" parent="CanvasLayer/TitleScreen/Animated" unique_id=1251427540]
+position = Vector2(64, 87.5)
+texture = ExtResource("3_w48qg")
+
+[node name="Roller" type="Sprite2D" parent="CanvasLayer/TitleScreen/Animated" unique_id=2039382387]
+position = Vector2(109, 4)
+texture = ExtResource("4_vivmo")
+
+[node name="T" type="Sprite2D" parent="CanvasLayer/TitleScreen/Animated" unique_id=795386592]
+position = Vector2(25, 22)
+texture = ExtResource("5_2cqfq")
+
+[node name="Auto" type="Sprite2D" parent="CanvasLayer/TitleScreen/Animated" unique_id=1118864517]
+position = Vector2(-61, 47)
+texture = ExtResource("6_yaehf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TitleScreen/Animated" unique_id=961784867]
+libraries/ = SubResource("AnimationLibrary_vivmo")
+autoplay = &"new_animation"
+speed_scale = 0.5
 
 [node name="MainMenu" parent="CanvasLayer" unique_id=630448504 instance=ExtResource("2_h2yge")]
 unique_name_in_owner = true
