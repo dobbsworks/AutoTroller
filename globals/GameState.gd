@@ -3,7 +3,7 @@ const GAME = preload("res://game.tscn")
 
 
 var defaultStage = {
-	endStart = 2000,
+	endStart = 20,
 	goalDistance = -1,
 	cameraStop = -1,
 	currentScrollSpeed = 4.0,

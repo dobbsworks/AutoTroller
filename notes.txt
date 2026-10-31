@@ -2,11 +2,6 @@
 
 More enemies
 Items
-Music
-	Level
-	Level Clear
-	Defeat
-	Victory
 
 
 TODO

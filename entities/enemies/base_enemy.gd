@@ -27,6 +27,7 @@ var horizontalDirection = -1
 var age = 0.0
 var groundLeftCount = 0
 var groundRightCount = 0
+var jumpWait = 0.0
 
 
 func _physics_process(delta: float) -> void:
@@ -41,7 +42,10 @@ func _physics_process(delta: float) -> void:
 		if horizontalDirection == 1 && groundRightCount <= 0: horizontalDirection = -1
 		
 	if jumps && is_on_floor():
-		velocity.y = -jumpStrength
+		jumpWait = move_toward(jumpWait, 0.0, delta)
+		if jumpWait == 0.0:
+			velocity.y = -jumpStrength
+			jumpWait = jumpPause
 		
 	var targetHorizVelocity = horizMaxSpeed * horizontalDirection
 	velocity.x = move_toward(velocity.x, targetHorizVelocity, horizontalAccel * delta)

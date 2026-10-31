@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://jjmxagsn0i0m"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_hwa1p"]
+[ext_resource type="PackedScene" uid="uid://b17sv5c86a84u" path="res://entities/enemies/frog_enemy.tscn" id="2_hwa1p"]
+
+[resource]
+script = ExtResource("1_hwa1p")
+name = "Kero"
+commands = Array[String](["kero", "frog", "hopper", "ninji"])
+cost = 1
+spawnedObject = ExtResource("2_hwa1p")
+numberSpawned = 1
+isActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

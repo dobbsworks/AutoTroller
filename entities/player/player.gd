@@ -166,7 +166,7 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 			var enemyTopGlobalY = enemyCollider.global_position.y - enemyCollider.shape.get_rect().size.y / 2.0
 			var playerCollider: CollisionShape2D = get_node("CollisionShape2D")
 			var playerBottomY = playerCollider.global_position.y + playerCollider.shape.get_rect().size.y / 2.0
-			var isLandingOnTop = playerBottomY - 1.0 - velocity.y * get_process_delta_time() < enemyTopGlobalY
+			var isLandingOnTop = playerBottomY - 1.0 - velocity.y * get_process_delta_time() < enemyTopGlobalY - body.velocity.y * get_process_delta_time()
 			if isLandingOnTop:
 				body.kill()
 				interactedWithEnemyThisFrame = true

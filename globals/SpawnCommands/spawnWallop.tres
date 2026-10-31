@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://do0x1qk051p1j"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_1gk5q"]
+[ext_resource type="PackedScene" uid="uid://bcm0o67lqdmcr" path="res://entities/enemies/wallop_enemy.tscn" id="2_1gk5q"]
+
+[resource]
+script = ExtResource("1_1gk5q")
+name = "Wallop"
+commands = Array[String](["wallop", "thwomp"])
+cost = 3
+spawnedObject = ExtResource("2_1gk5q")
+numberSpawned = 1
+isActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_md3fs")
-name = "GroundBot"
-commands = Array[String](["groundbot", "ground bot", "ground", "goomba", "g"])
+name = "Robot"
+commands = Array[String](["robot", "bot", "ground", "goomba", "g", "r"])
 cost = 1
 spawnedObject = ExtResource("2_md3fs")
 numberSpawned = 1

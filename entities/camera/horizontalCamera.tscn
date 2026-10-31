@@ -5,9 +5,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xv4l1"]
 size = Vector2(243, 1000)
 
-[node name="HorizontalCamera" type="Camera2D" unique_id=1861214848]
-zoom = Vector2(3, 3)
+[node name="CameraRoot" type="Node2D" unique_id=1031272367]
 script = ExtResource("1_i6sk5")
+
+[node name="HorizontalCamera" type="Camera2D" parent="." unique_id=1861214848]
+zoom = Vector2(3, 3)
+
+[node name="CameraEdge" type="Node2D" parent="." unique_id=463781214]
+position = Vector2(230, 134)
+
+[node name="CameraEdgeLeft" type="Node2D" parent="." unique_id=293252996]
+position = Vector2(-232, -133)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=1967088494]
 position = Vector2(-201, 0)
@@ -28,9 +36,3 @@ sync_to_physics = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D2" unique_id=1931730848]
 position = Vector2(15, 0)
 shape = SubResource("RectangleShape2D_xv4l1")
-
-[node name="CameraEdge" type="Node2D" parent="." unique_id=463781214]
-position = Vector2(230, 134)
-
-[node name="CameraEdgeLeft" type="Node2D" parent="." unique_id=293252996]
-position = Vector2(-232, -133)
