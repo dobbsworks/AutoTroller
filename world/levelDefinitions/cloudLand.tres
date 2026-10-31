@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_qvelu"]
 [ext_resource type="PackedScene" uid="uid://fjl5xh567yv7" path="res://world/startingChunks/start_chunk_cloud.tscn" id="8_eyxls"]
 [ext_resource type="AudioStream" uid="uid://e1w0ljnn3idd" path="res://audio/music/song5_95_24i.mp3" id="8_pbhle"]
+[ext_resource type="PackedScene" uid="uid://bsrahuix3u62a" path="res://world/levelChunks1/chunkCloud1.tscn" id="8_vv1a6"]
 
 [resource]
 script = ExtResource("7_qvelu")
@@ -17,6 +18,6 @@ name = "Cloud Land"
 offsetIndex = 6
 startingChunk = ExtResource("8_eyxls")
 backdrop = ExtResource("1_4ugub")
-chunks = Array[PackedScene]([ExtResource("1_lfti4"), ExtResource("2_eyxls"), ExtResource("3_4ugub"), ExtResource("4_pbhle"), ExtResource("5_vv1a6"), ExtResource("6_4sgo1")])
+chunks = Array[PackedScene]([ExtResource("1_lfti4"), ExtResource("2_eyxls"), ExtResource("3_4ugub"), ExtResource("4_pbhle"), ExtResource("5_vv1a6"), ExtResource("6_4sgo1"), ExtResource("8_vv1a6")])
 music = ExtResource("8_pbhle")
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

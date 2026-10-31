@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="6_7ox1e"]
 [ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_wv05d"]
 [ext_resource type="PackedScene" uid="uid://b3c8e71bo0075" path="res://world/startingChunks/start_chunk_construction.tscn" id="8_ejaxa"]
+[ext_resource type="PackedScene" uid="uid://d075a0hyc4x5a" path="res://world/levelChunks1/chunkConstruction1.tscn" id="8_jhu7o"]
 [ext_resource type="AudioStream" uid="uid://dp5j7r3848lsn" path="res://audio/music/song4_103.mp3" id="8_pxp1c"]
+[ext_resource type="PackedScene" uid="uid://hh21yqsd8pmk" path="res://world/levelChunks1/chunkConstruction2.tscn" id="9_7ox1e"]
 
 [resource]
 script = ExtResource("7_wv05d")
@@ -17,6 +19,6 @@ name = "Construction Land"
 offsetIndex = 5
 startingChunk = ExtResource("8_ejaxa")
 backdrop = ExtResource("1_igkls")
-chunks = Array[PackedScene]([ExtResource("1_f06jo"), ExtResource("2_ejaxa"), ExtResource("3_igkls"), ExtResource("4_pxp1c"), ExtResource("5_jhu7o"), ExtResource("6_7ox1e")])
+chunks = Array[PackedScene]([ExtResource("1_f06jo"), ExtResource("2_ejaxa"), ExtResource("3_igkls"), ExtResource("4_pxp1c"), ExtResource("5_jhu7o"), ExtResource("6_7ox1e"), ExtResource("8_jhu7o"), ExtResource("9_7ox1e")])
 music = ExtResource("8_pxp1c")
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="6_ktisj"]
 [ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_32mnc"]
 [ext_resource type="AudioStream" uid="uid://d0n5edxhanl2p" path="res://audio/music/song8_176_28i.mp3" id="8_43o37"]
+[ext_resource type="PackedScene" uid="uid://tyqw2jbgk4ep" path="res://world/levelChunks1/chunkCastle1.tscn" id="8_cr322"]
 [ext_resource type="PackedScene" uid="uid://sp3bw8x6ifv3" path="res://world/startingChunks/start_chunk_castle.tscn" id="8_my3l5"]
+[ext_resource type="PackedScene" uid="uid://biet5cb6llcau" path="res://world/levelChunks1/chunkCastle2.tscn" id="9_ktisj"]
 
 [resource]
 script = ExtResource("7_32mnc")
@@ -17,6 +19,6 @@ name = "Castle Land"
 offsetIndex = 3
 startingChunk = ExtResource("8_my3l5")
 backdrop = ExtResource("1_8ynq3")
-chunks = Array[PackedScene]([ExtResource("1_tbepn"), ExtResource("2_my3l5"), ExtResource("3_8ynq3"), ExtResource("4_43o37"), ExtResource("5_cr322"), ExtResource("6_ktisj")])
+chunks = Array[PackedScene]([ExtResource("1_tbepn"), ExtResource("2_my3l5"), ExtResource("3_8ynq3"), ExtResource("4_43o37"), ExtResource("5_cr322"), ExtResource("6_ktisj"), ExtResource("8_cr322"), ExtResource("9_ktisj")])
 music = ExtResource("8_43o37")
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

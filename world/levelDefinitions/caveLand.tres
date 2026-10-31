@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="6_374su"]
 [ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_v66la"]
 [ext_resource type="AudioStream" uid="uid://rjc6335lqlic" path="res://audio/music/song6_130.mp3" id="8_2qvrr"]
+[ext_resource type="PackedScene" uid="uid://ba54l3goqx6b6" path="res://world/levelChunks1/chunkCave1.tscn" id="8_6jdij"]
 [ext_resource type="PackedScene" uid="uid://cswissjbnh8sa" path="res://world/startingChunks/start_chunk_cave.tscn" id="8_nch8o"]
 
 [resource]
@@ -17,6 +18,6 @@ name = "Cave Land"
 offsetIndex = 4
 startingChunk = ExtResource("8_nch8o")
 backdrop = ExtResource("1_qkqjt")
-chunks = Array[PackedScene]([ExtResource("1_6swpr"), ExtResource("2_nch8o"), ExtResource("3_qkqjt"), ExtResource("4_2qvrr"), ExtResource("5_6jdij"), ExtResource("6_374su")])
+chunks = Array[PackedScene]([ExtResource("1_6swpr"), ExtResource("2_nch8o"), ExtResource("3_qkqjt"), ExtResource("4_2qvrr"), ExtResource("5_6jdij"), ExtResource("6_374su"), ExtResource("8_6jdij")])
 music = ExtResource("8_2qvrr")
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

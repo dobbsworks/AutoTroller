@@ -39,8 +39,8 @@ func _process(delta: float) -> void:
 		stage.goalDistance = stage.endStart + 16.0 * 29
 
 func getGoalRegionRect() -> Rect2:
-	var endIconXs = [16, 48, 80, 112, 144, 176]
-	var iconIndex = posmod(round.currentStage, [16, 48, 80, 112, 144, 176].size())
+	var endIconXs = [16, 48, 80, 112, 144, 176, 208, 240]
+	var iconIndex = posmod(round.currentStage, endIconXs.size())
 	return Rect2(endIconXs[iconIndex], 48, 16, 16)
 	
 func resetGame():
