@@ -63,10 +63,16 @@ func AppendChunkScene(chunkScene: PackedScene):
 	newChunk.position.x = currentWorldTileX * 16.0
 	currentWorldTileX += newChunk.get_used_rect().size.x
 	chunkList.append({"node": newChunk, "xRight": currentWorldTileX * 16.0})
-	
-	var cellCoordinates = newChunk.get_used_cells()
+	DecorateTileMap(newChunk)
+
+func DecorateTileMap(tilemaplayer: TileMapLayer):
+	var cellCoordinates = tilemaplayer.get_used_cells()
 	for cellCoordinate in cellCoordinates:
-		var atlasCoords: Vector2i = newChunk.get_cell_atlas_coords(cellCoordinate)
+		var atlasCoords: Vector2i = tilemaplayer.get_cell_atlas_coords(cellCoordinate)
 		if atlasCoords:
 			atlasCoords.y += 2 * levelDefintion.offsetIndex
-			newChunk.set_cell(cellCoordinate, 0, atlasCoords)
+			tilemaplayer.set_cell(cellCoordinate, 0, atlasCoords)
+	for child in tilemaplayer.get_children():
+		if child is TileMapLayer:
+			DecorateTileMap(child)
+	

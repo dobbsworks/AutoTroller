@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://dcatjhktmf5ml"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_qqlpj"]
+[ext_resource type="PackedScene" uid="uid://dt4pyn1t6s1h7" path="res://entities/enemies/fly_towards_enemy.tscn" id="2_doq3g"]
+
+[resource]
+script = ExtResource("1_qqlpj")
+name = "Swoops"
+commands = Array[String](["swoops", "swoop", "s", "red"])
+cost = 2
+spawnedObject = ExtResource("2_doq3g")
+numberSpawned = 1
+isActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

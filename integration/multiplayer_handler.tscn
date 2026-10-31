@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cb7cuj0vf5dqx" path="res://integration/cpu_chatters.gd" id="3_cyrgr"]
 [ext_resource type="Resource" uid="uid://st2geiwtn5h8" path="res://globals/SpawnCommands/1spawnCoin.tres" id="3_esr35"]
 [ext_resource type="Resource" uid="uid://bvfno6h1bicwk" path="res://globals/SpawnCommands/2spawnGroundBot.tres" id="4_kino8"]
-[ext_resource type="Resource" uid="uid://dcatjhktmf5ml" path="res://globals/SpawnCommands/spawnBird2.tres" id="5_oerdo"]
+[ext_resource type="Resource" uid="uid://dcatjhktmf5ml" path="res://globals/SpawnCommands/spawnSwoops.tres" id="5_oerdo"]
 [ext_resource type="Resource" uid="uid://wuao3aksuhk5" path="res://globals/SpawnCommands/spawnBird.tres" id="6_wki1o"]
 [ext_resource type="Resource" uid="uid://b2baxtbxmrg5y" path="res://globals/SpawnCommands/spawnKaizo.tres" id="7_f0d8l"]
 [ext_resource type="Resource" uid="uid://ml8r0qxcy6ev" path="res://globals/SpawnCommands/spawnSaw.tres" id="8_esr35"]

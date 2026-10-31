@@ -12,7 +12,7 @@ script = ExtResource("1_i6sk5")
 zoom = Vector2(3, 3)
 
 [node name="CameraEdge" type="Node2D" parent="." unique_id=463781214]
-position = Vector2(230, 134)
+position = Vector2(214, 134)
 
 [node name="CameraEdgeLeft" type="Node2D" parent="." unique_id=293252996]
 position = Vector2(-232, -133)

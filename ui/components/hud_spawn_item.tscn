@@ -32,10 +32,12 @@ grow_vertical = 0
 [node name="EntityName" type="Label" parent="HBoxContainer" unique_id=537913292]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_constants/outline_size = 5
 text = "Item"
 
 [node name="Price" type="Label" parent="HBoxContainer" unique_id=563452744]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/outline_size = 5
 text = "0"

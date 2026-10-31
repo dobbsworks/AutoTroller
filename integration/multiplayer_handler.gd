@@ -29,6 +29,7 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 	
 	if chatter.spawnQueue.size() == 0:
 		for spawnCommand in spawnCommands:
+			if !spawnCommand.isActive: continue
 			if spawnCommand.cost > chatter.points: 
 				chatter.on_too_poor.emit()
 				continue

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Auto-troller"
 config/version="1.0.0"
-run/main_scene="uid://b7sl103xgny0g"
+run/main_scene="uid://diok1qoshpupe"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://spogw4q216n8"
 

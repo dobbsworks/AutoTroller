@@ -3,6 +3,7 @@ extends Node
 var state = "wait"
 var pauseTimer = 0.0
 @onready var wallop_enemy: Enemy = $".."
+@onready var crash: AudioStreamPlayer = $Crash
 
 func _process(delta: float) -> void:
 	if wallop_enemy.isDummy:
@@ -20,6 +21,7 @@ func _process(delta: float) -> void:
 			GameState.shared.camera.shake()
 			wallop_enemy.velocity.y = 0.0
 			state = "pause"
+			crash.play()
 			pauseTimer = 1.5
 	if state == "pause":
 		pauseTimer = move_toward(pauseTimer, 0.0, delta)

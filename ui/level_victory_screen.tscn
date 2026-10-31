@@ -16,6 +16,8 @@ shader_parameter/shift_color = Color(0.96, 0.736, 0, 1)
 atlas = ExtResource("5_m40oi")
 region = Rect2(98, 16, 32, 16)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xv4l1"]
+
 [sub_resource type="Animation" id="Animation_74mk3"]
 length = 0.001
 tracks/0/type = "value"
@@ -459,6 +461,41 @@ scale = Vector2(4.843, 4.843)
 texture = ExtResource("5_m40oi")
 region_enabled = true
 region_rect = Rect2(157.56989, -0.3624668, 100.24124, 50.471115)
+
+[node name="ChatUnlock" type="Control" parent="CanvasLayer/Control" unique_id=591546466]
+anchors_preset = 0
+offset_left = 112.0
+offset_top = 449.0
+offset_right = 152.0
+offset_bottom = 489.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ChatUnlock" unique_id=1169064708]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -35.0
+offset_right = 145.0
+offset_bottom = -19.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Chat Unlocked:"
+
+[node name="UnlockName" type="Label" parent="CanvasLayer/Control/ChatUnlock" unique_id=1690777026]
+layout_mode = 0
+offset_left = 212.0
+offset_top = -40.0
+offset_right = 500.0
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Item Namewq"
+
+[node name="UnlockTexture" type="TextureRect" parent="CanvasLayer/Control/ChatUnlock" unique_id=1883557584]
+texture_filter = 1
+layout_mode = 0
+offset_left = 213.0
+offset_top = 1.0
+offset_right = 337.0
+offset_bottom = 125.0
+texture = SubResource("PlaceholderTexture2D_xv4l1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1735726833]
 libraries/ = SubResource("AnimationLibrary_6d6xc")

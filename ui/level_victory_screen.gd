@@ -16,6 +16,10 @@ extends Node2D
 @onready var image_thumbs_up: Sprite2D = $CanvasLayer/Control/Image/ImageThumbsUp
 @onready var image_throne: Sprite2D = $CanvasLayer/Control/Image/ImageThrone
 
+@onready var chat_unlock: Control = $CanvasLayer/Control/ChatUnlock
+@onready var unlock_name: Label = $CanvasLayer/Control/ChatUnlock/UnlockName
+@onready var unlock_texture: TextureRect = $CanvasLayer/Control/ChatUnlock/UnlockTexture
+
 
 var readyToContinue = false
 
@@ -23,6 +27,7 @@ var readyToContinue = false
 @export var isDefeat = false
 
 func _ready():
+	chat_unlock.visible = false
 	isFinal = GameState.stagesPerRound == GameState.round.currentStage && !isDefeat
 	image_dead.visible = isDefeat
 	image_thumbs_up.visible = !isDefeat && !isFinal
@@ -75,6 +80,11 @@ func queueLabels():
 	await get_tree().create_timer(0.3).timeout
 	
 	await get_tree().create_timer(0.5).timeout
+	
+	if !isFinal:
+		unlockItem()
+		await get_tree().create_timer(1.5).timeout
+	
 	continueLabel.modulate = Color.WHITE
 	readyToContinue = true
 
@@ -102,3 +112,12 @@ func next():
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
 	
+func unlockItem():
+	var lockedItems = MultiplayerHandler.spawnCommands.filter(func(a:SpawnCommand): return !a.isActive)
+	if lockedItems.size():
+		var unlocked: SpawnCommand = lockedItems.pick_random()
+		unlocked.isActive = true
+		unlock_texture.texture = unlocked.viewport.get_texture()
+		unlock_name.text = unlocked.name
+		chat_unlock.visible = true
+		drum.play()

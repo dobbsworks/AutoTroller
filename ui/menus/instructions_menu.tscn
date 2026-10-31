@@ -86,6 +86,7 @@ layout_mode = 2
 text = "Move with WASD
 Jump with Space
 Run with Shift
+Pause with ESC
 
 Controller is recommended!
 
@@ -122,7 +123,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Chat, you are the wizard magic. Don't think about it too hard. Earn points by summoning coins, then spend them on enemies and hazards.
 
-The list of things to buy will be in the bottom-right corner during play.
+The list of things to buy will be in the bottom-right corner during play. Type the name of something to summon it (e.g. \"coins\").
 
 You can't buy anything until your previous purchase is fully summoned."
 autowrap_mode = 2

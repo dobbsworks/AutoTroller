@@ -87,6 +87,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="Control" type="Control" parent="." unique_id=2137466734]
+z_index = 4096
 layout_mode = 3
 anchors_preset = 0
 offset_left = -20.0
@@ -97,6 +98,7 @@ scale = Vector2(0.5, 0.5)
 theme = ExtResource("1_8kshu")
 
 [node name="Label" type="Label" parent="Control" unique_id=960298154]
+z_index = 4096
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8

@@ -10,5 +10,6 @@ func _ready() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if !isActive: return
 	isActive = false
+	GameState.shared.player.isActive = false
 	var newScene = LEVEL_VICTORY_SCREEN.instantiate()
 	get_parent().add_sibling(newScene)
