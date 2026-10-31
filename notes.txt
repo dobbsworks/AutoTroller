@@ -1,17 +1,38 @@
 
 
-More enemies
-Items
 
 
 TODO
 	Buffer jumps
 	Coyote time
+	Something for coins
+		1 up for 50?
+	More enemies
+		handle active/inactive enemies, randomly activate after level
+		(reset when game starts)
+POLISH
+	Wallop sfx
+	Chat scoreboard?
+		
+		
+		
+
+Post-jam updates:
+	Items
 	Kaizos need:
 		make sure no block already there when spawning
 		make sure not at peak of jump
-		
-	
+	Useable Gadgets
+		3x double-jump item
+		Bounce up item
+		Plantable vine - sprout
+	Level Elements
+		Ladders/Vines
+		Disappearing platforms
+		Rising platforms
+	Enemy obstacles
+		Timed fire
+		Timed lasers
 	Enemy movement
 		Patrol - Goombud/Goombrat
 		Walk off ledge - Goomba
@@ -21,22 +42,6 @@ TODO
 		Bounce - Green Parakoopa
 		
 		
-	Enemy obstacles
-		Ball n chain
-		Timed fire
-		Timed lasers
-		
-	Level Elements
-		Ladders/Vines
-		Disappearing platforms
-		Rising platforms
-		
-		
-	Useable Gadgets
-		3x double-jump item
-		Bounce up item
-		Plantable vine - sprout
-
 
 title
 https://www.beepbox.co/#9n41sbk0l00e0bt38a7g0fj07r2i0o4423T0v1u13f10o5q00d03w5h1E0T0v1u12f10s4q00d03w2h2E0T0v1u12f10s4q00d03w2h2E0T0v1u12f10s4q00d03w2h2E0T2v1u15f10w4qw02d03w0E0b4i8h8w00000h8x4ycM00014y4i8Pg0004i8h8w00000h4h4h4h8000p23XDrGsYuc0CDMQPUuvAUzBPJZk0QbsM39PsI2VH-9ierbWGDdvRlgym7dVgeSllpllrC7dVuAmllpll1EUsS2CLQxuCDU7EjfMCzMMYHk1V8uMvN8LO1WdzyMYgSNV8uMvNMLO1WdzzMYhR0ui7I7YkbYwuzoU23Ptg7I7I72FXZvzxAR-30TQRlQT7_zLMaqsICs1whW4QpEulkfgjQIQVt9D8jhBxYmCDaOemOGxWdIfaG7E9WurHCebcI0
