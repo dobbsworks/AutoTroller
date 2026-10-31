@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 				state = "falling"
 				wallop_enemy.global_position.y = -250
 	if state == "falling":
-		wallop_enemy.velocity.y = 300.0
+		wallop_enemy.velocity.y = 250.0
 		if wallop_enemy.is_on_floor():
 			GameState.shared.camera.shake()
 			wallop_enemy.velocity.y = 0.0
@@ -29,5 +29,5 @@ func _process(delta: float) -> void:
 			state = "rising"
 	if state == "rising":
 		wallop_enemy.velocity.y = -100.0
-		if wallop_enemy.global_position.y <= -250.0:
+		if wallop_enemy.global_position.y <= -300.0:
 			state = "wait"

@@ -27,7 +27,6 @@ func _ready() -> void:
 	GameState.stage.levelScene = get_parent()
 	AppendChunkScene(levelDefintion.startingChunk)
 	LoadAllChunks()
-	AppendRandomChunk()
 
 func _process(delta: float) -> void:
 	var rightmostCameraEdge = GameState.shared.camera.camera_edge.global_position.x

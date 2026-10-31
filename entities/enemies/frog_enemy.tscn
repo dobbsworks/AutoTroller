@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://3qgdk6bdyhov" path="res://entities/enemies/frog_behavior.gd" id="3_nhk8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jxsx"]
-size = Vector2(16, 16)
+size = Vector2(14, 16)
 
 [node name="FrogEnemy" unique_id=1357401302 instance=ExtResource("1_e5lry")]
 canJumpOn = true

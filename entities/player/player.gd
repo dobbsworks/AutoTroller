@@ -169,24 +169,16 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 			var enemyTopGlobalY = enemyCollider.global_position.y - enemyCollider.shape.get_rect().size.y / 2.0
 			var playerCollider: CollisionShape2D = get_node("CollisionShape2D")
 			var playerBottomY = playerCollider.global_position.y + playerCollider.shape.get_rect().size.y / 2.0
-			var isLandingOnTop = playerBottomY - 1.0 + velocity.y * get_process_delta_time() < enemyTopGlobalY + body.velocity.y * get_process_delta_time()
+			var isLandingOnTop = playerBottomY - 3.0 - velocity.y * get_process_delta_time() < enemyTopGlobalY - body.velocity.y * get_process_delta_time()
 			if !isLandingOnTop:
 				# try with and without factoring velocity, really work in the players favor
-				isLandingOnTop = playerBottomY - 1.0 < enemyTopGlobalY
-			
-			#var a = velocity.y * get_process_delta_time()
-			#var b = body.velocity.y * get_process_delta_time()
-			#var c = playerBottomY - 1.0 - velocity.y * get_process_delta_time()
-			#var d = enemyTopGlobalY - body.velocity.y * get_process_delta_time()
+				isLandingOnTop = playerBottomY - 3.0 < enemyTopGlobalY
 			
 			if isLandingOnTop:
 				body.kill()
 				interactedWithEnemyThisFrame = true
 				BounceUp()
 				return
-			#print(body.velocity)
-			#print(velocity)
-			#print()
 		onKilled()
 
 
