@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://g3d3bx8shbq8" path="res://entities/collectibles/coin.tscn" id="2_4p7l3"]
 [ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="3_6lc0h"]
 [ext_resource type="PackedScene" uid="uid://dn03g10rdblci" path="res://entities/collectibles/coin_init.tscn" id="4_6lc0h"]
-[ext_resource type="PackedScene" uid="uid://b17sv5c86a84u" path="res://entities/enemies/frog_enemy.tscn" id="5_sm8hr"]
 
 [node name="StartChunk1" type="TileMapLayer" unique_id=1303914081]
 texture_filter = 1
@@ -39,6 +38,3 @@ position = Vector2(328, -104)
 
 [node name="CoinInit2" parent="." unique_id=1591675008 instance=ExtResource("4_6lc0h")]
 position = Vector2(512, -72)
-
-[node name="FrogEnemy" parent="." unique_id=1026826956 instance=ExtResource("5_sm8hr")]
-position = Vector2(456, -40)

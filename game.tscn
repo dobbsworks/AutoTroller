@@ -35,7 +35,7 @@ collision_layer = 0
 
 [node name="LevelChunks" type="Node2D" parent="." unique_id=1107107757]
 script = ExtResource("4_vef74")
-levelDefintions = Array[ExtResource("5_7sc4i")]([ExtResource("6_80cx4"), ExtResource("7_e8heu"), ExtResource("8_rvswv"), ExtResource("9_boyg6"), ExtResource("10_e36ub"), ExtResource("11_hb5m1"), ExtResource("12_x5p1p"), ExtResource("13_qhcbd")])
+levelDefintions = Array[ExtResource("5_7sc4i")]([ExtResource("6_80cx4"), ExtResource("7_e8heu"), ExtResource("9_boyg6"), ExtResource("8_rvswv"), ExtResource("10_e36ub"), ExtResource("11_hb5m1"), ExtResource("12_x5p1p"), ExtResource("13_qhcbd")])
 
 [node name="PauseHandler" type="Node2D" parent="." unique_id=2026422030]
 process_mode = 3

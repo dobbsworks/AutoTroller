@@ -22,6 +22,8 @@ var respawnTimer = 0.0
 var interactedWithEnemyThisFrame = false
 var isActive = true
 
+var tileMapLayer: TileMapLayer
+
 func _ready() -> void:
 	GameState.shared.player = self
 
@@ -69,6 +71,15 @@ func _physics_process(delta: float) -> void:
 	updateAnimation()
 	if (position.y) > 10:
 		onKilled()
+		return
+		
+	# check for squish
+	if tileMapLayer:
+		var tilePos: Vector2 = global_position - tileMapLayer.global_position
+		var tileCoord = floor(tilePos / 16.0)
+		var tileAtlasCoord = tileMapLayer.get_cell_atlas_coords(tileCoord)
+		if (tileAtlasCoord.x == 1 || tileAtlasCoord.x == 7):
+			onKilled()
 
 func updateFacing():
 	var direction := Input.get_axis("left", "right")
@@ -157,7 +168,12 @@ func Jump():
 
 
 func _on_squish_detector_body_entered(body: Node2D) -> void:
-	onKilled()
+	if body is TileMapLayer:
+		tileMapLayer = body
+	return
+	# last minute bug here, quick rework happening
+	#print(body)
+	#onKilled()
 
 
 func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
