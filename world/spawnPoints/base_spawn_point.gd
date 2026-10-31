@@ -8,14 +8,17 @@ func _ready() -> void:
 
 
 func checkForSpawn():
-	var spawnedItem = MultiplayerHandler.attemptSpawn(spawnables)
+	var spawnedItem: SpawnResult = MultiplayerHandler.attemptSpawn(spawnables)
 	if spawnedItem != null:
-		spawnItem(spawnedItem.spawnable)
+		spawnItem(spawnedItem)
 
 
-func spawnItem(itemScene: PackedScene):
-		var item = itemScene.instantiate()
-		get_parent().add_sibling(item)
-		item.global_position = global_position
-		if 'spawnOffset' in item:
-			item.global_position += item.spawnOffset
+func spawnItem(spawnResult: SpawnResult):
+	var itemScene = spawnResult.spawnable
+	var item = itemScene.instantiate()
+	get_parent().add_sibling(item)
+	if 'chatter' in item:
+		item.chatter = spawnResult.chatter
+	item.global_position = global_position
+	if 'spawnOffset' in item:
+		item.global_position += item.spawnOffset

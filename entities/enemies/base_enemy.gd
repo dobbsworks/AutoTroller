@@ -28,6 +28,7 @@ var age = 0.0
 var groundLeftCount = 0
 var groundRightCount = 0
 var jumpWait = 0.0
+var chatter: Chatter
 
 
 func _physics_process(delta: float) -> void:

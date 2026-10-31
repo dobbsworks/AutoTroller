@@ -15,6 +15,7 @@ extends CharacterBody2D
 const KAIZO_INIT = preload("res://world/blocks/kaizo_init.tscn")
 const KAIZO_BLOCK = preload("res://world/blocks/kaizo_block.tscn")
 const LEVEL_VICTORY_SCREEN = preload("res://ui/level_victory_screen.tscn")
+const _1_UP = preload("res://entities/collectibles/1_up.tscn")
 
 var facing = 1
 var isCrouching = false
@@ -72,6 +73,13 @@ func _physics_process(delta: float) -> void:
 	if (position.y) > 10:
 		onKilled()
 		return
+		
+	if GameState.round.coins >= 50:
+		GameState.round.coins -= 50
+		GameState.round.lives += 1
+		var extraLife = _1_UP.instantiate()
+		add_sibling(extraLife)
+		extraLife.global_position = global_position
 		
 	# check for squish
 	if tileMapLayer:

@@ -124,17 +124,17 @@ repeat_size = Vector2(200, 0)
 repeat_times = 5
 
 [node name="Sky" type="TextureRect" parent="Sky2" unique_id=1544006288]
-z_index = -100
+modulate = Color(1, 1, 1, 0.3372549)
 custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 4.0
-offset_top = 167.0
-offset_right = 404.0
-offset_bottom = 417.0
+offset_left = 11.0
+offset_top = 202.0
+offset_right = 411.0
+offset_bottom = 452.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_k5phh")

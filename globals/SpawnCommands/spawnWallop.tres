@@ -10,5 +10,5 @@ commands = Array[String](["wallop", "thwomp"])
 cost = 3
 spawnedObject = ExtResource("2_1gk5q")
 numberSpawned = 1
-isActive = false
+startsActive = false
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

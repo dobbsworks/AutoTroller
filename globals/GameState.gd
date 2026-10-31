@@ -16,6 +16,7 @@ var stage = {}
 
 var defaultRound = {
 	coins = 0,
+	totalCoins = 0,
 	lives = 5,
 	deaths = 0,
 	currentStage = 1,
@@ -39,11 +40,14 @@ func _process(delta: float) -> void:
 		stage.goalDistance = stage.endStart + 16.0 * 29
 
 func getGoalRegionRect() -> Rect2:
-	var endIconXs = [16, 48, 80, 112, 144, 176, 208, 240]
-	var iconIndex = posmod(round.currentStage, endIconXs.size())
+	var endIconXs = [16, 48, 80, 112, 144, 176, 208, 272]
+	var iconIndex = posmod(round.currentStage - 1, endIconXs.size())
 	return Rect2(endIconXs[iconIndex], 48, 16, 16)
 	
 func resetGame():
+	for spawnCommand: SpawnCommand in MultiplayerHandler.spawnCommands:
+		spawnCommand.isActive = spawnCommand.startsActive
+	
 	Utility.copyObj(defaultStage, stage)
 	Utility.copyObj(defaultRound, round)
 	

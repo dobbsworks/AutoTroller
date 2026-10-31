@@ -23,6 +23,11 @@ func _process(delta: float) -> void:
 			state = "pause"
 			crash.play()
 			pauseTimer = 1.5
+			if get_parent().chatter != null:
+				var label: Label = $"../Label"
+				label.text = get_parent().chatter.username
+				label.modulate = Color.WHITE
+				create_tween().tween_property(label, "modulate", Color.TRANSPARENT, 1.2)
 	if state == "pause":
 		pauseTimer = move_toward(pauseTimer, 0.0, delta)
 		if pauseTimer <= 0.0:

@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bid80lc5ngc6p"]
+
+[ext_resource type="AudioStream" uid="uid://cnhoxacitjxd0" path="res://audio/sfx/1up.mp3" id="1_jminm"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_vwwl0"]
+
+[sub_resource type="Animation" id="Animation_pbk07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_i5ih8"]
+resource_name = "new_animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.01, 0.13605261, 0.29543057, 0.48679423, 0.64815784, 0.8421769, 1.0608611, 1.585455),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0.9666667, 0, 1), Color(0.16666675, 1, 0, 1), Color(0, 0.93333316, 1, 1), Color(0, 0.0666666, 1, 1), Color(0.8000002, 0, 1, 1), Color(0.8000002, 0, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.017672896, 0.5124882),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-18, -12), Vector2(-18, -28)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tj74i"]
+_data = {
+&"RESET": SubResource("Animation_pbk07"),
+&"new_animation": SubResource("Animation_i5ih8")
+}
+
+[node name="1up" type="Node2D" unique_id=1290219884]
+
+[node name="1Up" type="AudioStreamPlayer" parent="." unique_id=937959843]
+stream = ExtResource("1_jminm")
+autoplay = true
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1744006161]
+libraries/ = SubResource("AnimationLibrary_tj74i")
+autoplay = &"new_animation"
+
+[node name="Label" type="Label" parent="." unique_id=2055752316]
+z_index = 999
+offset_left = -18.0
+offset_top = -12.0
+offset_right = 22.0
+offset_bottom = 11.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("2_vwwl0")
+theme_override_constants/outline_size = 5
+text = "1-UP!"

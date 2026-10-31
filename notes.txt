@@ -5,11 +5,13 @@
 TODO
 	Buffer jumps
 	Coyote time
+	Speed scroll button
+		Track time spent speeding
+		
 	Jumping cheep cheep
 	popout spikes
 	High-bouncing prickle
-	Something for coins
-		1 up for 50?
+	
 POLISH
 	Chat scoreboard/highlight
 		Favorite buy

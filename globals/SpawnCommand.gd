@@ -7,6 +7,7 @@ class_name SpawnCommand
 @export var cost: int
 @export var spawnedObject: PackedScene
 @export var numberSpawned: int
-@export var isActive = true
+@export var startsActive = true
 
+var isActive = true
 var viewport: Viewport

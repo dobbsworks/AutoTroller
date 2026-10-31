@@ -32,17 +32,17 @@ func _ready():
 	image_dead.visible = isDefeat
 	image_thumbs_up.visible = !isDefeat && !isFinal
 	image_throne.visible = isFinal
-	fruit_count.text = str(GameState.round.currentStage)
+	fruit_count.text = str(GameState.round.currentStage - (1 if isDefeat else 0))
 	
 	if isFinal:
 		animation_player.play("victory")
 		victory.text = "[wave amp=50.0 freq=5.0 connected=1]VICTORY![/wave]"
-		coins_count.text = str(GameState.round.coins)
+		coins_count.text = str(GameState.round.totalCoins)
 		death_count.text = str(GameState.round.deaths)
 	elif isDefeat:
 		victory.text = "Defeat..."
 		animation_player.play("defeat")
-		coins_count.text = str(GameState.round.coins)
+		coins_count.text = str(GameState.round.totalCoins)
 		death_count.text = str(GameState.round.deaths)
 	else:
 		animation_player.play("levelDone")

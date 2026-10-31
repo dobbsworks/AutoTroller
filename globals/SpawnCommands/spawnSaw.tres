@@ -10,5 +10,5 @@ commands = Array[String](["saw", "grinder"])
 cost = 2
 spawnedObject = ExtResource("2_ydxbt")
 numberSpawned = 1
-isActive = false
+startsActive = false
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://drukpsyjsj6v6" path="res://entities/enemies/enemies.png" id="2_6vumq"]
 [ext_resource type="Script" uid="uid://fn62c1ndtmqp" path="res://entities/enemies/wallop_behavior.gd" id="3_hvfmc"]
 [ext_resource type="AudioStream" uid="uid://0dqab5h0d3rr" path="res://audio/sfx/crash.mp3" id="4_6vumq"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="5_mlu1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n8fgd"]
 size = Vector2(32, 32)
@@ -29,3 +30,15 @@ script = ExtResource("3_hvfmc")
 [node name="Crash" type="AudioStreamPlayer" parent="WallopBehavior" index="0" unique_id=1326345205]
 stream = ExtResource("4_6vumq")
 bus = &"SFX"
+
+[node name="Label" type="Label" parent="." index="5" unique_id=328852084]
+modulate = Color(1, 1, 1, 0)
+offset_left = -45.0
+offset_top = -23.0
+offset_right = 315.0
+offset_bottom = 5.0
+scale = Vector2(0.25, 0.25)
+theme = ExtResource("5_mlu1j")
+theme_override_font_sizes/font_size = 16
+text = "username"
+horizontal_alignment = 1

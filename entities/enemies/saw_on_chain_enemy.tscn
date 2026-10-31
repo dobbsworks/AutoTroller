@@ -58,7 +58,7 @@ visible = false
 visible = false
 
 [node name="Chain" type="Node2D" parent="." index="4" unique_id=100417457 node_paths=PackedStringArray("endItems")]
-modulate = Color(1, 1, 1, 0.5764706)
+modulate = Color(1, 1, 1, 0.75686276)
 z_index = 2
 script = ExtResource("3_i0pc8")
 endItems = [NodePath("../CollisionShape2D"), NodePath("../Sprite")]
