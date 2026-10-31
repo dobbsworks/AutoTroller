@@ -46,14 +46,14 @@ func _init(twitch_api: TwitchAPI, twitch_media_loader: TwitchMediaLoader) -> voi
 ## Loads the reward data inplace from Twitch.
 func load_reward(twitch_reward: TwitchReward) -> LoadError:
 	if twitch_reward.id == "":
-		_log.e("Can't load %s it has no ID to load" % twitch_reward.title)
+		if _log: _log.e("Can't load %s it has no ID to load" % twitch_reward.title)
 		return LoadError.NO_ID_AVAILABLE
 		
 	var reward: TwitchCustomReward = await _get_custom_reward(twitch_reward)
 	if reward == null: return LoadError.NO_REWARD_FOUND
 	_convert_twitch_reward(twitch_reward, reward)
 	
-	_log.i("Loaded '%s' from Twitch" % twitch_reward.title)
+	if _log: _log.i("Loaded '%s' from Twitch" % twitch_reward.title)
 	return LoadError.OK
 	
 	
@@ -109,7 +109,7 @@ func save_reward(twitch_reward: TwitchReward) -> SaveError:
 			twitch_reward.id = saved_reward.id 
 			ResourceSaver.save(twitch_reward)
 			twitch_reward.emit_changed()
-			_log.i("Saved the reward %s" % twitch_reward.title)
+			if _log: _log.i("Saved the reward %s" % twitch_reward.title)
 			return SaveError.OK
 		else:
 			return SaveError.UNKNOWN
@@ -132,20 +132,20 @@ func save_reward(twitch_reward: TwitchReward) -> SaveError:
 		update.is_paused = twitch_reward.is_paused
 		var response = await api.update_custom_reward(update, twitch_reward.id, twitch_reward.broadcaster_user.id)
 		if response.response.response_code == 403:
-			_log.e("You can only update custom rewards from the application that created it in the first place.")
+			if _log: _log.e("You can only update custom rewards from the application that created it in the first place.")
 			return SaveError.REWARD_NOT_OWNED
 		else:
-			_log.i("Updated the reward %s" % twitch_reward.title)
+			if _log: _log.i("Updated the reward %s" % twitch_reward.title)
 			return SaveError.OK
 
 
 ## Deletes a reward on Twitch side. Will also remove the ID when succesfully.
 func delete_reward(twitch_reward: TwitchReward) -> DeleteError:
 	if not twitch_reward.id: 
-		_log.e("Can't delete reward has not id %s" % twitch_reward.title)
+		if _log: _log.e("Can't delete reward has not id %s" % twitch_reward.title)
 		return DeleteError.NO_ID
 	if not twitch_reward.broadcaster_user: 
-		_log.e("Can't delete reward has not broadcaster %s" % twitch_reward.title)
+		if _log: _log.e("Can't delete reward has not broadcaster %s" % twitch_reward.title)
 		return DeleteError.NO_BROADCASTER_USER
 	var response: BufferedHTTPClient.ResponseData = await api.delete_custom_reward(twitch_reward.id, twitch_reward.broadcaster_user.id)
 	if response.response_code <= 300:
@@ -172,7 +172,7 @@ func _get_custom_reward(twitch_reward: TwitchReward) -> TwitchCustomReward:
 	if reward_response.data.is_empty(): 
 		var msg: String = "Can't load Twitch reward %s with id %s from Twitch. It doesn't exist!" % [twitch_reward.title, twitch_reward.id]
 		_reset_reward(twitch_reward)
-		_log.e(msg)
+		if _log: _log.e(msg)
 		if Engine.is_editor_hint():
 			EditorInterface.get_editor_toaster().push_toast(msg, EditorToaster.SEVERITY_WARNING)
 		return null

@@ -89,10 +89,10 @@ func preload_emotes(channel_id: String = "global") -> void:
 	if (!_cached_emotes.has(channel_id)):
 		var response
 		if channel_id == "global":
-			_log.i("Preload global emotes")
+			if _log: _log.i("Preload global emotes")
 			response = await api.get_global_emotes()
 		else:
-			_log.i("Preload channel(%s) emotes" % channel_id)
+			if _log: _log.i("Preload channel(%s) emotes" % channel_id)
 			response = await api.get_channel_emotes(channel_id)
 		_cached_emotes[channel_id] = _map_emotes(response)
 
@@ -100,7 +100,7 @@ func preload_emotes(channel_id: String = "global") -> void:
 ## Returns requested emotes.
 ## Key: EmoteID as String | Value: SpriteFrames
 func get_emotes(emote_ids : Array[String]) -> Dictionary[String, SpriteFrames]:
-	_log.i("Get emotes: %s" % [emote_ids])
+	if _log: _log.i("Get emotes: %s" % [emote_ids])
 	var requests: Array[TwitchEmoteDefinition] = []
 	for id: String in emote_ids:
 		requests.append(TwitchEmoteDefinition.new(id))
@@ -122,7 +122,7 @@ func get_emotes_by_definition(emote_definitions : Array[TwitchEmoteDefinition]) 
 		var original_file_cache_path: String = _get_emote_cache_path(emote_definition)
 		var spriteframe_path: String = _get_emote_cache_path_spriteframe(emote_definition)
 		if ResourceLoader.has_cached(spriteframe_path):
-			_log.d("Use cached emote %s" % emote_definition)
+			if _log: _log.d("Use cached emote %s" % emote_definition)
 			response[emote_definition] = ResourceLoader.load(spriteframe_path)
 			continue
 
@@ -131,7 +131,7 @@ func get_emotes_by_definition(emote_definitions : Array[TwitchEmoteDefinition]) 
 
 		if _requests_in_progress.has(original_file_cache_path): continue
 		_requests_in_progress.append(original_file_cache_path)
-		_log.d("Request emote %s" % emote_definition)
+		if _log: _log.d("Request emote %s" % emote_definition)
 		var request : BufferedHTTPClient.RequestData = _load_emote(emote_definition)
 		requests[emote_definition] = request
 
@@ -193,10 +193,10 @@ func preload_badges(channel_id: String = "global") -> void:
 	if not _cached_badges.has(channel_id):
 		var response: Variant # TwitchGetGlobalChatBadges.Response | TwitchGetChannelChatBadges.Response
 		if channel_id == "global":
-			_log.i("Preload global badges")
+			if _log: _log.i("Preload global badges")
 			response = await(api.get_global_chat_badges())
 		else:
-			_log.i("Preload channel(%s) badges" % channel_id)
+			if _log: _log.i("Preload channel(%s) badges" % channel_id)
 			response = await(api.get_channel_chat_badges(channel_id))
 		_cached_badges[channel_id] = _cache_badges(response)
 
@@ -211,10 +211,10 @@ func get_badges(badges: Array[TwitchBadgeDefinition]) -> Dictionary[TwitchBadgeD
 		var cache_id : String = badge_definition.get_cache_id()
 		var badge_path : String = cache_badge.path_join(cache_id)
 		if ResourceLoader.has_cached(badge_path):
-			_log.d("Use cached badge %s" % badge_definition)
+			if _log: _log.d("Use cached badge %s" % badge_definition)
 			response[badge_definition] = ResourceLoader.load(badge_path)
 		else:
-			_log.d("Request badge %s" % badge_definition)
+			if _log: _log.d("Request badge %s" % badge_definition)
 			var request : BufferedHTTPClient.RequestData = await _load_badge(badge_definition)
 			requests[badge_definition] = request
 
@@ -283,10 +283,10 @@ class CheerResult extends RefCounted:
 
 func preload_cheemote() -> void:
 	if not _cached_cheermotes.is_empty(): return
-	_log.i("Preload cheermotes")
+	if _log: _log.i("Preload cheermotes")
 	var cheermote_response: TwitchGetCheermotes.Response = await api.get_cheermotes(null)
 	for cheermote: TwitchCheermote in cheermote_response.data:
-		_log.d("- found %s" % cheermote.prefix)
+		if _log: _log.d("- found %s" % cheermote.prefix)
 		var key: String = _get_cheermote_key(cheermote)
 		_cached_cheermotes[key] = cheermote
 
@@ -330,12 +330,12 @@ func get_cheermotes(cheermote_definition: TwitchCheermoteDefinition) -> Dictiona
 	for tier : TwitchCheermote.Tiers in cheer.tiers:
 		var id = cheermote_definition.get_id()
 		if ResourceLoader.has_cached(id):
-			_log.d("Use cached cheer %s" % cheermote_definition)
+			if _log: _log.d("Use cached cheer %s" % cheermote_definition)
 			response[tier] = ResourceLoader.load(id)
 		if not image_transformer.is_supporting_animation():
 			cheermote_definition.type_static()
 		else:
-			_log.d("Request cheer %s" % cheermote_definition)
+			if _log: _log.d("Request cheer %s" % cheermote_definition)
 			requests[tier] = _request_cheermote(tier, cheermote_definition)
 
 	for tier: TwitchCheermote.Tiers in requests:
@@ -465,7 +465,7 @@ func load_profile_image(user: TwitchUser) -> ImageTexture:
 		var save_err: Error = ResourceSaver.save(texture, cache_path, ResourceSaver.SaverFlags.FLAG_COMPRESS)
 
 		if save_err != OK:
-			_log.e("Failed to save profile image to cache: %s" % cache_path)
+			if _log: _log.e("Failed to save profile image to cache: %s" % cache_path)
 
 	else:
 		# Don't use `texture = fallback_profile` as texture cause the path will be taken over

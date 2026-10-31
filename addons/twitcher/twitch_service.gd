@@ -76,7 +76,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	_log.d("is ready")
+	if _log: _log.d("is ready")
 	if not is_instance_valid(token): token = TwitchEditorSettings.game_oauth_token
 	if not is_instance_valid(oauth_setting): oauth_setting = TwitchEditorSettings.game_oauth_setting
 	_reward_service = TwitchRewardService.new(TwitchAPI.instance, TwitchMediaLoader.instance)
@@ -144,7 +144,7 @@ func setup() -> bool:
 		if child.has_method(&"wait_setup"):
 			await child.wait_setup()
 
-	_log.i("TwitchService setup")
+	if _log: _log.i("TwitchService setup")
 	return true
 
 
@@ -201,7 +201,7 @@ func get_user_by_id(user_id: String, force_refresh: bool = false) -> TwitchUser:
 			return entry.user
 
 	if api == null:
-		_log.e("Please setup a TwitchAPI Node into TwitchService.")
+		if _log: _log.e("Please setup a TwitchAPI Node into TwitchService.")
 		return null
 	if user_id == null || user_id == "": return null
 	var opt: TwitchGetUsers.Opt = TwitchGetUsers.Opt.new()
@@ -222,13 +222,13 @@ func get_user(username: String, force_refresh: bool = false) -> TwitchUser:
 			return entry.user
 
 	if api == null:
-		_log.e("Please setup a TwitchAPI Node into TwitchService.")
+		if _log: _log.e("Please setup a TwitchAPI Node into TwitchService.")
 		return null
 	var opt: TwitchGetUsers.Opt = TwitchGetUsers.Opt.new()
 	opt.login = [username] as Array[String]
 	var user_data : TwitchGetUsers.Response = await api.get_users(opt)
 	if user_data.data.is_empty():
-		_log.e("Username was not found: %s" % username)
+		if _log: _log.e("Username was not found: %s" % username)
 		return null
 	var user: TwitchUser = user_data.data[0]
 	_update_user_cache(user)
@@ -249,7 +249,7 @@ func get_current_user(force_refresh: bool = false) -> TwitchUser:
 ## Helper Method to be used in the Editor Scripts
 static func get_current_user_via_api(api: TwitchAPI) -> TwitchUser:
 	if api == null:
-		_log.e("Please setup a TwitchAPI Node into TwitchService.")
+		if _log: _log.e("Please setup a TwitchAPI Node into TwitchService.")
 		return null
 
 	var user_data : TwitchGetUsers.Response = await api.get_users(null)
@@ -269,7 +269,7 @@ func load_profile_image(user: TwitchUser) -> ImageTexture:
 ## which API versions are available and which conditions are required.
 func subscribe_event(definition: TwitchEventsubDefinition, conditions: Dictionary) -> TwitchEventsubConfig:
 	if definition == null:
-		_log.e("TwitchEventsubDefinition is null")
+		if _log: _log.e("TwitchEventsubDefinition is null")
 		return
 
 	var config: TwitchEventsubConfig = TwitchEventsubConfig.create(definition, conditions)
@@ -280,7 +280,7 @@ func subscribe_event(definition: TwitchEventsubDefinition, conditions: Dictionar
 ## Waits for connection to eventsub. Eventsub is ready to subscribe events.
 func wait_for_eventsub_connection() -> void:
 	if eventsub == null:
-		_log.e("TwitchEventsub Node is missing")
+		if _log: _log.e("TwitchEventsub Node is missing")
 		return
 	await eventsub.wait_for_connection()
 
@@ -288,7 +288,7 @@ func wait_for_eventsub_connection() -> void:
 ## Returns all of the eventsub subscriptions (variable is a copy so you can freely modify it)
 func get_subscriptions() -> Array[TwitchEventsubConfig]:
 	if eventsub == null:
-		_log.e("TwitchEventsub Node is missing")
+		if _log: _log.e("TwitchEventsub Node is missing")
 		return []
 	return eventsub.get_subscriptions()
 
@@ -372,13 +372,13 @@ func add_command(command: String, callback: Callable, args_min: int = 0, args_ma
 	command_node.user_cooldown = user_cooldown
 	command_node.global_cooldown = global_cooldown
 	add_child(command_node)
-	_log.i("Register command %s" % command)
+	if _log: _log.i("Register command %s" % command)
 	return command_node
 
 
 ## Removes a command
 func remove_command(command: String) -> void:
-	_log.i("Remove command %s" % command)
+	if _log: _log.i("Remove command %s" % command)
 	var command_node: TwitchCommand = _commands.get(command, null)
 	if command_node != null:
 		command_node.queue_free()
@@ -445,7 +445,7 @@ func poll(title: String, choices: Array[String], duration: int = 60, channel_poi
 			if event.data[&"id"] != poll.id: continue
 			break
 	else:
-		_log.i("Can't wait for poll end. Either eventsub is not set ot it is not listenting to ending polls")
+		if _log: _log.i("Can't wait for poll end. Either eventsub is not set ot it is not listenting to ending polls")
 		return {}
 	return event.data
 
@@ -455,7 +455,7 @@ func poll(title: String, choices: Array[String], duration: int = 60, channel_poi
 ## Returns the data of the Cheermotes.
 func get_cheermote_data() -> Array[TwitchCheermote]:
 	if media_loader == null:
-		_log.e("TwitchMediaLoader was not set within %s" % get_tree_string())
+		if _log: _log.e("TwitchMediaLoader was not set within %s" % get_tree_string())
 		return []
 	await media_loader.preload_cheemote()
 	return media_loader.all_cheermotes()

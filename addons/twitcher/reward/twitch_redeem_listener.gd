@@ -77,7 +77,7 @@ func _add_redemption_event(redemption_event: TwitchChannelPointsCustomRewardRede
 	opt.id = user_ids
 	var users = await api.get_users(opt)
 	if users.response.response_code != 200:
-		_log.e("Couldn't load users for the redemption of %s" % reward.title)
+		if _log: _log.e("Couldn't load users for the redemption of %s" % reward.title)
 		return
 	var user_idx: int = users.data.find_custom(_by_user_id.bind(redemption_event.user_id))
 	var user: TwitchUser = users.data[user_idx]

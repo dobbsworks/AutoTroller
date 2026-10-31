@@ -116,7 +116,7 @@ func authorize(force: bool = false) -> bool:
 
 func wait_unsetup() -> void:
 	await token_handler.revoke_token()
-	_log.d("revoked tokens on twitch side during unsetup")
+	if _log: _log.d("revoked tokens on twitch side during unsetup")
 
 
 func refresh_token() -> void:
@@ -142,18 +142,18 @@ static func manual_authorize(
 	if not oauth_scopes: oauth_scopes = preload("uid://cgqldyna2cv5h") # res://addons/twitcher/assets/twitcher_editor_scopes.tres
 
 	if not setting.is_valid():
-		_log.d("Can't validate token cause OAuthSettings are invalid.")
+		if _log: _log.d("Can't validate token cause OAuthSettings are invalid.")
 		return
-	var root_node: Node = EditorInterface.get_base_control() if Engine.is_editor_hint() else Engine.get_main_loop().root
+	var root_node: Node = EditorInterface.get_base_control() if (Engine.is_editor_hint() && false) else Engine.get_main_loop().root
 
 	if root_node.has_meta(META_ONGOING_AUTHORIZATION):
 		var twitch_auth: TwitchAuth = root_node.get_meta(META_ONGOING_AUTHORIZATION)
 		if twitch_auth.token == token_to_authorize:
-			_log.i("An authorization for the same token %s is ongoing. Waiting..." % token_to_authorize)
+			if _log: _log.i("An authorization for the same token %s is ongoing. Waiting..." % token_to_authorize)
 			await twitch_auth.token.authorized
 			return
 		else:
-			_log.i("An authorization for a different token %s is ongoing. Waiting..." % twitch_auth.token)
+			if _log: _log.i("An authorization for a different token %s is ongoing. Waiting..." % twitch_auth.token)
 			await twitch_auth.token.authorized
 
 	var auth: TwitchAuth = TwitchAuth.new()
@@ -163,15 +163,15 @@ static func manual_authorize(
 	root_node.set_meta(META_ONGOING_AUTHORIZATION, auth)
 	root_node.add_child(auth)
 
-	_log.d("Do manual authorization %s" % token_to_authorize)
+	if _log: _log.d("Do manual authorization %s" % token_to_authorize)
 	if not auth.is_node_ready(): await auth.ready
 	var success: bool = await auth.authorize(force)
 	auth.queue_free()
 	root_node.remove_meta(META_ONGOING_AUTHORIZATION)
 	if not success:
-		_log.e("Token authorization failed.")
+		if _log: _log.e("Token authorization failed.")
 		return
-	_log.i("Token got authorized")
+	if _log: _log.i("Token got authorized")
 
 
 ## Checks if the correctly setup

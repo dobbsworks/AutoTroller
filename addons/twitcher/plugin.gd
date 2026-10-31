@@ -56,7 +56,7 @@ var current_reward_manager_window: Node
 var popup_menu: PopupMenu
 
 func _enter_tree():
-	_log.i("Start Twitcher loading...")
+	if _log: _log.i("Start Twitcher loading...")
 	TwitchEditorSettings.setup()
 
 	token_inspector.token_info_scene = preload("res://addons/twitcher/editor/inspector/twitch_token_info.tscn")
@@ -80,7 +80,7 @@ func _enter_tree():
 	if TwitchEditorSettings.show_setup_on_startup: open_setup()
 	await try_authorize_editor()
 
-	_log.i("Twitcher loading ended")
+	if _log: _log.i("Twitcher loading ended")
 
 
 func _exit_tree():
@@ -101,7 +101,7 @@ func _exit_tree():
 	if Engine.is_editor_hint():
 		remove_tool_menu_item(TOOLMENU_CATEGORY)
 
-	_log.i("Twitcher Unloaded")
+	if _log: _log.i("Twitcher Unloaded")
 
 
 
@@ -164,10 +164,10 @@ func try_authorize_editor() -> void:
 	var oauth_setting: OAuthSetting = TwitchEditorSettings.editor_oauth_setting
 	var oauth_token: OAuthToken = TwitchEditorSettings.editor_oauth_token
 	if not oauth_setting.is_valid():
-		_log.d("Can't validate editor token cause OAuthSettings are invalid.")
+		if _log: _log.d("Can't validate editor token cause OAuthSettings are invalid.")
 		return
 	if oauth_token.is_token_valid():
-		_log.d("%s still valid, no reauthorization." % oauth_token)
+		if _log: _log.d("%s still valid, no reauthorization." % oauth_token)
 		return
 
 	await TwitchAuth.manual_authorize(
@@ -177,6 +177,6 @@ func try_authorize_editor() -> void:
 		TWITCHER_EDITOR_SCOPES
 	)
 	if oauth_token.is_token_valid():
-		_log.i("Editor token got authorized")
+		if _log: _log.i("Editor token got authorized")
 	else:
-		_log.e("Editor token didn't get authorized. Editor functionallity maybe malfunctioning.")
+		if _log: _log.e("Editor token didn't get authorized. Editor functionallity maybe malfunctioning.")

@@ -57,13 +57,13 @@ func _do_work(path: String, buffer: PackedByteArray, output: String, mutex: Mute
 
 	# dump the buffer
 	if FileAccess.file_exists(path):
-		_log.i("File found at %s, loading it instead of using the buffer." % path)
+		if _log: _log.i("File found at %s, loading it instead of using the buffer." % path)
 		buffer = FileAccess.get_file_as_bytes(path)
 	else:
 		DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 		var f: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 		if f == null:
-			_log.e("Can't open file %s cause of %s" %[ path, FileAccess.get_open_error()])
+			if _log: _log.e("Can't open file %s cause of %s" %[ path, FileAccess.get_open_error()])
 		f.store_buffer(buffer)
 		f.close()
 
@@ -107,7 +107,7 @@ func _create_temp_filename() -> String:
 	else:
 		folder_path = "user://.magick_tmp/%s_%d/" % [uniq, Time.get_unix_time_from_system()]
 
-	_log.i("Create temp folder")
+	if _log: _log.i("Create temp folder")
 	DirAccess.make_dir_recursive_absolute(folder_path)
 	return folder_path
 
@@ -118,7 +118,7 @@ func _get_frame_delay(file: String) -> Array[int]:
 	var glob_path: String = ProjectSettings.globalize_path(file)
 	var exit_code: int = OS.execute(imagemagic_path, [ glob_path, "-format", "%T\\n", "info:" ], out)
 	if exit_code != 0:
-		_log.e("Couldn't get frame delays from %s return code is: %s" % [file, exit_code])
+		if _log: _log.e("Couldn't get frame delays from %s return code is: %s" % [file, exit_code])
 	var frame_delays: Array[int] = []
 	for delay: String in out[0].split("\n"):
 		# convert x100 to x1000(ms)
@@ -133,7 +133,7 @@ func _extract_images(file: String, target_folder: String) -> bool:
 	var glob_extracted_file_path: String = ProjectSettings.globalize_path(target_folder + "%04d.png")
 	var code: int = OS.execute(imagemagic_path, [ glob_file_path, glob_extracted_file_path ], out, true)
 	if code != 0:
-		_log.e("unable to convert %s: %s" % [file, "\n".join(out)])
+		if _log: _log.e("unable to convert %s: %s" % [file, "\n".join(out)])
 		return false
 	return true
 
@@ -145,7 +145,7 @@ func _create_fallback_texture() -> SpriteFrames:
 
 
 func _build_frames(folder_path: String, frame_delays: Array[int]) -> SpriteFrames:
-	_log.i("Build Frames")
+	if _log: _log.i("Build Frames")
 	var frames: PackedStringArray = DirAccess.get_files_at(folder_path)
 	if len(frames) == 0:
 		return _create_fallback_texture()

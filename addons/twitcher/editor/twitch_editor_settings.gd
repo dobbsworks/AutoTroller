@@ -159,17 +159,17 @@ static func _reload_setting() -> void:
 
 
 static func save_editor_oauth_setting() -> void:
-	_log.d("Saves editor oauth setting")
+	if _log: _log.d("Saves editor oauth setting")
 	ResourceSaver.save(editor_oauth_setting)
 
 
 static func save_editor_oauth_token() -> void:
-	_log.d("Saves editor oauth token")
+	if _log: _log.d("Saves editor oauth token")
 	ResourceSaver.save(editor_oauth_token)
 
 
 static func save_default_user() -> void:
-	_log.d("Saves default user")
+	if _log: _log.d("Saves default user")
 	ResourceSaver.save(default_user)
 
 
@@ -212,7 +212,7 @@ static func is_valid() -> bool:
 
 
 static func _create_editor_oauth_token() -> void:
-	_log.i("Create new Editor Token resource")
+	if _log: _log.i("Create new Editor Token resource")
 	var path: String = _editor_oauth_token_property.get_val()
 	var token = OAuthToken.new()
 	token.resource_name = "EditorToken"
@@ -222,7 +222,7 @@ static func _create_editor_oauth_token() -> void:
 
 
 static func _create_editor_oauth_setting() -> void:
-	_log.i("Create new Editor Oauth settings")
+	if _log: _log.i("Create new Editor Oauth settings")
 	var path: String = _editor_oauth_setting_property.get_val()
 	var setting: OAuthSetting = TwitchAuth.create_default_oauth_setting()
 	setting.authorization_flow = OAuth.AuthorizationFlow.CLIENT_CREDENTIALS

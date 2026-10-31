@@ -94,7 +94,7 @@ func send_message(message: String, reply_parent_message_id: String = "", for_sou
 	if not _bot_auth.is_authenticated: await _bot_auth.authorize()
 	if broadcaster == null:
 		broadcaster = receiver if receiver != null else sender
-	_log.d("Send message from %s to %s: %s" % [sender.display_name, broadcaster.display_name, message])
+	if _log: _log.d("Send message from %s to %s: %s" % [sender.display_name, broadcaster.display_name, message])
 	var body: TwitchSendChatMessage.Body = TwitchSendChatMessage.Body.create(broadcaster.id, sender.id, message)
 	if reply_parent_message_id != "":
 		body.reply_parent_message_id = reply_parent_message_id
@@ -115,7 +115,7 @@ func send_announcement(message: String, color: TwitchAnnouncementColor = TwitchA
 	if not _bot_auth.is_authenticated: await _bot_auth.authorize()
 	if broadcaster == null:
 		broadcaster = receiver if receiver != null else sender
-	_log.d("Send announcement from %s to %s: %s" % [sender.display_name, broadcaster.display_name, message])
+	if _log: _log.d("Send announcement from %s to %s: %s" % [sender.display_name, broadcaster.display_name, message])
 	var body: TwitchSendChatAnnouncement.Body = TwitchSendChatAnnouncement.Body.new()
 	body.color = color.value
 	body.message = message
@@ -131,7 +131,7 @@ static func shoutout(from_user: TwitchUser, target_user: TwitchUser) -> void:
 
 
 func send_shoutout(from_user: TwitchUser, target_user: TwitchUser) -> void:
-	_log.d("Sends a shoutout from %s to %s" % [from_user.display_name, target_user.display_name ])
+	if _log: _log.d("Sends a shoutout from %s to %s" % [from_user.display_name, target_user.display_name ])
 	_bot_api.send_a_shoutout(from_user.id, sender.id, target_user.id)
 
 

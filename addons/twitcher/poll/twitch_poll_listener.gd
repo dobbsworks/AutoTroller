@@ -44,14 +44,14 @@ func _ready() -> void:
 	if not broadcaster: broadcaster = await TwitchService.get_current_user_via_api(api)
 	
 	if not Engine.is_editor_hint() && ensure_subscriptions_on_ready:
-		_log.d("Ensuring subscription configuration on TwitchEventsub.")
+		if _log: _log.d("Ensuring subscription configuration on TwitchEventsub.")
 		ensure_subscriptions()
 	
 	if eventsub != null: 
-		_log.d("Connecting to eventsub!")
+		if _log: _log.d("Connecting to eventsub!")
 		eventsub.event.connect(_on_event)
 	else:
-		_log.e("Eventsub missing can't connect TwitchPollListener!")
+		if _log: _log.e("Eventsub missing can't connect TwitchPollListener!")
 
 
 ## Ensures the selected [TwitchEventSub] is subscribed to the right [TwitchEventsubDefinition.Type].
@@ -63,38 +63,38 @@ func ensure_subscriptions() -> void:
 	if begin_subscription.is_empty():
 		var config: TwitchEventsubConfig = TwitchEventsubConfig.create(TwitchEventsubDefinition.CHANNEL_POLL_BEGIN, config_dict)
 		eventsub.subscribe(config)
-		_log.d("No subscription for Poll Begin found. Subscribing!")
+		if _log: _log.d("No subscription for Poll Begin found. Subscribing!")
 	if end_subscription.is_empty():
 		var config: TwitchEventsubConfig = TwitchEventsubConfig.create(TwitchEventsubDefinition.CHANNEL_POLL_END, config_dict)
 		eventsub.subscribe(config)
-		_log.d("No subscription for Poll End found. Subscribing!")
+		if _log: _log.d("No subscription for Poll End found. Subscribing!")
 	if progress_subscription.is_empty():
 		var config: TwitchEventsubConfig = TwitchEventsubConfig.create(TwitchEventsubDefinition.CHANNEL_POLL_PROGRESS, config_dict)
 		eventsub.subscribe(config)
-		_log.d("No subscription for Poll Progress found. Subscribing!")
+		if _log: _log.d("No subscription for Poll Progress found. Subscribing!")
 		
 
 ## Receives and handles the Signal from the selected [TwitchEventSub].
 func _on_event(type: StringName, data: Dictionary) -> void:
 	if type == TwitchEventsubDefinition.CHANNEL_POLL_BEGIN.value:
 		var poll: TwitchPoll = TwitchPoll.from_json(data)
-		_log.i("Received Beginn of Poll: %s" % [poll.title])
+		if _log: _log.i("Received Beginn of Poll: %s" % [poll.title])
 		poll_json.emit(data)
 		poll_begin.emit(poll)
 	elif type == TwitchEventsubDefinition.CHANNEL_POLL_PROGRESS.value:
 		var poll: TwitchPoll = TwitchPoll.from_json(data)
-		_log.d("Received Progress of Poll: %s" % [poll.title])
+		if _log: _log.d("Received Progress of Poll: %s" % [poll.title])
 		poll_json.emit(data)
 		poll_progress.emit(poll)
 	elif type == TwitchEventsubDefinition.CHANNEL_POLL_END.value:
 		var poll: TwitchPoll = TwitchPoll.from_json(data)
 		if poll.status == "completed":
-			_log.i("Received Completion of Poll: %s" % [poll.title])
+			if _log: _log.i("Received Completion of Poll: %s" % [poll.title])
 			poll_completed.emit(poll)
 		elif poll.status == "terminated":
-			_log.i("Received Termination of Poll: %s" % [poll.title])
+			if _log: _log.i("Received Termination of Poll: %s" % [poll.title])
 			poll_terminated.emit(poll)
 		elif poll.status == "archived":
-			_log.i("Received Archived of Poll: %s" % [poll.title])
+			if _log: _log.i("Received Archived of Poll: %s" % [poll.title])
 			poll_archived.emit(poll)
 		poll_json.emit(data)

@@ -35,6 +35,6 @@ func convert_image(path: String, buffer_in: PackedByteArray, output_path: String
 		sprite_frames.take_over_path(path)
 	else:
 		sprite_frames.add_frame(&"default", fallback_texture)
-		_log.e("Can't load %s use fallback" % output_path)
+		if _log: _log.e("Can't load %s use fallback" % output_path)
 
 	return sprite_frames

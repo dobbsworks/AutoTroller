@@ -25,7 +25,8 @@ var round = {}
 
 var shared = {
 	player = null,
-	camera = null
+	camera = null,
+	authLink = ""
 }
 
 var stagesPerRound = 8

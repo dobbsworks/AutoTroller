@@ -29,13 +29,13 @@ func _on_search() -> void:
 
 func load_users_clips(username: String) -> void:
 	_selected_username = username
-	_log.i("Load Clips from %s" % _selected_username)
+	if _log: _log.i("Load Clips from %s" % _selected_username)
 	_clear_clips()
 	var users_opt: TwitchGetUsers.Opt = TwitchGetUsers.Opt.new()
 	users_opt.login = [_selected_username]
 	var user: TwitchGetUsers.Response = await twitch_api.get_users(users_opt)
 	if user.data.is_empty():
-		_log.i("No clips found")
+		if _log: _log.i("No clips found")
 		return
 	
 	var clips_opt: TwitchGetClips.Opt = TwitchGetClips.Opt.new() 
@@ -45,12 +45,12 @@ func load_users_clips(username: String) -> void:
 
 
 func _show_clips(clips: TwitchGetClips.Response) -> void:
-	_log.i("Show %s clips" % clips.data.size())
+	if _log: _log.i("Show %s clips" % clips.data.size())
 	
 	var clip_count: int = 0
 	for clip_promise in clips:
 		var clip: TwitchClip = await clip_promise
-		_log.i("Load clip: %s" % clip.id)
+		if _log: _log.i("Load clip: %s" % clip.id)
 		var image: Image = await twitch_media_loader.load_image(clip.thumbnail_url)
 		var texture2d: ImageTexture = ImageTexture.new()
 		texture2d.set_image(image)
@@ -59,7 +59,7 @@ func _show_clips(clips: TwitchGetClips.Response) -> void:
 		thumbnail.texture = texture2d
 		clip_container.add_child(thumbnail)
 		clip_count += 1
-	_log.i("Load %s clips" % clip_count)
+	if _log: _log.i("Load %s clips" % clip_count)
 
 
 func _clear_clips() -> void:

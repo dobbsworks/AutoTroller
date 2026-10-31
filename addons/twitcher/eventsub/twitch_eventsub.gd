@@ -160,7 +160,7 @@ func _exit_tree() -> void:
 ## Propergated call from twitch service
 func do_setup() -> void:
 	await open_connection()
-	_log.i("Eventsub setup")
+	if _log: _log.i("Eventsub setup")
 
 
 ## Propergated call from twitch service
@@ -168,7 +168,7 @@ func do_unsetup() -> void:
 	for subscription in _subscriptions:
 		unsubscribe(subscription)
 	close_connection()
-	_log.i("Eventsub unsetup")
+	if _log: _log.i("Eventsub unsetup")
 
 
 func wait_setup() -> void:
@@ -186,12 +186,12 @@ func _on_connection_established() -> void:
 		if _subscriptions.is_empty(): _empty_connections += 1
 		if _empty_connections >= 3:
 			_empty_connections = 0
-			_log.e("Stopped eventsub cause of no subscription.")
+			if _log: _log.e("Stopped eventsub cause of no subscription.")
 			close_connection()
 			return
 
 		# Resubscribe
-		_log.i("Connection established -> resubscribe to: [%s]" % [_subscriptions])
+		if _log: _log.i("Connection established -> resubscribe to: [%s]" % [_subscriptions])
 		for sub in _subscriptions: _add_action(sub, true)
 	_execute_action_stack()
 
@@ -216,7 +216,7 @@ func close_connection() -> void:
 
 ## Add a new subscription
 func subscribe(eventsub_config: TwitchEventsubConfig) -> void:
-	_log.i("Subscribe to %s" % eventsub_config.definition.get_readable_name())
+	if _log: _log.i("Subscribe to %s" % eventsub_config.definition.get_readable_name())
 	_subscriptions.append(eventsub_config)
 	_add_action(eventsub_config, true)
 	_empty_connections = 0
@@ -248,7 +248,7 @@ func unsubscribe(eventsub_config: TwitchEventsubConfig) -> void:
 func _execute_action_stack() -> void:
 	if _executing_action_stack: return
 	await wait_for_session_established()
-	_log.d("Execute actions [%s]" % [_action_stack])
+	if _log: _log.d("Execute actions [%s]" % [_action_stack])
 	_executing_action_stack = true
 	while not _action_stack.is_empty():
 		var action = _action_stack.pop_back()
@@ -266,7 +266,7 @@ func _add_action(sub: TwitchEventsubConfig, subscribe: bool) -> void:
 	sub_action.subscription = sub
 	sub_action.subscribe = subscribe
 	_action_stack.append(sub_action)
-	_log.d("Add subscribe action: %s" % sub.definition.get_readable_name())
+	if _log: _log.d("Add subscribe action: %s" % sub.definition.get_readable_name())
 	_execute_action_stack()
 
 
@@ -286,25 +286,25 @@ func _subscribe(subscription: TwitchEventsubConfig) -> String:
 	transport.method = "websocket"
 	transport.session_id = session.id
 
-	_log.d("Do subscribe: %s" % event_name)
+	if _log: _log.d("Do subscribe: %s" % event_name)
 
 	var eventsub_response = await api.create_eventsub_subscription(data)
 
 	if eventsub_response.response.response_code == 401:
-		_log.e("Subscription failed for '%s': Missing authentication for eventsub. The token got not authenticated yet. Please login!" % data.type)
+		if _log: _log.e("Subscription failed for '%s': Missing authentication for eventsub. The token got not authenticated yet. Please login!" % data.type)
 		_client.close(3000, "Missing Authentication")
 		return ""
 	elif eventsub_response.response.response_code == 403:
-		_log.e("Subscription failed for '%s': The token is missing proper scopes. [url='%s']Please check documentation[/url]!" % [data.type, subscription.definition.documentation_link])
-		_log.d(eventsub_response.response.response_data.get_string_from_utf8())
+		if _log: _log.e("Subscription failed for '%s': The token is missing proper scopes. [url='%s']Please check documentation[/url]!" % [data.type, subscription.definition.documentation_link])
+		if _log: _log.d(eventsub_response.response.response_data.get_string_from_utf8())
 		_client.close(3003, "Missing Authorization")
 		return ""
 	if eventsub_response.response.response_code < 200 || eventsub_response.response.response_code >= 300:
-		_log.e("Subscription failed for '%s'. Unknown error %s: %s" % [data.type, eventsub_response.response.response_code, eventsub_response.response.response_data.get_string_from_utf8()])
+		if _log: _log.e("Subscription failed for '%s'. Unknown error %s: %s" % [data.type, eventsub_response.response.response_code, eventsub_response.response.response_data.get_string_from_utf8()])
 		return ""
 	elif eventsub_response.response.response_data.is_empty():
 		return ""
-	_log.i("Now listening to '%s' events." % data.type)
+	if _log: _log.i("Now listening to '%s' events." % data.type)
 
 	var result = JSON.parse_string(eventsub_response.response.response_data.get_string_from_utf8())
 	var subscription_id = result.data[0].id
@@ -322,7 +322,7 @@ func _data_received(data : PackedByteArray) -> void:
 	var message_str : String = data.get_string_from_utf8()
 	var message_json : Dictionary = JSON.parse_string(message_str)
 	if not message_json.has("metadata"):
-		_log.e("Twitch send something undocumented: %s" % message_str)
+		if _log: _log.e("Twitch send something undocumented: %s" % message_str)
 		return
 	var metadata : Metadata = Metadata.new(message_json["metadata"])
 	var id: String = metadata.message_id
@@ -340,7 +340,7 @@ func _data_received(data : PackedByteArray) -> void:
 			var welcome_message: TwitchWelcomeMessage = TwitchWelcomeMessage.new(message_json)
 			session = welcome_message.payload.session
 			session_id_received.emit(session.id)
-			_log.i("Session established %s" % session.id)
+			if _log: _log.i("Session established %s" % session.id)
 			message_received.emit(welcome_message)
 		"session_keepalive":
 			# Notification from server that the connection is still alive
@@ -366,7 +366,7 @@ func _data_received(data : PackedByteArray) -> void:
 
 
 func _handle_reconnect(reconnect_message: TwitchReconnectMessage):
-	_log.i("Session is forced to reconnect")
+	if _log: _log.i("Session is forced to reconnect")
 	_swap_over_process = true
 	var reconnect_url = reconnect_message.payload.session.reconnect_url
 	_swap_over_client = WebsocketClient.new()
@@ -381,7 +381,7 @@ func _handle_reconnect(reconnect_message: TwitchReconnectMessage):
 	_client = _swap_over_client
 	_swap_over_client = null
 	_swap_over_process = false
-	_log.i("Session reconnected on %s" % reconnect_url)
+	if _log: _log.i("Session reconnected on %s" % reconnect_url)
 
 
 ## Cleanup old messages that won't be processed anymore cause of time to prevent a

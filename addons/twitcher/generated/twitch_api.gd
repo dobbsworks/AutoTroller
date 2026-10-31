@@ -85,10 +85,10 @@ func request(path: String, method: int, body: Variant = "", content_type: String
 
 	match res.response_code:
 		401: # Token expired / or missing permissions
-			_log.e("'%s' is unauthorized. It is probably your scopes." % path)
+			if _log: _log.e("'%s' is unauthorized. It is probably your scopes." % path)
 			unauthorized.emit()
 		403:
-			_log.i("'%s' is forbidden. Refresh token." % path)
+			if _log: _log.i("'%s' is forbidden. Refresh token." % path)
 			push_error(res.response_data.get_string_from_utf8())
 			unauthenticated.emit()
 			await token.authorized
@@ -117,7 +117,7 @@ func _handle_error(method_name: String, response: BufferedHTTPClient.ResponseDat
 	var error_json: String = response.response_data.get_string_from_utf8()
 	var error = JSON.parse_string(error_json)
 	push_error("Problems while calling %s: " % method_name, error["message"] if error and "message" in error else "")
-	_log.d(error_json)
+	if _log: _log.d(error_json)
 
 
 ## Converts unix timestamp to RFC 3339 (example: 2021-10-27T00:00:00Z) when passed a string uses as is

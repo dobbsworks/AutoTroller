@@ -29,10 +29,10 @@ func update_imagemagic_path(path: String) -> void:
 			converter = ImageMagickConverter.new()
 			converter.fallback_texture = fallback_texture
 			converter.imagemagic_path = imagemagic_path
-			_log.i("Imagemagic detected: %s use it to transform gif/webm" % [ imagemagic_path ])
+			if _log: _log.i("Imagemagic detected: %s use it to transform gif/webm" % [ imagemagic_path ])
 			supported = true
 			return
-		_log.i("Imagemagic at '%s' path was not detected or has a wrong result code: %s \n %s" % [ imagemagic_path, err, "\n".join(out) ])
+		if _log: _log.i("Imagemagic at '%s' path was not detected or has a wrong result code: %s \n %s" % [ imagemagic_path, err, "\n".join(out) ])
 	supported = false
 
 

@@ -33,7 +33,7 @@ signal message_received(message: TwitchChatMessage)
 
 
 func _ready() -> void:
-	_log.d("is ready")
+	if _log: _log.d("is ready")
 	if media_loader == null: media_loader = TwitchMediaLoader.instance
 	if api == null: api = TwitchAPI.instance
 	if eventsub == null: eventsub = TwitchEventsub.instance
@@ -79,7 +79,7 @@ func subscribe() -> void:
 		"user_id": sender_user.id
 	}
 	eventsub.subscribe(config)
-	_log.i("Listen to Chat of %s (%s)" % [broadcaster_user.display_name, broadcaster_user.id])
+	if _log: _log.i("Listen to Chat of %s (%s)" % [broadcaster_user.display_name, broadcaster_user.id])
 
 
 func _on_event_received(type: StringName, data: Dictionary) -> void:
@@ -101,7 +101,7 @@ func send_message(message: String, reply_parent_message_id: String = "") -> Arra
 	if _log.enabled:
 		for message_data: TwitchSendChatMessage.ResponseData in response.data:
 			if not message_data.is_sent:
-				_log.w(message_data.drop_reason)
+				if _log: _log.w(message_data.drop_reason)
 
 	return response.data
 

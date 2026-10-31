@@ -59,7 +59,7 @@ func _update_channel_name(new_name: StringName) -> void:
 func _enter_channel() -> void:
 	if irc == null: return
 	if channel_name == &"":
-		_log.e("No channel is specified to join. The channel name can be set on the TwitchIrcChannel node.")
+		if _log: _log.e("No channel is specified to join. The channel name can be set on the TwitchIrcChannel node.")
 		return
 	irc.add_channel(self)
 
