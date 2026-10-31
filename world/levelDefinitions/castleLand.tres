@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://b2hl7lrgml7t7"]
+
+[ext_resource type="PackedScene" uid="uid://bqjyytsf3fb8b" path="res://world/backdrop/backdrop_castle.tscn" id="1_8ynq3"]
+[ext_resource type="PackedScene" uid="uid://ji1roy6up3ho" path="res://world/levelChunks1/chunk1.tscn" id="1_tbepn"]
+[ext_resource type="PackedScene" uid="uid://bdn1t38pcx5ne" path="res://world/levelChunks1/chunk2.tscn" id="2_my3l5"]
+[ext_resource type="PackedScene" uid="uid://disslku6wg7nu" path="res://world/levelChunks1/chunk3.tscn" id="3_8ynq3"]
+[ext_resource type="PackedScene" uid="uid://dn7drghtnk5ix" path="res://world/levelChunks1/chunk4.tscn" id="4_43o37"]
+[ext_resource type="PackedScene" uid="uid://0tjocqgbib60" path="res://world/levelChunks1/chunk5.tscn" id="5_cr322"]
+[ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="6_ktisj"]
+[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_32mnc"]
+[ext_resource type="AudioStream" uid="uid://d0n5edxhanl2p" path="res://audio/music/song8_176_28i.mp3" id="8_43o37"]
+[ext_resource type="PackedScene" uid="uid://sp3bw8x6ifv3" path="res://world/startingChunks/start_chunk_castle.tscn" id="8_my3l5"]
+
+[resource]
+script = ExtResource("7_32mnc")
+name = "Castle Land"
+offsetIndex = 3
+startingChunk = ExtResource("8_my3l5")
+backdrop = ExtResource("1_8ynq3")
+chunks = Array[PackedScene]([ExtResource("1_tbepn"), ExtResource("2_my3l5"), ExtResource("3_8ynq3"), ExtResource("4_43o37"), ExtResource("5_cr322"), ExtResource("6_ktisj")])
+music = ExtResource("8_43o37")
+metadata/_custom_type_script = "uid://brjmr06c8hq0f"

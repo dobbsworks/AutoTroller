@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://ml8r0qxcy6ev"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_ydxbt"]
+[ext_resource type="PackedScene" uid="uid://cb5060e1lyf3a" path="res://entities/enemies/saw_on_chain_enemy.tscn" id="2_ydxbt"]
+
+[resource]
+script = ExtResource("1_ydxbt")
+name = "Saw"
+commands = Array[String](["saw", "grinder"])
+cost = 2
+spawnedObject = ExtResource("2_ydxbt")
+numberSpawned = 1
+isActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

@@ -85,4 +85,5 @@ func load_spawn_commands():
 
 
 func handle_cpu_chat(username: String, message_text: String, data: Dictionary):
+	#return
 	on_chat_received(username, message_text, data, true)

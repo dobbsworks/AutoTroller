@@ -1,9 +1,7 @@
 
-Don't want joining game unless valid command given
 
 More enemies
 Items
-Different levels
 Music
 	Level
 	Level Clear
@@ -23,7 +21,6 @@ TODO
 		Patrol - Goombud/Goombrat
 		Walk off ledge - Goomba
 		Hover
-		Fly forward - Bullet bill
 		Grounded chase - SMM2 Monty Mole
 		Oscilate vertical - Red Parakoopa
 		Bounce - Green Parakoopa

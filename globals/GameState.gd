@@ -3,7 +3,7 @@ const GAME = preload("res://game.tscn")
 
 
 var defaultStage = {
-	endStart = 10000,
+	endStart = 2000,
 	goalDistance = -1,
 	cameraStop = -1,
 	currentScrollSpeed = 4.0,
@@ -27,7 +27,7 @@ var shared = {
 	camera = null
 }
 
-var stagesPerRound = 2
+var stagesPerRound = 8
 
 
 func _ready() -> void:
@@ -35,7 +35,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if shared.camera: 
-		shared.camera.speed = stage.currentScrollSpeed * 16.0
+		shared.camera.speed = stage.currentScrollSpeed * (4.0 + round.currentStage)
 		stage.goalDistance = stage.endStart + 16.0 * 29
 
 func getGoalRegionRect() -> Rect2:
@@ -52,6 +52,7 @@ func createNewLevel():
 	MultiplayerHandler.isActive = true
 	GameState.stage.done = false
 	Utility.copyObj(defaultStage, stage)
+	stage.endStart = 2000 + (round.currentStage) * 300
 	var newStage = GAME.instantiate()
 	add_sibling(newStage)
 	

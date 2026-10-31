@@ -21,7 +21,7 @@ var isDummy = false
 
 @export var jumps = false
 @export var jumpStrength = 300.0
-
+@export var jumpPause = 0.0
 
 var horizontalDirection = -1
 var age = 0.0

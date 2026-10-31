@@ -2,19 +2,30 @@ extends Node2D
 
 var chunkScenes: Array[PackedScene] = []
 var currentWorldTileX = 0.0
-@onready var starterChunk : TileMapLayer = $StartChunk1
+var starterChunk : TileMapLayer
 var chunkList = []
 const ENDING_CHUNK = preload("res://world/endingChunk.tscn")
 const LEVEL_GOAL = preload("res://entities/collectibles/level_goal.tscn")
 
-@export var level1Chunks: Array[PackedScene]
-
+@export var levelDefintions: Array[LevelDefinition]
+var levelDefintion: LevelDefinition
 var chunksDone = false
 
 
 func _ready() -> void:
+	levelDefintion = levelDefintions[posmod(GameState.round.currentStage - 1, levelDefintions.size())]
+	if levelDefintion.backdrop:
+		var backdrop = levelDefintion.backdrop.instantiate()
+		add_child(backdrop)
+	if levelDefintion.music:
+		var audioPlayer = AudioStreamPlayer.new()
+		audioPlayer.stream = levelDefintion.music
+		audioPlayer.autoplay = true
+		audioPlayer.process_mode = Node.PROCESS_MODE_ALWAYS
+		audioPlayer.bus = AudioServer.get_bus_name(2)
+		add_child(audioPlayer)
 	GameState.stage.levelScene = get_parent()
-	currentWorldTileX = starterChunk.get_used_rect().size.x
+	AppendChunkScene(levelDefintion.startingChunk)
 	LoadAllChunks()
 	AppendRandomChunk()
 
@@ -41,14 +52,21 @@ func _process(delta: float) -> void:
 			chunkList.erase(chunkObj)
 
 func LoadAllChunks():
-	chunkScenes = level1Chunks
+	chunkScenes = levelDefintion.chunks
 
 func AppendRandomChunk():
 	AppendChunkScene(chunkScenes.pick_random())
 
 func AppendChunkScene(chunkScene: PackedScene):
-	var newChunk = chunkScene.instantiate()
+	var newChunk: TileMapLayer = chunkScene.instantiate()
 	add_child(newChunk)
 	newChunk.position.x = currentWorldTileX * 16.0
 	currentWorldTileX += newChunk.get_used_rect().size.x
 	chunkList.append({"node": newChunk, "xRight": currentWorldTileX * 16.0})
+	
+	var cellCoordinates = newChunk.get_used_cells()
+	for cellCoordinate in cellCoordinates:
+		var atlasCoords: Vector2i = newChunk.get_cell_atlas_coords(cellCoordinate)
+		if atlasCoords:
+			atlasCoords.y += 2 * levelDefintion.offsetIndex
+			newChunk.set_cell(cellCoordinate, 0, atlasCoords)

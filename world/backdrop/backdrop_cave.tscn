@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://btask13yolp6n"]
+
+[ext_resource type="Texture2D" uid="uid://cgwmo6ox8fsx5" path="res://world/backdrop/mountain.png" id="1_n1um5"]
+[ext_resource type="Texture2D" uid="uid://dvkl836w0xp0d" path="res://world/backdrop/bushes.png" id="2_3nudu"]
+
+[sub_resource type="Gradient" id="Gradient_n1um5"]
+colors = PackedColorArray(0.1824, 0.38, 0.37341332, 1, 0.46750003, 0.29000002, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_52bvq"]
+gradient = SubResource("Gradient_n1um5")
+width = 8
+height = 32
+fill_to = Vector2(0, 1)
+
+[node name="Backdrop" type="Node2D" unique_id=1430659564]
+z_index = -3
+
+[node name="Sky" type="Parallax2D" parent="." unique_id=1605424853]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(300, 0)
+repeat_times = 5
+
+[node name="Sky" type="TextureRect" parent="Sky" unique_id=176929827]
+z_index = -100
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 167.0
+offset_right = 404.0
+offset_bottom = 417.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_52bvq")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarBack" type="Parallax2D" parent="." unique_id=800966494]
+scroll_scale = Vector2(0.05, 1)
+scroll_offset = Vector2(133, 192)
+repeat_size = Vector2(100, 0)
+repeat_times = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="FarBack" unique_id=108235383]
+modulate = Color(0.8696667, 0.53999996, 1, 0.25882354)
+texture_filter = 1
+position = Vector2(29, -201)
+scale = Vector2(1, 3.8437502)
+texture = ExtResource("1_n1um5")
+
+[node name="Back3" type="Parallax2D" parent="." unique_id=1319971574]
+scroll_scale = Vector2(0.6, 1)
+scroll_offset = Vector2(133, 192)
+repeat_size = Vector2(100, 0)
+repeat_times = 40
+
+[node name="Sprite2D" type="Sprite2D" parent="Back3" unique_id=2080629827]
+visible = false
+modulate = Color(0.58, 0.58, 0.58, 1)
+texture_filter = 1
+position = Vector2(29, -246)
+texture = ExtResource("2_3nudu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Back3" unique_id=1309050172]
+modulate = Color(0.61, 0.48000002, 1, 0.25490198)
+texture_filter = 1
+position = Vector2(29.000015, -554.00006)
+rotation = -3.1415927
+scale = Vector2(1, 7.7308755)
+texture = ExtResource("1_n1um5")
+
+[node name="Back2" type="Parallax2D" parent="." unique_id=1225092850]
+scroll_scale = Vector2(0.9, 1)
+scroll_offset = Vector2(133, 192)
+repeat_size = Vector2(100, 0)
+repeat_times = 40
+
+[node name="Sprite2D2" type="Sprite2D" parent="Back2" unique_id=527901147]
+visible = false
+texture_filter = 1
+position = Vector2(29, -229)
+texture = ExtResource("2_3nudu")
+
+[node name="Sky2" type="Parallax2D" parent="." unique_id=870940825]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(200, 0)
+repeat_times = 5
+
+[node name="Sky" type="TextureRect" parent="Sky2" unique_id=1600270009]
+modulate = Color(1, 1, 1, 0.40784314)
+z_index = -1
+z_as_relative = false
+custom_minimum_size = Vector2(400, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 205.0
+offset_right = 404.0
+offset_bottom = 455.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

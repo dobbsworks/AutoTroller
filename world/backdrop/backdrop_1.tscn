@@ -13,6 +13,7 @@ height = 32
 fill_to = Vector2(0, 1)
 
 [node name="Backdrop" type="Node2D" unique_id=1430659564]
+z_index = -3
 
 [node name="Sky" type="Parallax2D" parent="." unique_id=1605424853]
 scroll_scale = Vector2(0, 0)
@@ -77,6 +78,7 @@ repeat_times = 5
 
 [node name="Sky" type="TextureRect" parent="Sky2" unique_id=1600270009]
 modulate = Color(1, 1, 1, 0.40784314)
+z_index = -1
 z_as_relative = false
 custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8

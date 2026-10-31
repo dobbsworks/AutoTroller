@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cb5060e1lyf3a"]
+
+[ext_resource type="PackedScene" uid="uid://e7hmww7s6vjk" path="res://entities/enemies/BaseEnemy.tscn" id="1_6gnpj"]
+[ext_resource type="Texture2D" uid="uid://drukpsyjsj6v6" path="res://entities/enemies/enemies.png" id="2_i0pc8"]
+[ext_resource type="Script" uid="uid://drpy2a5o21rqj" path="res://entities/enemies/chain.gd" id="3_i0pc8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ir5t2"]
+radius = 15.033297
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0pc8"]
+atlas = ExtResource("2_i0pc8")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir5t2"]
+atlas = ExtResource("2_i0pc8")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir5t2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0pc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir5t2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="SawOnChain" unique_id=1357401302 instance=ExtResource("1_6gnpj")]
+collision_mask = 0
+spawnOffset = Vector2(0, 16)
+gravityRatio = 0.0
+horizontalAccel = 0.0
+horizMaxSpeed = 0.0
+reflectOnWall = false
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
+shape = SubResource("CircleShape2D_ir5t2")
+
+[node name="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="0" unique_id=851132383]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(80, 16, 16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite/Sprite2D" index="0" unique_id=1904541358]
+sprite_frames = SubResource("SpriteFrames_ir5t2")
+autoplay = "default"
+frame_progress = 0.676706
+
+[node name="LeftGroundCheck" parent="." index="2" unique_id=877310307]
+visible = false
+
+[node name="RightGroundCheck" parent="." index="3" unique_id=855702252]
+visible = false
+
+[node name="Chain" type="Node2D" parent="." index="4" unique_id=100417457 node_paths=PackedStringArray("endItems")]
+modulate = Color(1, 1, 1, 0.5764706)
+z_index = 2
+script = ExtResource("3_i0pc8")
+endItems = [NodePath("../CollisionShape2D"), NodePath("../Sprite")]
+rotationSpeed = 1.5
+
+[node name="Sprite2D" type="Sprite2D" parent="Chain" index="0" unique_id=365097161]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Chain" index="1" unique_id=1897348581]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Chain" index="2" unique_id=1040512984]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Chain" index="3" unique_id=1227308621]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Chain" index="4" unique_id=1887104629]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Chain" index="5" unique_id=741004105]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Chain" index="6" unique_id=1982618042]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("2_i0pc8")
+region_enabled = true
+region_rect = Rect2(128, 16, 16, 16)

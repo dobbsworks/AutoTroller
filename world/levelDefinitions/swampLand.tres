@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://dp3ek5s0viya0"]
+
+[ext_resource type="PackedScene" uid="uid://ji1roy6up3ho" path="res://world/levelChunks1/chunk1.tscn" id="1_6n27k"]
+[ext_resource type="PackedScene" uid="uid://mfp45wx410ob" path="res://world/backdrop/backdrop_swamp.tscn" id="1_dv8jj"]
+[ext_resource type="PackedScene" uid="uid://bdn1t38pcx5ne" path="res://world/levelChunks1/chunk2.tscn" id="2_chm5i"]
+[ext_resource type="PackedScene" uid="uid://disslku6wg7nu" path="res://world/levelChunks1/chunk3.tscn" id="3_dv8jj"]
+[ext_resource type="PackedScene" uid="uid://dn7drghtnk5ix" path="res://world/levelChunks1/chunk4.tscn" id="4_ulh8b"]
+[ext_resource type="PackedScene" uid="uid://0tjocqgbib60" path="res://world/levelChunks1/chunk5.tscn" id="5_0dxa1"]
+[ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="6_afrh8"]
+[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_n5kbm"]
+[ext_resource type="AudioStream" uid="uid://3ihlgxlu7neo" path="res://audio/music/song9_136_16i.mp3" id="8_ulh8b"]
+[ext_resource type="PackedScene" uid="uid://mt1w36q6j011" path="res://world/startingChunks/start_chunk_bog.tscn" id="9_ulh8b"]
+
+[resource]
+script = ExtResource("7_n5kbm")
+name = "Swamp Land"
+offsetIndex = 2
+startingChunk = ExtResource("9_ulh8b")
+backdrop = ExtResource("1_dv8jj")
+chunks = Array[PackedScene]([ExtResource("1_6n27k"), ExtResource("2_chm5i"), ExtResource("3_dv8jj"), ExtResource("4_ulh8b"), ExtResource("5_0dxa1"), ExtResource("6_afrh8")])
+music = ExtResource("8_ulh8b")
+metadata/_custom_type_script = "uid://brjmr06c8hq0f"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://cvfwukonvv0fq"]
+
+[ext_resource type="PackedScene" uid="uid://dpbkjjvkno77e" path="res://world/backdrop/backdrop_sky.tscn" id="1_4ugub"]
+[ext_resource type="PackedScene" uid="uid://ji1roy6up3ho" path="res://world/levelChunks1/chunk1.tscn" id="1_lfti4"]
+[ext_resource type="PackedScene" uid="uid://bdn1t38pcx5ne" path="res://world/levelChunks1/chunk2.tscn" id="2_eyxls"]
+[ext_resource type="PackedScene" uid="uid://disslku6wg7nu" path="res://world/levelChunks1/chunk3.tscn" id="3_4ugub"]
+[ext_resource type="PackedScene" uid="uid://dn7drghtnk5ix" path="res://world/levelChunks1/chunk4.tscn" id="4_pbhle"]
+[ext_resource type="PackedScene" uid="uid://0tjocqgbib60" path="res://world/levelChunks1/chunk5.tscn" id="5_vv1a6"]
+[ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="6_4sgo1"]
+[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_qvelu"]
+[ext_resource type="PackedScene" uid="uid://fjl5xh567yv7" path="res://world/startingChunks/start_chunk_cloud.tscn" id="8_eyxls"]
+[ext_resource type="AudioStream" uid="uid://e1w0ljnn3idd" path="res://audio/music/song5_95_24i.mp3" id="8_pbhle"]
+
+[resource]
+script = ExtResource("7_qvelu")
+name = "Cloud Land"
+offsetIndex = 6
+startingChunk = ExtResource("8_eyxls")
+backdrop = ExtResource("1_4ugub")
+chunks = Array[PackedScene]([ExtResource("1_lfti4"), ExtResource("2_eyxls"), ExtResource("3_4ugub"), ExtResource("4_pbhle"), ExtResource("5_vv1a6"), ExtResource("6_4sgo1")])
+music = ExtResource("8_pbhle")
+metadata/_custom_type_script = "uid://brjmr06c8hq0f"

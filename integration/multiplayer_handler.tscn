@@ -9,10 +9,11 @@
 [ext_resource type="Resource" uid="uid://dcatjhktmf5ml" path="res://globals/SpawnCommands/spawnBird2.tres" id="5_oerdo"]
 [ext_resource type="Resource" uid="uid://wuao3aksuhk5" path="res://globals/SpawnCommands/spawnBird.tres" id="6_wki1o"]
 [ext_resource type="Resource" uid="uid://b2baxtbxmrg5y" path="res://globals/SpawnCommands/spawnKaizo.tres" id="7_f0d8l"]
+[ext_resource type="Resource" uid="uid://ml8r0qxcy6ev" path="res://globals/SpawnCommands/spawnSaw.tres" id="8_esr35"]
 
 [node name="MultiplayerHandler" type="Node" unique_id=2109223567]
 script = ExtResource("1_mb2n4")
-spawnCommands = Array[ExtResource("2_xrc66")]([ExtResource("3_esr35"), ExtResource("4_kino8"), ExtResource("5_oerdo"), ExtResource("6_wki1o"), ExtResource("7_f0d8l")])
+spawnCommands = Array[ExtResource("2_xrc66")]([ExtResource("3_esr35"), ExtResource("4_kino8"), ExtResource("5_oerdo"), ExtResource("6_wki1o"), ExtResource("7_f0d8l"), ExtResource("8_esr35")])
 
 [node name="IntegrationService" parent="." unique_id=1053741238 instance=ExtResource("2_cyrgr")]
 

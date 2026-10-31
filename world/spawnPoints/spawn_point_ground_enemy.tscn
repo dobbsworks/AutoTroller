@@ -5,9 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cy764uwduwpu2" path="res://entities/enemies/hopping_enemy.tscn" id="3_npe1q"]
 [ext_resource type="PackedScene" uid="uid://deexep5l6wfb3" path="res://entities/enemies/fly_across_enemy.tscn" id="4_j4ytg"]
 [ext_resource type="PackedScene" uid="uid://dt4pyn1t6s1h7" path="res://entities/enemies/fly_towards_enemy.tscn" id="5_h6js5"]
+[ext_resource type="PackedScene" uid="uid://cb5060e1lyf3a" path="res://entities/enemies/saw_on_chain_enemy.tscn" id="6_6rwt3"]
 
 [node name="SpawnPointGroundEnemy" unique_id=1322520249 instance=ExtResource("1_5nclr")]
-spawnables = Array[PackedScene]([ExtResource("2_cex8g"), ExtResource("3_npe1q"), ExtResource("4_j4ytg"), ExtResource("5_h6js5")])
+spawnables = Array[PackedScene]([ExtResource("2_cex8g"), ExtResource("3_npe1q"), ExtResource("4_j4ytg"), ExtResource("5_h6js5"), ExtResource("6_6rwt3")])
 
 [node name="Label" parent="." index="0" unique_id=412252120]
 offset_left = -5.0
