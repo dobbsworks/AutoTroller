@@ -173,7 +173,7 @@ func _get_custom_reward(twitch_reward: TwitchReward) -> TwitchCustomReward:
 		var msg: String = "Can't load Twitch reward %s with id %s from Twitch. It doesn't exist!" % [twitch_reward.title, twitch_reward.id]
 		_reset_reward(twitch_reward)
 		if _log: _log.e(msg)
-		if Engine.is_editor_hint():
-			EditorInterface.get_editor_toaster().push_toast(msg, EditorToaster.SEVERITY_WARNING)
+		#if Engine.is_editor_hint():
+			#EditorInterface.get_editor_toaster().push_toast(msg, EditorToaster.SEVERITY_WARNING)
 		return null
 	return reward_response.data[0]

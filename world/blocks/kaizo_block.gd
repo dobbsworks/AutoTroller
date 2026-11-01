@@ -1,5 +1,4 @@
 extends CharacterBody2D
-@onready var area_collider: CollisionShape2D = $Area2D/AreaCollider
 const SOLID_BLOCK = preload("res://world/blocks/solid_block.tscn")
 const USERNAME_POPUP = preload("res://entities/username_popup.tscn")
 
