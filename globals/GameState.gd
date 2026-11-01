@@ -6,7 +6,6 @@ var defaultStage = {
 	endStart = 2000,
 	goalDistance = -1,
 	cameraStop = -1,
-	currentScrollSpeed = 4.0,
 	done = false,
 	coinsThisStage = 0,
 	deathsThisStage = 0,
@@ -37,7 +36,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if shared.camera: 
-		shared.camera.speed = stage.currentScrollSpeed * (4.0 + round.currentStage)
+		shared.camera.speed = 5.0 * (4.0 + round.currentStage)
 		stage.goalDistance = stage.endStart + 16.0 * 29
 
 func getGoalRegionRect() -> Rect2:

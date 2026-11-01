@@ -5,12 +5,14 @@ extends Node
 @onready var credits_menu: Control = %CreditsMenu
 @onready var game_setup_menu: Control = %GameSetupMenu
 @onready var instructions_menu: Control = %InstructionsMenu
+@onready var version: Label = $"../MainMenu/version"
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 const HUE_SHIFT_MAT = preload("res://shaders/hue_shift_mat.tres")
 
 
 func _ready():
+	version.text = "v" + ProjectSettings.get_setting("application/config/version")
 	MultiplayerHandler.isActive = false
 	main_menu.click_start.connect(on_click_play)
 	main_menu.click_settings.connect(on_click_settings)

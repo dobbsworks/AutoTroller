@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ydxbt")
 name = "Saw"
-commands = Array[String](["saw", "grinder"])
+commands = Array[String](["saw", "grinder", "s"])
 cost = 2
 spawnedObject = ExtResource("2_ydxbt")
 numberSpawned = 1
