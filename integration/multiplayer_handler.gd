@@ -33,7 +33,7 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 			if spawnCommand.cost > chatter.points: 
 				chatter.on_too_poor.emit()
 				continue
-			var relevantText = message_text.replace("!","").strip_edges().to_lower()
+			var relevantText = message_text.replace("!","").strip_edges().to_lower().split(" ")[0]
 			if spawnCommand.commands.has(relevantText):
 				# Good to go! Queue it up!
 				chatter.points -= spawnCommand.cost

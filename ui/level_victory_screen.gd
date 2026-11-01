@@ -81,7 +81,7 @@ func queueLabels():
 	
 	await get_tree().create_timer(0.5).timeout
 	
-	if !isFinal:
+	if !isFinal && !isDefeat:
 		unlockItem()
 		await get_tree().create_timer(1.5).timeout
 	
