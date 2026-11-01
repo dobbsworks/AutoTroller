@@ -11,12 +11,18 @@ signal click_exit()
 @onready var disconnect_confirmation: VBoxContainer = %DisconnectConfirmation
 var canPlayTestSFX = false
 @onready var connection_options: HBoxContainer = $VBoxContainer/ConnectionOptions
+@onready var button_quit: Button = $VBoxContainer/ButtonQuit
+@onready var quit_confirm: Panel = $VBoxContainer/QuitConfirm
+@onready var button_cancel_quit: Button = $VBoxContainer/QuitConfirm/HBoxContainer/Panel3/ButtonCancelQuit
 
 @export var includeConnectionOptions = true
+var pauseMenu
 
 func _ready() -> void:
-	if !includeConnectionOptions:
-		connection_options.visible = false
+	connection_options.visible = includeConnectionOptions
+	button_quit.visible = !includeConnectionOptions
+	quit_confirm.visible = false
+	
 	AudioServer.set_bus_volume_db(1, linear_to_db(SaveManager.saveData.volumeSfx))
 	AudioServer.set_bus_volume_db(2, linear_to_db(SaveManager.saveData.volumeMusic))
 	volume_music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
@@ -47,6 +53,8 @@ func _on_volume_sfx_slider_value_changed(value: float) -> void:
 
 func _on_button_exit_pressed() -> void:
 	click_exit.emit()
+	quit_confirm.visible = false
+	button_quit.visible = !includeConnectionOptions
 
 
 func _on_disconnect_button_pressed() -> void:
@@ -64,3 +72,21 @@ func _on_confirm_disconnect_2_pressed() -> void:
 	await MultiplayerHandler.integration_service.Unsetup()
 	SaveManager.saveData.username = ""
 	refresh()
+
+
+func _on_button_cancel_quit_pressed() -> void:
+	quit_confirm.visible = false
+	button_quit.visible = true
+
+
+func _on_button_confirm_quit_pressed() -> void:
+	GameState.resetGame()
+	MultiplayerHandler.isActive = false
+	pauseMenu.unpause()
+	get_tree().change_scene_to_file("res://main.tscn")
+
+
+func _on_button_quit_pressed() -> void:
+	quit_confirm.visible = true
+	button_cancel_quit.grab_focus()
+	button_quit.visible = false

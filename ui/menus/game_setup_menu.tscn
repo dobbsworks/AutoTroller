@@ -178,6 +178,7 @@ text = "
 STARTING LIVES"
 
 [node name="lifeCount" type="SpinBox" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1553175883]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 min_value = 1.0

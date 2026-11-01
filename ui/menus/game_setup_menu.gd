@@ -9,6 +9,7 @@ signal click_exit()
 @onready var connect_button: Button = %ConnectButton
 @onready var connection_details: Label = %ConnectionDetails
 @onready var bot_count: SpinBox = %botCount
+@onready var life_count: SpinBox = %lifeCount
 
 var lockedIn = false
 const TRANSITION_SCREEN = preload("res://ui/transitionScreen.tscn")
@@ -69,7 +70,16 @@ func _process(delta: float) -> void:
 			status_label.add_theme_color_override("font_color", Color.ORANGE) 
 			button_start_game.disabled = true
 			
-			
+	if bot_count.get_line_edit().has_focus():
+		if Input.is_action_just_pressed("run"):
+			bot_count.value -= 1
+		if Input.is_action_just_pressed("jump"):
+			bot_count.value += 1
+	if life_count.get_line_edit().has_focus():
+		if Input.is_action_just_pressed("run"):
+			life_count.value -= 1
+		if Input.is_action_just_pressed("jump"):
+			life_count.value += 1
 	
 
 

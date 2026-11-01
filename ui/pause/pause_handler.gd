@@ -17,6 +17,8 @@ func pause():
 	get_tree().paused = true
 	AudioServer.set_bus_effect_enabled(2, 0, true)
 	pause_screen.visible = get_tree().paused
+	settings_menu.button_exit.grab_focus()
+	settings_menu.pauseMenu = self
 	
 
 func unpause():

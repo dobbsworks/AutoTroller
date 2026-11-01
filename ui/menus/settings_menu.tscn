@@ -141,9 +141,72 @@ layout_mode = 2
 theme = ExtResource("1_h6jc8")
 text = "BACK"
 
+[node name="QuitConfirm" type="Panel" parent="VBoxContainer" unique_id=1621842772]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/QuitConfirm" unique_id=1626279832]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -47.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/QuitConfirm/HBoxContainer" unique_id=1898471654]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/QuitConfirm/HBoxContainer/Panel" unique_id=1572203228]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure you want to quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="HBoxContainer" parent="VBoxContainer/QuitConfirm/HBoxContainer" unique_id=1115921237]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+
+[node name="ButtonCancelQuit" type="Button" parent="VBoxContainer/QuitConfirm/HBoxContainer/Panel3" unique_id=1931462923]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h6jc8")
+text = "CANCEL"
+
+[node name="ButtonConfirmQuit" type="Button" parent="VBoxContainer/QuitConfirm/HBoxContainer/Panel3" unique_id=1194333578]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_h6jc8")
+text = "QUIT TO MENU"
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer" unique_id=1215904272]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_h6jc8")
+text = "QUIT TO MENU"
+
 [connection signal="pressed" from="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/CancelDisconnect" to="." method="_on_cancel_disconnect_pressed"]
 [connection signal="pressed" from="VBoxContainer/ConnectionOptions/Panel3/MarginContainer/HBoxContainer/DisconnectConfirmation/Buttons/ConfirmDisconnect2" to="." method="_on_confirm_disconnect_2_pressed"]
 [connection signal="value_changed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/VolumeMusicSlider" to="." method="_on_volume_music_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Panel2/MarginContainer/VBoxContainer/VolumeSfxSlider" to="." method="_on_volume_sfx_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitConfirm/HBoxContainer/Panel3/ButtonCancelQuit" to="." method="_on_button_cancel_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitConfirm/HBoxContainer/Panel3/ButtonConfirmQuit" to="." method="_on_button_confirm_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
