@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Auto-troller"
-config/version="1.0.6"
+config/version="1.0.8"
 run/main_scene="uid://diok1qoshpupe"
 config/features=PackedStringArray("4.7", "Forward Plus")
+run/max_fps=60
 boot_splash/bg_color=Color(0.2156, 0.27505335, 0.49, 1)
 boot_splash/stretch_mode=0
 boot_splash/image="uid://dbhxub6l6iaui"

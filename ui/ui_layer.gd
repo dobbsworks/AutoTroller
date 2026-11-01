@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var hud_spawn_container: HBoxContainer = %HudSpawnContainer
 @onready var player_path_follow: PathFollow2D = %PlayerPathFollow
 @onready var end_icon: Sprite2D = %EndIcon
+@onready var fps: Label = $fps
 
 const CHATTER_ROW = preload("res://ui/chatter_row.tscn")
 const HUD_SPAWN_ITEM = preload("res://ui/components/hud_spawn_item.tscn")
@@ -23,6 +24,7 @@ func reset():
 		child.queue_free()
 
 func _process(delta: float) -> void:
+	fps.text = str(Engine.get_frames_per_second())
 	visible = MultiplayerHandler.isActive
 	coin_count.text = ("%02d" % GameState.round.coins)
 	life_count.text = ("%02d" % GameState.round.lives)

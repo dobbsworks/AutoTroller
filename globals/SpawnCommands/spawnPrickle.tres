@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://dsxi1w2p8wxua"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_8bb6x"]
+[ext_resource type="PackedScene" uid="uid://dwqab3h54d8lw" path="res://entities/enemies/prickle_enemy.tscn" id="2_8bb6x"]
+
+[resource]
+script = ExtResource("1_8bb6x")
+name = "Prickle"
+commands = Array[String](["prickle", "pickle", "nut", "bristle", "sweetgum"])
+cost = 1
+spawnedObject = ExtResource("2_8bb6x")
+numberSpawned = 1
+startsActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

@@ -3,7 +3,7 @@ const GAME = preload("res://game.tscn")
 
 
 var defaultStage = {
-	endStart = 2000,
+	endStart = -1,
 	goalDistance = -1,
 	cameraStop = -1,
 	done = false,
@@ -32,6 +32,7 @@ var stagesPerRound = 8
 
 
 func _ready() -> void:
+	defaultStage.endStart = calcLevelLength(0)
 	resetGame()
 
 func _process(delta: float) -> void:
@@ -56,7 +57,10 @@ func createNewLevel():
 	MultiplayerHandler.isActive = true
 	GameState.stage.done = false
 	Utility.copyObj(defaultStage, stage)
-	stage.endStart = 2000 + (round.currentStage) * 300
+	stage.endStart = calcLevelLength(round.currentStage)
 	var newStage = GAME.instantiate()
 	add_sibling(newStage)
 	
+func calcLevelLength(levelNum) -> float:
+	#return 0.0
+	return 2000 + (levelNum) * 300

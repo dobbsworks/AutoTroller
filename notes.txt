@@ -10,6 +10,9 @@ TODO
 		
 	Jumping cheep cheep
 	popout spikes
+		retracted while player is not close
+		pop out with sfx when player gets close
+		(retract distance not equal to pop out distance)
 	High-bouncing prickle
 	
 POLISH
