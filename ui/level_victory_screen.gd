@@ -19,6 +19,8 @@ extends Node2D
 @onready var chat_unlock: Control = $CanvasLayer/Control/ChatUnlock
 @onready var unlock_name: Label = $CanvasLayer/Control/ChatUnlock/UnlockName
 @onready var unlock_texture: TextureRect = $CanvasLayer/Control/ChatUnlock/UnlockTexture
+@onready var defeat_1804i: AudioStreamPlayer = $Defeat1804i
+@onready var victory_2504i: AudioStreamPlayer = $Victory2504i
 
 
 var readyToContinue = false
@@ -27,6 +29,14 @@ var readyToContinue = false
 @export var isDefeat = false
 
 func _ready():
+	var levelMusic: AudioStreamPlayer = GameState.shared.levelMusic
+	levelMusic.stop()
+	
+	if isDefeat:
+		defeat_1804i.play()
+	else:
+		victory_2504i.play()
+	
 	chat_unlock.visible = false
 	isFinal = GameState.stagesPerRound == GameState.round.currentStage && !isDefeat
 	image_dead.visible = isDefeat
@@ -109,6 +119,8 @@ func next():
 		# prep next level
 		GameState.round.currentStage += 1
 		GameState.createNewLevel()
+	defeat_1804i.stop()
+	victory_2504i.stop()
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
 	

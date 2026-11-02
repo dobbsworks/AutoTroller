@@ -6,6 +6,7 @@ var starterChunk : TileMapLayer
 var chunkList = []
 const ENDING_CHUNK = preload("res://world/endingChunk.tscn")
 const LEVEL_GOAL = preload("res://entities/collectibles/level_goal.tscn")
+@onready var musicPlayer: AudioStreamPlayer = $"../Music"
 
 @export var levelDefintions: Array[LevelDefinition]
 var levelDefintion: LevelDefinition
@@ -18,12 +19,10 @@ func _ready() -> void:
 		var backdrop = levelDefintion.backdrop.instantiate()
 		add_child(backdrop)
 	if levelDefintion.music:
-		var audioPlayer = AudioStreamPlayer.new()
+		var audioPlayer = musicPlayer
 		audioPlayer.stream = levelDefintion.music
-		audioPlayer.autoplay = true
-		audioPlayer.process_mode = Node.PROCESS_MODE_ALWAYS
-		audioPlayer.bus = AudioServer.get_bus_name(2)
-		add_child(audioPlayer)
+		GameState.shared.levelMusic = musicPlayer
+		audioPlayer.play()
 	GameState.stage.levelScene = get_parent()
 	AppendChunkScene(levelDefintion.startingChunk)
 	LoadAllChunks()

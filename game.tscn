@@ -73,3 +73,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 includeConnectionOptions = false
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1749135815]
+process_mode = 3
+bus = &"Music"

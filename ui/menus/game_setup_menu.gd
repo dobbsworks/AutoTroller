@@ -65,10 +65,15 @@ func _process(delta: float) -> void:
 			status_label.text = "Connected as " + integrationService.connectedName
 			status_label.add_theme_color_override("font_color", Color.GREEN) 
 			button_start_game.disabled = false
+			button_start_game.text = "PLAY"
 		else:
 			status_label.text = "Not connected"
 			status_label.add_theme_color_override("font_color", Color.ORANGE) 
-			button_start_game.disabled = true
+			if bot_count.value > 0:
+				button_start_game.disabled = false
+				button_start_game.text = "PLAY OFFLINE (CPUs ONLY)"
+			else:
+				button_start_game.disabled = true
 			
 	if bot_count.get_line_edit().has_focus():
 		if Input.is_action_just_pressed("run"):
