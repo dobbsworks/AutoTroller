@@ -8,9 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cb5060e1lyf3a" path="res://entities/enemies/saw_on_chain_enemy.tscn" id="6_6rwt3"]
 [ext_resource type="PackedScene" uid="uid://b17sv5c86a84u" path="res://entities/enemies/frog_enemy.tscn" id="7_xc2jo"]
 [ext_resource type="PackedScene" uid="uid://bcm0o67lqdmcr" path="res://entities/enemies/wallop_enemy.tscn" id="8_ovhie"]
+[ext_resource type="PackedScene" uid="uid://dwqab3h54d8lw" path="res://entities/enemies/prickle_enemy.tscn" id="9_ehfcw"]
+[ext_resource type="PackedScene" uid="uid://dmpn1ak5f3mnv" path="res://entities/enemies/red_fish_enemy.tscn" id="10_lg1w7"]
+[ext_resource type="PackedScene" uid="uid://bdj8nybp5l3f7" path="res://entities/enemies/mushroom_enemy.tscn" id="11_2dq67"]
+[ext_resource type="PackedScene" uid="uid://dcbdv0jxbv28x" path="res://entities/enemies/green_fish_enemy.tscn" id="12_nnugt"]
 
 [node name="SpawnPointGroundEnemy" unique_id=1322520249 instance=ExtResource("1_5nclr")]
-spawnables = Array[PackedScene]([ExtResource("2_cex8g"), ExtResource("3_npe1q"), ExtResource("4_j4ytg"), ExtResource("5_h6js5"), ExtResource("6_6rwt3"), ExtResource("7_xc2jo"), ExtResource("8_ovhie")])
+spawnables = Array[PackedScene]([ExtResource("2_cex8g"), ExtResource("3_npe1q"), ExtResource("4_j4ytg"), ExtResource("5_h6js5"), ExtResource("6_6rwt3"), ExtResource("7_xc2jo"), ExtResource("8_ovhie"), ExtResource("9_ehfcw"), ExtResource("10_lg1w7"), ExtResource("11_2dq67"), ExtResource("12_nnugt")])
 
 [node name="Label" parent="." index="0" unique_id=412252120]
 offset_left = -5.0

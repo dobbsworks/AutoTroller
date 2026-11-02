@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var maxFallSpeed = 300.0
 @onready var cloud: Node2D = $PlayerSprite/Cloud
 @onready var death_particles: GPUParticles2D = $DeathParticles
+@onready var bounce: AudioStreamPlayer = $Bounce
 
 @onready var player_sprite: Node2D = $PlayerSprite
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -199,11 +200,20 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 				isLandingOnTop = playerBottomY - 3.0 < enemyTopGlobalY
 				
 			if isLandingOnTop:
-				body.kill()
+				if body.diesOnJump:
+					body.kill()
+				else:
+					bounce.play()
 				interactedWithEnemyThisFrame = true
 				BounceUp()
 				return
-		onKilled()
+				
+		if body.isBouncy:
+			bounce.play()
+			velocity.y = -150.0
+			velocity.x = 200.0 * (1.0 if global_position.x > body.global_position.x else -1.0)
+		else:
+			onKilled()
 
 
 

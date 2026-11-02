@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://b66pe62crifv"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_l0cx4"]
+[ext_resource type="PackedScene" uid="uid://bdj8nybp5l3f7" path="res://entities/enemies/mushroom_enemy.tscn" id="2_l0cx4"]
+
+[resource]
+script = ExtResource("1_l0cx4")
+name = "Gus"
+commands = Array[String](["gus", "mushroom", "bouncer", "shroom"])
+cost = 1
+spawnedObject = ExtResource("2_l0cx4")
+numberSpawned = 1
+startsActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"

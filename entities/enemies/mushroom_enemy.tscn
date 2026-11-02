@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bdj8nybp5l3f7"]
+
+[ext_resource type="PackedScene" uid="uid://e7hmww7s6vjk" path="res://entities/enemies/BaseEnemy.tscn" id="1_2wo8u"]
+[ext_resource type="Texture2D" uid="uid://drukpsyjsj6v6" path="res://entities/enemies/enemies.png" id="2_xxnng"]
+[ext_resource type="Script" uid="uid://ddx8x4pp623i6" path="res://entities/enemies/mushroom_behavior.gd" id="3_xxnng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf82w"]
+size = Vector2(14, 16)
+
+[node name="MushroomEnemy" unique_id=1357401302 instance=ExtResource("1_2wo8u")]
+canJumpOn = true
+diesOnJump = false
+isBouncy = true
+horizMaxSpeed = 30.0
+turnAtEdges = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
+shape = SubResource("RectangleShape2D_nf82w")
+
+[node name="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="0" unique_id=851132383]
+texture = ExtResource("2_xxnng")
+region_enabled = true
+region_rect = Rect2(208, 80, 16, 16)
+
+[node name="MushroomBehavior" type="Node" parent="." index="4" unique_id=1329470353]
+script = ExtResource("3_xxnng")

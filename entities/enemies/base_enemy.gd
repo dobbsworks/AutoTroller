@@ -7,6 +7,8 @@ var isDummy = false
 
 @export var hurtOnContact = true
 @export var canJumpOn = false
+@export var diesOnJump = true
+@export var isBouncy = false
 
 @export var spawnOffset = Vector2.ZERO
 
