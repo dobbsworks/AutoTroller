@@ -7,7 +7,7 @@
 script = ExtResource("1_8bb6x")
 name = "Prickle"
 commands = Array[String](["prickle", "pickle", "nut", "bristle", "sweetgum"])
-cost = 1
+cost = 2
 spawnedObject = ExtResource("2_8bb6x")
 numberSpawned = 1
 startsActive = false

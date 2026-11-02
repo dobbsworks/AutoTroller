@@ -197,7 +197,7 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 			if !isLandingOnTop:
 				# try with and without factoring velocity, really work in the players favor
 				isLandingOnTop = playerBottomY - 3.0 < enemyTopGlobalY
-			
+				
 			if isLandingOnTop:
 				body.kill()
 				interactedWithEnemyThisFrame = true

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bshjqm8oxw3tc"]
+
+[ext_resource type="PackedScene" uid="uid://e7hmww7s6vjk" path="res://entities/enemies/BaseEnemy.tscn" id="1_on1ku"]
+[ext_resource type="Texture2D" uid="uid://drukpsyjsj6v6" path="res://entities/enemies/enemies.png" id="2_5c7ia"]
+[ext_resource type="Script" uid="uid://uny5r4gmju6n" path="res://entities/enemies/spike_behavior.gd" id="3_snm1r"]
+[ext_resource type="AudioStream" uid="uid://1vys3xoegrq" path="res://audio/sfx/pointy.mp3" id="4_8mfd4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_on1ku"]
+size = Vector2(12, 13)
+
+[node name="SpikesHazard" unique_id=1357401302 instance=ExtResource("1_on1ku")]
+horizontalAccel = 0.0
+horizMaxSpeed = 0.0
+jumpStrength = 225.0
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_on1ku")
+
+[node name="SpriteRetract" type="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="0" unique_id=1361871428]
+texture_filter = 1
+rotation = 3.1415927
+scale = Vector2(1, -1)
+texture = ExtResource("2_5c7ia")
+region_enabled = true
+region_rect = Rect2(16, 80, 16, 16)
+
+[node name="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="1" unique_id=851132383]
+scale = Vector2(-1, 1)
+texture = ExtResource("2_5c7ia")
+region_enabled = true
+region_rect = Rect2(48, 80, 16, 16)
+
+[node name="LeftGroundCheck" parent="." index="2" unique_id=877310307]
+visible = false
+
+[node name="RightGroundCheck" parent="." index="3" unique_id=855702252]
+visible = false
+
+[node name="SpikeBehavior" type="Node" parent="." index="4" unique_id=209991663]
+script = ExtResource("3_snm1r")
+
+[node name="Pointy" type="AudioStreamPlayer" parent="SpikeBehavior" index="0" unique_id=1277288624]
+stream = ExtResource("4_8mfd4")
+bus = &"SFX"

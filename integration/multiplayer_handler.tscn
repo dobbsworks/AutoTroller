@@ -13,10 +13,13 @@
 [ext_resource type="Resource" uid="uid://jjmxagsn0i0m" path="res://globals/SpawnCommands/spawnFrog.tres" id="9_kino8"]
 [ext_resource type="Resource" uid="uid://do0x1qk051p1j" path="res://globals/SpawnCommands/spawnWallop.tres" id="10_oerdo"]
 [ext_resource type="Resource" uid="uid://dsxi1w2p8wxua" path="res://globals/SpawnCommands/spawnPrickle.tres" id="11_wki1o"]
+[ext_resource type="Resource" uid="uid://b4xfc4qfmhwww" path="res://globals/SpawnCommands/spawnSpikes.tres" id="12_f0d8l"]
+[ext_resource type="Resource" uid="uid://b6uk5cxr6revq" path="res://globals/SpawnCommands/spawnGreenFish.tres" id="13_whatt"]
+[ext_resource type="Resource" uid="uid://dybpqfj7oqtie" path="res://globals/SpawnCommands/spawnRedFish.tres" id="14_kns48"]
 
 [node name="MultiplayerHandler" type="Node" unique_id=2109223567]
 script = ExtResource("1_mb2n4")
-spawnCommands = Array[ExtResource("2_xrc66")]([ExtResource("3_esr35"), ExtResource("7_f0d8l"), ExtResource("4_kino8"), ExtResource("6_wki1o"), ExtResource("9_kino8"), ExtResource("5_oerdo"), ExtResource("8_esr35"), ExtResource("10_oerdo"), ExtResource("11_wki1o")])
+spawnCommands = Array[ExtResource("2_xrc66")]([ExtResource("3_esr35"), ExtResource("7_f0d8l"), ExtResource("4_kino8"), ExtResource("6_wki1o"), ExtResource("5_oerdo"), ExtResource("9_kino8"), ExtResource("11_wki1o"), ExtResource("10_oerdo"), ExtResource("8_esr35"), ExtResource("12_f0d8l"), ExtResource("13_whatt"), ExtResource("14_kns48")])
 
 [node name="IntegrationService" parent="." unique_id=1053741238 instance=ExtResource("2_cyrgr")]
 

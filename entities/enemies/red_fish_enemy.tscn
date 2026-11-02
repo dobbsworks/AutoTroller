@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dmpn1ak5f3mnv"]
+
+[ext_resource type="PackedScene" uid="uid://dcbdv0jxbv28x" path="res://entities/enemies/green_fish_enemy.tscn" id="1_e4oay"]
+
+[node name="RedFishEnemy" unique_id=1357401302 instance=ExtResource("1_e4oay")]
+horizontalAccel = 50.0
+horizMaxSpeed = 100.0
+
+[node name="Sprite2D" parent="Sprite" parent_id_path=PackedInt32Array(1291407578) index="0" unique_id=851132383]
+region_rect = Rect2(48, 144, 16, 16)
+
+[node name="FishBehavior" parent="." index="4" unique_id=1667577379]
+follows = true

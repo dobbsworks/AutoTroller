@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SpawnCommand" format=3 uid="uid://b4xfc4qfmhwww"]
+
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="1_v28yt"]
+[ext_resource type="PackedScene" uid="uid://bshjqm8oxw3tc" path="res://entities/enemies/spikes_hazard.tscn" id="2_v28yt"]
+
+[resource]
+script = ExtResource("1_v28yt")
+name = "Spikes"
+commands = Array[String](["spikes", "spike", "spikey"])
+cost = 1
+spawnedObject = ExtResource("2_v28yt")
+numberSpawned = 1
+startsActive = false
+metadata/_custom_type_script = "uid://dg4ulor7obnlq"
