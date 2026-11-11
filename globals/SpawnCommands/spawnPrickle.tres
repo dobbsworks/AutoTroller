@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_8bb6x")
 name = "Prickle"
-commands = Array[String](["prickle", "pickle", "nut", "bristle", "sweetgum"])
+commands = Array[String](["prickle", "pickle", "nut", "bristle", "sweetgum", "p"])
 cost = 2
 spawnedObject = ExtResource("2_8bb6x")
 numberSpawned = 1
 startsActive = false
+description = "Bounces up and down in place, can't be jumped on"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

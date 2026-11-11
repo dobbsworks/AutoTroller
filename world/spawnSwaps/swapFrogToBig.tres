@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpawnSwap" format=3 uid="uid://bo4rx1cnf2vph"]
+
+[ext_resource type="PackedScene" uid="uid://b17sv5c86a84u" path="res://entities/enemies/frog_enemy.tscn" id="1_7sm75"]
+[ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="1_puvau"]
+[ext_resource type="PackedScene" uid="uid://c21urrewsxfjb" path="res://entities/enemies/big_frog_enemy.tscn" id="3_k3re6"]
+
+[resource]
+script = ExtResource("1_puvau")
+from = ExtResource("1_7sm75")
+to = ExtResource("3_k3re6")
+metadata/_custom_type_script = "uid://dkj7kvsyobfi5"

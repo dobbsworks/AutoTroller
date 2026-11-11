@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_67qet")
 name = "Finn"
-commands = Array[String](["finn", "fin", "redcheep", "redcheepcheep", "redfish"])
+commands = Array[String](["finn", "fin", "redcheep", "redcheepcheep", "redfish", "f"])
 cost = 3
 spawnedObject = ExtResource("2_67qet")
 numberSpawned = 1
 startsActive = false
+description = "Jumps from below the screen. Follows the player, ignores terrain"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

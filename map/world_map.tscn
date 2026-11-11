@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8ivrsk1qvj28"]
+
+[node name="WorldMap" type="Node2D" unique_id=412206498]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=30349338]
+offset_left = -19.0
+offset_top = -14.0
+offset_right = 1166.0
+offset_bottom = 664.0
+color = Color(0.4862745, 0.72156864, 0.22352941, 1)

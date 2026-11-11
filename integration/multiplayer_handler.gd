@@ -45,10 +45,14 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 	
 func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 	for potentialSpawnable in potentialSpawnables:
-		var c = chatters.filter(func(a: Chatter): return a.spawnQueue.has(potentialSpawnable))
+		var c: Array[Chatter] = chatters.filter(func(a: Chatter): return a.spawnQueue.has(potentialSpawnable))
 		if c.size() == 0: continue
-		#c.sort_custom(func(a,b): return a.spawnQueue.size() > b.spawnQueue.size())
+		
 		var spawningChatter: Chatter = c[0]
+		var humanSpawners = c.filter(func(a: Chatter): return !a.isCpu)
+		if humanSpawners.size() > 0:
+			spawningChatter = humanSpawners[0]
+		
 		spawningChatter.spawnQueue.erase(potentialSpawnable)
 		if spawningChatter.spawnQueue.size() == 0:
 			spawningChatter.on_update_queue.emit(null)
@@ -58,6 +62,14 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 		var ret = SpawnResult.new()
 		ret.chatter = spawningChatter
 		ret.spawnable = potentialSpawnable
+		
+		# handle level spawn swaps
+		var levelDef: LevelDefinition = GameState.shared.levelDefintion
+		if levelDef:
+			for spawnSwap: SpawnSwap in levelDef.spawnSwaps:
+				if spawnSwap.from == ret.spawnable:
+					ret.spawnable = spawnSwap.to
+		
 		return ret
 	return null
 	

@@ -11,4 +11,5 @@ cost = 1
 spawnedObject = ExtResource("2_v28yt")
 numberSpawned = 1
 startsActive = false
+description = "Stationary hazard. Hides in the ground until the player gets close"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

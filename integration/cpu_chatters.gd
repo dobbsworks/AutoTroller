@@ -57,6 +57,8 @@ func get_fake_name() -> String:
 		"Bright",
 		"Hungry",
 		"Happy",
+		"Unhappy",
+		"Bored",
 		"Clumsy",
 		"Chatty",
 		"Careful",

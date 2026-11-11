@@ -10,4 +10,5 @@ commands = Array[String](["kaizo", "k", "block", "hidden", "hiddenblock"])
 cost = 3
 spawnedObject = ExtResource("2_beiqs")
 numberSpawned = 1
+description = ":3"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

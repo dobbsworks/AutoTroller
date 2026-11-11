@@ -8,3 +8,7 @@ class_name LevelDefinition
 @export var chunks: Array[PackedScene]
 
 @export var music: AudioStream
+
+
+# Gimmicks
+@export var spawnSwaps: Array[SpawnSwap] = []

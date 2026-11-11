@@ -11,4 +11,5 @@ cost = 1
 spawnedObject = ExtResource("2_l0cx4")
 numberSpawned = 1
 startsActive = false
+description = "Walks back and forth slowly. No contact damage, can't be killed"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

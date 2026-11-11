@@ -5,7 +5,8 @@ extends Node
 @onready var credits_menu: Control = %CreditsMenu
 @onready var game_setup_menu: Control = %GameSetupMenu
 @onready var instructions_menu: Control = %InstructionsMenu
-@onready var version: Label = $"../MainMenu/version"
+@onready var version_history_menu: Control = %VersionHistoryMenu
+@onready var version: Button = $"../MainMenu/version"
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
 const HUE_SHIFT_MAT = preload("res://shaders/hue_shift_mat.tres")
@@ -18,10 +19,13 @@ func _ready():
 	main_menu.click_settings.connect(on_click_settings)
 	main_menu.click_credits.connect(on_click_credits)
 	main_menu.click_instructions.connect(on_click_instructions)
+	main_menu.click_version_history.connect(on_click_version_history)
 	settings_menu.click_exit.connect(on_click_exit_settings)
 	credits_menu.click_exit.connect(on_click_exit_credits)
 	game_setup_menu.click_exit.connect(on_click_exit_game_setup)
 	instructions_menu.click_exit.connect(on_click_exit_instructions)
+	version_history_menu.click_exit.connect(on_click_exit_version_history)
+	
 	main_menu.onStart()
 	
 	
@@ -39,6 +43,11 @@ func on_click_instructions():
 	switchToSubMenu(instructions_menu, "instructions")
 func on_click_exit_instructions():
 	returnFromSubMenu(instructions_menu, "instructions")
+
+func on_click_version_history():
+	switchToSubMenu(version_history_menu, "version")
+func on_click_exit_version_history():
+	returnFromSubMenu(version_history_menu, "version")
 	
 func on_click_play():
 	switchToSubMenu(game_setup_menu, "purple")

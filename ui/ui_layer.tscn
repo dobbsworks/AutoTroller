@@ -44,10 +44,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="ChatOverlay/VBoxContainer" unique_id=1650873537]
-custom_minimum_size = Vector2(0, 490)
+custom_minimum_size = Vector2(0, 405)
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_xqqt7")
+theme_override_constants/margin_bottom = 5
 
 [node name="ChatterScrollBox" type="ScrollContainer" parent="ChatOverlay/VBoxContainer/MarginContainer" unique_id=469831662]
 unique_name_in_owner = true
@@ -59,10 +60,25 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MarginContainer2" type="MarginContainer" parent="ChatOverlay/VBoxContainer" unique_id=577812928]
+[node name="MarginContainer3" type="MarginContainer" parent="ChatOverlay/VBoxContainer" unique_id=757685356]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-size_flags_vertical = 3
 theme = ExtResource("2_xqqt7")
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="ChatOverlay/VBoxContainer/MarginContainer3" unique_id=1313893525]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "To start, type \"coin\" for some points, then look below for what you can buy!"
+autowrap_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="ChatOverlay/VBoxContainer" unique_id=577812928]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme = ExtResource("2_xqqt7")
+theme_override_constants/margin_top = 5
 
 [node name="ChatterScrollBox" type="ScrollContainer" parent="ChatOverlay/VBoxContainer/MarginContainer2" unique_id=679207992]
 layout_mode = 2

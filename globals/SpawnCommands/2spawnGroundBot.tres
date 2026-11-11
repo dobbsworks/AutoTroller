@@ -6,8 +6,9 @@
 [resource]
 script = ExtResource("1_md3fs")
 name = "Robot"
-commands = Array[String](["robot", "bot", "ground", "goomba", "g", "r"])
+commands = Array[String](["robot", "bot", "ground", "goomba", "r"])
 cost = 1
 spawnedObject = ExtResource("2_md3fs")
 numberSpawned = 1
+description = "Rolls back and forth, turns at ledges. Easy to jump on."
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

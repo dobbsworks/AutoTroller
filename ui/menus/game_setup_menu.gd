@@ -10,6 +10,7 @@ signal click_exit()
 @onready var connection_details: Label = %ConnectionDetails
 @onready var bot_count: SpinBox = %botCount
 @onready var life_count: SpinBox = %lifeCount
+@onready var queue_hidden: CheckBox = %queueHidden
 
 var lockedIn = false
 const TRANSITION_SCREEN = preload("res://ui/transitionScreen.tscn")
@@ -35,7 +36,9 @@ func onStart():
 
 
 func refresh():
+	life_count.value = SaveManager.saveData.lives
 	bot_count.value = SaveManager.saveData.botCount
+	queue_hidden.button_pressed = SaveManager.saveData.queueHidden
 	if SaveManager.saveData.username != "":
 		line_edit.text = SaveManager.saveData.username
 
@@ -104,3 +107,12 @@ func _on_spin_box_value_changed(value: float) -> void:
 func _on_life_count_value_changed(value: float) -> void:
 	GameState.defaultRound.lives = value
 	GameState.round.lives = value
+	SaveManager.saveData.lives = value
+	SaveManager.saveGame()
+
+
+
+func _on_queue_hidden_toggled(toggled_on: bool) -> void:
+	SaveManager.saveData.queueHidden = toggled_on
+	SaveManager.saveGame()
+	

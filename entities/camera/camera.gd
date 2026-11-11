@@ -8,7 +8,7 @@ extends Node2D
 @onready var horizontal_camera: Camera2D = $HorizontalCamera
 
 var shakeTimer = 0.0
-
+var shouldScrollUp = false
 
 func _ready() -> void:
 	GameState.shared.camera = self 
@@ -26,6 +26,21 @@ func _process(delta: float) -> void:
 		if position.x > maxCamX: 
 			position.x = maxCamX
 			GameState.stage.done = true
+		
+	if GameState.shared.player:
+		var yCutoff = -220
+		var isAboveScreen = GameState.shared.player.position.y < yCutoff
+		if GameState.shared.player.is_on_floor() && isAboveScreen:
+			shouldScrollUp = true
+		if !isAboveScreen:
+			shouldScrollUp = false
+			
+		var targetY = -108.0
+		if shouldScrollUp: targetY -= 16.0
+		position.y = move_toward(position.y, targetY, delta * 32.0)
+
+
+
 
 func shake():
 	shakeTimer = 0.3

@@ -10,5 +10,5 @@ commands = Array[String](["kero", "frog", "hopper", "ninji"])
 cost = 1
 spawnedObject = ExtResource("2_hwa1p")
 numberSpawned = 1
-isActive = false
+description = "Bounces up and down in one place"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

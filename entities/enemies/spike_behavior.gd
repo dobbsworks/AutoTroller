@@ -12,7 +12,9 @@ func _ready():
 	isOut = false
 
 func _process(delta: float) -> void:
-	if spikes_hazard.isDummy: return
+	if spikes_hazard.isDummy: 
+		sprite_2d.visible = true
+		return
 	
 	var player = GameState.shared.player
 	if player:

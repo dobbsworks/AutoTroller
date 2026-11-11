@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c21urrewsxfjb"]
+
+[ext_resource type="PackedScene" uid="uid://b17sv5c86a84u" path="res://entities/enemies/frog_enemy.tscn" id="1_chaes"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chaes"]
+size = Vector2(27, 26)
+
+[node name="BigFrogEnemy" unique_id=1357401302 instance=ExtResource("1_chaes")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=1431500814]
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_chaes")
+
+[node name="Sprite" parent="." index="1" unique_id=1291407578]
+position = Vector2(0, -8)
+
+[node name="Sprite2D" parent="Sprite" index="0" unique_id=851132383]
+region_rect = Rect2(256, 64, 32, 32)
+
+[node name="Sprite2D2" parent="Sprite" index="1" unique_id=161044750]
+region_rect = Rect2(256, 112, 32, 32)

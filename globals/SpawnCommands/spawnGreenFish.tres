@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_qidxy")
 name = "Gil"
-commands = Array[String](["gil", "cheep", "cheepcheep", "green", "fish", "greenfish"])
+commands = Array[String](["gil", "cheep", "cheepcheep", "green", "fish", "greenfish", "g"])
 cost = 2
 spawnedObject = ExtResource("2_qidxy")
 numberSpawned = 1
 startsActive = false
+description = "Jumps to the left, ignores terrain"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

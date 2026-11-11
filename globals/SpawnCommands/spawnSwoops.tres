@@ -11,4 +11,5 @@ cost = 2
 spawnedObject = ExtResource("2_doq3g")
 numberSpawned = 1
 startsActive = false
+description = "Flies at a set height, following the player. Ignores terrain"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

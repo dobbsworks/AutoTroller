@@ -4,6 +4,7 @@ extends Control
 @onready var animation_player: AnimationPlayer = $Panel/AnimationPlayer
 @onready var texture_rect: TextureRect = $Panel/TextureRect
 @onready var spawn_count: Label = $Panel/TextureRect/SpawnCount
+const HIDDEN_ENEMY_TEXTURE = preload("res://entities/enemies/hiddenEnemyTexture.tres")
 
 var chatter: Chatter
 
@@ -37,8 +38,11 @@ func onUpdateQueue(spawnCommand: SpawnCommand):
 	if spawnCommand == null:
 		texture_rect.texture = null
 	else:
-		if spawnCommand.viewport:
-			texture_rect.texture = spawnCommand.viewport.get_texture()
+		if SaveManager.saveData.queueHidden:
+			texture_rect.texture = HIDDEN_ENEMY_TEXTURE
+		else:
+			if spawnCommand.viewport:
+				texture_rect.texture = spawnCommand.viewport.get_texture()
 	
 	animation_player.play("RESET")
 	animation_player.queue("wiggleImage")

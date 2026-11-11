@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://tat1niba1a6v"]
+
+[ext_resource type="Script" uid="uid://ddtdiviljhvsg" path="res://ui/menus/credits_menu.gd" id="1_af8ia"]
+[ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_y7rwo"]
+
+[node name="VersionHistoryMenu" type="Control" unique_id=1966205401]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_af8ia")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1550894575]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 554.0
+
+[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=251848853]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme = ExtResource("2_y7rwo")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel" unique_id=1541543700]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Panel/MarginContainer" unique_id=1635262991]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer" unique_id=1051402441]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=867464624]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "v1.2.0"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=299273956]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "- Camera now scrolls up slightly when standing above the level
+- Improved spikes icon
+"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1642450086]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "v1.1.0"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=613413035]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "- Spikes can now spawn properly
+- Added a new game option to conceal upcoming spawns
+- When CPU players are active, human players' spawns will be prioritized
+- Added spawn points for coins and enemies to the end-of-level chunk
+- Added simplified chatter instuctions to the sidebar
+- Fixed issue where life counter spinbox in game setup would be desynced from actual value
+- Fixed issue with pause menu's Quit Game button"
+autowrap_mode = 2
+
+[node name="ButtonExit" type="Button" parent="VBoxContainer" unique_id=448487516]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("2_y7rwo")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]

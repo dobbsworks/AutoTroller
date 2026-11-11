@@ -83,6 +83,7 @@ func _on_button_confirm_quit_pressed() -> void:
 	GameState.resetGame()
 	MultiplayerHandler.isActive = false
 	pauseMenu.unpause()
+	GameState.stage.levelScene.queue_free()
 	get_tree().change_scene_to_file("res://main.tscn")
 
 

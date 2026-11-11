@@ -10,4 +10,5 @@ commands = Array[String](["coin", "coins", "c"])
 cost = -4
 spawnedObject = ExtResource("2_h6cni")
 numberSpawned = 1
+description = "Four golden, glittering coins"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://kwvkd4f5ulm6" path="res://ui/menus/game_setup_menu.tscn" id="8_kek77"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="9_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dacriwcjo1qlu" path="res://ui/menus/instructions_menu.tscn" id="12_w48qg"]
+[ext_resource type="PackedScene" uid="uid://tat1niba1a6v" path="res://ui/menus/versionHistory.tscn" id="16_cegan"]
+[ext_resource type="PackedScene" uid="uid://bsunjn37qwmut" path="res://entities/collectibles/endGoalParticles.tscn" id="17_074og"]
+[ext_resource type="PackedScene" uid="uid://d4nvow1rh2ry" path="res://entities/player/death_particles.tscn" id="18_cegan"]
 
 [sub_resource type="Gradient" id="Gradient_7dm0k"]
 offsets = PackedFloat32Array(0)
@@ -256,6 +259,30 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(2042, 76)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%VersionHistoryMenu:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2099, 41)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%VersionHistoryMenu:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_0xm2m"]
@@ -550,6 +577,69 @@ tracks/4/keys = {
 "values": [Color(0.9653329, 0.061937764, 0.9999998, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_82xsv"]
+resource_name = "version"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SawtoothGreen2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.6333333, 0.85),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1334.0001, 1148.0001), Vector2(1334.0001, 1148.0001), Vector2(-306.00012, 1098), Vector2(-306.00012, 1098)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SawtoothGreen1:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23, 0.73333335, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1907.0001, 1070), Vector2(1907.0001, 1070), Vector2(261.00024, 1192), Vector2(261.00024, 1192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VersionHistoryMenu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VersionHistoryMenu:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.74, 0.96),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2042, 76), Vector2(385, 90), Vector2(385, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:material:shader_parameter/shift_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.275, 0.42875, 0.5, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h2yge"]
 _data = {
 &"RESET": SubResource("Animation_ig7tw"),
@@ -557,7 +647,44 @@ _data = {
 &"green": SubResource("Animation_lquwl"),
 &"instructions": SubResource("Animation_vivmo"),
 &"orange": SubResource("Animation_5vw27"),
-&"purple": SubResource("Animation_kek77")
+&"purple": SubResource("Animation_kek77"),
+&"version": SubResource("Animation_82xsv")
+}
+
+[sub_resource type="Animation" id="Animation_074og"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_cegan"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_82xsv"]
+_data = {
+&"RESET": SubResource("Animation_074og"),
+&"new_animation": SubResource("Animation_cegan")
 }
 
 [node name="Main" type="Node2D" unique_id=1491575174]
@@ -613,27 +740,26 @@ speed_scale = 0.5
 
 [node name="MainMenu" parent="CanvasLayer" unique_id=630448504 instance=ExtResource("2_h2yge")]
 unique_name_in_owner = true
-offset_left = 859.0
-offset_top = 367.0
-offset_right = -56.0
-offset_bottom = -55.0
+offset_left = 841.0
+offset_top = 323.0
+offset_right = -74.0
+offset_bottom = -99.0
 
-[node name="version" type="Label" parent="CanvasLayer/MainMenu" unique_id=1872191750]
+[node name="version" type="Button" parent="CanvasLayer/MainMenu" unique_id=1451869571]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -58.0
-offset_top = -23.0
-offset_right = 48.0
-offset_bottom = 49.0
+offset_left = -35.0
+offset_top = 53.0
+offset_right = 66.0
+offset_bottom = 91.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("9_2cqfq")
-horizontal_alignment = 2
-vertical_alignment = 2
+text = "v"
 
 [node name="ScreenTransition" type="Node2D" parent="CanvasLayer" unique_id=904960903]
 z_index = 200
@@ -713,7 +839,7 @@ visible = false
 custom_minimum_size = Vector2(100, 100)
 offset_left = 2042.0
 offset_top = 76.0
-offset_right = 2461.9985
+offset_right = 2461.999
 offset_bottom = 412.0
 
 [node name="CreditsMenu" parent="CanvasLayer/ScreenTransition" unique_id=1966205401 instance=ExtResource("6_272bh")]
@@ -734,12 +860,19 @@ offset_bottom = 76.0
 
 [node name="GameSetupMenu" parent="CanvasLayer/ScreenTransition" unique_id=1430645086 instance=ExtResource("8_kek77")]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(650, 300)
 offset_left = 2042.0
 offset_top = 76.0
 offset_right = 2692.0
-offset_bottom = 376.0
+offset_bottom = 510.4984
+
+[node name="VersionHistoryMenu" parent="CanvasLayer/ScreenTransition" unique_id=277471090 instance=ExtResource("16_cegan")]
+unique_name_in_owner = true
+visible = false
+offset_left = 2099.0
+offset_top = 41.0
+offset_right = 2099.0
+offset_bottom = 41.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ScreenTransition" unique_id=1399332291]
 unique_name_in_owner = true
@@ -747,3 +880,17 @@ libraries/ = SubResource("AnimationLibrary_h2yge")
 
 [node name="TitleMenuManager" type="Node" parent="CanvasLayer" unique_id=495995916]
 script = ExtResource("5_lquwl")
+
+[node name="LagFix" type="Node2D" parent="." unique_id=527772472]
+
+[node name="GPUParticles2D" parent="LagFix" unique_id=376247457 instance=ExtResource("17_074og")]
+position = Vector2(500, -378)
+
+[node name="DeathParticles" parent="LagFix" unique_id=242330342 instance=ExtResource("18_cegan")]
+position = Vector2(480, -379)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LagFix/DeathParticles" unique_id=362918106]
+libraries/ = SubResource("AnimationLibrary_82xsv")
+autoplay = &"new_animation"
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/version" to="CanvasLayer/MainMenu" method="_on_version_pressed"]

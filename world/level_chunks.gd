@@ -15,6 +15,7 @@ var chunksDone = false
 
 func _ready() -> void:
 	levelDefintion = levelDefintions[posmod(GameState.round.currentStage - 1, levelDefintions.size())]
+	GameState.shared.levelDefintion = levelDefintion
 	if levelDefintion.backdrop:
 		var backdrop = levelDefintion.backdrop.instantiate()
 		add_child(backdrop)

@@ -6,9 +6,10 @@
 [resource]
 script = ExtResource("1_ydxbt")
 name = "Saw"
-commands = Array[String](["saw", "grinder", "s"])
+commands = Array[String](["saw", "grinder"])
 cost = 2
 spawnedObject = ExtResource("2_ydxbt")
 numberSpawned = 1
 startsActive = false
+description = "Spins around a fixed place. Can't be jumped on"
 metadata/_custom_type_script = "uid://dg4ulor7obnlq"

@@ -7,6 +7,8 @@ var saveData = {
 	"volumeMusic": 0.8,
 	"username": "",
 	"botCount": 0,
+	"lives": 5,
+	"queueHidden": false,
 }
 
 var defaultState = {}

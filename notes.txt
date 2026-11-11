@@ -1,19 +1,46 @@
 
+v1.2
+✔ scroll cam up when standing above screen
+✔ improve spikes icon in sidebar
 
-
+option to start with X points
+prevent kaizo overlap?
 
 TODO
 	Buffer jumps
 	Coyote time
-	Speed scroll button
-		Track time spent speeding
 		
-	Jumping cheep cheep
-	popout spikes
-		retracted while player is not close
-		pop out with sfx when player gets close
-		(retract distance not equal to pop out distance)
-	High-bouncing prickle
+		
+		
+		
+		
+Level-1-land
+Desert
+
+Swamp
+	Bigger frogs
+Cave
+	Dark
+Cloud
+	Wind
+Construction
+	Upgrade robots (spiky)
+Volcano
+	Fireballs from above
+Castle
+	
+
+
+Lakebed
+	Cheaper fish
+Canyon
+	Cheaper kaizos
+Train
+
+
+
+
+
 	
 POLISH
 	Chat scoreboard/highlight
@@ -21,12 +48,18 @@ POLISH
 		Total spent
 		Money on the table
 		
-		
+snowman
+hedgehog
 		
 		
 
 Post-jam updates:
+	Enemy stacks
+		If spawning a bird, check for any other pending birds and just stack them vertically
+		Could do same with some other enemies
+	
 	Items
+		Treasure chest, unlocked if carried to end
 	Kaizos need:
 		make sure no block already there when spawning
 		make sure not at peak of jump
@@ -64,3 +97,14 @@ victory
 https://www.beepbox.co/#9n31sbk0l01e0ft3Wa3g0gj08r1i0o433T0v1u12f10s4q00d03w2h2E0T0v1u11f0qg01d04w1h0E0T0v1u12f10s4q00d03w2h2E0T2v1u15f10w4qw02d03w0E0b4z04k08M1Dyg4i8h8x4y4P8i8P8zcycOh30h4h4h4h4h8Mp23pFFZcCvX9M7bOsD0qqL11X8WqfDg1-fFIvysfjlZ0QQ_oWqfDp7VOCQ-9JZE7Pg_cX8_fu8CDN5RDA47o7G1QxQQvi3IJHHHHP4wE63HHHHOW2woeKKKI2VJvjA90x0TJnVWE8zuS7TlmhVtTouUn_4unlmhVtTouh6k14unlmhVtToobCz4fQnFEOCqcDyfa8ZywzEGE8WapONeCDb7F7Oys0
 defeat
 https://www.beepbox.co/#9n31sbk0l01e0ft2Qa3g0gj0ar1i0o433T0v0u12f10s4q00d03w2h2E0T0v1u11f0qg01d04w1h0E0T0v1u12f10s4q00d03w2h2E0T2v1u15f10w4qw02d03w0E0b4zGQk08WJDyg4i8h8x4y4P8i8P8zcycOh30h4h4h4h4h8Mp23AIQ-DpCvUAOOf0i3f7ONYIn0gGrBs4kQSnWjs7XpJ7GhKQSDNdKCHV1FF_1QQveOeCvjYhdfybXf88eMfk3F3FJ7wbqbL2R2QQvi3IJHHHHP4wE63HHHHOW2woeKKKI0KrnQV2g8gdXl-uG28TJxZRlAuntS7K5_N7BRlAuntS7AhB0h7BRlAuntS60Kqcg_huCzapEOu8YEzSa2eyGwzEFDb4WqsIuAva9M0
+
+
+
+v1.1
+✔ spikes fixed
+✔ "Hide Queue" option
+✔ life counter not resetting
+✔ quit from game BUGGED
+✔ need to add spawns to the level end chunk
+✔ prioritize non-cpus
+✔ mid-game instructions for joining ("type coin to get started")
