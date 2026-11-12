@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://rbi61mumnii6"]
+
+[ext_resource type="Texture2D" uid="uid://drukpsyjsj6v6" path="res://entities/enemies/enemies.png" id="1_24ami"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vasps"]
+atlas = ExtResource("1_24ami")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpkdd"]
+atlas = ExtResource("1_24ami")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xv4l1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vasps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpkdd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="TrainWheel" type="AnimatedSprite2D" unique_id=1791141917]
+sprite_frames = SubResource("SpriteFrames_xv4l1")
+autoplay = "default"
+frame_progress = 0.3171226

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d075a0hyc4x5a" path="res://world/levelChunks1/chunkConstruction1.tscn" id="8_jhu7o"]
 [ext_resource type="AudioStream" uid="uid://dp5j7r3848lsn" path="res://audio/music/song4_103.mp3" id="8_pxp1c"]
 [ext_resource type="PackedScene" uid="uid://hh21yqsd8pmk" path="res://world/levelChunks1/chunkConstruction2.tscn" id="9_7ox1e"]
+[ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="12_wv05d"]
 
 [resource]
 script = ExtResource("7_wv05d")

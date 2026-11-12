@@ -64,7 +64,7 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 		ret.spawnable = potentialSpawnable
 		
 		# handle level spawn swaps
-		var levelDef: LevelDefinition = GameState.shared.levelDefintion
+		var levelDef: LevelDefinition = GameState.shared.levelDefinition
 		if levelDef:
 			for spawnSwap: SpawnSwap in levelDef.spawnSwaps:
 				if spawnSwap.from == ret.spawnable:

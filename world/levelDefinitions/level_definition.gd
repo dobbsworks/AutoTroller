@@ -12,3 +12,4 @@ class_name LevelDefinition
 
 # Gimmicks
 @export var spawnSwaps: Array[SpawnSwap] = []
+@export_range(0.0, 0.9, 0.1) var slipperiness: float = 0.0

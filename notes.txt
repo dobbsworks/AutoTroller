@@ -30,13 +30,14 @@ Volcano
 Castle
 	
 
-
-Lakebed
+✔ Lakebed
 	Cheaper fish
+✔ Ice Cave
+	✔ Slippery
 Canyon
 	Cheaper kaizos
-Train
-
+✔ Train
+	?
 
 
 

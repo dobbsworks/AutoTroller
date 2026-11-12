@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://bwppxaost3h1s"]
+
+[ext_resource type="PackedScene" uid="uid://dohp574tpnig6" path="res://world/backdrop/backdrop_canyon.tscn" id="1_xe2ou"]
+[ext_resource type="PackedScene" uid="uid://ji1roy6up3ho" path="res://world/levelChunks1/chunk1.tscn" id="2_u7f38"]
+[ext_resource type="PackedScene" uid="uid://bdn1t38pcx5ne" path="res://world/levelChunks1/chunk2.tscn" id="3_c7acl"]
+[ext_resource type="PackedScene" uid="uid://disslku6wg7nu" path="res://world/levelChunks1/chunk3.tscn" id="4_tntue"]
+[ext_resource type="PackedScene" uid="uid://dn7drghtnk5ix" path="res://world/levelChunks1/chunk4.tscn" id="5_goc5t"]
+[ext_resource type="PackedScene" uid="uid://0tjocqgbib60" path="res://world/levelChunks1/chunk5.tscn" id="6_y3vhm"]
+[ext_resource type="PackedScene" uid="uid://bfkdpboiqryqp" path="res://world/levelChunks1/chunk6.tscn" id="7_b5cem"]
+[ext_resource type="AudioStream" uid="uid://bpk3cq71b0dxx" path="res://audio/music/Grassland_song1_150.mp3" id="8_u7f38"]
+[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="9_0uv12"]
+[ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="10_6oj4o"]
+[ext_resource type="PackedScene" uid="uid://c7u2y16qk72jb" path="res://world/startingChunks/start_chunk_canyon.tscn" id="11_c7acl"]
+
+[resource]
+script = ExtResource("9_0uv12")
+name = "Canyon Land"
+offsetIndex = 10
+startingChunk = ExtResource("11_c7acl")
+backdrop = ExtResource("1_xe2ou")
+chunks = Array[PackedScene]([ExtResource("2_u7f38"), ExtResource("3_c7acl"), ExtResource("4_tntue"), ExtResource("5_goc5t"), ExtResource("6_y3vhm"), ExtResource("7_b5cem")])
+music = ExtResource("8_u7f38")
+metadata/_custom_type_script = "uid://brjmr06c8hq0f"

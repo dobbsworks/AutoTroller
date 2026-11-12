@@ -57,15 +57,24 @@ func _physics_process(delta: float) -> void:
 			isCrouching = true
 	else:
 		isCrouching = false
+	
+	var slipperiness = 0.0
+	if GameState.shared.levelDefinition:
+		slipperiness = GameState.shared.levelDefinition.slipperiness
 		
-
 	var direction := Input.get_axis("left", "right")
 	if direction && !(isCrouching && is_on_floor()):
 		var maxSpeed = maxRunSpeed if Input.is_action_pressed("run") else maxWalkSpeed
-		velocity.x = move_toward(velocity.x, direction * maxSpeed, horizAccel * delta)
+		var speedUpAccel = horizAccel
+		
+		if is_on_floor():
+			speedUpAccel = horizAccel * (1.0 - slipperiness)
+		velocity.x = move_toward(velocity.x, direction * maxSpeed, speedUpAccel * delta)
 	else:
 		if is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, slowDownHorizAccel * delta)
+			var slowDownAccel = slowDownHorizAccel
+			slowDownAccel = slowDownAccel * (1.0 - slipperiness) * 0.25
+			velocity.x = move_toward(velocity.x, 0, slowDownAccel * delta)
 	handleKaizos()
 	
 	move_and_slide()
@@ -129,8 +138,14 @@ func updateAnimation():
 	if isCrouching:
 		targetAnimation = "crouch"
 		
+	var slipperiness = 0.0
+	if GameState.shared.levelDefinition:
+		slipperiness = GameState.shared.levelDefinition.slipperiness
 	if targetAnimation == "walk":
 		animation_player.speed_scale = abs(velocity.x / 100.0)
+		if slipperiness > 0.0:
+			var direction := Input.get_axis("left", "right")
+			animation_player.speed_scale = 1.0 * abs(direction)
 		
 	if respawnTimer > 0.0:
 		targetAnimation = "idle"

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelDefinition" format=3 uid="uid://uchiqyuiehdq"]
+
+[ext_resource type="PackedScene" uid="uid://vkdtorg2l1f3" path="res://world/backdrop/backdrop_train.tscn" id="1_e7k5b"]
+[ext_resource type="PackedScene" uid="uid://drt8gjhwgecek" path="res://world/levelChunks1/chunk_train_1.tscn" id="2_l3yi2"]
+[ext_resource type="PackedScene" uid="uid://bpp0rtihx15tf" path="res://world/levelChunks1/chunk_train_2.tscn" id="3_lp58t"]
+[ext_resource type="PackedScene" uid="uid://dxj1vjf08ormg" path="res://world/levelChunks1/chunk_train_3.tscn" id="4_enud7"]
+[ext_resource type="PackedScene" uid="uid://bd35v0d4g5lj0" path="res://world/levelChunks1/chunk_train_4.tscn" id="5_ky4fd"]
+[ext_resource type="PackedScene" uid="uid://b0avxarq30il7" path="res://world/levelChunks1/chunk_train_5.tscn" id="6_ri7h8"]
+[ext_resource type="PackedScene" uid="uid://dfhrpnfq4agpm" path="res://world/levelChunks1/chunk_train_6.tscn" id="7_kl8q7"]
+[ext_resource type="AudioStream" uid="uid://ckvfmr3bg8v6u" path="res://audio/music/Chipper.mp3" id="8_l3yi2"]
+[ext_resource type="PackedScene" uid="uid://d2ydhoqesdnbt" path="res://world/startingChunks/start_chunk_train.tscn" id="10_g83b1"]
+[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="11_jtjpo"]
+[ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="12_itp6g"]
+
+[resource]
+script = ExtResource("11_jtjpo")
+name = "Train Land"
+offsetIndex = 11
+startingChunk = ExtResource("10_g83b1")
+backdrop = ExtResource("1_e7k5b")
+chunks = Array[PackedScene]([ExtResource("2_l3yi2"), ExtResource("3_lp58t"), ExtResource("4_enud7"), ExtResource("5_ky4fd"), ExtResource("6_ri7h8"), ExtResource("7_kl8q7")])
+music = ExtResource("8_l3yi2")
+metadata/_custom_type_script = "uid://brjmr06c8hq0f"

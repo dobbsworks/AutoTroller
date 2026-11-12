@@ -30,7 +30,7 @@ var readyToContinue = false
 
 func _ready():
 	var levelMusic: AudioStreamPlayer = GameState.shared.levelMusic
-	levelMusic.stop()
+	if levelMusic: levelMusic.stop()
 	
 	if isDefeat:
 		defeat_1804i.play()
