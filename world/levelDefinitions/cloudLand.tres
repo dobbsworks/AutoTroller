@@ -11,14 +11,20 @@
 [ext_resource type="PackedScene" uid="uid://fjl5xh567yv7" path="res://world/startingChunks/start_chunk_cloud.tscn" id="8_eyxls"]
 [ext_resource type="PackedScene" uid="uid://bsrahuix3u62a" path="res://world/levelChunks1/chunkCloud1.tscn" id="8_vv1a6"]
 [ext_resource type="AudioStream" uid="uid://e1w0ljnn3idd" path="res://audio/music/Sky_song5_95_24i.mp3" id="9_4sgo1"]
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="9_b6xew"]
+[ext_resource type="PackedScene" uid="uid://deexep5l6wfb3" path="res://entities/enemies/fly_across_enemy.tscn" id="10_dir3g"]
+[ext_resource type="PackedScene" uid="uid://dt4pyn1t6s1h7" path="res://entities/enemies/fly_towards_enemy.tscn" id="11_f2k6p"]
 [ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="11_qvelu"]
 
 [resource]
 script = ExtResource("7_qvelu")
-name = "Cloud Land"
+name = "Cloudy Heights"
+description = "Double birds"
+groundColor = Color(0.6392157, 0.76862746, 0.8117647, 1)
 offsetIndex = 6
 startingChunk = ExtResource("8_eyxls")
 backdrop = ExtResource("1_4ugub")
 chunks = Array[PackedScene]([ExtResource("1_lfti4"), ExtResource("2_eyxls"), ExtResource("3_4ugub"), ExtResource("4_pbhle"), ExtResource("5_vv1a6"), ExtResource("6_4sgo1"), ExtResource("8_vv1a6")])
 music = ExtResource("9_4sgo1")
+doubledEnemies = Array[PackedScene]([ExtResource("10_dir3g"), ExtResource("11_f2k6p")])
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

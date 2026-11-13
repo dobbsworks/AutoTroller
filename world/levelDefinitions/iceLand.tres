@@ -14,7 +14,9 @@
 
 [resource]
 script = ExtResource("9_53vqc")
-name = "Ice Land"
+name = "Frosty Cavern"
+description = "Slippery floors"
+groundColor = Color(0.6, 0.93333334, 0.96862745, 1)
 offsetIndex = 9
 startingChunk = ExtResource("11_qhhg7")
 backdrop = ExtResource("1_qhhg7")

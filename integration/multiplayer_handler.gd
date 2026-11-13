@@ -32,13 +32,14 @@ func on_chat_received(username: String, message_text: String, data: Dictionary, 
 	if chatter.spawnQueue.size() == 0:
 		for spawnCommand in spawnCommands:
 			if !spawnCommand.isActive: continue
-			if spawnCommand.cost > chatter.points: 
+			var currentCost = spawnCommand.cost
+			if currentCost > chatter.points: 
 				chatter.on_too_poor.emit()
 				continue
 			var relevantText = message_text.replace("!","").strip_edges().to_lower().split(" ")[0]
 			if spawnCommand.commands.has(relevantText):
 				# Good to go! Queue it up!
-				chatter.points -= spawnCommand.cost
+				chatter.points -= currentCost
 				chatter.isActive = true
 				chatter.on_update_queue.emit(spawnCommand)
 				for i in range(spawnCommand.numberSpawned):
@@ -71,7 +72,6 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 			for spawnSwap: SpawnSwap in levelDef.spawnSwaps:
 				if spawnSwap.from == ret.spawnable:
 					ret.spawnable = spawnSwap.to
-		
 		return ret
 	return null
 	

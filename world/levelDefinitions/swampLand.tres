@@ -10,15 +10,20 @@
 [ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_n5kbm"]
 [ext_resource type="PackedScene" uid="uid://hh21yqsd8pmk" path="res://world/levelChunks1/chunkConstruction2.tscn" id="8_0dxa1"]
 [ext_resource type="AudioStream" uid="uid://3ihlgxlu7neo" path="res://audio/music/Shake_song9_136_16i.mp3" id="9_afrh8"]
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="9_gmge3"]
 [ext_resource type="PackedScene" uid="uid://mt1w36q6j011" path="res://world/startingChunks/start_chunk_bog.tscn" id="9_ulh8b"]
 [ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="11_n5kbm"]
+[ext_resource type="Resource" uid="uid://bo4rx1cnf2vph" path="res://world/spawnSwaps/swapFrogToBig.tres" id="13_pv3mw"]
 
 [resource]
 script = ExtResource("7_n5kbm")
-name = "Swamp Land"
+name = "Mossy Marsh"
+description = "Frogs are big"
+groundColor = Color(0.21568628, 0.5019608, 0.26666668, 1)
 offsetIndex = 2
 startingChunk = ExtResource("9_ulh8b")
 backdrop = ExtResource("1_dv8jj")
 chunks = Array[PackedScene]([ExtResource("1_6n27k"), ExtResource("2_chm5i"), ExtResource("3_dv8jj"), ExtResource("4_ulh8b"), ExtResource("5_0dxa1"), ExtResource("6_afrh8"), ExtResource("8_0dxa1")])
 music = ExtResource("9_afrh8")
+spawnSwaps = Array[ExtResource("11_n5kbm")]([ExtResource("13_pv3mw")])
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

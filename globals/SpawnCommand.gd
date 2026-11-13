@@ -12,3 +12,9 @@ class_name SpawnCommand
 
 var isActive = true
 var viewport: Viewport
+
+func getCurrentCost() -> int:
+	var currentLevel: LevelDefinition = LevelManager.getLatest()
+	var discountAmount = currentLevel.discountedCommands.count(self)
+	
+	return cost - discountAmount

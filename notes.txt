@@ -4,7 +4,7 @@ v1.2
 ✔ improve spikes icon in sidebar
 ✔ file read support
 ✔ prevent kaizo overlap?
-
+✔ death sound not respecting volume
 
 
 
@@ -13,10 +13,15 @@ Coyote time
 
 
 
-After clearing level:
-	Create MAP scene showing Otto leaving previous zone
+Victory screen reworked to show world map, stats scrolling above
+player on map walks off screen
+DO NOT SHOW NEXT ENEMY YET
+prompt to continue to next level CHANGED to "continue"
+Clear stats from screen
 IF heading to a split path:
-	map shows split path, wait for player to decide, show gimmick of each level
+	map shows split path, wait for player to decide, show gimmick of each level for choice
+Show treasure chest interlude with next enemy revealed
+Then walk off screen, next level begins, no slow walk to next
 
 
 

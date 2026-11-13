@@ -10,12 +10,14 @@
 [ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="7_7128r"]
 [ext_resource type="PackedScene" uid="uid://4ob7ogkw3lvo" path="res://world/levelChunks1/chunkVolcano1.tscn" id="8_cq1bm"]
 [ext_resource type="PackedScene" uid="uid://ul4a8p6o6lui" path="res://world/startingChunks/start_chunk_volcano.tscn" id="8_gw45y"]
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="9_7128r"]
 [ext_resource type="AudioStream" uid="uid://xxq8rkrlp0vd" path="res://audio/music/Crunch_song7_150.mp3" id="9_ni3ra"]
 [ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="11_7128r"]
 
 [resource]
 script = ExtResource("7_7128r")
-name = "Volcano Land"
+name = "Mount Magma"
+groundColor = Color(0.46, 0.33978668, 0.2346, 1)
 offsetIndex = 7
 startingChunk = ExtResource("8_gw45y")
 backdrop = ExtResource("1_nql80")

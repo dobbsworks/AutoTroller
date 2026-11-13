@@ -10,10 +10,19 @@ func _ready() -> void:
 func checkForSpawn():
 	var spawnedItem: SpawnResult = MultiplayerHandler.attemptSpawn(spawnables)
 	if spawnedItem != null:
-		spawnItem(spawnedItem)
+		var item = spawnItem(spawnedItem)
+			
+		# handle doubled enemies
+		var levelDef: LevelDefinition = GameState.shared.levelDefinition
+		if levelDef:
+			for doubledEnemy: PackedScene in levelDef.doubledEnemies:
+				if spawnedItem.spawnable == doubledEnemy:
+					# create second copy
+					var item2 = spawnItem(spawnedItem)
+					item2.global_position += Vector2.UP * 32.0
 
 
-func spawnItem(spawnResult: SpawnResult):
+func spawnItem(spawnResult: SpawnResult) -> Node2D:
 	var itemScene = spawnResult.spawnable
 	var item = itemScene.instantiate()
 	get_parent().add_sibling(item)
@@ -22,3 +31,4 @@ func spawnItem(spawnResult: SpawnResult):
 	item.global_position = global_position
 	if 'spawnOffset' in item:
 		item.global_position += item.spawnOffset
+	return item

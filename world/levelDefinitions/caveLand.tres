@@ -11,14 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://ba54l3goqx6b6" path="res://world/levelChunks1/chunkCave1.tscn" id="8_6jdij"]
 [ext_resource type="PackedScene" uid="uid://cswissjbnh8sa" path="res://world/startingChunks/start_chunk_cave.tscn" id="8_nch8o"]
 [ext_resource type="AudioStream" uid="uid://dqmmh115fexdy" path="res://audio/music/Forest.mp3" id="9_374su"]
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="9_v66la"]
 [ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="11_v66la"]
 
 [resource]
 script = ExtResource("7_v66la")
-name = "Cave Land"
+name = "Dank Depths"
+description = "Darkness"
+groundColor = Color(0.34117648, 0.5058824, 0.56078434, 1)
 offsetIndex = 4
 startingChunk = ExtResource("8_nch8o")
 backdrop = ExtResource("1_qkqjt")
 chunks = Array[PackedScene]([ExtResource("1_6swpr"), ExtResource("2_nch8o"), ExtResource("3_qkqjt"), ExtResource("4_2qvrr"), ExtResource("5_6jdij"), ExtResource("6_374su"), ExtResource("8_6jdij")])
 music = ExtResource("9_374su")
+isDark = true
 metadata/_custom_type_script = "uid://brjmr06c8hq0f"

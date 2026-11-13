@@ -48,11 +48,13 @@ autowrap_mode = 2
 [node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=299273956]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "- Camera now scrolls up slightly when standing above the level
+text = "- Major re-work to levels 3 through 6. Head on to the signposted gimmick, or take the mystery level instead.
+- Camera now scrolls up slightly when standing above the level
 - Kaizo blocks no longer overlap or spawn directly above other kaizo blocks
 - Added ability to read chat messages from an externally managed text file (for advanced users who want to allow YouTube/Tiktok integration)
 - Improved spikes icon
-"
+- Fixed death sound not respecting sfx volume level
+- Added BIG BEEF somewhere"
 autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1642450086]

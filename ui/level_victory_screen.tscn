@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://cuqprr63xw5iw" path="res://audio/music/defeat-180-4i.mp3" id="2_agsg6"]
 [ext_resource type="AudioStream" uid="uid://dp5uqtjrto4bo" path="res://audio/music/victory_250_4i.mp3" id="3_124dl"]
 [ext_resource type="Texture2D" uid="uid://bq5nqvndyout8" path="res://entities/player/player.png" id="5_m40oi"]
+[ext_resource type="Texture2D" uid="uid://bck1vubj33eyn" path="res://map/map.png" id="9_124dl"]
+[ext_resource type="Texture2D" uid="uid://bqlwhaktv1nu5" path="res://ui/components/sign9patch.png" id="9_a7h0e"]
+[ext_resource type="Script" uid="uid://470v0xbp2b5h" path="res://map/world_map.gd" id="9_bh8ds"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1q8wr"]
 shader = ExtResource("2_74mk3")
@@ -18,7 +21,151 @@ shader_parameter/shift_color = Color(0.96, 0.736, 0, 1)
 atlas = ExtResource("5_m40oi")
 region = Rect2(98, 16, 32, 16)
 
+[sub_resource type="Animation" id="Animation_6qmx2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31.591988, 7.2269254)]
+}
+
+[sub_resource type="Animation" id="Animation_1ttkb"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25776482, 1.2419589, 2.06, 2.4299998, 2.5782495, 2.7226434, 2.8599637, 2.9851675, 3.0942159, 3.2099998, 3.5359612, 4.018791, 4.8389525),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(31.591988, 7.2269254), Vector2(31.591988, 7.2269254), Vector2(31.591988, 7.2269254), Vector2(34.06979, -5.3685737), Vector2(34.07, -1.449), Vector2(34.06979, -5.3685737), Vector2(34.07, -1.449), Vector2(34.06979, -5.3685737), Vector2(34.07, -1.449), Vector2(34.06979, -5.3685737), Vector2(31.591988, 7.2269254), Vector2(31.591988, 7.2269254), Vector2(31.591988, 7.2269254)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yg028"]
+_data = {
+&"RESET": SubResource("Animation_6qmx2"),
+&"new_animation": SubResource("Animation_1ttkb")
+}
+
+[sub_resource type="Animation" id="Animation_rrxkp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.20648295, 1.6518687)]
+}
+
+[sub_resource type="Animation" id="Animation_4mbf1"]
+resource_name = "new_animation"
+length = 15.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.0498514, 9.989125),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.206, -0.368), Vector2(-62.426, -0.308), Vector2(-40.126, -15.158)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uvtg3"]
+_data = {
+&"RESET": SubResource("Animation_rrxkp"),
+&"new_animation": SubResource("Animation_4mbf1")
+}
+
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xv4l1"]
+
+[sub_resource type="Animation" id="Animation_jxuml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q1upv"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16, 0.66999996),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.08726646259971647, 0.08726646259971647]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.09915608, 0.34915608, 0.66999996, 0.91999996),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6qmx2"]
+_data = {
+&"RESET": SubResource("Animation_jxuml"),
+&"new_animation": SubResource("Animation_q1upv")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u6aq3"]
+texture = ExtResource("9_a7h0e")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
 
 [sub_resource type="Animation" id="Animation_74mk3"]
 length = 0.001
@@ -142,6 +289,30 @@ tracks/9/keys = {
 "update": 0,
 "values": [Vector2(795, -141)]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../WorldMap/BackdropHolder:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../WorldMap/CanvasLayer/Map:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 101.25)]
+}
 
 [sub_resource type="Animation" id="Animation_6d6xc"]
 resource_name = "defeat"
@@ -168,10 +339,10 @@ tracks/0/path = NodePath("Saws/Sawtooth2:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.98),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.98, 1.26),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1585, -95), Vector2(1585, 711), Vector2(1585, 711)]
+"values": [Vector2(1585, -95), Vector2(1585, 711), Vector2(1585, 711), Vector2(1585, 72.53589)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -180,10 +351,10 @@ tracks/1/path = NodePath("Saws/Sawtooth:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.98),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.98, 1.22),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-349, 761), Vector2(-349, 563), Vector2(-349, 563)]
+"values": [Vector2(-349, 761), Vector2(-349, 563), Vector2(-349, 563), Vector2(-349, 579.6724)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -192,10 +363,10 @@ tracks/2/path = NodePath("Saws/Sawtooth3:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.98),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.98, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1585, -74), Vector2(1585, 89), Vector2(1585, 89)]
+"values": [Vector2(1585, -74), Vector2(1585, 89), Vector2(1585, 89), Vector2(1585, -74)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -216,10 +387,10 @@ tracks/4/path = NodePath("VictorySaws/Sawtooth2:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.29, 0.97),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.29, 0.97, 1.2599999),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1585, -95), Vector2(1585, 711), Vector2(1585, 711)]
+"values": [Vector2(1585, -95), Vector2(1585, 711), Vector2(1585, 711), Vector2(1585, 182.93103)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -228,10 +399,10 @@ tracks/5/path = NodePath("VictorySaws/Sawtooth:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.29, 0.97),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.29, 0.97, 1.26),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-349, 761), Vector2(-349, 563), Vector2(-349, 563)]
+"values": [Vector2(-349, 761), Vector2(-349, 563), Vector2(-349, 563), Vector2(-349, 576.65515)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -240,10 +411,10 @@ tracks/6/path = NodePath("VictorySaws/Sawtooth3:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.29, 0.97),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.29, 0.97, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1585, -74), Vector2(1585, 89), Vector2(1585, 89)]
+"values": [Vector2(1585, -74), Vector2(1585, 89), Vector2(1585, 89), Vector2(1585, -74)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -256,6 +427,30 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(795, -141), Vector2(795, 288), Vector2(795, 288)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../WorldMap/BackdropHolder:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.38, 0.62),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../WorldMap/CanvasLayer/Map:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.37, 1.23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 101.25), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_agsg6"]
@@ -272,6 +467,117 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0.24008799, 0.6739483, 0.760229, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_51l6m"]
+resource_name = "revealMap"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Saws/Sawtooth2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06999999, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1585, 711), Vector2(1585, -95)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Saws/Sawtooth:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06999999, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-349, 563), Vector2(-349, 761)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Saws/Sawtooth3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06999999, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1585, 89), Vector2(1585, -74)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/Victory:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.056666613),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(94, 135)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VictorySaws/Sawtooth2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.060000002, 0.59),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1585, 711), Vector2(1585, -95)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("VictorySaws/Sawtooth:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.060000002, 0.59),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-349, 563), Vector2(-349, 761)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VictorySaws/Sawtooth3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.060000002, 0.59),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1585, 89), Vector2(1585, -74)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/Image:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.049999952),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(795, 288)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../WorldMap/CanvasLayer/Map:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.030000001, 0.29000008),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 101.25), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_im6qv"]
@@ -296,7 +602,287 @@ _data = {
 &"defeat": SubResource("Animation_6d6xc"),
 &"init": SubResource("Animation_m40oi"),
 &"levelDone": SubResource("Animation_agsg6"),
+&"revealMap": SubResource("Animation_51l6m"),
 &"victory": SubResource("Animation_im6qv")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax41i"]
+atlas = ExtResource("5_m40oi")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2e2sl"]
+atlas = ExtResource("5_m40oi")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bh8ds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax41i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e2sl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_1ssgo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a7h0e"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23999998, 0.49, 0.73),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.49),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u6aq3"]
+_data = {
+&"RESET": SubResource("Animation_1ssgo"),
+&"new_animation": SubResource("Animation_a7h0e")
+}
+
+[sub_resource type="Animation" id="Animation_u6aq3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(141, 130.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheering:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Walking:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_khuym"]
+resource_name = "centerToRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98999995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(141, 130.25), Vector2(302, 130.25)]
+}
+
+[sub_resource type="Animation" id="Animation_kg5as"]
+resource_name = "centerToSign"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.98),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(141, 130.25), Vector2(232.07071, 130.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheering:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Walking:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rysnc"]
+resource_name = "leftToCenter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.009999998, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-8.75, 130.25), Vector2(141, 130.25)]
+}
+
+[sub_resource type="Animation" id="Animation_ec24h"]
+resource_name = "signToDown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00999999, 0.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232.07071, 130.25), Vector2(302.965, 171.065)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheering:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Walking:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rnkhj"]
+resource_name = "signToRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.00999999, 0.97),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(232.07071, 130.25), Vector2(320, 130.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheering:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Walking:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_51l6m"]
+_data = {
+&"RESET": SubResource("Animation_u6aq3"),
+&"centerToRight": SubResource("Animation_khuym"),
+&"centerToSign": SubResource("Animation_kg5as"),
+&"leftToCenter": SubResource("Animation_rysnc"),
+&"signToDown": SubResource("Animation_ec24h"),
+&"signToRight": SubResource("Animation_rnkhj")
 }
 
 [node name="LevelVictoryScreen" type="Node2D" unique_id=470841249]
@@ -376,7 +962,8 @@ theme_override_font_sizes/normal_font_size = 64
 bbcode_enabled = true
 text = "[wave amp=50.0 freq=5.0 connected=1]LEVEL COMPLETE![/wave]"
 
-[node name="HBoxContainer" type="GridContainer" parent="CanvasLayer/Control" unique_id=1477870752]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control" unique_id=1477870752]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 112.0
 offset_top = 253.0
@@ -384,14 +971,13 @@ offset_right = 538.0
 offset_bottom = 321.0
 columns = 2
 
-[node name="Coins" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=1863361324]
-unique_name_in_owner = true
+[node name="Coins" type="Label" parent="CanvasLayer/Control/GridContainer" unique_id=1863361324]
 layout_mode = 2
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "Coins Collected"
 
-[node name="CoinsCount" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=151857004]
+[node name="CoinsCount" type="Label" parent="CanvasLayer/Control/GridContainer" unique_id=151857004]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -400,14 +986,13 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
-[node name="Deaths" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=780581200]
-unique_name_in_owner = true
+[node name="Deaths" type="Label" parent="CanvasLayer/Control/GridContainer" unique_id=780581200]
 layout_mode = 2
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "Lives Lost"
 
-[node name="DeathCount" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=986290810]
+[node name="DeathCount" type="Label" parent="CanvasLayer/Control/GridContainer" unique_id=986290810]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -416,14 +1001,13 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 horizontal_alignment = 2
 
-[node name="Fruits" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=796529924]
-unique_name_in_owner = true
+[node name="Fruits" type="Label" parent="CanvasLayer/Control/GridContainer" unique_id=796529924]
 layout_mode = 2
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 32
 text = "Fruits"
 
-[node name="FruitCount" type="Label" parent="CanvasLayer/Control/HBoxContainer" unique_id=886281195]
+[node name="FruitCount" type="Label" parent="CanvasLayer/Control/GridContainer" unique_id=886281195]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -434,11 +1018,12 @@ horizontal_alignment = 2
 
 [node name="Continue" type="Label" parent="CanvasLayer/Control" unique_id=221408968]
 unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 638.0
-offset_top = 458.0
-offset_right = 1088.0
-offset_bottom = 506.0
+offset_left = 762.0
+offset_top = 409.0
+offset_right = 1212.0
+offset_bottom = 508.0
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 48
 text = "Press JUMP
@@ -470,42 +1055,247 @@ position = Vector2(20, 7)
 scale = Vector2(4.843, 4.843)
 texture = ExtResource("5_m40oi")
 region_enabled = true
-region_rect = Rect2(157.56989, -0.3624668, 100.24124, 50.471115)
+region_rect = Rect2(157, 0, 100, 50)
+
+[node name="beefOffset" type="Node2D" parent="CanvasLayer/Control/Image/ImageThrone" unique_id=1938018733]
+show_behind_parent = true
+position = Vector2(-0.20648295, 1.6518687)
+
+[node name="BEEF" type="Sprite2D" parent="CanvasLayer/Control/Image/ImageThrone/beefOffset" unique_id=1050934366]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(31.591988, 7.2269254)
+texture = ExtResource("5_m40oi")
+region_enabled = true
+region_rect = Rect2(265, 7, 24, 22)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/Image/ImageThrone/beefOffset/BEEF" unique_id=951017451]
+libraries/ = SubResource("AnimationLibrary_yg028")
+autoplay = &"new_animation"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CanvasLayer/Control/Image/ImageThrone/beefOffset/BEEF" unique_id=124174369]
+libraries/ = SubResource("AnimationLibrary_uvtg3")
+autoplay = &"new_animation"
 
 [node name="ChatUnlock" type="Control" parent="CanvasLayer/Control" unique_id=591546466]
 anchors_preset = 0
-offset_left = 112.0
-offset_top = 449.0
-offset_right = 152.0
-offset_bottom = 489.0
+offset_left = 5.0
+offset_top = 390.0
+offset_right = 45.0
+offset_bottom = 430.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/ChatUnlock" unique_id=1169064708]
 layout_mode = 0
-offset_left = 3.0
-offset_top = -35.0
-offset_right = 145.0
-offset_bottom = -19.0
+offset_left = 113.0
+offset_top = -126.0
+offset_right = 338.0
+offset_bottom = -102.0
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 24
-text = "Chat Unlocked:"
+text = "Chat Unlocked..."
+
+[node name="EnemyDescription" type="Label" parent="CanvasLayer/Control/ChatUnlock" unique_id=577082571]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 343.0
+offset_top = -78.0
+offset_right = 643.0
+offset_bottom = 66.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Enemy description"
+autowrap_mode = 2
 
 [node name="UnlockName" type="Label" parent="CanvasLayer/Control/ChatUnlock" unique_id=1690777026]
 layout_mode = 0
-offset_left = 212.0
-offset_top = -40.0
-offset_right = 500.0
+offset_left = 350.0
+offset_top = -130.0
+offset_right = 638.0
+offset_bottom = -90.0
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "Item Namewq"
+text = "Item Name"
 
 [node name="UnlockTexture" type="TextureRect" parent="CanvasLayer/Control/ChatUnlock" unique_id=1883557584]
 texture_filter = 1
 layout_mode = 0
-offset_left = 213.0
-offset_top = 1.0
-offset_right = 337.0
-offset_bottom = 125.0
+offset_left = 152.0
+offset_top = -67.0
+offset_right = 276.0
+offset_bottom = 57.0
+pivot_offset = Vector2(60, 60)
 texture = SubResource("PlaceholderTexture2D_xv4l1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control/ChatUnlock/UnlockTexture" unique_id=987156324]
+libraries/ = SubResource("AnimationLibrary_6qmx2")
+autoplay = &"new_animation"
+
+[node name="LevelSign" type="Panel" parent="CanvasLayer/Control" unique_id=1971838184]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 714.0
+offset_top = 155.0
+offset_right = 1070.0
+offset_bottom = 323.0
+pivot_offset = Vector2(177, 84)
+theme_override_styles/panel = SubResource("StyleBoxTexture_u6aq3")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/LevelSign" unique_id=1296577521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SignInfo" type="VBoxContainer" parent="CanvasLayer/Control/LevelSign/MarginContainer" unique_id=1873166479]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SignContinueLabel" type="Label" parent="CanvasLayer/Control/LevelSign/MarginContainer/SignInfo" unique_id=2015573032]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[RIGHT] TO CONTINUE TO..."
+
+[node name="LevelNameLabel" type="Label" parent="CanvasLayer/Control/LevelSign/MarginContainer/SignInfo" unique_id=1988605078]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "LEVEL NAME"
+
+[node name="GimmickLabel" type="Label" parent="CanvasLayer/Control/LevelSign/MarginContainer/SignInfo" unique_id=1045983262]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Level gimmick"
+
+[node name="HiddenLevelText" type="Label" parent="CanvasLayer/Control/LevelSign/MarginContainer/SignInfo" unique_id=552067045]
+unique_name_in_owner = true
+modulate = Color(0.74, 0.74, 0.74, 0.654902)
+layout_mode = 2
+size_flags_vertical = 10
+text = "or try a different level [DOWN]"
+vertical_alignment = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1735726833]
 libraries/ = SubResource("AnimationLibrary_6d6xc")
+
+[node name="WorldMap" type="Node2D" parent="." unique_id=1074212507]
+script = ExtResource("9_bh8ds")
+
+[node name="cam" type="Camera2D" parent="WorldMap" unique_id=241564057]
+unique_name_in_owner = true
+position = Vector2(193, -109)
+zoom = Vector2(3, 3)
+
+[node name="BackdropHolder" type="Node2D" parent="WorldMap" unique_id=2035205734]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -48)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WorldMap" unique_id=485063874]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
+
+[node name="Map" type="Node2D" parent="WorldMap/CanvasLayer" unique_id=656649997]
+position = Vector2(0, 101.25)
+
+[node name="Ground" type="ColorRect" parent="WorldMap/CanvasLayer/Map" unique_id=1553986503]
+offset_left = -4.75
+offset_top = 124.25
+offset_right = 296.25
+offset_bottom = 177.08334
+color = Color(6.256998e-07, 0.60426617, 0.2572365, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="NormalPath" type="ColorRect" parent="WorldMap/CanvasLayer/Map/Ground" unique_id=1931700349]
+layout_mode = 0
+offset_left = -7.75
+offset_top = 10.500005
+offset_right = 296.6667
+offset_bottom = 14.583317
+color = Color(0.92941177, 0.4862745, 0.12941177, 1)
+
+[node name="MapDot" type="Sprite2D" parent="WorldMap/CanvasLayer/Map" unique_id=1678085041]
+texture_filter = 1
+position = Vector2(137.75, 136.5)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(6.0369987, 15.216339, 12.662048, 9.298698)
+
+[node name="AltPath" type="Node2D" parent="WorldMap/CanvasLayer/Map" unique_id=2090825741]
+unique_name_in_owner = true
+
+[node name="AltPathDot" type="Sprite2D" parent="WorldMap/CanvasLayer/Map/AltPath" unique_id=159603114]
+texture_filter = 1
+position = Vector2(247.75, 142.25)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(24.30435, 17.938215, 7.5682697, 4.8916874)
+
+[node name="AltPathDot2" type="Sprite2D" parent="WorldMap/CanvasLayer/Map/AltPath" unique_id=908339925]
+texture_filter = 1
+position = Vector2(254, 145.5)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(24.30435, 17.938215, 7.5682697, 4.8916874)
+
+[node name="AltPathDot3" type="Sprite2D" parent="WorldMap/CanvasLayer/Map/AltPath" unique_id=40453919]
+texture_filter = 1
+position = Vector2(260, 149.75)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(24.30435, 17.938215, 7.5682697, 4.8916874)
+
+[node name="AltPathDot4" type="Sprite2D" parent="WorldMap/CanvasLayer/Map/AltPath" unique_id=1834927504]
+texture_filter = 1
+position = Vector2(266, 153.75)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(24.30435, 17.938215, 7.5682697, 4.8916874)
+
+[node name="AltPathDot5" type="Sprite2D" parent="WorldMap/CanvasLayer/Map/AltPath" unique_id=1449285277]
+texture_filter = 1
+position = Vector2(273.25, 158.25)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(24.30435, 17.938215, 7.5682697, 4.8916874)
+
+[node name="MapPlayer" type="Node2D" parent="WorldMap/CanvasLayer/Map" unique_id=486205972]
+position = Vector2(141, 130.25)
+
+[node name="Walking" type="AnimatedSprite2D" parent="WorldMap/CanvasLayer/Map/MapPlayer" unique_id=1414291503]
+visible = false
+texture_filter = 1
+position = Vector2(-2.25, -1.5)
+sprite_frames = SubResource("SpriteFrames_bh8ds")
+autoplay = "default"
+
+[node name="Cheering" type="Sprite2D" parent="WorldMap/CanvasLayer/Map/MapPlayer" unique_id=1193770867]
+texture_filter = 1
+texture = ExtResource("5_m40oi")
+region_enabled = true
+region_rect = Rect2(95.815, 33.301, 12, 16.182)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldMap/CanvasLayer/Map/MapPlayer/Cheering" unique_id=1028819012]
+libraries/ = SubResource("AnimationLibrary_u6aq3")
+autoplay = &"new_animation"
+
+[node name="PlayerMove" type="AnimationPlayer" parent="WorldMap/CanvasLayer/Map/MapPlayer" unique_id=761435448]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_51l6m")
+
+[node name="Chest" type="Sprite2D" parent="WorldMap/CanvasLayer/Map" unique_id=1666174309]
+visible = false
+texture_filter = 1
+position = Vector2(234, 128.25)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(47.508034, 21.511316, 27.271797, 20.146734)
+
+[node name="Sign" type="Sprite2D" parent="WorldMap/CanvasLayer/Map" unique_id=2029307623]
+texture_filter = 1
+position = Vector2(241, 123)
+texture = ExtResource("9_124dl")
+region_enabled = true
+region_rect = Rect2(15.568091, 26.670845, 23.21788, 17.689816)

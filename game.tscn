@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c5tkmn8ia6tea" path="res://entities/camera/horizontalCamera.tscn" id="2_eow3j"]
 [ext_resource type="PackedScene" uid="uid://n6emfuv5umax" path="res://entities/player/player.tscn" id="3_j5wjh"]
 [ext_resource type="Script" uid="uid://bxhkvl2y65vb" path="res://world/level_chunks.gd" id="4_vef74"]
+[ext_resource type="Script" uid="uid://vquux52uuijm" path="res://world/darkness.gd" id="6_ryrav"]
 [ext_resource type="Script" uid="uid://dpo3h54neiv61" path="res://ui/pause/pause_handler.gd" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://bp4f81clxi7xp" path="res://ui/menus/settings_menu.tscn" id="13_lc2xo"]
 
@@ -14,6 +15,13 @@ colors = PackedColorArray(0.121499985, 0.21457498, 0.45, 1, 0.121499985, 0.45, 0
 gradient = SubResource("Gradient_215e1")
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Gradient" id="Gradient_7jktm"]
+offsets = PackedFloat32Array(0.2783883, 0.63003665, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.87351775, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xv4l1"]
+gradient = SubResource("Gradient_7jktm")
+
 [node name="Game" type="Node2D" unique_id=331563475]
 
 [node name="HorizontalCamera" parent="." unique_id=1861214848 instance=ExtResource("2_eow3j")]
@@ -21,6 +29,7 @@ position = Vector2(192, -108)
 speed = 8.0
 
 [node name="Player" parent="." unique_id=933659611 instance=ExtResource("3_j5wjh")]
+z_index = 19
 position = Vector2(55, -38)
 collision_layer = 0
 
@@ -67,3 +76,30 @@ includeConnectionOptions = false
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1749135815]
 process_mode = 3
 bus = &"Music"
+
+[node name="Darkness" type="Node2D" parent="." unique_id=1737072310]
+visible = false
+z_index = 16
+script = ExtResource("6_ryrav")
+
+[node name="Parallax2D" type="Parallax2D" parent="Darkness" unique_id=1257743009]
+scroll_scale = Vector2(0, 1)
+scroll_offset = Vector2(404.525, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Darkness/Parallax2D" unique_id=232914687]
+offset_left = 457.0
+offset_top = 18.00002
+offset_right = 713.0
+offset_bottom = 58.00002
+rotation = 2.8797934
+scale = Vector2(1.387, 10.447)
+texture = SubResource("GradientTexture1D_xv4l1")
+
+[node name="TextureRect2" type="TextureRect" parent="Darkness/Parallax2D" unique_id=72999333]
+offset_left = -84.0
+offset_top = -298.0
+offset_right = 172.0
+offset_bottom = -258.0
+rotation = 6.544985
+scale = Vector2(1.1099222, 8.30485)
+texture = SubResource("GradientTexture1D_xv4l1")

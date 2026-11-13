@@ -19,10 +19,8 @@ repeat_size = Vector2(300, 0)
 repeat_times = 5
 
 [node name="Sky" type="TextureRect" parent="Sky" unique_id=1778597821]
-modulate = Color(1, 1, 1, 0.40784314)
 z_index = -1
 z_as_relative = false
-custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,20 +28,21 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 4.0
 offset_top = 205.0
-offset_right = 404.0
+offset_right = 304.0
 offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_afady")
-metadata/_edit_use_anchors_ = true
 
 [node name="FarBack" type="Parallax2D" parent="." unique_id=800966494]
-scroll_scale = Vector2(0.05, 1)
+scroll_scale = Vector2(0.2, 1)
 scroll_offset = Vector2(133, 192)
 repeat_size = Vector2(300, 0)
 repeat_times = 40
 
 [node name="Polygon2D" type="Polygon2D" parent="FarBack" unique_id=418507188]
+z_index = 2
+position = Vector2(5, 25)
 color = Color(0.55, 0.36474165, 0.31350002, 1)
 polygon = PackedVector2Array(64, -209, 78, -285, 149, -285, 175, -210)
 
@@ -55,43 +54,43 @@ repeat_size = Vector2(100, 0)
 repeat_times = 40
 
 [node name="Back2" type="Parallax2D" parent="." unique_id=1225092850]
-scroll_scale = Vector2(0.9, 1)
+scroll_scale = Vector2(0.7, 1)
 scroll_offset = Vector2(133, 192)
 repeat_size = Vector2(150, 0)
 repeat_times = 40
 
 [node name="Polygon2D" type="Polygon2D" parent="Back2" unique_id=538914188]
-position = Vector2(-2, -101)
-scale = Vector2(0.5, 0.5)
+z_index = 2
+position = Vector2(4.5, -94.78999)
+scale = Vector2(0.67, 0.67)
 color = Color(0.4086717, 0.43294755, 0.31198826, 1)
-polygon = PackedVector2Array(87, -174, 88, -217, 75, -221, 64, -227, 61, -244, 66, -248, 70, -246, 72, -242, 73, -232, 88, -226, 84, -256, 89, -262, 96, -263, 100, -258, 101, -247, 100, -224, 116, -228, 121, -233, 126, -232, 124, -226, 119, -220, 99, -215, 96, -172)
+polygon = PackedVector2Array(87.31343, -133.14926, 88, -217, 75, -221, 64, -227, 61, -244, 66, -248, 70, -246, 72, -242, 73, -232, 88, -226, 84, -256, 89, -262, 96, -263, 100, -258, 101, -247, 100, -224, 116, -228, 121, -233, 126, -232, 124, -226, 119, -220, 99, -215, 96.268654, -134.6418)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Back2" unique_id=2051747205]
-position = Vector2(38, -106)
-scale = Vector2(0.5, 0.5)
+z_index = 2
+position = Vector2(44.5, -99.78999)
+scale = Vector2(0.67, 0.67)
 color = Color(0.4086717, 0.43294755, 0.31198826, 1)
-polygon = PackedVector2Array(87, -174, 88, -217, 75, -221, 64, -227, 61, -244, 66, -248, 70, -246, 72, -242, 73, -232, 88, -226, 84, -256, 89, -262, 96, -263, 100, -258, 101, -247, 100, -224, 116, -228, 121, -233, 126, -232, 124, -226, 119, -220, 99, -215, 96, -172)
+polygon = PackedVector2Array(78.358215, -127.179115, 88, -217, 75, -221, 64, -227, 61, -244, 66, -248, 70, -246, 72, -242, 73, -232, 88, -226, 84, -256, 89, -262, 96, -263, 100, -258, 101, -247, 100, -224, 116, -228, 121, -233, 126, -232, 124, -226, 119, -220, 99, -215, 87.31343, -130.16418)
 
 [node name="Sky2" type="Parallax2D" parent="." unique_id=870940825]
 scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(200, 0)
+repeat_size = Vector2(300, 0)
 repeat_times = 5
 
 [node name="Sky" type="TextureRect" parent="Sky2" unique_id=1595765256]
 modulate = Color(1, 1, 1, 0.40784314)
 z_index = -1
 z_as_relative = false
-custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 4.0
+offset_left = 54.0
 offset_top = 205.0
-offset_right = 404.0
+offset_right = 354.0
 offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_afady")
-metadata/_edit_use_anchors_ = true

@@ -99,7 +99,7 @@ offset_bottom = 88.0
 theme = ExtResource("2_xqqt7")
 
 [node name="Polygon2D" type="Polygon2D" parent="PlayerHUD" unique_id=1322765999]
-color = Color(0, 0, 0, 0.30588236)
+color = Color(0, 0, 0, 0.47058824)
 polygon = PackedVector2Array(-17, 66, 156, 82, 134, -42, -26, -35)
 
 [node name="MarginContainer" type="MarginContainer" parent="PlayerHUD" unique_id=1505611993]
@@ -141,6 +141,7 @@ layout_mode = 2
 text = "00"
 
 [node name="ProgressHUD" type="Node2D" parent="." unique_id=907881972]
+modulate = Color(1, 1, 1, 0.6431373)
 position = Vector2(208, 59)
 
 [node name="Path2D" type="Path2D" parent="ProgressHUD" unique_id=1973723470]

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SpawnSwap" format=3 uid="uid://lugb5eon8y60"]
+
+[ext_resource type="PackedScene" uid="uid://de6ay1sygbwdo" path="res://entities/enemies/ground_bot.tscn" id="1_pyer6"]
+[ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="2_qu3hw"]
+[ext_resource type="PackedScene" uid="uid://dflavc7rclu3k" path="res://entities/enemies/spike_bot.tscn" id="3_qu3hw"]
+
+[resource]
+script = ExtResource("2_qu3hw")
+from = ExtResource("1_pyer6")
+to = ExtResource("3_qu3hw")
+metadata/_custom_type_script = "uid://dkj7kvsyobfi5"

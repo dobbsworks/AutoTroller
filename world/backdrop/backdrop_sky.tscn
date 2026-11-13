@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dpbkjjvkno77e"]
 
-[ext_resource type="Texture2D" uid="uid://cgwmo6ox8fsx5" path="res://world/backdrop/mountain.png" id="1_fv4h0"]
-[ext_resource type="Texture2D" uid="uid://dvkl836w0xp0d" path="res://world/backdrop/bushes.png" id="2_0knql"]
+[ext_resource type="Texture2D" uid="uid://b54l1ftoo6m1x" path="res://world/backdrop/cloud1.png" id="1_baugq"]
 
 [sub_resource type="Gradient" id="Gradient_fv4h0"]
 offsets = PackedFloat32Array(0, 0.56916994, 0.9920949)
@@ -40,61 +39,52 @@ texture = SubResource("GradientTexture2D_pbhle")
 metadata/_edit_use_anchors_ = true
 
 [node name="FarBack" type="Parallax2D" parent="." unique_id=800966494]
-scroll_scale = Vector2(0.05, 1)
+modulate = Color(1, 1, 1, 0.40392157)
+scroll_scale = Vector2(0.2, 1)
 scroll_offset = Vector2(133, 192)
 repeat_size = Vector2(100, 0)
 repeat_times = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="FarBack" unique_id=108235383]
-visible = false
 texture_filter = 1
-position = Vector2(29, -256)
-texture = ExtResource("1_fv4h0")
+position = Vector2(33, -305)
+texture = ExtResource("1_baugq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="FarBack" unique_id=1853101717]
+texture_filter = 1
+position = Vector2(78, -321)
+texture = ExtResource("1_baugq")
 
 [node name="Back3" type="Parallax2D" parent="." unique_id=1319971574]
-scroll_scale = Vector2(0.6, 1)
+modulate = Color(1, 1, 1, 0.59607846)
+scroll_scale = Vector2(0.4, 1)
 scroll_offset = Vector2(133, 192)
-repeat_size = Vector2(100, 0)
+repeat_size = Vector2(140, 0)
 repeat_times = 40
 
 [node name="Sprite2D" type="Sprite2D" parent="Back3" unique_id=2080629827]
-visible = false
-modulate = Color(0.58, 0.58, 0.58, 1)
 texture_filter = 1
-position = Vector2(29, -246)
-texture = ExtResource("2_0knql")
+position = Vector2(30, -284)
+texture = ExtResource("1_baugq")
 
 [node name="Back2" type="Parallax2D" parent="." unique_id=1225092850]
-scroll_scale = Vector2(0.9, 1)
+modulate = Color(1, 1, 1, 0.79607844)
+scroll_scale = Vector2(0.7, 1)
 scroll_offset = Vector2(133, 192)
-repeat_size = Vector2(100, 0)
+repeat_size = Vector2(80, 0)
 repeat_times = 40
 
 [node name="Sprite2D2" type="Sprite2D" parent="Back2" unique_id=527901147]
-visible = false
 texture_filter = 1
-position = Vector2(29, -229)
-texture = ExtResource("2_0knql")
+position = Vector2(29, -247)
+texture = ExtResource("1_baugq")
 
-[node name="Sky2" type="Parallax2D" parent="." unique_id=870940825]
-scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(200, 0)
-repeat_times = 5
+[node name="Sprite2D3" type="Sprite2D" parent="Back2" unique_id=1883410696]
+texture_filter = 1
+position = Vector2(69, -250)
+texture = ExtResource("1_baugq")
 
-[node name="Sky" type="TextureRect" parent="Sky2" unique_id=1095907256]
-z_index = -100
-custom_minimum_size = Vector2(400, 250)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 4.0
-offset_top = 167.0
-offset_right = 404.0
-offset_bottom = 417.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1, 1.28)
-texture = SubResource("GradientTexture2D_pbhle")
-metadata/_edit_use_anchors_ = true
+[node name="Sprite2D4" type="Sprite2D" parent="Back2" unique_id=755370801]
+texture_filter = 1
+position = Vector2(45, -258)
+texture = ExtResource("1_baugq")

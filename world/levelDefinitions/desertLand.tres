@@ -12,11 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://b6bgc2kb1406j" path="res://world/levelChunks1/chunkDesert2.tscn" id="9_bm3td"]
 [ext_resource type="PackedScene" uid="uid://bu1byfymrt5ne" path="res://world/startingChunks/start_chunk_desert.tscn" id="9_c5ktd"]
 [ext_resource type="AudioStream" uid="uid://c0g6gkp3h7lna" path="res://audio/music/Desert_song3_128.mp3" id="10_7kgnc"]
+[ext_resource type="Script" uid="uid://dg4ulor7obnlq" path="res://globals/SpawnCommand.gd" id="10_dgdh7"]
 [ext_resource type="Script" uid="uid://dkj7kvsyobfi5" path="res://world/spawnSwaps/_spawnSwap.gd" id="12_dgdh7"]
 
 [resource]
 script = ExtResource("1_nbi3x")
-name = "Desert Land"
+name = "Desert Dunes"
+groundColor = Color(0.8, 0.72156864, 0.27058825, 1)
 offsetIndex = 1
 startingChunk = ExtResource("9_c5ktd")
 backdrop = ExtResource("1_dydmd")

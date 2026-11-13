@@ -60,7 +60,6 @@ func createNewLevel():
 	GameState.stage.done = false
 	Utility.copyObj(defaultStage, stage)
 	stage.endStart = calcLevelLength(round.currentStage)
-	LevelManager.setSelected(round.currentStage, 0)
 	var newStage = GAME.instantiate()
 	add_sibling(newStage)
 	

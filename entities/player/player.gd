@@ -79,7 +79,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, slowDownAccel * delta)
 	handleKaizos()
 	
+	var wind = 0.0
+	var levelDef: LevelDefinition = GameState.shared.levelDefinition
+	if levelDef:
+		wind = levelDef.wind
+		
+	velocity.x -= wind
 	move_and_slide()
+	velocity.x += wind
 	updateFacing()
 	updateAnimation()
 	if (position.y) > 10:
@@ -98,7 +105,7 @@ func _physics_process(delta: float) -> void:
 		var tilePos: Vector2 = global_position - tileMapLayer.global_position
 		var tileCoord = floor(tilePos / 16.0)
 		var tileAtlasCoord = tileMapLayer.get_cell_atlas_coords(tileCoord)
-		if (tileAtlasCoord.x == 1 || tileAtlasCoord.x == 7):
+		if (tileAtlasCoord.x == 1 || tileAtlasCoord.x == 2):
 			onKilled()
 
 func updateFacing():

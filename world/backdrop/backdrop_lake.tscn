@@ -10,12 +10,22 @@ width = 8
 height = 32
 fill_to = Vector2(0, 1)
 
+[sub_resource type="Gradient" id="Gradient_ike7f"]
+offsets = PackedFloat32Array(0, 0.9881423)
+colors = PackedColorArray(0.99, 0.99, 0.99, 1, 0.31349993, 0, 0.99, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_so1h6"]
+gradient = SubResource("Gradient_ike7f")
+width = 8
+height = 32
+fill_to = Vector2(0, 1)
+
 [node name="Backdrop" type="Node2D" unique_id=1430659564]
 z_index = -3
 
 [node name="Sky" type="Parallax2D" parent="." unique_id=1605424853]
 scroll_scale = Vector2(0, 0)
-repeat_size = Vector2(300, 0)
+repeat_size = Vector2(200, 0)
 repeat_times = 5
 
 [node name="Sky" type="TextureRect" parent="Sky" unique_id=1778597821]
@@ -43,18 +53,74 @@ scroll_offset = Vector2(133, 192)
 repeat_size = Vector2(100, 0)
 repeat_times = 40
 
+[node name="Sky3" type="TextureRect" parent="FarBack" unique_id=2082285947]
+modulate = Color(1, 1, 1, 0.40784314)
+z_index = -1
+z_as_relative = false
+custom_minimum_size = Vector2(10, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 133.0
+offset_top = -509.13693
+offset_right = 143.0
+offset_bottom = -193.1467
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.29037088
+texture = SubResource("GradientTexture2D_so1h6")
+
 [node name="Back3" type="Parallax2D" parent="." unique_id=1319971574]
-scale = Vector2(0.545, 1.255)
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(-55, 278)
-repeat_size = Vector2(100, 0)
+repeat_size = Vector2(160, 0)
 repeat_times = 40
+
+[node name="Sky3" type="TextureRect" parent="Back3" unique_id=379590389]
+modulate = Color(1, 1, 1, 0.40784314)
+z_index = -1
+z_as_relative = false
+custom_minimum_size = Vector2(10, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 121.5
+offset_top = -590.13696
+offset_right = 131.5
+offset_bottom = -274.14673
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.29037088
+texture = SubResource("GradientTexture2D_so1h6")
 
 [node name="Back2" type="Parallax2D" parent="." unique_id=1225092850]
 scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(133, 192)
-repeat_size = Vector2(100, 0)
+repeat_size = Vector2(235, 0)
 repeat_times = 40
+
+[node name="Sky3" type="TextureRect" parent="Back2" unique_id=108970718]
+modulate = Color(1, 1, 1, 0.40784314)
+z_index = -1
+z_as_relative = false
+custom_minimum_size = Vector2(10, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -492.0
+offset_right = 159.29872
+offset_bottom = -176.00977
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.29037088
+texture = SubResource("GradientTexture2D_so1h6")
 
 [node name="Sky2" type="Parallax2D" parent="." unique_id=870940825]
 scroll_scale = Vector2(0, 0)
