@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://db2oq1wkcs5dx"]
+
+[ext_resource type="Script" uid="uid://dnely0lka7dm6" path="res://world/level_manager.gd" id="1_f8i0s"]
+[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="2_7lp6w"]
+[ext_resource type="Resource" uid="uid://dlu84tnnb2mxj" path="res://world/levelDefinitions/grassLand.tres" id="3_es476"]
+[ext_resource type="Resource" uid="uid://dhtshbra5poen" path="res://world/levelDefinitions/desertLand.tres" id="4_dg84v"]
+[ext_resource type="Resource" uid="uid://bwppxaost3h1s" path="res://world/levelDefinitions/canyonLand.tres" id="5_0o1re"]
+[ext_resource type="Resource" uid="uid://bis2kp0u1hyp4" path="res://world/levelDefinitions/caveLand.tres" id="6_x7q67"]
+[ext_resource type="Resource" uid="uid://cvfwukonvv0fq" path="res://world/levelDefinitions/cloudLand.tres" id="7_1by8c"]
+[ext_resource type="Resource" uid="uid://b6r1y451yfx4b" path="res://world/levelDefinitions/constructionLand.tres" id="8_7d6le"]
+[ext_resource type="Resource" uid="uid://dd4f8j8a20cey" path="res://world/levelDefinitions/iceLand.tres" id="9_5fwre"]
+[ext_resource type="Resource" uid="uid://4mq52yv8dq3h" path="res://world/levelDefinitions/lakebedLand.tres" id="10_17udq"]
+[ext_resource type="Resource" uid="uid://dp3ek5s0viya0" path="res://world/levelDefinitions/swampLand.tres" id="11_m2aq8"]
+[ext_resource type="Resource" uid="uid://uchiqyuiehdq" path="res://world/levelDefinitions/trainLand.tres" id="12_a2mbx"]
+[ext_resource type="Resource" uid="uid://bqc53evrureh4" path="res://world/levelDefinitions/volcanoLand.tres" id="13_71p6k"]
+[ext_resource type="Resource" uid="uid://b2hl7lrgml7t7" path="res://world/levelDefinitions/castleLand.tres" id="14_vmxfw"]
+
+[node name="LevelManager" type="Node" unique_id=1444540222]
+script = ExtResource("1_f8i0s")
+levelDefinitions = Array[ExtResource("2_7lp6w")]([ExtResource("3_es476"), ExtResource("4_dg84v"), ExtResource("5_0o1re"), ExtResource("6_x7q67"), ExtResource("7_1by8c"), ExtResource("8_7d6le"), ExtResource("9_5fwre"), ExtResource("10_17udq"), ExtResource("11_m2aq8"), ExtResource("12_a2mbx"), ExtResource("13_71p6k"), ExtResource("14_vmxfw")])

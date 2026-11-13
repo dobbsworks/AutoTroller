@@ -33,6 +33,7 @@ func _on_button_start_game_pressed() -> void:
 		var transScene = TRANSITION_SCREEN.instantiate()
 		get_tree().current_scene.add_sibling(transScene)
 		var path = "res://game.tscn"
+		LevelManager.shufflePath()
 		await get_tree().create_timer(1.0).timeout
 		MultiplayerHandler.isActive = true
 		MultiplayerHandler.Reset()

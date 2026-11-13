@@ -2,6 +2,7 @@ extends Resource
 class_name LevelDefinition
 
 @export var name: String
+@export var description: String
 @export var offsetIndex: int
 @export var startingChunk: PackedScene
 @export var backdrop: PackedScene

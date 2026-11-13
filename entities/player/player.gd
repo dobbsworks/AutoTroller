@@ -234,6 +234,9 @@ func _on_collection_and_enemy_area_body_entered(body: Node2D) -> void:
 
 
 
+#kaizo cooldown
+
+var spawnedKaizoPositions: Array[Vector2] = []
 
 func handleKaizos():
 	# check if user is jumping up
@@ -241,12 +244,17 @@ func handleKaizos():
 	if is_on_floor() || is_on_floor(): return
 	if velocity.y >= 0: return
 	
+	var targetSpawnPoint = snapped(global_position + Vector2(0, -16) - Vector2(1, 24), Vector2(16, 16)) + Vector2(8, 8)
+	var positionBelowTarget = targetSpawnPoint + Vector2(0, 16)
+	if spawnedKaizoPositions.has(targetSpawnPoint) || spawnedKaizoPositions.has(positionBelowTarget):
+		return
+	
 	var spawnables: Array[PackedScene] = [KAIZO_INIT]
 	var spawnedItem = MultiplayerHandler.attemptSpawn(spawnables)
 	if spawnedItem:
 		var instantiatedBlock = KAIZO_BLOCK.instantiate()
 		add_sibling(instantiatedBlock)
 		instantiatedBlock.chatter = spawnedItem.chatter
-		instantiatedBlock.global_position = global_position + Vector2(0, -16)
-		instantiatedBlock.global_position = snapped(instantiatedBlock.global_position - Vector2(1, 24), Vector2(16, 16)) + Vector2(8, 8)
+		instantiatedBlock.global_position = targetSpawnPoint
+		spawnedKaizoPositions.append(targetSpawnPoint)
 	

@@ -8,13 +8,12 @@ const ENDING_CHUNK = preload("res://world/endingChunk.tscn")
 const LEVEL_GOAL = preload("res://entities/collectibles/level_goal.tscn")
 @onready var musicPlayer: AudioStreamPlayer = $"../Music"
 
-@export var levelDefintions: Array[LevelDefinition]
 var levelDefintion: LevelDefinition
 var chunksDone = false
 
 
 func _ready() -> void:
-	levelDefintion = levelDefintions[posmod(GameState.round.currentStage - 1, levelDefintions.size())]
+	levelDefintion = LevelManager.getLatest()
 	GameState.shared.levelDefinition = levelDefintion
 	if levelDefintion.backdrop:
 		var backdrop = levelDefintion.backdrop.instantiate()

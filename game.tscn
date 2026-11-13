@@ -3,17 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c5tkmn8ia6tea" path="res://entities/camera/horizontalCamera.tscn" id="2_eow3j"]
 [ext_resource type="PackedScene" uid="uid://n6emfuv5umax" path="res://entities/player/player.tscn" id="3_j5wjh"]
 [ext_resource type="Script" uid="uid://bxhkvl2y65vb" path="res://world/level_chunks.gd" id="4_vef74"]
-[ext_resource type="Script" uid="uid://brjmr06c8hq0f" path="res://world/levelDefinitions/level_definition.gd" id="5_7sc4i"]
-[ext_resource type="Resource" uid="uid://dlu84tnnb2mxj" path="res://world/levelDefinitions/grassLand.tres" id="6_80cx4"]
-[ext_resource type="Resource" uid="uid://dhtshbra5poen" path="res://world/levelDefinitions/desertLand.tres" id="7_e8heu"]
-[ext_resource type="Resource" uid="uid://bis2kp0u1hyp4" path="res://world/levelDefinitions/caveLand.tres" id="8_rvswv"]
-[ext_resource type="Resource" uid="uid://dp3ek5s0viya0" path="res://world/levelDefinitions/swampLand.tres" id="9_boyg6"]
-[ext_resource type="Resource" uid="uid://cvfwukonvv0fq" path="res://world/levelDefinitions/cloudLand.tres" id="10_e36ub"]
-[ext_resource type="Resource" uid="uid://b6r1y451yfx4b" path="res://world/levelDefinitions/constructionLand.tres" id="11_hb5m1"]
 [ext_resource type="Script" uid="uid://dpo3h54neiv61" path="res://ui/pause/pause_handler.gd" id="12_iotsf"]
-[ext_resource type="Resource" uid="uid://bqc53evrureh4" path="res://world/levelDefinitions/volcanoLand.tres" id="12_x5p1p"]
 [ext_resource type="PackedScene" uid="uid://bp4f81clxi7xp" path="res://ui/menus/settings_menu.tscn" id="13_lc2xo"]
-[ext_resource type="Resource" uid="uid://b2hl7lrgml7t7" path="res://world/levelDefinitions/castleLand.tres" id="13_qhcbd"]
 
 [sub_resource type="Gradient" id="Gradient_215e1"]
 offsets = PackedFloat32Array(0.07509881, 0.49011856, 0.91699606)
@@ -35,7 +26,6 @@ collision_layer = 0
 
 [node name="LevelChunks" type="Node2D" parent="." unique_id=1107107757]
 script = ExtResource("4_vef74")
-levelDefintions = Array[ExtResource("5_7sc4i")]([ExtResource("6_80cx4"), ExtResource("7_e8heu"), ExtResource("9_boyg6"), ExtResource("8_rvswv"), ExtResource("10_e36ub"), ExtResource("11_hb5m1"), ExtResource("12_x5p1p"), ExtResource("13_qhcbd")])
 
 [node name="PauseHandler" type="Node2D" parent="." unique_id=2026422030]
 process_mode = 3

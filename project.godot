@@ -33,6 +33,7 @@ SaveManager="*uid://bwucnsvbh4svw"
 Utility="*uid://bq5kitkqblpv2"
 UiLayer="*uid://c84bfc1h86htj"
 FileHandler="*uid://bdgkqpvxppn2b"
+LevelManager="*uid://db2oq1wkcs5dx"
 
 [display]
 

@@ -73,12 +73,12 @@ position = Vector2(29, -229)
 texture = ExtResource("2_qp6op")
 
 [node name="Sky2" type="Parallax2D" parent="." unique_id=870940825]
+modulate = Color(1, 1, 1, 0.40784314)
 scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(200, 0)
 repeat_times = 5
 
 [node name="Sky" type="TextureRect" parent="Sky2" unique_id=1067450205]
-z_index = -100
 custom_minimum_size = Vector2(400, 250)
 anchors_preset = 8
 anchor_left = 0.5

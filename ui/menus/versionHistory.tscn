@@ -49,6 +49,8 @@ autowrap_mode = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "- Camera now scrolls up slightly when standing above the level
+- Kaizo blocks no longer overlap or spawn directly above other kaizo blocks
+- Added ability to read chat messages from an externally managed text file (for advanced users who want to allow YouTube/Tiktok integration)
 - Improved spikes icon
 "
 autowrap_mode = 2

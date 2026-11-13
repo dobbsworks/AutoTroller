@@ -2,22 +2,29 @@
 v1.2
 ✔ scroll cam up when standing above screen
 ✔ improve spikes icon in sidebar
+✔ file read support
+✔ prevent kaizo overlap?
 
-option to start with X points
-prevent kaizo overlap?
-file read support
-	One line per chat
-	Format:
-	[platform] [username] [message]
-	Store latest line read
-	file.seek(_last_position) to open at specific spot
+
+
 
 Buffer jumps
 Coyote time
-		
-		
-		
-		
+
+
+
+After clearing level:
+	Create MAP scene showing Otto leaving previous zone
+IF heading to a split path:
+	map shows split path, wait for player to decide, show gimmick of each level
+
+
+
+
+
+
+
+
 		
 Level-1-land
 Desert
@@ -48,6 +55,7 @@ Canyon
 
 
 	
+option to start with X points
 POLISH
 	Chat scoreboard/highlight
 		Favorite buy
