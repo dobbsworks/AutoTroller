@@ -73,7 +73,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		if is_on_floor():
 			var slowDownAccel = slowDownHorizAccel
-			slowDownAccel = slowDownAccel * (1.0 - slipperiness) * 0.25
+			slowDownAccel = slowDownAccel
+			if slipperiness > 0.0:
+				slowDownAccel *= (1.0 - slipperiness) * 0.25
 			velocity.x = move_toward(velocity.x, 0, slowDownAccel * delta)
 	handleKaizos()
 	

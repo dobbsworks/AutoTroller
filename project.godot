@@ -32,6 +32,7 @@ SceneManager="*uid://dtumdxqxxginx"
 SaveManager="*uid://bwucnsvbh4svw"
 Utility="*uid://bq5kitkqblpv2"
 UiLayer="*uid://c84bfc1h86htj"
+FileHandler="*uid://bdgkqpvxppn2b"
 
 [display]
 

@@ -5,10 +5,15 @@ v1.2
 
 option to start with X points
 prevent kaizo overlap?
+file read support
+	One line per chat
+	Format:
+	[platform] [username] [message]
+	Store latest line read
+	file.seek(_last_position) to open at specific spot
 
-TODO
-	Buffer jumps
-	Coyote time
+Buffer jumps
+Coyote time
 		
 		
 		
@@ -22,7 +27,7 @@ Swamp
 Cave
 	Dark
 Cloud
-	Wind
+	Multi-birds
 Construction
 	Upgrade robots (spiky)
 Volcano
@@ -37,7 +42,7 @@ Castle
 Canyon
 	Cheaper kaizos
 ✔ Train
-	?
+	Wind
 
 
 

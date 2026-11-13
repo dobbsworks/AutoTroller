@@ -3,6 +3,115 @@
 [ext_resource type="Script" uid="uid://s18uekb2vaq4" path="res://ui/menus/game_setup_menu.gd" id="1_b4nby"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="2_d0cae"]
 
+[sub_resource type="Animation" id="Animation_b4nby"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ConnectionSettings:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ConnectionSettings:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1193, -14)]
+}
+
+[sub_resource type="Animation" id="Animation_d0cae"]
+resource_name = "flipToConnection"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.327667, 0.45913905),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ConnectionSettings:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.042067092, 0.110000014),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.47766697),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1193, -14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ConnectionSettings:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.47766697),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1193, -14), Vector2(-100, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4uo05"]
+_data = {
+&"RESET": SubResource("Animation_b4nby"),
+&"flipToConnection": SubResource("Animation_d0cae")
+}
+
 [node name="GameSetupMenu" type="Control" unique_id=1430645086]
 custom_minimum_size = Vector2(650, 450)
 layout_mode = 3
@@ -20,15 +129,22 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -0.0012207031
+offset_bottom = -0.00036621094
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="VBoxContainer" unique_id=1913544067]
-custom_minimum_size = Vector2(0, 200)
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=153103036]
 layout_mode = 2
+columns = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/GridContainer" unique_id=1913544067]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("2_d0cae")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel" unique_id=813893843]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/GridContainer/Panel" unique_id=813893843]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,77 +153,56 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_d0cae")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer" unique_id=414614034]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer/Panel/MarginContainer" unique_id=414614034]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1390649337]
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer" unique_id=1390649337]
 layout_mode = 2
 text = "CONNECTION"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1072566284]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer" unique_id=1728636862]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=89662854]
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=788988666]
 layout_mode = 2
-text = "Current Status:"
+text = "TWITCH: "
 
-[node name="StatusLabel" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=568027128]
+[node name="StatusLabel" type="Label" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=568027128]
 unique_name_in_owner = true
 layout_mode = 2
 text = "---"
 
-[node name="ConnectionTools" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=1037916416]
+[node name="FileStatusSummary" type="Label" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer" unique_id=473533563]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FILE: ---"
+
+[node name="ConnectionTools" type="VBoxContainer" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer" unique_id=1037916416]
 layout_mode = 2
 
-[node name="connectionHbox" type="HBoxContainer" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=597365197]
+[node name="connectionHbox" type="HBoxContainer" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=597365197]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox" unique_id=689164270]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(225, 0)
-custom_maximum_size = Vector2(-1, 30)
-layout_mode = 2
-size_flags_vertical = 4
-placeholder_text = "username"
-max_length = 25
-emoji_menu_enabled = false
-
-[node name="Spacer" type="Panel" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox" unique_id=1557264621]
+[node name="Spacer" type="Panel" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox" unique_id=1557264621]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
-[node name="ConnectButton" type="Button" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox" unique_id=1381454771]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "CONNECT"
-
-[node name="ConnectionDetails" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1865053474]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=402796295]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "NOTE: If this is your first time connecting, pressing CONNECT will open the authorization page in a browser window. You will need to click \"Activate,\" then \"Authorize.\" I believe in you."
-autowrap_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1781150300]
-custom_minimum_size = Vector2(100, 220)
+[node name="ButtonConnections" type="Button" parent="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer" unique_id=113634880]
+texture_filter = 1
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 theme = ExtResource("2_d0cae")
+text = "MANAGE CONNECTIONS"
 
-[node name="Panel2" type="Panel" parent="VBoxContainer/HBoxContainer2" unique_id=1972195231]
+[node name="Panel2" type="Panel" parent="VBoxContainer/GridContainer" unique_id=1972195231]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_d0cae")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/Panel2" unique_id=579512722]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/GridContainer/Panel2" unique_id=579512722]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,29 +211,29 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_d0cae")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer" unique_id=1158982738]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer/Panel2/MarginContainer" unique_id=1158982738]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=1938309099]
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer/Panel2/MarginContainer/VBoxContainer" unique_id=1938309099]
 layout_mode = 2
 text = "CPU CHATTERS
 "
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=238726352]
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer/Panel2/MarginContainer/VBoxContainer" unique_id=238726352]
 layout_mode = 2
 text = "Simulated chatters, useful for testing or increasing the chaos."
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=948493477]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer/Panel2/MarginContainer/VBoxContainer" unique_id=948493477]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=493488849]
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=493488849]
 layout_mode = 2
 text = "
 BOT COUNT"
 
-[node name="botCount" type="SpinBox" parent="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1035497012]
+[node name="botCount" type="SpinBox" parent="VBoxContainer/GridContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1035497012]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -146,13 +241,13 @@ size_flags_vertical = 8
 max_value = 99.0
 alignment = 2
 
-[node name="Panel4" type="Panel" parent="VBoxContainer/HBoxContainer2" unique_id=1792269638]
+[node name="Panel4" type="Panel" parent="VBoxContainer/GridContainer" unique_id=1792269638]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_d0cae")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/Panel4" unique_id=1436377208]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/GridContainer/Panel4" unique_id=1436377208]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,43 +256,41 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_d0cae")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel4/MarginContainer" unique_id=1135206229]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer/Panel4/MarginContainer" unique_id=1135206229]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Panel4/MarginContainer/VBoxContainer" unique_id=1550222141]
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer/Panel4/MarginContainer/VBoxContainer" unique_id=1550222141]
 layout_mode = 2
-text = "SECRET QUEUE
-"
+text = "SECRET QUEUE"
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Panel4/MarginContainer/VBoxContainer" unique_id=1557285240]
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer/Panel4/MarginContainer/VBoxContainer" unique_id=1557285240]
 layout_mode = 2
-text = "Prevent the sidebar from showing you what enemy is about to spawn."
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel4/MarginContainer/VBoxContainer" unique_id=382650396]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer/Panel4/MarginContainer/VBoxContainer" unique_id=382650396]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Panel4/MarginContainer/VBoxContainer/HBoxContainer" unique_id=899173580]
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer/Panel4/MarginContainer/VBoxContainer/HBoxContainer" unique_id=899173580]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "
 HIDE NEXT"
 
-[node name="queueHidden" type="CheckBox" parent="VBoxContainer/HBoxContainer2/Panel4/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1555718766]
+[node name="queueHidden" type="CheckBox" parent="VBoxContainer/GridContainer/Panel4/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1555718766]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 alignment = 2
 
-[node name="Panel3" type="Panel" parent="VBoxContainer/HBoxContainer2" unique_id=1007088523]
+[node name="Panel3" type="Panel" parent="VBoxContainer/GridContainer" unique_id=1007088523]
 custom_minimum_size = Vector2(100, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_d0cae")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/Panel3" unique_id=905053338]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/GridContainer/Panel3" unique_id=905053338]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,29 +299,28 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_d0cae")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer" unique_id=868118829]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/GridContainer/Panel3/MarginContainer" unique_id=868118829]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer" unique_id=1356997968]
+[node name="Label" type="Label" parent="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer" unique_id=1356997968]
 layout_mode = 2
 text = "LIFE COUNT
 "
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer" unique_id=2069656156]
+[node name="Label2" type="Label" parent="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer" unique_id=2069656156]
 layout_mode = 2
-text = "Recommended 5, but feel free to make things easier or harder!"
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer" unique_id=1480876096]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer" unique_id=1480876096]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=145038715]
+[node name="Label3" type="Label" parent="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=145038715]
 layout_mode = 2
 text = "
 LIVES"
 
-[node name="lifeCount" type="SpinBox" parent="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1553175883]
+[node name="lifeCount" type="SpinBox" parent="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1553175883]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -258,10 +350,229 @@ theme = ExtResource("2_d0cae")
 disabled = true
 text = "PLAY"
 
-[connection signal="text_submitted" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/ConnectButton" to="." method="_on_connect_button_pressed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount" to="." method="_on_spin_box_value_changed"]
-[connection signal="toggled" from="VBoxContainer/HBoxContainer2/Panel4/MarginContainer/VBoxContainer/HBoxContainer/queueHidden" to="." method="_on_queue_hidden_toggled"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer2/Panel3/MarginContainer/VBoxContainer/HBoxContainer/lifeCount" to="." method="_on_life_count_value_changed"]
+[node name="ConnectionSettings" type="VBoxContainer" parent="." unique_id=1364615040]
+visible = false
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1193.0
+offset_top = -14.0
+offset_right = 1293.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ConnectionSettings" unique_id=800531962]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("2_d0cae")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConnectionSettings/Panel" unique_id=490004534]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d0cae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConnectionSettings/Panel/MarginContainer" unique_id=197233287]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConnectionSettings/Panel/MarginContainer/VBoxContainer" unique_id=255030634]
+layout_mode = 2
+text = "CONNECTION SETUP"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ConnectionSettings" unique_id=629729807]
+custom_minimum_size = Vector2(0, 325)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="ConnectionSettings/HBoxContainer2" unique_id=1907063819]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_d0cae")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConnectionSettings/HBoxContainer2/Panel" unique_id=1191578588]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d0cae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer" unique_id=716390595]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1065722458]
+layout_mode = 2
+text = "TWITCH"
+
+[node name="Label2" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=402834510]
+layout_mode = 2
+text = "Current Status:"
+
+[node name="StatusLabelDeeper" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1915571801]
+unique_name_in_owner = true
+layout_mode = 2
+text = "---"
+
+[node name="Label3" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=80240727]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "
+Pressing CONNECT will open the authorization page in a browser window. You will need to click \"Activate,\" then \"Authorize.\" 
+"
+autowrap_mode = 2
+
+[node name="Spacer" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1260032850]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConnectionTools" type="VBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=836435596]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1655307834]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+custom_maximum_size = Vector2(-1, 30)
+layout_mode = 2
+size_flags_vertical = 4
+placeholder_text = "username"
+max_length = 25
+emoji_menu_enabled = false
+
+[node name="Spacer" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1099172839]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="connectionHbox" type="HBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1629657356]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConnectButton" type="Button" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox" unique_id=1439517339]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CONNECT"
+
+[node name="DisconnectButton" type="Button" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox" unique_id=1966465038]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "DISCONNECT"
+
+[node name="Panel2" type="Panel" parent="ConnectionSettings/HBoxContainer2" unique_id=1908945602]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_d0cae")
+
+[node name="MarginContainer" type="MarginContainer" parent="ConnectionSettings/HBoxContainer2/Panel2" unique_id=1882323034]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_d0cae")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer" unique_id=586777972]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=118433499]
+layout_mode = 2
+text = "FILE BASED (ADVANCED)"
+
+[node name="Label2" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=782723098]
+visible = false
+layout_mode = 2
+text = "Current Status:"
+
+[node name="FileStatus" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=1754725792]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "---"
+
+[node name="Label3" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=1827200100]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "
+This is used if you'll be piping your chat messages into a local file. This is a stopgap for manually connecting other platforms like YouTube or TikTok."
+autowrap_mode = 2
+
+[node name="Spacer" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=444701469]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChatFileLabel" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=2038414922]
+unique_name_in_owner = true
+layout_mode = 2
+text = "No file selected"
+
+[node name="Spacer2" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=782862675]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=819672944]
+layout_mode = 2
+
+[node name="SelectFileButton" type="Button" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1394873704]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHOOSE FILE"
+
+[node name="FileBasedCheckbox" type="CheckBox" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=531083469]
+unique_name_in_owner = true
+layout_mode = 2
+text = " ACTIVE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConnectionSettings" unique_id=435152207]
+layout_mode = 2
+
+[node name="ButtonExitConnections" type="Button" parent="ConnectionSettings/HBoxContainer" unique_id=1495379119]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme = ExtResource("2_d0cae")
+text = "BACK"
+
+[node name="SubmenuAnimation" type="AnimationPlayer" parent="." unique_id=11189228]
+libraries/ = SubResource("AnimationLibrary_4uo05")
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=1941657399]
+oversampling_override = 1.0
+title = "Choose a File"
+file_mode = 0
+display_mode = 1
+access = 2
+use_native_dialog = true
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/Panel/MarginContainer/VBoxContainer/ButtonConnections" to="." method="_on_button_connections_pressed"]
+[connection signal="value_changed" from="VBoxContainer/GridContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer/botCount" to="." method="_on_spin_box_value_changed"]
+[connection signal="toggled" from="VBoxContainer/GridContainer/Panel4/MarginContainer/VBoxContainer/HBoxContainer/queueHidden" to="." method="_on_queue_hidden_toggled"]
+[connection signal="value_changed" from="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer/lifeCount" to="." method="_on_life_count_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonStartGame" to="." method="_on_button_start_game_pressed"]
+[connection signal="text_submitted" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/ConnectButton" to="." method="_on_connect_button_pressed"]
+[connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
+[connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer/SelectFileButton" to="." method="_on_select_file_button_pressed"]
+[connection signal="toggled" from="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer/FileBasedCheckbox" to="." method="_on_file_based_checkbox_toggled"]
+[connection signal="pressed" from="ConnectionSettings/HBoxContainer/ButtonExitConnections" to="." method="_on_button_exit_connections_pressed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

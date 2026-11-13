@@ -19,7 +19,7 @@ var canPlayTestSFX = false
 var pauseMenu
 
 func _ready() -> void:
-	connection_options.visible = includeConnectionOptions
+	connection_options.visible = false #includeConnectionOptions
 	button_quit.visible = !includeConnectionOptions
 	quit_confirm.visible = false
 	

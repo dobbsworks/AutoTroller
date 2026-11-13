@@ -28,8 +28,16 @@ func _process(delta: float) -> void:
 	spawn_count.text = ""
 	if chatter.spawnQueue.size() > 1: spawn_count.text = str(chatter.spawnQueue.size())
 	
-	if chatter.isCpu:
+	
+	get_node("Panel").self_modulate = Color.GRAY
+	if chatter.platform.to_lower() == "twitch":
+		get_node("Panel").self_modulate = Color.PURPLE
+	if chatter.platform.to_lower() == "bot":
 		get_node("Panel").self_modulate = Color.YELLOW_GREEN
+	if chatter.platform.to_lower() == "youtube":
+		get_node("Panel").self_modulate = Color.RED
+	if chatter.platform.to_lower() == "tiktok":
+		get_node("Panel").self_modulate = Color.CYAN
 
 func onTooPoor():
 	animation_player.play("RESET")

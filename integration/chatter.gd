@@ -3,13 +3,13 @@ class_name Chatter
 
 var isActive = false
 var username = ""
-var isCpu = false
+var platform = ""
 var points = 0
 var spawnQueue: Array[PackedScene] = []
 
 signal on_too_poor()
 signal on_update_queue(spawnCommand: SpawnCommand)
 
-func _init(username: String, isCpu: bool):
+func _init(username: String, platform: String):
 	self.username = username
-	self.isCpu = isCpu
+	self.platform = platform

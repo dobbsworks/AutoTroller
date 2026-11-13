@@ -19,14 +19,16 @@ func _process(delta: float) -> void:
 func Reset():
 	chatters = []
 	UiLayer.reset()
+	
+	
+func raw_chat_receive(username: String, message_text: String, data: Dictionary):
+	on_chat_received(username, message_text, data, "Twitch")
+	
 
-func on_chat_received(username: String, message_text: String, data: Dictionary, isCpu: bool = false):
+func on_chat_received(username: String, message_text: String, data: Dictionary, platform: String):
 	if !isActive: return
-	var chatter = getOrCreateChatter(username, isCpu)
-	
-	if !isCpu:
-		print(username, ": ", message_text)
-	
+	var chatter = getOrCreateChatter(username, platform)
+		
 	if chatter.spawnQueue.size() == 0:
 		for spawnCommand in spawnCommands:
 			if !spawnCommand.isActive: continue
@@ -49,7 +51,7 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 		if c.size() == 0: continue
 		
 		var spawningChatter: Chatter = c[0]
-		var humanSpawners = c.filter(func(a: Chatter): return !a.isCpu)
+		var humanSpawners = c.filter(func(a: Chatter): return a.platform != "Bot")
 		if humanSpawners.size() > 0:
 			spawningChatter = humanSpawners[0]
 		
@@ -74,10 +76,10 @@ func attemptSpawn(potentialSpawnables: Array[PackedScene]) -> SpawnResult:
 	return null
 	
 	
-func getOrCreateChatter(username: String, isCpu: bool) -> Chatter:
-	var chatterIndex = chatters.find_custom(func(a: Chatter): return a.username == username && a.isCpu == isCpu)
+func getOrCreateChatter(username: String, platform: String) -> Chatter:
+	var chatterIndex = chatters.find_custom(func(a: Chatter): return a.username == username && a.platform == platform)
 	if chatterIndex == -1:
-		var chatter = Chatter.new(username, isCpu)
+		var chatter = Chatter.new(username, platform)
 		chatters.append(chatter)
 		on_new_chatter.emit(chatter)
 		return chatter
@@ -99,4 +101,4 @@ func load_spawn_commands():
 
 func handle_cpu_chat(username: String, message_text: String, data: Dictionary):
 	#return
-	on_chat_received(username, message_text, data, true)
+	on_chat_received(username, message_text, data, "Bot")

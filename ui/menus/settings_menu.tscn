@@ -27,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ConnectionOptions" type="HBoxContainer" parent="VBoxContainer" unique_id=2127098340]
+visible = false
 layout_mode = 2
 
 [node name="Panel3" type="Panel" parent="VBoxContainer/ConnectionOptions" unique_id=125630262]

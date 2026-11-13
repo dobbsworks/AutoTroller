@@ -3,6 +3,18 @@
 [ext_resource type="Script" uid="uid://d1jg1ljvgstas" path="res://ui/chatter_row.gd" id="1_en1cb"]
 [ext_resource type="Theme" uid="uid://cf2vvd3jvypsk" path="res://ui/components/uiTheme.tres" id="1_uqmml"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en1cb"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.62, 0.62, 0.62, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="Gradient" id="Gradient_en1cb"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 0)
@@ -248,6 +260,7 @@ offset_right = 0.00010681152
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(125, 16)
+theme_override_styles/panel = SubResource("StyleBoxFlat_en1cb")
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=399620572]
 texture_filter = 1

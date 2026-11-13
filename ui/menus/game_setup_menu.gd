@@ -5,12 +5,24 @@ extends Control
 signal click_exit()
 @onready var button_start_game: Button = %ButtonStartGame
 @onready var status_label: Label = %StatusLabel
+@onready var status_label_deeper: Label = %StatusLabelDeeper
+@onready var submenu_animation: AnimationPlayer = $SubmenuAnimation
+
 @onready var line_edit: LineEdit = %LineEdit
-@onready var connect_button: Button = %ConnectButton
-@onready var connection_details: Label = %ConnectionDetails
 @onready var bot_count: SpinBox = %botCount
 @onready var life_count: SpinBox = %lifeCount
 @onready var queue_hidden: CheckBox = %queueHidden
+@onready var button_exit_connections: Button = %ButtonExitConnections
+@onready var file_status: Label = %FileStatus
+@onready var file_dialog: FileDialog = $FileDialog
+@onready var file_based_checkbox: CheckBox = %FileBasedCheckbox
+
+@onready var connect_button: Button = %ConnectButton
+@onready var disconnect_button: Button = %DisconnectButton
+@onready var chat_file_label: Label = %ChatFileLabel
+@onready var file_status_summary: Label = %FileStatusSummary
+
+var isDisconnecting = false
 
 var lockedIn = false
 const TRANSITION_SCREEN = preload("res://ui/transitionScreen.tscn")
@@ -36,6 +48,8 @@ func onStart():
 
 
 func refresh():
+	file_based_checkbox.button_pressed = SaveManager.saveData.useFileChat
+	
 	life_count.value = SaveManager.saveData.lives
 	bot_count.value = SaveManager.saveData.botCount
 	queue_hidden.button_pressed = SaveManager.saveData.queueHidden
@@ -45,10 +59,11 @@ func refresh():
 
 func _process(delta: float) -> void:
 	status_label.text = ""
+	var labelColor = Color.WHITE
 	
 	var integrationService = MultiplayerHandler.integration_service
 	var isConnected = integrationService.isConnected
-	var isConnecting = integrationService.isConnecting
+	var isConnecting = integrationService.isConnecting || isDisconnecting
 	
 	
 	connect_button.disabled = line_edit.text.length() < 4 # min username length
@@ -58,21 +73,27 @@ func _process(delta: float) -> void:
 	
 	if isConnecting:
 		status_label.text = "Connecting..."
-		status_label.add_theme_color_override("font_color", Color.YELLOW) 
+		labelColor = Color.YELLOW
 		button_start_game.disabled = true
 		line_edit.editable = false
 		connect_button.disabled = true
+		disconnect_button.disabled = true
 	else:
 		line_edit.editable = true
 		if isConnected:
 			status_label.text = "Connected as " + integrationService.connectedName
-			status_label.add_theme_color_override("font_color", Color.GREEN) 
+			labelColor = Color.GREEN
 			button_start_game.disabled = false
 			button_start_game.text = "PLAY"
+			disconnect_button.disabled = false
 		else:
+			disconnect_button.disabled = true
 			status_label.text = "Not connected"
-			status_label.add_theme_color_override("font_color", Color.ORANGE) 
-			if bot_count.value > 0:
+			labelColor = Color.ORANGE
+			if FileHandler.isActive():
+				button_start_game.disabled = false
+				button_start_game.text = "PLAY (NO DIRECT TWITCH CONNECTION)"
+			elif bot_count.value > 0:
 				button_start_game.disabled = false
 				button_start_game.text = "PLAY OFFLINE (CPUs ONLY)"
 			else:
@@ -89,7 +110,19 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			life_count.value += 1
 	
-
+	status_label_deeper.text = status_label.text
+	status_label.add_theme_color_override("font_color", labelColor) 
+	status_label_deeper.add_theme_color_override("font_color", labelColor) 
+	
+	
+	file_status_summary.text = ""
+	chat_file_label.text = "No file selected"
+	if SaveManager.saveData.filePath:
+		chat_file_label.text = SaveManager.saveData.filePath.split("/")[-1]
+		if SaveManager.saveData.useFileChat:
+			file_status_summary.text = "Chat file active"
+	
+	
 
 func _on_connect_button_pressed() -> void:
 	MultiplayerHandler.integration_service.SetupTwitchConnection(line_edit.text)
@@ -116,3 +149,42 @@ func _on_queue_hidden_toggled(toggled_on: bool) -> void:
 	SaveManager.saveData.queueHidden = toggled_on
 	SaveManager.saveGame()
 	
+
+
+func _on_button_connections_pressed() -> void:
+	get_viewport().gui_disable_input = true
+	submenu_animation.play("flipToConnection")
+	await submenu_animation.animation_finished
+	get_viewport().gui_disable_input = false
+	button_exit_connections.grab_focus()
+
+
+func _on_button_exit_connections_pressed() -> void:
+	get_viewport().gui_disable_input = true
+	submenu_animation.play_backwards("flipToConnection")
+	await submenu_animation.animation_finished
+	get_viewport().gui_disable_input = false
+	button_start_game.grab_focus()
+
+
+func _on_select_file_button_pressed() -> void:
+	file_dialog.popup_centered_clamped()
+	
+
+
+func _on_disconnect_button_pressed() -> void:
+	isDisconnecting = true
+	await MultiplayerHandler.integration_service.Unsetup()
+	isDisconnecting = false
+	SaveManager.saveData.username = ""
+	SaveManager.saveGame()
+
+
+func _on_file_based_checkbox_toggled(toggled_on: bool) -> void:
+	SaveManager.saveData.useFileChat = toggled_on
+	SaveManager.saveGame()
+
+
+func _on_file_dialog_file_selected(path: String) -> void:
+	SaveManager.saveData.filePath = path
+	SaveManager.saveGame()

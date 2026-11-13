@@ -9,6 +9,8 @@ var saveData = {
 	"botCount": 0,
 	"lives": 5,
 	"queueHidden": false,
+	"filePath": "",
+	"useFileChat": false,
 }
 
 var defaultState = {}
