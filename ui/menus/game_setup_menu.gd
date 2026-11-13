@@ -50,6 +50,7 @@ func onStart():
 
 func refresh():
 	file_based_checkbox.button_pressed = SaveManager.saveData.useFileChat
+	%autoconnect.button_pressed = SaveManager.saveData.autoconnect
 	
 	life_count.value = SaveManager.saveData.lives
 	bot_count.value = SaveManager.saveData.botCount
@@ -188,4 +189,9 @@ func _on_file_based_checkbox_toggled(toggled_on: bool) -> void:
 
 func _on_file_dialog_file_selected(path: String) -> void:
 	SaveManager.saveData.filePath = path
+	SaveManager.saveGame()
+
+
+func _on_autoconnect_toggled(toggled_on: bool) -> void:
+	SaveManager.saveData.autoconnect = toggled_on
 	SaveManager.saveGame()

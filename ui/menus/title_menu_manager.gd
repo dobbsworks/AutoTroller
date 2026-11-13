@@ -26,6 +26,9 @@ func _ready():
 	instructions_menu.click_exit.connect(on_click_exit_instructions)
 	version_history_menu.click_exit.connect(on_click_exit_version_history)
 	
+	if SaveManager.saveData.autoconnect:
+		MultiplayerHandler.integration_service.initializeLogin()
+	
 	main_menu.onStart()
 	
 	

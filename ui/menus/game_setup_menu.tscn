@@ -129,7 +129,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -0.0012207031
+offset_right = -0.0010986328
 offset_bottom = -0.00036621094
 grow_horizontal = 2
 grow_vertical = 2
@@ -359,7 +359,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1193.0
 offset_top = -14.0
-offset_right = 1293.0
+offset_right = 1293.0001
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -386,7 +386,7 @@ layout_mode = 2
 text = "CONNECTION SETUP"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ConnectionSettings" unique_id=629729807]
-custom_minimum_size = Vector2(0, 325)
+custom_minimum_size = Vector2(0, 358.695)
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="ConnectionSettings/HBoxContainer2" unique_id=1907063819]
@@ -436,6 +436,17 @@ size_flags_vertical = 3
 
 [node name="ConnectionTools" type="VBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer" unique_id=836435596]
 layout_mode = 2
+
+[node name="autoconnect" type="CheckBox" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1300736901]
+unique_name_in_owner = true
+layout_mode = 2
+text = " AUTOCONNECT ON LAUNCH"
+
+[node name="Spacer2" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1380579470]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="LineEdit" type="LineEdit" parent="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools" unique_id=1655307834]
 unique_name_in_owner = true
@@ -557,7 +568,7 @@ libraries/ = SubResource("AnimationLibrary_4uo05")
 
 [node name="FileDialog" type="FileDialog" parent="." unique_id=1941657399]
 oversampling_override = 1.0
-title = "Choose a File"
+title = "Open a File"
 file_mode = 0
 display_mode = 1
 access = 2
@@ -569,6 +580,7 @@ use_native_dialog = true
 [connection signal="value_changed" from="VBoxContainer/GridContainer/Panel3/MarginContainer/VBoxContainer/HBoxContainer/lifeCount" to="." method="_on_life_count_value_changed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonExit" to="." method="_on_button_exit_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/ButtonStartGame" to="." method="_on_button_start_game_pressed"]
+[connection signal="toggled" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/autoconnect" to="." method="_on_autoconnect_toggled"]
 [connection signal="text_submitted" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/ConnectButton" to="." method="_on_connect_button_pressed"]
 [connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/DisconnectButton" to="." method="_on_disconnect_button_pressed"]

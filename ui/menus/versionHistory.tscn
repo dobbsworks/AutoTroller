@@ -14,7 +14,8 @@ script = ExtResource("1_af8ia")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1550894575]
 layout_mode = 0
-offset_right = 400.0
+offset_left = -118.0
+offset_right = 518.0
 offset_bottom = 554.0
 
 [node name="Panel" type="Panel" parent="VBoxContainer" unique_id=251848853]
@@ -48,11 +49,13 @@ autowrap_mode = 2
 [node name="Label2" type="Label" parent="VBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer" unique_id=299273956]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "- Major re-work to levels 3 through 6. Head on to the signposted gimmick, or take the mystery level instead.
+text = "- Major re-work for levels 3 to 6. Head on to the signposted gimmick, or take the mystery level instead.
+- Added option to attempt Twitch login automatically at launch
+- Added ability to read chat messages from an externally managed text file (for advanced users who want to cobble together YouTube/Tiktok integration)
 - Camera now scrolls up slightly when standing above the level
 - Kaizo blocks no longer overlap or spawn directly above other kaizo blocks
-- Added ability to read chat messages from an externally managed text file (for advanced users who want to allow YouTube/Tiktok integration)
 - Improved spikes icon
+- Sky level now has a nice cloudy background
 - Fixed death sound not respecting sfx volume level
 - Added BIG BEEF somewhere"
 autowrap_mode = 2

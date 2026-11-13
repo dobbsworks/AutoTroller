@@ -8,13 +8,11 @@ var connectedName = ""
 
 signal on_chat_received(username: String, message_text: String, data: Dictionary)
 
-func _ready() -> void:
-	call_deferred("initializeLogin")
 
 func initializeLogin():
-	return
-	#if SaveManager.saveData.username != "":
-		#SetupTwitchConnection(SaveManager.saveData.username)
+	await get_tree().create_timer(0.1).timeout
+	if SaveManager.saveData.username != "":
+		SetupTwitchConnection(SaveManager.saveData.username)
 	
 
 func SetupTwitchConnection(channelName: String):

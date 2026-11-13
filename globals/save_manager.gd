@@ -11,6 +11,7 @@ var saveData = {
 	"queueHidden": false,
 	"filePath": "",
 	"useFileChat": false,
+	"autoconnect": false,
 }
 
 var defaultState = {}
