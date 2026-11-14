@@ -10,7 +10,8 @@ var isActive = false
 
 func _ready() -> void:
 	load_spawn_commands()
-	integration_service.on_chat_received.connect(on_chat_received)
+	await get_tree().create_timer(0.1).timeout
+	integration_service.on_chat_received.connect(raw_chat_receive)
 
 func _process(delta: float) -> void:
 	pass

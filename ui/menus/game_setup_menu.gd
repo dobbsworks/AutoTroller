@@ -27,6 +27,11 @@ var isDisconnecting = false
 var lockedIn = false
 const TRANSITION_SCREEN = preload("res://ui/transitionScreen.tscn")
 
+func _ready():
+	var gamePlatform = OS.get_name()
+	if gamePlatform == "Web":
+		%FileBasedSetup.visible = false
+
 func _on_button_start_game_pressed() -> void:
 	if !lockedIn:
 		lockedIn = true

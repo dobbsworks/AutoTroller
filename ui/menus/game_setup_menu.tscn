@@ -482,13 +482,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "DISCONNECT"
 
-[node name="Panel2" type="Panel" parent="ConnectionSettings/HBoxContainer2" unique_id=1908945602]
+[node name="FileBasedSetup" type="Panel" parent="ConnectionSettings/HBoxContainer2" unique_id=1908945602]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("2_d0cae")
 
-[node name="MarginContainer" type="MarginContainer" parent="ConnectionSettings/HBoxContainer2/Panel2" unique_id=1882323034]
+[node name="MarginContainer" type="MarginContainer" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup" unique_id=1882323034]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -497,57 +498,57 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_d0cae")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer" unique_id=586777972]
+[node name="VBoxContainer" type="VBoxContainer" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer" unique_id=586777972]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=118433499]
+[node name="Label" type="Label" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=118433499]
 layout_mode = 2
 text = "FILE BASED (ADVANCED)"
 
-[node name="Label2" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=782723098]
+[node name="Label2" type="Label" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=782723098]
 visible = false
 layout_mode = 2
 text = "Current Status:"
 
-[node name="FileStatus" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=1754725792]
+[node name="FileStatus" type="Label" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=1754725792]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "---"
 
-[node name="Label3" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=1827200100]
+[node name="Label3" type="Label" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=1827200100]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "
 This is used if you'll be piping your chat messages into a local file. This is a stopgap for manually connecting other platforms like YouTube or TikTok."
 autowrap_mode = 2
 
-[node name="Spacer" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=444701469]
+[node name="Spacer" type="Panel" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=444701469]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ChatFileLabel" type="Label" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=2038414922]
+[node name="ChatFileLabel" type="Label" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=2038414922]
 unique_name_in_owner = true
 layout_mode = 2
 text = "No file selected"
 
-[node name="Spacer2" type="Panel" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=782862675]
+[node name="Spacer2" type="Panel" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=782862675]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer" unique_id=819672944]
+[node name="HBoxContainer" type="HBoxContainer" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer" unique_id=819672944]
 layout_mode = 2
 
-[node name="SelectFileButton" type="Button" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1394873704]
+[node name="SelectFileButton" type="Button" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1394873704]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "CHOOSE FILE"
 
-[node name="FileBasedCheckbox" type="CheckBox" parent="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer" unique_id=531083469]
+[node name="FileBasedCheckbox" type="CheckBox" parent="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=531083469]
 unique_name_in_owner = true
 layout_mode = 2
 text = " ACTIVE"
@@ -584,7 +585,7 @@ use_native_dialog = true
 [connection signal="text_submitted" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/LineEdit" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/ConnectButton" to="." method="_on_connect_button_pressed"]
 [connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel/MarginContainer/VBoxContainer/ConnectionTools/connectionHbox/DisconnectButton" to="." method="_on_disconnect_button_pressed"]
-[connection signal="pressed" from="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer/SelectFileButton" to="." method="_on_select_file_button_pressed"]
-[connection signal="toggled" from="ConnectionSettings/HBoxContainer2/Panel2/MarginContainer/VBoxContainer/HBoxContainer/FileBasedCheckbox" to="." method="_on_file_based_checkbox_toggled"]
+[connection signal="pressed" from="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer/HBoxContainer/SelectFileButton" to="." method="_on_select_file_button_pressed"]
+[connection signal="toggled" from="ConnectionSettings/HBoxContainer2/FileBasedSetup/MarginContainer/VBoxContainer/HBoxContainer/FileBasedCheckbox" to="." method="_on_file_based_checkbox_toggled"]
 [connection signal="pressed" from="ConnectionSettings/HBoxContainer/ButtonExitConnections" to="." method="_on_button_exit_connections_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

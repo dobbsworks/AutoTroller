@@ -51,7 +51,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "- Major re-work for levels 3 to 6. Head on to the signposted gimmick, or take the mystery level instead.
 - Added option to attempt Twitch login automatically at launch
-- Added ability to read chat messages from an externally managed text file (for advanced users who want to cobble together YouTube/Tiktok integration)
+- Added ability to read chat messages from an externally managed text file (for advanced users who want to cobble together YouTube/Tiktok integration) (not available on web)
 - Camera now scrolls up slightly when standing above the level
 - Kaizo blocks no longer overlap or spawn directly above other kaizo blocks
 - Improved spikes icon
